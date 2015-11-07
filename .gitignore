@@ -1,0 +1,10 @@
+#i'll leave the libraries in here for now
+#if I make the repo public and forget to remove them
+#let me know. dmca, come at me bro
+
+#eclipse
+.project
+.classpath
+
+/bin/
+/binaries/
