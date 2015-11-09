@@ -16,6 +16,7 @@ import org.apache.commons.cli.ParseException;
 import ecumene.exo.analyze.ExoRuntimeAnalyzer;
 import ecumene.exo.analyze.ExoRuntimeAnalyzerTag;
 import ecumene.exo.impl.ImplExoRunnableTag;
+import ecumene.exo.sim.galaxy.ExoGalaxyMapTag;
 import ecumene.exo.sim.map.real.example.ExoExampleRMapRendererTag;
 
 public class ExoRuntime implements Runnable{
@@ -42,7 +43,7 @@ public class ExoRuntime implements Runnable{
 
 		runnables = new IExoRunnableTag[4];
 		runnables[0] = new ExoRuntimeAnalyzerTag();
-		runnables[1] = new ExoExampleRMapRendererTag();
+		runnables[1] = new ExoGalaxyMapTag(System.currentTimeMillis());
 		runnables[2] = new ImplExoRunnableTag("Identifier");
 		runnables[3] = new ImplExoRunnableTag("Identifier");
 	}

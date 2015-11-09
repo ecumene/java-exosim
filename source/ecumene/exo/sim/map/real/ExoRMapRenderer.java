@@ -11,8 +11,8 @@ import ecumene.exo.ExoRunnable;
 public abstract class ExoRMapRenderer extends ExoRunnable {
 
 	private RObject       selected = null;
-	private JRMapRenderer renderer = null;
-	private RMap          pMap     = null;
+	protected JRMapRenderer renderer = null;
+	protected RMap          pMap     = null;
 	
 	private JFrame frame;
 	
@@ -29,7 +29,7 @@ public abstract class ExoRMapRenderer extends ExoRunnable {
 	public void init() throws Throwable {
 		frame = new JFrame("RMap Point Rendering System");
 		frame.setVisible(false);
-		renderer = new JRMapRenderer(pMap);
+		if(renderer == null) renderer = constructRenderer();		
 		{
 			frame.setSize(800, 600);
 			frame.setLocationRelativeTo(null);
@@ -43,5 +43,9 @@ public abstract class ExoRMapRenderer extends ExoRunnable {
 	@Override
 	public void kill(int id) {
 		frame.dispose();
+	}
+	
+	protected JRMapRenderer constructRenderer(){
+		return new JRMapRenderer(pMap);
 	}
 }
