@@ -5,7 +5,9 @@ import java.util.concurrent.Callable;
 
 import com.sun.corba.se.impl.presentation.rmi.ExceptionHandler;
 
-public abstract class ExoRunnable implements Runnable {
+import ecumene.exo.sim.IESContextListener;
+
+public abstract class ExoRunnable implements Runnable, IESContextListener {
 
 	private String[] input;
 	private int id;

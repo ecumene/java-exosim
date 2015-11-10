@@ -13,11 +13,10 @@ import javax.swing.JFrame;
 
 import org.apache.commons.cli.ParseException;
 
-import ecumene.exo.analyze.ExoRuntimeAnalyzer;
 import ecumene.exo.analyze.ExoRuntimeAnalyzerTag;
 import ecumene.exo.impl.ImplExoRunnableTag;
+import ecumene.exo.sim.ESContext;
 import ecumene.exo.sim.galaxy.ExoGalaxyMapTag;
-import ecumene.exo.sim.map.real.example.ExoExampleRMapRendererTag;
 
 public class ExoRuntime implements Runnable{
 	public  ExoArgParse        commands;
@@ -26,6 +25,7 @@ public class ExoRuntime implements Runnable{
 	private IExoRunnableTag[]  runnables;
 	private ExecutorService    runnableExec;
 	private ExceptionListener  exceptionListener;
+	private ESContext          context;
 	
 	public static ExoRuntime INSTANCE;
 	
@@ -112,6 +112,15 @@ public class ExoRuntime implements Runnable{
 		}
 		scanner.close();
 		runnableExec.shutdown();
+	}
+	
+	public ESContext getContext(){
+		return context;
+	}
+	
+	public void setContext(ESContext context){
+		for(int i = 0; i < running.size(); i++)
+			running.get(i).onContextChanged(context);
 	}
 	
 	public IExoRunnableTag[] getRunnables(){

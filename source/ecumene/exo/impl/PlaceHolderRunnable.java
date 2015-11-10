@@ -3,6 +3,7 @@ package ecumene.exo.impl;
 import java.beans.ExceptionListener;
 
 import ecumene.exo.ExoRunnable;
+import ecumene.exo.sim.ESContext;
 
 public class PlaceHolderRunnable extends ExoRunnable {
 
@@ -26,5 +27,8 @@ public class PlaceHolderRunnable extends ExoRunnable {
 		System.out.println("Example thread " + id + " is kill ;(");
 		running = false;
 	}
+
+	@Override
+	public void onContextChanged(ESContext context) {}
 	
 }

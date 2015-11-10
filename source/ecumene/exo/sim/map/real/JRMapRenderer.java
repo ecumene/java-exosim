@@ -40,7 +40,7 @@ public class JRMapRenderer extends JPanel {
 			
 			graphics.drawLine((int) (pos.x), (int) (pos.y - 2), (int) (pos.x), (int) (pos.y + 2));
 			graphics.drawLine((int) (pos.x + 2), (int) (pos.y), (int) (pos.x - 2), (int) (pos.y));
-			if(useNames) graphics.drawString(pMap.getMap()[i].object.getName(), (int)pos.x + 6, (int)pos.y + 4);
+			if(useNames) graphics.drawString(pMap.getMap()[i].object.getName(i), (int)pos.x + 6, (int)pos.y + 4);
 		}
 	}
 	

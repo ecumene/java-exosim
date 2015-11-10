@@ -13,4 +13,9 @@ public class ExoSolarMap extends RObject {
 	public RMap getSolarSystem(){
 		return solarSystem;
 	}
+	
+	@Override
+	public String getName(int id) {
+		return "RSS " + id;
+	}
 }
