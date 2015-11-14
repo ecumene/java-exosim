@@ -21,7 +21,7 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 	
 	private float rotate;
 	
-	public JExoGalaxyRenderer(RMap pMap) {
+	public JExoGalaxyRenderer(final RMap pMap) {
 		super(pMap);
 		setFocusable(true);
 		addMouseWheelListener(new MouseWheelListener() {
@@ -37,14 +37,18 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 			@Override public void keyReleased(KeyEvent e) { }
 			@Override 
 			public void keyPressed(KeyEvent e) {
+				boolean rotated = false;
 				if(e.getKeyCode() == KeyEvent.VK_R){
-					rotate += .1f;
+					rotate = 10f;
+					rotated = true;
 				}
 				if(e.getKeyCode() == KeyEvent.VK_E){
-					rotate += .1f;
+					rotate = 10f;
+					rotated = true;
 				}
 				if(e.getKeyCode() == KeyEvent.VK_SPACE){
 					rotate = 0;
+					rotated = true;
 				}
 
 				if(e.getKeyCode() == KeyEvent.VK_N){
@@ -62,6 +66,20 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 				if(e.getKeyCode() == KeyEvent.VK_RIGHT){
 					navigation.x -= 4;
 				}
+				
+				if(rotated){
+					for(RPoint point : pMap.getMap()){
+						System.out.println(rotate);
+						float rotateR = (float)Math.toRadians(rotate);
+						float c = (float) Math.cos(rotateR), s = (float) Math.sin(rotateR);
+						float x = point.position.x, y = point.position.y;
+						
+						point.position.x = x * c - y * s;
+						point.position.y = x * s + y * c;
+					}
+				}
+				
+				rotated = false;
 				repaint();
 			}
 		});
@@ -78,12 +96,6 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 	@Override
 	protected void paintComponent(Graphics g) {		
 		super.paintComponent(g);
-		
-		for(RPoint point : pMap.getMap()){
-			float rotateR = (float)Math.toRadians(rotate);
-			point.position.x = point.position.x *(float) Math.cos(rotateR) - point.position.y * (float) Math.sin(rotateR);
-			point.position.y = point.position.x *(float) Math.sin(rotateR) + point.position.y * (float) Math.cos(rotateR);
-		}
 		
 		Graphics2D graphics = (Graphics2D) g;
 		graphics.drawString("Galactic Abstraction", 0, 10);
