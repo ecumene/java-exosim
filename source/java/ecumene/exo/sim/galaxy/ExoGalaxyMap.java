@@ -19,12 +19,12 @@ public class ExoGalaxyMap extends RMap {
 		map = new RPoint[size];
 		for(int i = 0; i < size; i++){
 			float angle  = (float) (noise.eval(0, i * 2 + 1) * Math.PI * 2);
-			float radius = (float) (noise.eval(0, i * 2 + 2) * Math.PI * 2) * 30;
+			float radius = (float) (noise.eval(0, i * 2 + 2));
 			
 			Vector2f vector = new Vector2f(
 					(float) Math.sin(angle) * radius,
 					(float) Math.cos(angle) * radius);
-			map[i] = new RPoint(new ExoSolarMap(), vector); 
+			map[i] = new RPoint(new ExoSolarMap(seed), vector); 
 		}
 	}
 	

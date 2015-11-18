@@ -4,6 +4,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
@@ -20,14 +23,19 @@ import ecumene.exo.sim.map.real.RPoint;
 public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListener {
 	
 	private float rotate;
+	private int selected;
+
+	private Vector2f mousePosition = new Vector2f();
 	
 	public JExoGalaxyRenderer(final RMap pMap) {
 		super(pMap);
+		
 		setFocusable(true);
+		
 		addMouseWheelListener(new MouseWheelListener() {
 			@Override
 			public void mouseWheelMoved(MouseWheelEvent e) {
-				navigation.z += (float) e.getPreciseWheelRotation() * -.2f;
+				navigation.z += (float) e.getPreciseWheelRotation() * 10f;
 				repaint();
 			}
 		});
@@ -43,7 +51,7 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 					rotated = true;
 				}
 				if(e.getKeyCode() == KeyEvent.VK_E){
-					rotate = 10f;
+					rotate = -10f;
 					rotated = true;
 				}
 				if(e.getKeyCode() == KeyEvent.VK_SPACE){
@@ -69,7 +77,6 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 				
 				if(rotated){
 					for(RPoint point : pMap.getMap()){
-						System.out.println(rotate);
 						float rotateR = (float)Math.toRadians(rotate);
 						float c = (float) Math.cos(rotateR), s = (float) Math.sin(rotateR);
 						float x = point.position.x, y = point.position.y;

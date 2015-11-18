@@ -25,4 +25,9 @@ public class ExoGalaxyMapRenderer extends ExoRMapRenderer {
 		((JExoGalaxyRenderer) renderer).onContextChanged(context);
 		this.renderer.repaint();
 	}
+
+	@Override
+	public void onStep(ESContext context, int step) {
+		// TODO: Make Galaxy Spin during step
+	}
 }

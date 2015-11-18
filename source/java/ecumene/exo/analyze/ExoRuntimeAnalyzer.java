@@ -27,12 +27,20 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 	
 	public ExoRuntimeAnalyzer(int id, ExceptionListener listener, String[] args) {
 		super(id, listener, args);
-		this.context = new ESContext(args.length < 1 ? Long.parseLong(args[0]) : 0);
+		this.context = new ESContext(args.length < 1 ? Long.parseLong(args[0]) : 0, 0);
 	}
 
 	private JLabel seedLabel = new JLabel("Seed: " + 0);
 	private JPanel currentSeed = new JPanel();
 	private JPanel containerSeed = new JPanel();
+
+	private JLabel solarLabel = new JLabel("Solar System: " + 0);
+	private JPanel currentSolar = new JPanel();
+	private JPanel containerSolar = new JPanel();
+
+	private JLabel stepLabel = new JLabel("Current Step: " + 0);
+	private JPanel currentSim = new JPanel();
+	private JPanel containerSim = new JPanel();
 	
 	@Override
 	public void init() throws Throwable {
@@ -73,7 +81,7 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 						seedLabel.setText("Seed: " + sum);
 					}
 					
-					ExoRuntime.INSTANCE.setContext(new ESContext(longSum));
+					ExoRuntime.INSTANCE.setContext(new ESContext(longSum, 0));
 					containerSeed.repaint();
 				}
 			});
@@ -81,6 +89,57 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			containerSeed.add(setCurrentSeed);
 			frame.add(containerSeed);
 			
+			containerSolar.setLayout(new BoxLayout(containerSolar , BoxLayout.Y_AXIS));
+		    TitledBorder containerSolarBorder = BorderFactory.createTitledBorder("Solar Config");
+		    containerSolarBorder.setTitleJustification(TitledBorder.LEFT);
+		    containerSolar.setBorder(containerSolarBorder);
+		    containerSolar.add(solarLabel);
+			containerSolar.add(currentSolar);
+			JPanel setCurrentSolar = new JPanel();
+			final JTextField solarIndexField = new JTextField(20);
+			setCurrentSolar.add(solarIndexField);
+			JButton setSolarIndex = new JButton("Set");
+			setSolarIndex.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					char[] input = solarIndexField.getText().toCharArray();
+					String sum = "";
+					for(int i = 0; i < input.length; i++){
+						int charNum = Character.getNumericValue(input[i]);
+						if(charNum == -1) charNum = 0;
+						sum += charNum;
+					}
+					long longSum = 0;
+					if(sum.length() > 19) {
+						solarLabel.setText("Seed: " + 0 + " (input is too long!)");
+					} else {
+						longSum = Long.valueOf(sum);
+						solarLabel.setText("Seed: " + sum);
+					}
+					
+					ExoRuntime.INSTANCE.setContext(new ESContext(longSum, 0));
+					containerSolar.repaint();
+				}
+			});
+			setCurrentSolar.add(setSolarIndex);
+			containerSolar.add(setCurrentSolar);
+			frame.add(containerSolar);
+
+			containerSim.setLayout(new BoxLayout(containerSim, BoxLayout.Y_AXIS));
+		    TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Settings");
+		    containerSimBorder .setTitleJustification(TitledBorder.LEFT);
+		    containerSim.setBorder(containerSimBorder);
+		    containerSim.add(stepLabel);
+			containerSim.add(currentSim);
+			JButton step = new JButton("Step");
+			step.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					context.step();
+				}
+			});
+			containerSim.add(step);
+			frame.add(containerSim);
 		}
 		frame.setVisible(true);
 	}
@@ -92,5 +151,8 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 
 	@Override
 	public void onContextChanged(ESContext context) {}
+
+	@Override
+	public void onStep(ESContext context, int step) {}
 	
 }

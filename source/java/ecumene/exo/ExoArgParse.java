@@ -18,6 +18,7 @@ public class ExoArgParse {
 	private Options options;          // Program arguments
 	private final String[] arguments; // Runtime arguments
 	private File pwd = new File("./");// Primary Working Directory (default "./")
+	private String[] runtimeCommands; // Commands to be run, set by the runtime arg parser
 	
 	public ExoArgParse(String[] arguments) throws org.apache.commons.cli.ParseException, IOException {
 		this.arguments = arguments;
@@ -62,11 +63,16 @@ public class ExoArgParse {
 				pwd.mkdirs();
 			}
 		}
+		if(cmd.hasOption('r')){
+			System.out.println(cmd.getOptionValue("r"));
+			runtimeCommands = cmd.getOptionValue("r").split(";\\s+");
+		}
 	}
 	
 	public CommandLine getCommandLine(){ return cmd; }
 	public Options getDefaultOptions(){ return options; }
 	public String[] getArguments(){ return arguments; }
+	public String[] getRTCommands(){ return runtimeCommands; }
 	public File getPWD(){ return pwd; }
 	public boolean getIgnoreOverride(){ return cmd.hasOption("ignore_override"); }
 	
@@ -74,6 +80,7 @@ public class ExoArgParse {
 	    final Options opt = new Options();  
 		opt.addOption("h", "help", false, "Print help for this application");
 		opt.addOption("d", "dir", true, "The initial directory to use / store data in");
+		opt.addOption("r", "run", true, "Run commands in quotes");
 		opt.addOption("", "ignore_override", false, "Should the directories be overriden when duped");
 		return opt;  
 	}

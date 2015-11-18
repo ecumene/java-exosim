@@ -14,7 +14,7 @@ public class JRMapRenderer extends JPanel {
 	
 	protected RMap pMap;
 	protected boolean useNames = false;
-	public Vector3f navigation = new Vector3f(0, 0, 1);
+	public Vector3f navigation = new Vector3f(0, 0, 800);
 	
 	public JRMapRenderer(RMap pMap) {
 		this.pMap = pMap;
