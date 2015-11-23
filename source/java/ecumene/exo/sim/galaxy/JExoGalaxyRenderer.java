@@ -29,17 +29,7 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 	
 	public JExoGalaxyRenderer(final RMap pMap) {
 		super(pMap);
-		
-		setFocusable(true);
-		
-		addMouseWheelListener(new MouseWheelListener() {
-			@Override
-			public void mouseWheelMoved(MouseWheelEvent e) {
-				navigation.z += (float) e.getPreciseWheelRotation() * 10f;
-				repaint();
-			}
-		});
-		
+						
 		addKeyListener(new KeyListener() {
 			@Override public void keyTyped(KeyEvent e) { }
 			@Override public void keyReleased(KeyEvent e) { }
@@ -58,22 +48,6 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 					rotate = 0;
 					rotated = true;
 				}
-
-				if(e.getKeyCode() == KeyEvent.VK_N){
-					useNames = !useNames;
-				}
-				if(e.getKeyCode() == KeyEvent.VK_UP){
-					navigation.y += 4;
-				}
-				if(e.getKeyCode() == KeyEvent.VK_DOWN){
-					navigation.y -= 4;
-				}
-				if(e.getKeyCode() == KeyEvent.VK_LEFT){
-					navigation.x += 4;
-				}
-				if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-					navigation.x -= 4;
-				}
 				
 				if(rotated){
 					for(RPoint point : pMap.getMap()){
@@ -87,7 +61,6 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 				}
 				
 				rotated = false;
-				repaint();
 			}
 		});
 	}

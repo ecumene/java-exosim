@@ -10,8 +10,15 @@ import ecumene.exo.sim.solar.IExoSolarObject;
 
 public class GenericSolarObject extends RObject implements IExoSolarObject {
 
-	protected Vector2f velocity, position;
+	protected Vector2f velocity = new Vector2f(), position = new Vector2f();
 	protected float mass;
+	
+	public GenericSolarObject() { }
+	
+	public GenericSolarObject(Vector2f position, Vector2f startVelocity){
+		this.position = position;
+		this.velocity = startVelocity;
+	}
 	
 	@Override
 	public float getMass() {
@@ -20,12 +27,12 @@ public class GenericSolarObject extends RObject implements IExoSolarObject {
 
 	@Override
 	public Vector2f getVelocity() {
-		return new Vector2f();
+		return velocity;
 	}
 
 	@Override
 	public Vector2f getPosition() {
-		return new Vector2f();
+		return position;
 	}
 
 	@Override

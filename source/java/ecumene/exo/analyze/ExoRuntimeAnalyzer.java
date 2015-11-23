@@ -1,5 +1,6 @@
 package ecumene.exo.analyze;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,7 +49,7 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 		frame.setVisible(false);
 		{
 			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			frame.setSize(480, 800);
+			frame.setSize(430, 720);
 			frame.setIconImage(ImageIO.read(new File("./resources/logo.png")));
 			frame.setLocationRelativeTo(null);
 			frame.setLayout(new FlowLayout());
@@ -109,15 +110,16 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 						if(charNum == -1) charNum = 0;
 						sum += charNum;
 					}
-					long longSum = 0;
+					int intSum = 0;
 					if(sum.length() > 19) {
 						solarLabel.setText("Seed: " + 0 + " (input is too long!)");
 					} else {
-						longSum = Long.valueOf(sum);
+						intSum = Integer.valueOf(sum);
 						solarLabel.setText("Seed: " + sum);
 					}
 					
-					ExoRuntime.INSTANCE.setContext(new ESContext(longSum, 0));
+					ESContext oldContext = ExoRuntime.INSTANCE.getContext();
+					ExoRuntime.INSTANCE.setContext(new ESContext(oldContext.getSeed(), intSum));
 					containerSolar.repaint();
 				}
 			});
@@ -129,6 +131,7 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 		    TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Settings");
 		    containerSimBorder .setTitleJustification(TitledBorder.LEFT);
 		    containerSim.setBorder(containerSimBorder);
+			JPanel stepSim = new JPanel();
 		    containerSim.add(stepLabel);
 			containerSim.add(currentSim);
 			JButton step = new JButton("Step");
@@ -136,12 +139,16 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					context.step();
+					stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSeed());
 				}
 			});
-			containerSim.add(step);
+			stepSim.add(step);
+			containerSim.add(stepSim);
 			frame.add(containerSim);
 		}
 		frame.setVisible(true);
+		containerSim.setPreferredSize(new Dimension(containerSeed.getWidth(), containerSeed.getHeight()));
+		frame.repaint();
 	}
 	
 	@Override

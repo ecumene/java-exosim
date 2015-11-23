@@ -149,8 +149,7 @@ public class ExoRuntime implements Runnable{
 	public void step(){
 		for(int i = 0; i < running.size(); i++)
 			running.get(i)
-			.onStep(
-					context, 
+			.onStep(context, 
 					context.getSteps());
 	}
 	

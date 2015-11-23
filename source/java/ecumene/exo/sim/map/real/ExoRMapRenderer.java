@@ -31,7 +31,7 @@ public abstract class ExoRMapRenderer extends ExoRunnable {
 		frame.setVisible(false);
 		if(renderer == null) renderer = constructRenderer();		
 		{
-			frame.setSize(800, 600);
+			frame.setSize(600, 600);
 			frame.setLocationRelativeTo(null);
 			frame.setIconImage(ImageIO.read(new File("./resources/logo.png")));
 			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

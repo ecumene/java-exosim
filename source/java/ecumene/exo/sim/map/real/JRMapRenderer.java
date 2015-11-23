@@ -4,9 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 import javax.swing.JPanel;
 
+import org.joml.Matrix3f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
@@ -14,10 +19,44 @@ public class JRMapRenderer extends JPanel {
 	
 	protected RMap pMap;
 	protected boolean useNames = false;
-	public Vector3f navigation = new Vector3f(0, 0, 800);
+	public Vector3f navigation = new Vector3f(0, 0, 1);
 	
 	public JRMapRenderer(RMap pMap) {
 		this.pMap = pMap;
+		
+		setFocusable(true);
+		
+		addMouseWheelListener(new MouseWheelListener() {
+			@Override
+			public void mouseWheelMoved(MouseWheelEvent e) {
+				navigation.z += (float) e.getPreciseWheelRotation() * 10f;
+				repaint();
+			}
+		});
+		addKeyListener(new KeyListener() {
+			@Override public void keyTyped(KeyEvent e) { }
+			@Override public void keyReleased(KeyEvent e) { }
+			@Override 
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_N){
+					useNames = !useNames;
+				}
+				if(e.getKeyCode() == KeyEvent.VK_UP){
+					navigation.y += 4;
+				}
+				if(e.getKeyCode() == KeyEvent.VK_DOWN){
+					navigation.y -= 4;
+				}
+				if(e.getKeyCode() == KeyEvent.VK_LEFT){
+					navigation.x += 4;
+				}
+				if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+					navigation.x -= 4;
+				}
+				repaint();
+			}
+		});
+
 	}
 	
 	@Override
@@ -31,17 +70,29 @@ public class JRMapRenderer extends JPanel {
 		graphics.drawLine((int) ((getWidth() / 2) + navigation.x), 0, (int)((getWidth() / 2) + navigation.x), getHeight());
 		graphics.drawLine(getWidth(), (int) ((getHeight() / 2) + navigation.y), 0, (int)((getHeight() / 2) + navigation.y));
 		for(int i = 0; i < pMap.getMap().length; i++){
-			Vector2f pos = new Vector2f(pMap.getMap()[i].position);
-			pos.x *= Math.abs(navigation.z);
-			pos.y *= Math.abs(navigation.z);
-			pos.x += (getWidth() / 2)  + navigation.x;
-			pos.y *= -1;
-			pos.y += (getHeight() / 2) + navigation.y;
+			Vector2f navPos = new Vector2f(pMap.getMap()[i].position);
+			Vector2f screenPos;
+			navPos.x *= Math.abs(navigation.z);
+			navPos.y *= -Math.abs(navigation.z);
+			navPos.x += navigation.x;
+			navPos.y += navigation.y;
+			screenPos = new Vector2f(navPos);
+			screenPos.x += (getWidth() / 2);
+			screenPos.y += (getHeight() / 2);
 			
-			graphics.drawLine((int) (pos.x), (int) (pos.y - 2), (int) (pos.x), (int) (pos.y + 2));
-			graphics.drawLine((int) (pos.x + 2), (int) (pos.y), (int) (pos.x - 2), (int) (pos.y));
-			if(useNames) graphics.drawString(pMap.getMap()[i].object.getName(i), (int)pos.x + 6, (int)pos.y + 4);
+			drawPoint(graphics, i, pMap.getMap()[i], pMap.getMap()[i].position, navPos, screenPos);
 		}
+	}
+	
+	// realPos   - Position on real plane
+	// navPos    - Position on the nav plane
+	// screenPos - Position in screen plane
+	protected void drawPoint(Graphics2D graphics, int id, RPoint point, Vector2f realPos, Vector2f navPos, Vector2f screenPos){
+		// Point draw
+		graphics.drawLine((int) (screenPos.x), (int) (screenPos.y - 2), (int) (screenPos.x), (int) (screenPos.y + 2));
+		graphics.drawLine((int) (screenPos.x + 2), (int) (screenPos.y), (int) (screenPos.x - 2), (int) (screenPos.y));
+		
+		if(useNames) graphics.drawString(point.object.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
 	}
 	
 	public void setUseNames(boolean b){
