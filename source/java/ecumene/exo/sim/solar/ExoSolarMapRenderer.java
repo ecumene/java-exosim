@@ -26,9 +26,12 @@ public class ExoSolarMapRenderer extends ExoRMapRenderer {
 	
 	@Override
 	public void onContextChanged(ESContext context){
+		System.out.println("Context changed");
 		solarMap = new ExoSolarMap(context.getSolarSeed());
 		((JExoSolarRenderer) renderer).setSolarMap(solarMap);
 		((JExoSolarRenderer) renderer).onContextChanged(context);
+		pMap = solarMap.step();
+		frame.repaint();
 	}
 
 	@Override
@@ -36,5 +39,6 @@ public class ExoSolarMapRenderer extends ExoRMapRenderer {
 		((JExoSolarRenderer) renderer).onStep(); // Let them take care of it!
 		                                         // I'm not getting paid enough for this!
 		                                         // I'm not getting paid at all!!
+		frame.repaint();
 	}
 }

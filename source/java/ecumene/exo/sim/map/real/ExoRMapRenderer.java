@@ -10,11 +10,10 @@ import ecumene.exo.ExoRunnable;
 
 public abstract class ExoRMapRenderer extends ExoRunnable {
 
-	private RObject       selected = null;
+	private   RObject       selected = null;
 	protected JRMapRenderer renderer = null;
 	protected RMap          pMap     = null;
-	
-	private JFrame frame;
+	protected JFrame frame;
 	
 	public ExoRMapRenderer(int id, ExceptionListener exceptionListener, RMap map, String[] args) {
 		super(id, exceptionListener, args);

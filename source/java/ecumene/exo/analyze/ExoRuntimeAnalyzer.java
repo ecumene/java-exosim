@@ -139,7 +139,8 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					context.step();
-					stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSeed());
+					stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSteps());
+					containerSim.repaint();
 				}
 			});
 			stepSim.add(step);

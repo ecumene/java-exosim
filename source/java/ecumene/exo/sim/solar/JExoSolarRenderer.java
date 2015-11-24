@@ -36,17 +36,16 @@ public class JExoSolarRenderer extends JRMapRenderer implements IESContextListen
 		Graphics2D graphics = (Graphics2D) g;
 		graphics.drawString("Solar Abstraction", 0, 10);
 		graphics.drawString("Press P to toggle positions", 0, 20);
-		graphics.drawString("Press V to toggle vectors", 0, 20);
-		graphics.drawString("Artifact Count (+ sun): " + pMap.getMap().length, 0, 30);
+		graphics.drawString("Press V to toggle vectors", 0, 30);
+		graphics.drawString("Artifact Count (+ sun): " + pMap.getMap().length, 0, 40);
 	}
 	
 	@Override
 	protected void drawPoint(Graphics2D graphics, int id, RPoint point, Vector2f realPos, Vector2f navPos, Vector2f screenPos) {
 		super.drawPoint(graphics, id, point, realPos, navPos, screenPos);
 		
-		Vector2f screenVelocity = new Vector2f(((IExoSolarObject) point.object).getVelocity());
+		Vector2f screenVelocity = new Vector2f(((IExoSolarObject) point.object).getVelocity()).mul(navigation.z);
 		screenVelocity = screenVelocity.add(screenPos); // Screenspace & nav calc done already! I'm a genius!
-		screenVelocity.add(new Vector2f(realPos.x * -navigation.z, realPos.y * navigation.z));
 		graphics.drawLine((int) (screenPos.x), (int) (screenPos.y), (int) (screenVelocity.x), (int) (screenVelocity.y));
 	}
 	

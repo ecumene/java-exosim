@@ -37,7 +37,10 @@ public class GenericSolarObject extends RObject implements IExoSolarObject {
 
 	@Override
 	public RPoint step(List<IExoSolarObject> objects) {
-		System.out.println("step");
+		this.position = new Vector2f(position);
+		this.position.x += velocity.x;
+		this.position.y += velocity.y;
+		
 		return new RPoint(this, position);
 	}
 	

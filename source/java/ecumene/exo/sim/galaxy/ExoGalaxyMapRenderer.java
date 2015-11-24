@@ -27,7 +27,5 @@ public class ExoGalaxyMapRenderer extends ExoRMapRenderer {
 	}
 
 	@Override
-	public void onStep(ESContext context, int step) {
-		// TODO: Make Galaxy Spin during step
-	}
+	public void onStep(ESContext context, int step) {}
 }
