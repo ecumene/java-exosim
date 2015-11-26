@@ -8,10 +8,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
-import org.joml.Matrix3f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
@@ -20,9 +21,12 @@ public class JRMapRenderer extends JPanel {
 	protected RMap pMap;
 	protected boolean useNames = false;
 	public Vector3f navigation = new Vector3f(0, 0, 1);
+	protected List<IRPointRenderer> rendererList; // Protected so only subclass members can access it. Makes sense, right?
 	
 	public JRMapRenderer(RMap pMap) {
 		this.pMap = pMap;
+		rendererList = new ArrayList<IRPointRenderer>();
+		rendererList.add(getDefaultRPointRenderer());
 		
 		setFocusable(true);
 		
@@ -89,10 +93,14 @@ public class JRMapRenderer extends JPanel {
 	// screenPos - Position in screen plane
 	protected void drawPoint(Graphics2D graphics, int id, RPoint point, Vector2f realPos, Vector2f navPos, Vector2f screenPos){
 		// Point draw
-		graphics.drawLine((int) (screenPos.x), (int) (screenPos.y - 2), (int) (screenPos.x), (int) (screenPos.y + 2));
-		graphics.drawLine((int) (screenPos.x + 2), (int) (screenPos.y), (int) (screenPos.x - 2), (int) (screenPos.y));
-		
-		if(useNames) graphics.drawString(point.object.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
+		for(int i = 0; i < rendererList.size(); i++){
+			rendererList.get(i).render(graphics, id, point, realPos, navPos, screenPos);
+		}
+	}
+	
+	private static DefaultRPointRenderer _default_renderer;
+	public static DefaultRPointRenderer getDefaultRPointRenderer(){
+		return _default_renderer;
 	}
 	
 	public void setUseNames(boolean b){
