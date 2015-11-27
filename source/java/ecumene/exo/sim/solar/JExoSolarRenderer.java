@@ -28,7 +28,7 @@ public class JExoSolarRenderer extends JRMapRenderer implements IESContextListen
 			@Override public void keyTyped(KeyEvent e)    {}
 			@Override public void keyReleased(KeyEvent e) {}
 			@Override public void keyPressed(KeyEvent e)  {
-				if(e.getKeyCode() == KeyEvent.VK_P){
+				if(e.getKeyCode() == KeyEvent.VK_V){
 					useNames = !useNames; // Use names in solar renderer means to toggle disp. vector rendering
 				}
 			}

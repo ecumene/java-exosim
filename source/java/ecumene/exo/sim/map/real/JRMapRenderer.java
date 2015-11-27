@@ -70,9 +70,7 @@ public class JRMapRenderer extends JPanel {
 		graphics.setFont(new Font("TimesRoman", Font.PLAIN, 10)); 
 		graphics.setColor(new Color(0, 0, 0));
 		graphics.fillRect(0, 0, getWidth(), getHeight());
-		graphics.setColor(new Color(0, 255, 0));
-		graphics.drawLine((int) ((getWidth() / 2) + navigation.x), 0, (int)((getWidth() / 2) + navigation.x), getHeight());
-		graphics.drawLine(getWidth(), (int) ((getHeight() / 2) + navigation.y), 0, (int)((getHeight() / 2) + navigation.y));
+
 		for(int i = 0; i < pMap.getMap().length; i++){
 			Vector2f navPos = new Vector2f(pMap.getMap()[i].position);
 			Vector2f screenPos;
@@ -86,11 +84,15 @@ public class JRMapRenderer extends JPanel {
 			
 			drawPoint(graphics, i, pMap.getMap()[i], pMap.getMap()[i].position, navPos, screenPos);
 		}
+
+		graphics.setColor(new Color(0, 255, 0));
+		graphics.drawLine((int) ((getWidth() / 2) + navigation.x), 0, (int)((getWidth() / 2) + navigation.x), getHeight());
+		graphics.drawLine(getWidth(), (int) ((getHeight() / 2) + navigation.y), 0, (int)((getHeight() / 2) + navigation.y));
 	}
 	
-	// realPos   - Position on real plane
-	// navPos    - Position on the nav plane
-	// screenPos - Position in screen plane
+//	 realPos   - Position on real plane
+//	 navPos    - Position on the nav plane
+//	 screenPos - Position in screen plane
 	protected void drawPoint(Graphics2D graphics, int id, RPoint point, Vector2f realPos, Vector2f navPos, Vector2f screenPos){
 		// Point draw
 		for(int i = 0; i < rendererList.size(); i++){

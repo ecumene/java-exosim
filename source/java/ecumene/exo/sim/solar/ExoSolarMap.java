@@ -23,10 +23,12 @@ public class ExoSolarMap extends RObject {
 		objects = new ArrayList<IExoSolarObject>();
 		int size = (int) (noise.eval(0, 1) * 100) + 1; // Solar size = noise * max (max=10^1)
 		size = Math.abs(size);
+		
+		
+		
 		for(int i = 0; i < size; i++){
 			objects.add(new GenericSolarObject(new Vector2f((float)noise.eval(0, (i * 4) + 1),
-					                                        (float)noise.eval(0, (i * 4) + 2)), new Vector2f(1, 1)));		
-			System.out.println("Solar Map : OBJ " + i);
+					                                        (float)noise.eval(0, (i * 4) + 2)), new Vector2f(0, 0)));		
 		}
 	}
 	

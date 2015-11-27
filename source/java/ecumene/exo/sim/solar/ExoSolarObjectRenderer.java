@@ -19,23 +19,25 @@ public class ExoSolarObjectRenderer implements IRPointRenderer {
 
 	@Override
 	public void render(Graphics2D graphics, int id, RPoint point, Vector2f realPos, Vector2f navPos, Vector2f screenPos) {
-		if(parent.getUseNames()) graphics.drawString(point.object.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
-		
-		if(point.getObject() instanceof IExoSolarObject){ // Is a solar object?		
-			RObject object = point.getObject();
-			for(int i = 0; i < ((IExoSolarObject) object).getDisplacements().size(); i++){
-				renderDisplacement(false, ((IExoSolarObject) object).getDisplacements().get(i), graphics, screenPos);
+		Color oldColor = graphics.getColor(); { // push color
+			if(parent.getUseNames()) graphics.drawString(point.object.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
+			
+			if(point.getObject() instanceof IExoSolarObject){ // Is a solar object?		
+				RObject object = point.getObject();
+	
+				graphics.setColor(new Color(255, 0, 0));
+				float massDiam = ((IExoSolarObject) object).getMass() * parent.navigation.z;
+				graphics.fillOval((int) (screenPos.x - (massDiam / 2)), (int) (screenPos.y - (massDiam / 2)), 
+				                  (int) (massDiam),                     (int) (massDiam));
+	
+				if(parent.getUseNames())
+				for(int i = 0; i < ((IExoSolarObject) object).getDisplacements().size(); i++){
+					renderDisplacement(false, ((IExoSolarObject) object).getDisplacements().get(i), graphics, screenPos);
+				}
+				
+				renderDisplacement(true, new ESDisplacement(((IExoSolarObject) object).getVelocity(), "d", new Color(0, 255, 0)), graphics, screenPos);
 			}
-			
-			renderDisplacement(true, new ESDisplacement(((IExoSolarObject) object).getVelocity(), "d", new Color(0, 255, 0)), graphics, screenPos);
-			Vector2f position = ((IExoSolarObject) object).getPosition();
-			float mass = ((IExoSolarObject) object).getMass();
-			
-			
-//          yeah, no. making the solar objects ovals aint workn'.
-//			graphics.setColor(new Color(255, 0, 0));
-//			graphics.fillOval((int) screenPos.x, (int) screenPos.y, (int) (mass * 10), (int) (mass * 10));
-		}
+		} graphics.setColor(oldColor); // pop color
 	}
 	
 	public void renderDisplacement(boolean distance, ESDisplacement displacement, Graphics2D graphics, Vector2f screenSpace){
