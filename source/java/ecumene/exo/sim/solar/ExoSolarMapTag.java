@@ -2,6 +2,7 @@ package ecumene.exo.sim.solar;
 
 import java.beans.ExceptionListener;
 
+import ecumene.exo.ExoRuntime;
 import ecumene.exo.IExoRunnableTag;
 
 public class ExoSolarMapTag implements IExoRunnableTag {
@@ -20,9 +21,9 @@ public class ExoSolarMapTag implements IExoRunnableTag {
 	public String getIdentifier(){
 		return "Solar simulation";
 	}
-
+	
 	@Override
 	public Runnable construct(int id, ExceptionListener listener, String[] args) throws Throwable {
-		return new ExoSolarMapRenderer(id, listener, new ExoSolarMap(id), args);
+		return new ExoSolarMapRenderer(id, listener, new ExoSolarMap(id), ExoRuntime.INSTANCE.getContext().getStepInterp(), args);
 	}
 }

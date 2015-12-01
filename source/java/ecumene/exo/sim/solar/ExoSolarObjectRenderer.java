@@ -20,29 +20,29 @@ public class ExoSolarObjectRenderer implements IRPointRenderer {
 	@Override
 	public void render(Graphics2D graphics, int id, RPoint point, Vector2f realPos, Vector2f navPos, Vector2f screenPos) {
 		Color oldColor = graphics.getColor(); { // push color
-			if(parent.getUseNames()) graphics.drawString(point.object.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
-			
-			if(point.getObject() instanceof IExoSolarObject){ // Is a solar object?		
+			if(point.getObject() instanceof IExoSolarObject){ // Is a solar object?
 				RObject object = point.getObject();
 	
 				graphics.setColor(new Color(255, 0, 0));
 				float massDiam = ((IExoSolarObject) object).getMass() * parent.navigation.z;
 				graphics.fillOval((int) (screenPos.x - (massDiam / 2)), (int) (screenPos.y - (massDiam / 2)), 
 				                  (int) (massDiam),                     (int) (massDiam));
+				graphics.setColor(new Color(255, 255, 255));
+				if(!parent.getUseNames()) graphics.drawString(point.object.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
 	
-				if(parent.getUseNames())
-				for(int i = 0; i < ((IExoSolarObject) object).getDisplacements().size(); i++){
-					renderDisplacement(false, ((IExoSolarObject) object).getDisplacements().get(i), graphics, screenPos);
+				if(parent.getUseNames()){
+					for(int i = 0; i < ((IExoSolarObject) object).getDisplacements().size(); i++){
+						renderDisplacement(((IExoSolarObject) object).getDisplacements().get(i), graphics, screenPos);
+					}
+					Vector2f finalVelocity = new Vector2f(((IExoSolarObject) object).getVelocity());
+					finalVelocity.add(((IExoSolarObject) object).getLastGravity());
+					renderDisplacement(new ESDisplacement(finalVelocity, "^V", new Color(0, 255, 0)), graphics, screenPos);
 				}
-				
-				renderDisplacement(true, new ESDisplacement(((IExoSolarObject) object).getVelocity(), "d", new Color(0, 255, 0)), graphics, screenPos);
 			}
 		} graphics.setColor(oldColor); // pop color
 	}
 	
-	public void renderDisplacement(boolean distance, ESDisplacement displacement, Graphics2D graphics, Vector2f screenSpace){
-		// boolean d = distance or displacement
-		
+	public void renderDisplacement(ESDisplacement displacement, Graphics2D graphics, Vector2f screenSpace){
 		Color oldColor = graphics.getColor(); { // push color
 			Vector2f dV = new Vector2f(displacement.getDisplacement());
 			dV.x *= parent.navigation.z;

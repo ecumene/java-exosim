@@ -27,5 +27,5 @@ public class ExoGalaxyMapRenderer extends ExoRMapRenderer {
 	}
 
 	@Override
-	public void onStep(ESContext context, int step) {}
+	public void onStep(ESContext context, int step, float interp) {}
 }

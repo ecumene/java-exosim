@@ -22,11 +22,12 @@ public class JRMapRenderer extends JPanel {
 	protected boolean useNames = false;
 	public Vector3f navigation = new Vector3f(0, 0, 1);
 	protected List<IRPointRenderer> rendererList; // Protected so only subclass members can access it. Makes sense, right?
+	protected DefaultRPointRenderer pointRenderer;
 	
 	public JRMapRenderer(RMap pMap) {
 		this.pMap = pMap;
 		rendererList = new ArrayList<IRPointRenderer>();
-		rendererList.add(getDefaultRPointRenderer());
+		rendererList.add(pointRenderer = new DefaultRPointRenderer(this));
 		
 		setFocusable(true);
 		
@@ -100,9 +101,8 @@ public class JRMapRenderer extends JPanel {
 		}
 	}
 	
-	private static DefaultRPointRenderer _default_renderer;
-	public static DefaultRPointRenderer getDefaultRPointRenderer(){
-		return _default_renderer;
+	public DefaultRPointRenderer getDefaultRPointRenderer(){
+		return this.pointRenderer;
 	}
 	
 	public void setUseNames(boolean b){

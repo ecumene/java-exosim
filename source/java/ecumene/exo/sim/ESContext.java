@@ -3,9 +3,10 @@ package ecumene.exo.sim;
 import ecumene.exo.ExoRuntime;
 
 public class ESContext {
-	private long seed;
-	private int  indexSolar; // Selected Solar System (solarSeed = seed + indexSolar)
-	private int  solarSteps; // The steps for simulating the solar system (also represents global/local steps)
+	private long  seed;
+	private float interp = 1f;
+	private int   indexSolar; // Selected Solar System (solarSeed = seed + indexSolar)
+	private int   solarSteps; // The steps for simulating the solar system (also represents global/local steps)
 	
 	public ESContext(long seed, int solar) {
 		this.seed = seed;
@@ -15,7 +16,16 @@ public class ESContext {
 	
 	public void step(){
 		this.solarSteps += 1;
-		ExoRuntime.INSTANCE.step();
+		ExoRuntime.INSTANCE.step(interp);
+		System.out.println(solarSteps);
+	}
+	
+	public void setStepInterp(float set){
+		interp = set;
+	}
+	
+	public float getStepInterp(){
+		return interp;
 	}
 	
 	public void setSteps(int steps){

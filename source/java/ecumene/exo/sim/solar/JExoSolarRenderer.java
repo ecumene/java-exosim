@@ -50,8 +50,8 @@ public class JExoSolarRenderer extends JRMapRenderer implements IESContextListen
 		super.drawPoint(graphics, id, point, realPos, navPos, screenPos);
 	}
 	
-	public void onStep(){
-		pMap = map.step();
+	public void onStep(float interp){
+		pMap = map.step(interp);
 	}
 
 	@Override

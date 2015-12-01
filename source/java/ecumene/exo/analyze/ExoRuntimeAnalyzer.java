@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import javax.swing.Timer;
 
 import ecumene.exo.ExoRunnable;
 import ecumene.exo.ExoRuntime;
@@ -24,11 +25,9 @@ import ecumene.exo.sim.ESContext;
 public class ExoRuntimeAnalyzer extends ExoRunnable {
 
 	private JFrame    frame;
-	private ESContext context;
 	
 	public ExoRuntimeAnalyzer(int id, ExceptionListener listener, String[] args) {
 		super(id, listener, args);
-		this.context = new ESContext(args.length < 1 ? Long.parseLong(args[0]) : 0, 0);
 	}
 
 	private JLabel seedLabel = new JLabel("Seed: " + 0);
@@ -138,9 +137,13 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			step.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					context.step();
+					Timer timer = new Timer(120, this);
+					timer.start();
+					
+					ExoRuntime.INSTANCE.getContext().setStepInterp(0.00005f);
+					ExoRuntime.INSTANCE.getContext().step();
 					stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSteps());
-					containerSim.repaint();
+					stepLabel.repaint();
 				}
 			});
 			stepSim.add(step);
@@ -161,6 +164,6 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 	public void onContextChanged(ESContext context) {}
 
 	@Override
-	public void onStep(ESContext context, int step) {}
+	public void onStep(ESContext context, int step, float interp) {}
 	
 }

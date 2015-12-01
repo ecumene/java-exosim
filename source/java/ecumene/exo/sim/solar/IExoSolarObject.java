@@ -10,6 +10,8 @@ public interface IExoSolarObject {
 	public float getMass();
 	
 	public Vector2f             getVelocity();
+	public Vector2f             recalcESD(List<IExoSolarObject> objects);
+	public Vector2f             getLastGravity();
 	public Vector2f             getPosition();
 	public List<ESDisplacement> getDisplacements();
 	

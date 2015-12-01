@@ -146,11 +146,12 @@ public class ExoRuntime implements Runnable{
 			running.get(i).onContextChanged(context);
 	}
 	
-	public void step(){
+	public void step(float interp){
 		for(int i = 0; i < running.size(); i++)
 			running.get(i)
 			.onStep(context, 
-					context.getSteps());
+					context.getSteps(),
+					interp);
 	}
 	
 	public IExoRunnableTag[] getRunnables(){

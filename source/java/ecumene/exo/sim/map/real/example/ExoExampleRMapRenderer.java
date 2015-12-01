@@ -16,5 +16,5 @@ public class ExoExampleRMapRenderer extends ExoRMapRenderer {
 	public void onContextChanged(ESContext context) {}
 
 	@Override
-	public void onStep(ESContext context, int step) {}
+	public void onStep(ESContext context, int step, float interp) {}
 }
