@@ -117,7 +117,6 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			frame.add(containerSolar);
 
 			containerSim.setLayout(new BoxLayout(containerSim, BoxLayout.Y_AXIS));
-			int lastSize = (int) containerSim.getPreferredSize().getHeight();
 			TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Settings");
 		    containerSimBorder .setTitleJustification(TitledBorder.LEFT);
 		    containerSim.setBorder(containerSimBorder);
@@ -142,7 +141,7 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			});
 			stepSim.add(step);
 			containerSim.add(stepSim);
-			containerSim.setPreferredSize(new Dimension((int) containerSeed.getPreferredSize().getWidth(), (int) containerSim.getSize().getHeight()));
+			containerSim.setPreferredSize(new Dimension((int)containerSeed.getPreferredSize().getWidth(), 100));
 			frame.add(containerSim);
 		}
 		frame.setVisible(true);
