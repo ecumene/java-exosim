@@ -18,6 +18,7 @@ public class ExoSolarMap extends RObject {
 	private List<IExoSolarObject> objects;
 	private long seed;
 	private OpenSimplexNoise noise;
+	public static float G = 6.67f; // Really 6.67x10^-11
 	
 	public ExoSolarMap(long seed) { 
 		noise = new OpenSimplexNoise(seed);
@@ -26,20 +27,28 @@ public class ExoSolarMap extends RObject {
 		int size = (int) (noise.eval(0, 1) * 100) + 1; // Solar size = noise * max (max=10^1)
 		size = Math.abs(size);
 
+		GenericSolarObject sun = new GenericSolarObject(new Vector2f(100000, 0), new Vector2f(0, 0));
+		sun.mass = 109f;
+		
 		GenericSolarObject earth = new GenericSolarObject(new Vector2f(0, 0), new Vector2f(0, 0));
 		earth.mass = 0.1f;
 		
-		GenericSolarObject moon  = new GenericSolarObject(new Vector2f(0, 1), new Vector2f());
+		GenericSolarObject moon  = new GenericSolarObject(new Vector2f(0, ESDOrbit.getDistance(3f, 0.5f)), new Vector2f());
 		moon.mass = 0.1f * 0.25f;
-		moon.addDisplacement(new ESDOrbit("deltaV", new Color(0, 255, 0), moon, earth, (float)(1.6675001E-13 * 1.6675001E-13)));
+		moon.addDisplacement(new ESDOrbit("deltaV", new Color(0, 255, 0), moon, earth, (float)(10f)));
+		
+		GenericSolarObject moon2  = new GenericSolarObject(new Vector2f(0, -3f), new Vector2f());
+		moon2.mass = 0.1f * 0.15f;
+		moon2.addDisplacement(new ESDOrbit("deltaV", new Color(0, 255, 0), moon2, earth, (float)(3f)));
 
-//		objects.add(earth); // Sun
-//		objects.add(moon); // Sun		
-
-		for(int i = 0; i < size; i++){
-			objects.add(new GenericSolarObject(new Vector2f((float)noise.eval(0, (i * 4) + 1),
-					                                        (float)noise.eval(0, (i * 4) + 2)), new Vector2f(0, 0)));
-		}
+		objects.add(earth); // Sun
+		objects.add(moon); // Sun
+		objects.add(moon2); // Sun
+		
+//		for(int i = 0; i < size; i++){
+//			objects.add(new GenericSolarObject(new Vector2f((float)noise.eval(0, (i * 4) + 1),
+//					                                        (float)noise.eval(0, (i * 4) + 2)), new Vector2f(0, 0)));
+//		}
 	}
 	
 	public RMap step(float interp){

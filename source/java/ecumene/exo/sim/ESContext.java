@@ -7,6 +7,7 @@ public class ESContext {
 	private float interp = 1f;
 	private int   indexSolar; // Selected Solar System (solarSeed = seed + indexSolar)
 	private int   solarSteps; // The steps for simulating the solar system (also represents global/local steps)
+	private int   solarFollow;// Index of the object to follow in 
 	
 	public ESContext(long seed, int solar) {
 		this.seed = seed;
@@ -14,10 +15,17 @@ public class ESContext {
 		solarSteps = 0;
 	}
 	
+	public void setSolarFollow(int solarFollow){
+		this.solarFollow = solarFollow;
+	}
+	
+	public int getSolarFollow(){
+		return solarFollow;
+	}
+	
 	public void step(){
 		this.solarSteps += 1;
 		ExoRuntime.INSTANCE.step(interp);
-		System.out.println(solarSteps);
 	}
 	
 	public void setStepInterp(float set){

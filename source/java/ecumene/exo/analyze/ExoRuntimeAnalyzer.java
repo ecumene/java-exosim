@@ -24,17 +24,15 @@ import ecumene.exo.sim.ESContext;
 
 public class ExoRuntimeAnalyzer extends ExoRunnable {
 
-	private JFrame    frame;
+	private JFrame frame;
 	
 	public ExoRuntimeAnalyzer(int id, ExceptionListener listener, String[] args) {
 		super(id, listener, args);
 	}
 
-	private JLabel seedLabel = new JLabel("Seed: " + 0);
 	private JPanel currentSeed = new JPanel();
 	private JPanel containerSeed = new JPanel();
 
-	private JLabel solarLabel = new JLabel("Solar System: " + 0);
 	private JPanel currentSolar = new JPanel();
 	private JPanel containerSolar = new JPanel();
 
@@ -54,15 +52,14 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			frame.setLayout(new FlowLayout());
 			
 			containerSeed.setLayout(new BoxLayout(containerSeed , BoxLayout.Y_AXIS));
-		    TitledBorder containerSeedBorder = BorderFactory.createTitledBorder("Seed Config");
+		    TitledBorder containerSeedBorder = BorderFactory.createTitledBorder("Galaxy Config");
 		    containerSeedBorder.setTitleJustification(TitledBorder.LEFT);
 		    containerSeed.setBorder(containerSeedBorder);
-			containerSeed.add(seedLabel);
 			containerSeed.add(currentSeed);
 			JPanel setCurrentSeed = new JPanel();
 			final JTextField seedField = new JTextField(20);
 			setCurrentSeed.add(seedField);
-			JButton setSeed = new JButton("Set");
+			JButton setSeed = new JButton("Set Seed");
 			setSeed.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
@@ -74,13 +71,9 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 						sum += charNum;
 					}
 					long longSum = 0;
-					if(sum.length() > 19) {
-						seedLabel.setText("Seed: " + 0 + " (input too long!)");
-					} else {
+					if(!(sum.length() > 19)) {
 						longSum = Long.valueOf(sum);
-						seedLabel.setText("Seed: " + sum);
-					}
-					
+					} 
 					ExoRuntime.INSTANCE.setContext(new ESContext(longSum, 0));
 					containerSeed.repaint();
 				}
@@ -90,15 +83,16 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			frame.add(containerSeed);
 			
 			containerSolar.setLayout(new BoxLayout(containerSolar , BoxLayout.Y_AXIS));
+			containerSolar.setPreferredSize(containerSeed.getPreferredSize());
 		    TitledBorder containerSolarBorder = BorderFactory.createTitledBorder("Solar Config");
 		    containerSolarBorder.setTitleJustification(TitledBorder.LEFT);
 		    containerSolar.setBorder(containerSolarBorder);
-		    containerSolar.add(solarLabel);
 			containerSolar.add(currentSolar);
 			JPanel setCurrentSolar = new JPanel();
 			final JTextField solarIndexField = new JTextField(20);
 			setCurrentSolar.add(solarIndexField);
-			JButton setSolarIndex = new JButton("Set");
+			JButton setSolarIndex = new JButton("Set Index");
+			JButton setSolarFocus = new JButton("Set Focus");
 			setSolarIndex.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
@@ -110,13 +104,9 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 						sum += charNum;
 					}
 					int intSum = 0;
-					if(sum.length() > 19) {
-						solarLabel.setText("Seed: " + 0 + " (input is too long!)");
-					} else {
+					if(!(sum.length() > 19)) {
 						intSum = Integer.valueOf(sum);
-						solarLabel.setText("Seed: " + sum);
 					}
-					
 					ESContext oldContext = ExoRuntime.INSTANCE.getContext();
 					ExoRuntime.INSTANCE.setContext(new ESContext(oldContext.getSeed(), intSum));
 					containerSolar.repaint();
@@ -127,7 +117,8 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			frame.add(containerSolar);
 
 			containerSim.setLayout(new BoxLayout(containerSim, BoxLayout.Y_AXIS));
-		    TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Settings");
+			int lastSize = (int) containerSim.getPreferredSize().getHeight();
+			TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Settings");
 		    containerSimBorder .setTitleJustification(TitledBorder.LEFT);
 		    containerSim.setBorder(containerSimBorder);
 			JPanel stepSim = new JPanel();
@@ -137,21 +128,24 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			step.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					Timer timer = new Timer(120, this);
+					Timer timer = new Timer(10, new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							ExoRuntime.INSTANCE.getContext().setStepInterp(0.005f);
+							ExoRuntime.INSTANCE.getContext().step();
+							stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSteps());
+							stepLabel.repaint();							
+						}
+					});
 					timer.start();
-					
-					ExoRuntime.INSTANCE.getContext().setStepInterp(0.00005f);
-					ExoRuntime.INSTANCE.getContext().step();
-					stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSteps());
-					stepLabel.repaint();
 				}
 			});
 			stepSim.add(step);
 			containerSim.add(stepSim);
+			containerSim.setPreferredSize(new Dimension((int) containerSeed.getPreferredSize().getWidth(), (int) containerSim.getSize().getHeight()));
 			frame.add(containerSim);
 		}
 		frame.setVisible(true);
-		containerSim.setPreferredSize(new Dimension(containerSeed.getWidth(), containerSeed.getHeight()));
 		frame.repaint();
 	}
 	

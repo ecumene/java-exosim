@@ -16,6 +16,7 @@ import ecumene.exo.sim.map.real.RPoint;
 public class JExoSolarRenderer extends JRMapRenderer implements IESContextListener {
 
 	private ExoSolarMap map;
+	private int follow;
 	
 	public JExoSolarRenderer(ExoSolarMap map) {
 		super(new RMap());
@@ -31,6 +32,9 @@ public class JExoSolarRenderer extends JRMapRenderer implements IESContextListen
 				if(e.getKeyCode() == KeyEvent.VK_V){
 					useNames = !useNames; // Use names in solar renderer means to toggle disp. vector rendering
 				}
+				if(e.getKeyCode() == KeyEvent.VK_F){
+					
+				}
 			}
 		});
 	}
@@ -42,7 +46,8 @@ public class JExoSolarRenderer extends JRMapRenderer implements IESContextListen
 		Graphics2D graphics = (Graphics2D) g;
 		graphics.drawString("Solar Abstraction", 0, 10);
 		graphics.drawString("Press V to toggle vectors", 0, 20);
-		graphics.drawString("Artifact Count (+ sun): " + pMap.getMap().length, 0, 30);
+		graphics.drawString("Press F to follow object", 0, 30);
+		graphics.drawString("Artifact Count (+ sun): " + pMap.getMap().length, 0, 40);
 	}
 	
 	@Override
