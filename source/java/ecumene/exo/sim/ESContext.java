@@ -4,15 +4,18 @@ import ecumene.exo.ExoRuntime;
 
 public class ESContext {
 	private long  seed;
-	private float interp = 1f;
-	private int   indexSolar; // Selected Solar System (solarSeed = seed + indexSolar)
-	private int   solarSteps; // The steps for simulating the solar system (also represents global/local steps)
-	private int   solarFollow;// Index of the object to follow in 
+	private float   interp = 1f;
+	private int     indexSolar; // Selected Solar System (solarSeed = seed + indexSolar)
+	private int     solarSteps; // The steps for simulating the solar system (also represents global/local steps)
+	private int     solarFollow;// Index of the object to follow in 
+	public boolean running;
 	
 	public ESContext(long seed, int solar) {
-		this.seed = seed;
-		this.indexSolar = solar;
-		solarSteps = 0;
+		this.seed        = seed;
+		this.indexSolar  = solar;
+		this.interp      = 1;
+		this.solarFollow = -1;
+		solarSteps       = 0;
 	}
 	
 	public void setSolarFollow(int solarFollow){

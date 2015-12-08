@@ -52,7 +52,7 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			frame.setLayout(new FlowLayout());
 			
 			containerSeed.setLayout(new BoxLayout(containerSeed , BoxLayout.Y_AXIS));
-		    TitledBorder containerSeedBorder = BorderFactory.createTitledBorder("Galaxy Config");
+		    TitledBorder containerSeedBorder = BorderFactory.createTitledBorder("Galaxy Configuration");
 		    containerSeedBorder.setTitleJustification(TitledBorder.LEFT);
 		    containerSeed.setBorder(containerSeedBorder);
 			containerSeed.add(currentSeed);
@@ -83,13 +83,14 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 			frame.add(containerSeed);
 			
 			containerSolar.setLayout(new BoxLayout(containerSolar , BoxLayout.Y_AXIS));
-			containerSolar.setPreferredSize(containerSeed.getPreferredSize());
-		    TitledBorder containerSolarBorder = BorderFactory.createTitledBorder("Solar Config");
+		    TitledBorder containerSolarBorder = BorderFactory.createTitledBorder("Solar Configuration");
 		    containerSolarBorder.setTitleJustification(TitledBorder.LEFT);
 		    containerSolar.setBorder(containerSolarBorder);
 			containerSolar.add(currentSolar);
 			JPanel setCurrentSolar = new JPanel();
+			JPanel setCurrentFocus = new JPanel();
 			final JTextField solarIndexField = new JTextField(20);
+			final JTextField solarFocusField = new JTextField(20);
 			setCurrentSolar.add(solarIndexField);
 			JButton setSolarIndex = new JButton("Set Index");
 			JButton setSolarFocus = new JButton("Set Focus");
@@ -112,37 +113,49 @@ public class ExoRuntimeAnalyzer extends ExoRunnable {
 					containerSolar.repaint();
 				}
 			});
+			setSolarFocus.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					if(solarFocusField.getText().equals("")) ExoRuntime.INSTANCE.getContext().setSolarFollow(-1); // -1 points to nothing
+					else                                     ExoRuntime.INSTANCE.getContext().setSolarFollow(Integer.parseInt(solarFocusField.getText()));
+				}
+			});
 			setCurrentSolar.add(setSolarIndex);
-			containerSolar.add(setCurrentSolar);
+			setCurrentFocus.add(solarFocusField);
+			setCurrentFocus.add(setSolarFocus);
+			containerSolar.add(setCurrentSolar, 0);
+			containerSolar.add(setCurrentFocus, 1);
 			frame.add(containerSolar);
 
 			containerSim.setLayout(new BoxLayout(containerSim, BoxLayout.Y_AXIS));
-			TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Settings");
+			TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Configuration");
 		    containerSimBorder .setTitleJustification(TitledBorder.LEFT);
 		    containerSim.setBorder(containerSimBorder);
 			JPanel stepSim = new JPanel();
 		    containerSim.add(stepLabel);
 			containerSim.add(currentSim);
 			JButton step = new JButton("Step");
+			final Timer timer = new Timer(10, new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(ExoRuntime.INSTANCE.getContext().running){
+						ExoRuntime.INSTANCE.getContext().step();
+						stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSteps());
+						stepLabel.repaint();							
+					} // If running step, if not skip frame
+				}
+			});
 			step.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					Timer timer = new Timer(10, new ActionListener() {
-						@Override
-						public void actionPerformed(ActionEvent e) {
-							ExoRuntime.INSTANCE.getContext().setStepInterp(0.005f);
-							ExoRuntime.INSTANCE.getContext().step();
-							stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSteps());
-							stepLabel.repaint();							
-						}
-					});
-					timer.start();
+					ExoRuntime.INSTANCE.getContext().running = !ExoRuntime.INSTANCE.getContext().running; // Toggle running
 				}
 			});
 			stepSim.add(step);
 			containerSim.add(stepSim);
 			containerSim.setPreferredSize(new Dimension((int)containerSeed.getPreferredSize().getWidth(), 100));
 			frame.add(containerSim);
+			timer.start();
 		}
 		frame.setVisible(true);
 		frame.repaint();

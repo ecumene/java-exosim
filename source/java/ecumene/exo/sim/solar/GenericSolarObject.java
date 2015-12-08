@@ -1,4 +1,4 @@
-package ecumene.exo.sim.planet;
+package ecumene.exo.sim.solar;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -10,8 +10,6 @@ import org.joml.Vector2f;
 import ecumene.exo.ExoRuntime;
 import ecumene.exo.sim.map.real.RObject;
 import ecumene.exo.sim.map.real.RPoint;
-import ecumene.exo.sim.solar.ESDisplacement;
-import ecumene.exo.sim.solar.IExoSolarObject;
 
 public class GenericSolarObject extends RObject implements IExoSolarObject {
 

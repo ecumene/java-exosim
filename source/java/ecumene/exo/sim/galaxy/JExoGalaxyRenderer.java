@@ -64,7 +64,7 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 			}
 		});
 	}
-	
+		
 	public RMap getRMap(){
 		return pMap;
 	}
@@ -74,9 +74,8 @@ public class JExoGalaxyRenderer extends JRMapRenderer implements IESContextListe
 	}
 	
 	@Override
-	protected void paintComponent(Graphics g) {		
+	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
 		Graphics2D graphics = (Graphics2D) g;
 		graphics.drawString("Galactic Abstraction", 0, 10);
 		graphics.drawString("Press N to toggle names", 0, 20);

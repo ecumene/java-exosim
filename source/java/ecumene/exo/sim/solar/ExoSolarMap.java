@@ -10,7 +10,6 @@ import ecumene.exo.OpenSimplexNoise;
 import ecumene.exo.sim.map.real.RMap;
 import ecumene.exo.sim.map.real.RObject;
 import ecumene.exo.sim.map.real.RPoint;
-import ecumene.exo.sim.planet.GenericSolarObject;
 import ecumene.exo.sim.solar.orbit.ESDOrbit;
 
 public class ExoSolarMap extends RObject {
@@ -26,20 +25,17 @@ public class ExoSolarMap extends RObject {
 		
 		int size = (int) (noise.eval(0, 1) * 100) + 1; // Solar size = noise * max (max=10^1)
 		size = Math.abs(size);
-
-		GenericSolarObject sun = new GenericSolarObject(new Vector2f(100000, 0), new Vector2f(0, 0));
-		sun.mass = 109f;
 		
 		GenericSolarObject earth = new GenericSolarObject(new Vector2f(0, 0), new Vector2f(0, 0));
 		earth.mass = 0.1f;
 		
-		GenericSolarObject moon  = new GenericSolarObject(new Vector2f(0, ESDOrbit.getDistance(3f, 0.5f)), new Vector2f());
+		GenericSolarObject moon  = new GenericSolarObject(new Vector2f(0, ESDOrbit.getDistance(1f, 0.5f)), new Vector2f());
 		moon.mass = 0.1f * 0.25f;
-		moon.addDisplacement(new ESDOrbit("deltaV", new Color(0, 255, 0), moon, earth, (float)(10f)));
+		moon.addDisplacement(new ESDOrbit("deltaV", new Color(0, 255, 0), moon, earth, (float)(0.3f)));
 		
 		GenericSolarObject moon2  = new GenericSolarObject(new Vector2f(0, -3f), new Vector2f());
 		moon2.mass = 0.1f * 0.15f;
-		moon2.addDisplacement(new ESDOrbit("deltaV", new Color(0, 255, 0), moon2, earth, (float)(3f)));
+		moon2.addDisplacement(new ESDOrbit("deltaV", new Color(0, 255, 0), moon2, earth, (float)(0.3f)));
 
 		objects.add(earth); // Sun
 		objects.add(moon); // Sun
@@ -49,6 +45,10 @@ public class ExoSolarMap extends RObject {
 //			objects.add(new GenericSolarObject(new Vector2f((float)noise.eval(0, (i * 4) + 1),
 //					                                        (float)noise.eval(0, (i * 4) + 2)), new Vector2f(0, 0)));
 //		}
+	}
+	
+	public List<IExoSolarObject> getObjects(){
+		return objects;
 	}
 	
 	public RMap step(float interp){
