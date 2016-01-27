@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+compileJava {
+    sourceCompatibility = '1.8'
+}
+
+repositories {
+	mavenCentral();
+}
+
+dependencies {
+	compile 'commons-cli:commons-cli:1.3'
+}
+
+idea{
+    module{
+        inheritOutputDirs = false
+        outputDir = compileJava.destinationDir
+        testOutputDir = compileTestJava.destinationDir
+    }
+}
