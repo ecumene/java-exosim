@@ -32,6 +32,7 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 	private JPanel containerSim = new JPanel();
 
 	private Timer simStepper;
+	private int   simStepsPerItr = 1;
 	
 	@Override
 	public void init() throws Throwable {
@@ -87,6 +88,7 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 				containerSim.setLayout(new BoxLayout(containerSim, BoxLayout.Y_AXIS));
 				TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Configuration");
 				JSlider slider = new JSlider();
+				slider.setValue(100);
 				slider.addChangeListener(cl -> {
 					if(slider.getValueIsAdjusting()){
 						ExoRuntime.INSTANCE.getContext().setStepInterp((int) (slider.getValue()));
@@ -105,11 +107,16 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 					simStepper = new Timer(ExoRuntime.INSTANCE.getContext().getStepInterp(), new StepTimer());
 					simStepper.start();
 				});
-
+				SpinnerModel model = new SpinnerNumberModel(1, 1, 1000, 1);
+				JSpinner spinner = new JSpinner(model);
+				spinner.addChangeListener(ae -> {
+					simStepsPerItr = (int)spinner.getValue();
+				});
 				stepSim.add(step);
 				containerSim.add(stepSim);
-				containerSim.setPreferredSize(new Dimension((int) containerFocus.getPreferredSize().getWidth(), 100));
+				containerSim.setPreferredSize(new Dimension((int) containerFocus.getPreferredSize().getWidth(), 140));
 				containerSim.add(slider);
+				containerSim.add(spinner);
 				frame.add(containerSim);
 			}
 		}
@@ -120,9 +127,11 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			if (ExoRuntime.INSTANCE.getContext().running) {
-				ExoRuntime.INSTANCE.getContext().step();
-				stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSteps());
-				stepLabel.repaint();
+				for(int i = 0; i < simStepsPerItr; i++) {
+					ExoRuntime.INSTANCE.getContext().step();
+					stepLabel.setText("Current Step: " + ExoRuntime.INSTANCE.getContext().getSteps());
+					stepLabel.repaint();
+				}
 			} // If running step, if not skip frame
 		}
 	}

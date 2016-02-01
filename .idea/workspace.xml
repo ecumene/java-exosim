@@ -2,169 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="391fd7e7-2210-4d98-89a0-e21ad5eafd4b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/commons-cli-1.3.1-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/commons-cli-1.3.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/commons-cli-1.3.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/swingx-1.6.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/swingx-1.6.4/swingx-all-1.6.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/NOTICE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/RELEASE-NOTES.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/allclasses-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/allclasses-noframe.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/constant-values.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/deprecated-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/help-doc.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/index-all.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/AlreadySelectedException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/AmbiguousOptionException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/BasicParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/CommandLine.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/CommandLineParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/DefaultParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/GnuParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/HelpFormatter.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/MissingArgumentException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/MissingOptionException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/Option.Builder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/Option.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/OptionBuilder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/OptionGroup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/Options.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/ParseException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/Parser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/PatternOptionBuilder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/PosixParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/TypeHandler.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/UnrecognizedOptionException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/AlreadySelectedException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/AmbiguousOptionException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/BasicParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/CommandLine.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/CommandLineParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/DefaultParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/GnuParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/HelpFormatter.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/MissingArgumentException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/MissingOptionException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/Option.Builder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/Option.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/OptionBuilder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/OptionGroup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/Options.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/ParseException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/Parser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/PatternOptionBuilder.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/PosixParser.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/TypeHandler.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/class-use/UnrecognizedOptionException.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/package-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/package-tree.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/org/apache/commons/cli/package-use.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/overview-tree.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/package-list" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/serialized-form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/apache-cli-1.3.1/apidocs/stylesheet.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/AxisAngle4d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/AxisAngle4f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/FrustumCuller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/FrustumRayBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/GeometryUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Matrix3d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Matrix3f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Matrix4d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Matrix4f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/MatrixStack.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Quaterniond.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Quaternionf.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Vector2d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Vector2f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Vector3d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Vector3f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Vector4d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/Vector4f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/joml/org/joml/package.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/analyze/ExoRuntimeAnalyzer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/analyze/ExoRuntimeAnalyzerTag.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/runtime/ExoArgParse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/runtime/ExoRuntime.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/runtime/OpenSimplexNoise.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/runtime/UnClosableDecorator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/ISimContextListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/ISimStepListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/SimContext.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/SimGalaxyContext.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/SimPlanetContext.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/SimSolarContext.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/fluffy/FObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/fluffy/FRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/fluffy/FSystem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/galaxy/ExoGOrbiter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/galaxy/ExoGSingularity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/galaxy/ExoGalaxyGen.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/galaxy/ExoGalaxyMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/galaxy/IExoGalaxyObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/galaxy/IExoGalaxySource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/map/natural/NMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/map/natural/NObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/map/real/RMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/map/real/RPoint.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/planet/ESPlanetMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/solar/ExoSDisplacement.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/solar/ExoSolarMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/solar/ExoSolarObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/solar/IExoSDisplacement.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/solar/IExoSolarObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/ecumene/exo/sim/solar/orbit/ESDOrbit.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/AxisAngle4d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/AxisAngle4f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/FrustumCuller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/FrustumRayBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/GeometryUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Matrix3d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Matrix3f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Matrix4d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Matrix4f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/MatrixStack.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Quaterniond.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Quaternionf.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Vector2d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Vector2f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Vector3d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Vector3f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Vector4d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/Vector4f.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/sim/org/joml/package.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/IViewerTag.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/ViewerRunnable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/JRMViewer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/RMVPointRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/RMVRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/galaxy/JRMVGalaxyRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/galaxy/RMVGalaxyMapRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/galaxy/RMVGalaxyMapTag.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/galaxy/RMVGalaxyOrbiterRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/galaxy/RMVGalaxySingularityRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/solar/JRMVSolarRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/solar/RMVSolarMapRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/solar/RMVSolarMapTag.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/viewer/ecumene/exo/view/rmap/solar/RMVSolarObjectRenderer.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/log.log" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototyping" afterPath="$PROJECT_DIR$/prototyping" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/blue-thread.png" afterPath="$PROJECT_DIR$/resources/blue-thread.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/blue-thread.xcf" afterPath="$PROJECT_DIR$/resources/blue-thread.xcf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/logo.ico" afterPath="$PROJECT_DIR$/resources/logo.ico" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/logo.png" afterPath="$PROJECT_DIR$/resources/logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/logo.xcf" afterPath="$PROJECT_DIR$/resources/logo.xcf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/red-thread.png" afterPath="$PROJECT_DIR$/resources/red-thread.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/red-thread.xcf" afterPath="$PROJECT_DIR$/resources/red-thread.xcf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGOrbiter.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGOrbiter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGalaxyGen.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGalaxyGen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/JRMViewer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/JRMViewer.java" />
     </list>
     <ignored path="project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -192,47 +36,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="ExoRuntimeAnalyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.875">
+              <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+              <folding>
+                <element signature="e#5333#5334#0" expanded="true" />
+                <element signature="e#5355#5356#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ExoRuntime.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75">
-              <caret line="65" column="73" selection-start-line="65" selection-start-column="73" selection-end-line="65" selection-end-column="73" />
-              <folding>
-                <element signature="e#1493#1494#0" expanded="true" />
-                <element signature="e#1523#1524#0" expanded="true" />
-                <element signature="e#7009#7010#0" expanded="true" />
-                <element signature="e#7030#7031#0" expanded="true" />
-                <element signature="e#7364#7365#0" expanded="true" />
-                <element signature="e#7386#7387#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExoGOrbiter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGOrbiter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.125">
-              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-              <folding>
-                <element signature="e#1570#1571#0" expanded="true" />
-                <element signature="e#1588#1589#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimContext.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/SimContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-              <folding>
-                <element signature="e#598#599#0" expanded="true" />
-                <element signature="e#632#633#0" expanded="true" />
-                <element signature="e#1334#1335#0" expanded="true" />
-                <element signature="e#1354#1355#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.5067568">
+              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -509,10 +331,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/solar/orbit/ESDOrbit.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/SimContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGOrbiter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/JRMViewer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGalaxyGen.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGOrbiter.java" />
       </list>
     </option>
   </component>
@@ -547,8 +371,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -565,6 +389,216 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="galaxy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="runtime" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="analyze" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -816,29 +850,37 @@
     <frame x="1919" y="27" width="1922" height="1054" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17326203" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20833333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -864,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10135135">
           <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08108108">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08108108">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -896,7 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08108108">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,23 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08108108">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGalaxyMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08108108">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/JRMViewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08108108">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,7 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19067797">
           <caret line="16" column="103" selection-start-line="16" selection-start-column="103" selection-end-line="16" selection-end-column="103" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,53 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34745762">
           <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGalaxyGen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16216215">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="e#202#203#0" expanded="false" />
-            <element signature="e#243#244#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/SimContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1354#1355#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.9375">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding>
-            <element signature="e#4986#4987#0" expanded="false" />
-            <element signature="e#5008#5009#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGOrbiter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding>
-            <element signature="e#1570#1571#0" expanded="true" />
-            <element signature="e#1588#1589#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -998,7 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,7 +986,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,22 +993,84 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.084745765">
           <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGalaxyMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06651885">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/SimContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18243243">
+          <caret line="12" column="68" selection-start-line="12" selection-start-column="68" selection-end-line="12" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/map/real/RPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2635135">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.875">
+          <caret line="113" column="19" selection-start-line="113" selection-start-column="19" selection-end-line="113" selection-end-column="19" />
+          <folding>
+            <element signature="e#5333#5334#0" expanded="true" />
+            <element signature="e#5355#5356#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGSingularity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGOrbiter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24324325">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/galaxy/ExoGalaxyGen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61440676">
+          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/JRMViewer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.4391892">
+          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75">
-          <caret line="65" column="73" selection-start-line="65" selection-start-column="73" selection-end-line="65" selection-end-column="73" />
-          <folding>
-            <element signature="e#1493#1494#0" expanded="true" />
-            <element signature="e#1523#1524#0" expanded="true" />
-            <element signature="e#7009#7010#0" expanded="true" />
-            <element signature="e#7030#7031#0" expanded="true" />
-            <element signature="e#7364#7365#0" expanded="true" />
-            <element signature="e#7386#7387#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.5067568">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

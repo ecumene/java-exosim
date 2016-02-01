@@ -48,7 +48,7 @@ public class ExoRuntime implements Runnable{
 			}
 		};
 		
-		context = new SimContext(new ExoGalaxyGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 100, 2).getSource());
+		context = new SimContext(new ExoGalaxyGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 10000, 400).getSource());
 		
 		viewerDB = new IViewerTag[3];
 		viewerDB[0] = new ExoRuntimeAnalyzerTag();

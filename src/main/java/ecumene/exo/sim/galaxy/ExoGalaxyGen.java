@@ -22,11 +22,12 @@ public class ExoGalaxyGen {
 		ExoGOrbiter[] orbiters = new ExoGOrbiter[orbiterNum];
 		
 		for(int i = 0; i < orbiters.length; i++){
-			ExoGOrbiter orbiter = new ExoGOrbiter("Orbiter ");
+			float angle  =  (float)noise.eval(1, (i * 2) + 0) * 360f;
+			float radius = ((float)noise.eval(1, (i * 2) + 1) * size);
+			Vector2f position = new Vector2f(radius * (float)Math.cos(angle),
+					                         radius * (float)Math.sin(angle));
+			ExoGOrbiter orbiter = new ExoGOrbiter("Orbiter ", position);
 			orbiter.mass = (float) (noise.eval(0, i) * maxOrbiterMass) + minOrbiterMass; // y=mx+b ;)
-			Vector2f position = new Vector2f((float)noise.eval(1, (i * 2) + 0) * size, 
-					                         (float)noise.eval(1, (i * 2) + 1) * size);
-			orbiter.position = position;
 			orbiters[i] = orbiter;
 		}
 		

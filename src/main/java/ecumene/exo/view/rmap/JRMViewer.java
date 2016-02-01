@@ -37,7 +37,7 @@ public class JRMViewer extends JPanel {
 		addMouseWheelListener(new MouseWheelListener() {
 			@Override
 			public void mouseWheelMoved(MouseWheelEvent e) {
-				navigation.z += (float) e.getPreciseWheelRotation() * 10f;
+				navigation.z += (float) e.getPreciseWheelRotation() * -.2f;
 				repaint();
 			}
 		});
