@@ -22,7 +22,6 @@ import ecumene.exo.sim.map.real.RPoint;
 public class JRMViewer extends JPanel {
 	
 	protected RMap pMap;
-	protected boolean useNames = false;
 	public Vector3f navigation = new Vector3f(0, 0, 1);
 	private List<RMVPointRenderer> rendererList;
 	protected RMVPointRenderer pointRenderer;
@@ -46,9 +45,6 @@ public class JRMViewer extends JPanel {
 			@Override public void keyReleased(KeyEvent e) { }
 			@Override 
 			public void keyPressed(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_N){
-					useNames = !useNames;
-				}
 				if(e.getKeyCode() == KeyEvent.VK_UP){
 					navigation.y += 4;
 				}
@@ -119,12 +115,5 @@ public class JRMViewer extends JPanel {
 	public RMVPointRenderer getDefaultRPointRenderer(){
 		return this.pointRenderer;
 	}
-	
-	public void setUseNames(boolean b){
-		this.useNames = b;
-	}
-	
-	public boolean getUseNames(){
-		return useNames;
-	}
+
 }

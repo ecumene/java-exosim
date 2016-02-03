@@ -18,6 +18,8 @@ import ecumene.exo.view.rmap.JRMViewer;
 
 public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener {
 
+	protected boolean showMaterials = false;
+	protected boolean showVectors   = false;
 	private ExoSolarMap map;
 	private int follow;
 	
@@ -32,9 +34,9 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 			@Override public void keyTyped(KeyEvent e)    {}
 			@Override public void keyReleased(KeyEvent e) {}
 			@Override public void keyPressed(KeyEvent e)  {
-				if(e.getKeyCode() == KeyEvent.VK_V){
-					useNames = !useNames; // Use names in solar renderer means to toggle disp. vector rendering
-				}
+				if(e.getKeyCode() == KeyEvent.VK_V) showVectors = !showVectors;
+				if(e.getKeyCode() == KeyEvent.VK_M) showMaterials = !showMaterials;
+				System.out.println(showVectors);
 			}
 		});
 	}
@@ -45,10 +47,16 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
-		if(this.map != null){
+
+		if(this.pMap != null){
 			if(ExoRuntime.INSTANCE.getContext().getSolarSystem().getFollowing() > -1) this.follow = ExoRuntime.INSTANCE.getContext().getSolarSystem().getFollowing();
-			if(lastFollow != follow) this.followObject = map.getObjects().get(follow);
+			if(lastFollow != follow) {
+				try{
+					this.followObject = map.getObjects().get(follow);
+				}catch(IndexOutOfBoundsException e){
+					this.followObject = null;
+				}
+			}
 			
 			if(followObject != null){
 				Vector2f navPos = new Vector2f(followObject.getPosition());
@@ -60,8 +68,9 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 			
 			Graphics2D graphics = (Graphics2D) g;
 			graphics.drawString("Solar Abstraction", 0, 10);
-			graphics.drawString("Press V to toggle vectors", 0, 20);
-			graphics.drawString("Artifact Count (+ sun): " + pMap.getMap().length, 0, 30);
+			graphics.drawString("Press M to toggle materials", 0, 20);
+			graphics.drawString("Press V to toggle vectors", 0, 30);
+			graphics.drawString("Artifact Count: " + pMap.getMap().length, 0, 40);
 			
 			lastFollow = follow; // Update last frame follow index
 		}
@@ -83,6 +92,14 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 
 	public void setSolarMap(ExoSolarMap solarMap) {
 		this.map = solarMap;
+	}
+
+	public boolean getShowMaterials(){
+		return showMaterials;
+	}
+
+	public boolean getShowVectors(){
+		return showVectors;
 	}
 	
 }

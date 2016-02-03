@@ -25,7 +25,7 @@ public class RMVGalaxyOrbiterRenderer extends RMVPointRenderer {
 				graphics.setColor(new Color(255, 128, 128));
 				graphics.drawLine((int) screenPos.x - 3, (int) screenPos.y,     (int) screenPos.x + 3, (int) screenPos.y);
 				graphics.drawLine((int) screenPos.x,     (int) screenPos.y - 3, (int) screenPos.x,     (int) screenPos.y + 3);
-				if(parent.getUseNames()) graphics.drawString(point.getName(id), screenPos.x + 10, screenPos.y  + 3);
+				graphics.drawString(point.getName(id), screenPos.x + 10, screenPos.y  + 3);
 			} graphics.setColor(oldColor); // pop color
 		}
 	}

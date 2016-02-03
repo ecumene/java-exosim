@@ -4,7 +4,6 @@ import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.map.real.RPoint;
 import org.joml.Vector2f;
 
-import javax.xml.bind.util.ValidationEventCollector;
 import java.util.Random;
 
 public class ExoGOrbiter extends RPoint implements IExoGalaxyObject {
@@ -38,8 +37,8 @@ public class ExoGOrbiter extends RPoint implements IExoGalaxyObject {
 		Vector2f distance = new Vector2f(position).sub(new Vector2f(object2pos)).negate();
 		float gravity = ((6.67f * (float)Math.pow(10, -6)) * mass * object2mass) / (float) Math.pow(distance.length(), 2);
 		distance.mul(gravity);
-		distance.x /= mass; // Force to velocity
-		distance.y /= mass; // Force to velocity
+		distance.x /= mass;
+		distance.y /= mass;
 
 		return distance;
 	}

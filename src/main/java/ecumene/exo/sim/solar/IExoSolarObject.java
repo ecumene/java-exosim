@@ -9,10 +9,8 @@ import ecumene.exo.sim.map.real.RPoint;
 public interface IExoSolarObject {
 	public float getMass();
 	
-	public Vector2f             getVelocity();
-	public Vector2f             getLastGravity();
-	public Vector2f             getPosition();
-	public List<ExoSDisplacement> getDisplacements();
-	
+	public Vector2f getVelocity();
+	public Vector2f getPosition();
+
 	public RPoint step(List<IExoSolarObject> objects);
 }

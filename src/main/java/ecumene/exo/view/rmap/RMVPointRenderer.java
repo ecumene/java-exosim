@@ -19,7 +19,5 @@ public class RMVPointRenderer {
 		graphics.setColor(new Color(0, 255, 0));
 		graphics.drawLine((int) (screenPos.x), (int) (screenPos.y - 2), (int) (screenPos.x), (int) (screenPos.y + 2));
 		graphics.drawLine((int) (screenPos.x + 2), (int) (screenPos.y), (int) (screenPos.x - 2), (int) (screenPos.y));
-		
-		if(parent.useNames) graphics.drawString(point.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
 	}
 }

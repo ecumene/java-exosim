@@ -11,18 +11,19 @@ import java.util.concurrent.Executors;
 
 import javax.swing.JFrame;
 
+import ecumene.exo.sim.galaxy.ExoGalaxyMap;
+import ecumene.exo.sim.galaxy.gen.ExoGalaxyMapGen;
+import ecumene.exo.sim.solar.gen.ExoSolarMapGen;
+import ecumene.exo.sim.solar.ExoSolarMap;
 import org.apache.commons.cli.ParseException;
 
 import ecumene.exo.analyze.ExoRuntimeAnalyzerTag;
 import ecumene.exo.sim.SimContext;
-import ecumene.exo.sim.galaxy.ExoGOrbiter;
-import ecumene.exo.sim.galaxy.ExoGSingularity;
-import ecumene.exo.sim.galaxy.ExoGalaxyGen;
-import ecumene.exo.sim.galaxy.ExoGalaxyMap;
 import ecumene.exo.view.IViewerTag;
 import ecumene.exo.view.ViewerRunnable;
 import ecumene.exo.view.rmap.galaxy.RMVGalaxyMapTag;
 import ecumene.exo.view.rmap.solar.RMVSolarMapTag;
+import org.joml.Vector2f;
 
 public class ExoRuntime implements Runnable{
 	
@@ -47,8 +48,12 @@ public class ExoRuntime implements Runnable{
 				e.printStackTrace();
 			}
 		};
-		
-		context = new SimContext(new ExoGalaxyGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 10000, 400).getSource());
+
+		ExoGalaxyMap galaxy = new ExoGalaxyMapGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 100, 400).getSource();
+		ExoSolarMap  solar  = new ExoSolarMapGen(System.currentTimeMillis()).genCentralOrbiters(8, 10,
+				                                                                                 new Vector2f(0.001f, 0.01f),
+				                                                                                 new Vector2f(-1000, 1000)).getSource();
+		context = new SimContext(galaxy, solar);
 		
 		viewerDB = new IViewerTag[3];
 		viewerDB[0] = new ExoRuntimeAnalyzerTag();

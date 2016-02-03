@@ -1,6 +1,7 @@
 package ecumene.exo.sim.solar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.joml.Vector2f;
@@ -10,14 +11,15 @@ import ecumene.exo.sim.map.real.RPoint;
 
 public class ExoSolarObject extends RPoint implements IExoSolarObject {
 
-	protected Vector2f velocity = new Vector2f(), gravity = new Vector2f();
-	protected List<ExoSDisplacement> displacements = new ArrayList<ExoSDisplacement>();
-	public float mass = 5f;
+	protected Vector2f force = new Vector2f(), gravity = new Vector2f();
+	public float mass = 10f;
+	public HashMap<String, Double> materials;
 	
 	public ExoSolarObject(Vector2f position, Vector2f startVelocity){
 		super("Solar Object", position);
 		this.position = position;
-		this.velocity = startVelocity;
+		this.force = startVelocity;
+		materials = new HashMap<String, Double>();
 	}
 	
 	@Override
@@ -27,10 +29,7 @@ public class ExoSolarObject extends RPoint implements IExoSolarObject {
 
 	@Override
 	public Vector2f getVelocity() {
-		for(int i = 0; i < displacements.size(); i++)          // Iterator
-			velocity = velocity.add(displacements.get(i).disp);// Summation of ES-Displacements
-		
-		return velocity;
+		return force;
 	}
 
 	@Override
@@ -40,61 +39,38 @@ public class ExoSolarObject extends RPoint implements IExoSolarObject {
 
 	@Override
 	public RPoint step(List<IExoSolarObject> objects) {
-		for(int i = 0; i < objects.size(); i++) 
-		    if(objects.get(i) != this){
-    		    if(((ExoSolarObject) objects.get(i)).collides(this)){
-	    		    if(!(objects.get(i).getMass() > getMass()))
-	    		    {
-						this.mass += objects.get(i).getMass();
-    		    		float currentMag = getVelocity().length();
-    		    		this.velocity.normalize();
-    		    		this.velocity.mul(currentMag - objects.get(i).getVelocity().length() * (objects.get(i).getMass() / getMass()));
-						objects.remove(i);
-    		    	}
-    		    }
-		    }
-	    for(ExoSDisplacement displacement : displacements) displacement.step(objects);
+		for(int i = 0; i < objects.size(); i++) {
+			if (!objects.get(i).equals(  this )) {
+				IExoSolarObject object2 = objects.get(i);
+				force.add(calcGravity(object2.getPosition(), object2.getMass(),
+						position, mass));
 
-		this.position = new Vector2f(position);
-		this.velocity = new Vector2f(getVelocity());
-		this.velocity.add(this.calcGravity(objects, position, getMass()));
-		this.position.add(velocity);
+				if (((ExoSolarObject) objects.get(i)).collides(this)) {
+					if (!(objects.get(i).getMass() > getMass())) {
+						this.mass += objects.get(i).getMass();
+						float currentMag = getVelocity().length();
+						this.force.normalize();
+						this.force.mul(currentMag - objects.get(i).getVelocity().length() * (objects.get(i).getMass() / getMass()));
+						objects.remove(i);
+					}
+				}
+			}
+		}
+		Vector2f velocity = new Vector2f(force);
+		velocity.mul(1/mass);
+		position.add(force);
 		return this;
 	}
 
-	@Override
-	public List<ExoSDisplacement> getDisplacements() {
-		return displacements;
-	}
-	
-	public void addDisplacement(ExoSDisplacement displacement){
-		displacements.add(displacement);
-	}
-	
-	public void removeDisplacement(ExoSDisplacement displacement){
-		displacements.remove(displacement);
-	}
-	
-	public Vector2f getLastGravity(){
-		return gravity;
+	private Vector2f calcGravity(Vector2f object2pos, float object2mass, Vector2f position, float mass) {
+		Vector2f distance = new Vector2f(position).sub(new Vector2f(object2pos)).negate();
+		float gravity = ((6.67f * (float)Math.pow(10, -6)) * mass * object2mass) / (float) Math.pow(distance.length(), 2);
+		gravity /= mass;
+		distance.mul(gravity);
+
+		return distance;
 	}
 
-	public Vector2f calcGravity(List<IExoSolarObject> objects, Vector2f position, float mass) {
-		Vector2f vector = new Vector2f();
-		for(int i = 0; i < objects.size(); i++){
-			if(objects.get(i) == this) continue;
-			if(objects.get(i) == null) continue;
-			Vector2f distance = new Vector2f(position).sub(new Vector2f(objects.get(i).getPosition())).negate();
-			float gravity = ((6.67f) * mass * objects.get(i).getMass()) / (float) Math.pow(distance.length(), 2);
-			distance.mul(gravity * ExoRuntime.INSTANCE.getContext().getStepInterp());
-			distance.x /= mass;
-			distance.y /= mass;
-			vector.add(distance);
-		}
-		
-		return vector;
-	}
-	
 	public boolean collides(IExoSolarObject object2){
 		float xDif = getPosition().x - object2.getPosition().x;
 		float yDif = getPosition().y - object2.getPosition().y;
@@ -103,6 +79,26 @@ public class ExoSolarObject extends RPoint implements IExoSolarObject {
 		
 	@Override
 	public String getName(int id) {
-		return position.toString();
+		return "Object: " + id;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		ExoSolarObject that = (ExoSolarObject) o;
+
+		if (Float.compare(that.mass, mass) != 0) return false;
+		if (force != null ? !force.equals(that.force) : that.force != null) return false;
+		return gravity != null ? gravity.equals(that.gravity) : that.gravity == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = force != null ? force.hashCode() : 0;
+		result = 31 * result + (gravity != null ? gravity.hashCode() : 0);
+		result = 31 * result + (mass != +0.0f ? Float.floatToIntBits(mass) : 0);
+		return result;
 	}
 }

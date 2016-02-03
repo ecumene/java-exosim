@@ -1,5 +1,7 @@
 package ecumene.exo.sim.galaxy;
 
+import ecumene.exo.sim.galaxy.ExoGOrbiter;
+import ecumene.exo.sim.galaxy.ExoGSingularity;
 import ecumene.exo.sim.map.real.RMap;
 import ecumene.exo.sim.map.real.RPoint;
 
@@ -9,7 +11,7 @@ import java.util.List;
 
 public class ExoGalaxyMap {
 	
-	public ExoGSingularity   singularity;
+	public ExoGSingularity singularity;
 	public List<ExoGOrbiter> orbiters;
 	
 	public ExoGalaxyMap(ExoGSingularity singularity, ExoGOrbiter ... orbiters) {

@@ -91,8 +91,7 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 				slider.setValue(100);
 				slider.addChangeListener(cl -> {
 					if(slider.getValueIsAdjusting()){
-						ExoRuntime.INSTANCE.getContext().setStepInterp((int) (slider.getValue()));
-						System.out.println((int) (slider.getValue()));
+						ExoRuntime.INSTANCE.getContext().setStepInterp((int) (slider.getValue()/100)*1000);
 					}
 				});
 				containerSimBorder.setTitleJustification(TitledBorder.LEFT);
@@ -110,7 +109,7 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 				SpinnerModel model = new SpinnerNumberModel(1, 1, 1000, 1);
 				JSpinner spinner = new JSpinner(model);
 				spinner.addChangeListener(ae -> {
-					simStepsPerItr = (int)spinner.getValue();
+					simStepsPerItr = (int) spinner.getValue();
 				});
 				stepSim.add(step);
 				containerSim.add(stepSim);

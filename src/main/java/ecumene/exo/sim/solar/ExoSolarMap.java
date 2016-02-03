@@ -9,15 +9,19 @@ import org.joml.Vector2f;
 import ecumene.exo.runtime.OpenSimplexNoise;
 import ecumene.exo.sim.map.real.RMap;
 import ecumene.exo.sim.map.real.RPoint;
-import ecumene.exo.sim.solar.orbit.ESDOrbit;
 
 public class ExoSolarMap {
-	private RMap solarSystem;
+	private ExoSolarObject        central;
+	private RMap                  solarSystem;
 	private List<IExoSolarObject> objects;
-	public static float G = 6.67f; // Really 6.67x10^-11
+	public static float           G = 6.67f; // Really 6.67x10^-11
 	
 	public ExoSolarMap() { 
 		objects = new ArrayList<IExoSolarObject>();
+	}
+
+	public ExoSolarMap(List<IExoSolarObject> objects) {
+		this.objects = objects;
 	}
 	
 	public List<IExoSolarObject> getObjects(){

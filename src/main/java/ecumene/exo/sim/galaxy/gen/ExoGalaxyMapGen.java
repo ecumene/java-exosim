@@ -1,14 +1,17 @@
-package ecumene.exo.sim.galaxy;
+package ecumene.exo.sim.galaxy.gen;
 
+import ecumene.exo.sim.galaxy.ExoGOrbiter;
+import ecumene.exo.sim.galaxy.ExoGSingularity;
+import ecumene.exo.sim.galaxy.ExoGalaxyMap;
 import org.joml.Vector2f;
 
 import ecumene.exo.runtime.OpenSimplexNoise;
 
-public class ExoGalaxyGen {
+public class ExoGalaxyMapGen {
 	
 	private OpenSimplexNoise noise;
 	
-	public ExoGalaxyGen(long seed){
+	public ExoGalaxyMapGen(long seed){
 		noise = new OpenSimplexNoise(seed);
 	}
 	
@@ -16,8 +19,8 @@ public class ExoGalaxyGen {
 		return noise;
 	}
 	
-	public IExoGalaxySource genGalaxy(float singularityMass, float maxOrbiterMass, float minOrbiterMass,
-			                          int orbiterNum,        int size){
+	public IExoGalaxyMapSource genGalaxy(float singularityMass, float maxOrbiterMass, float minOrbiterMass,
+										 int orbiterNum, int size){
 		ExoGSingularity singularity = new ExoGSingularity("Singularity", singularityMass);
 		ExoGOrbiter[] orbiters = new ExoGOrbiter[orbiterNum];
 		
@@ -33,7 +36,7 @@ public class ExoGalaxyGen {
 		
 		ExoGalaxyMap map = new ExoGalaxyMap(singularity, orbiters);
 		
-		return new IExoGalaxySource() {
+		return new IExoGalaxyMapSource() {
 			@Override
 			public ExoGalaxyMap getSource() {
 				return map;

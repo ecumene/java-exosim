@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 import org.joml.Vector2f;
 
 import ecumene.exo.sim.map.real.RPoint;
-import ecumene.exo.sim.solar.ExoSDisplacement;
 import ecumene.exo.sim.solar.IExoSolarObject;
 import ecumene.exo.view.rmap.RMVPointRenderer;
 
@@ -30,30 +29,31 @@ public class RMVSolarObjectRenderer extends RMVPointRenderer {
 				graphics.fillOval((int) (screenPos.x - (massDiam / 2)), (int) (screenPos.y - (massDiam / 2)), 
 				                  (int) (massDiam),                     (int) (massDiam));
 				graphics.setColor(new Color(255, 255, 255));
-				if(!parent.getUseNames()) graphics.drawString(point.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
+				graphics.drawString(point.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
 				
-				if(parent.getUseNames()){
-					for(int i = 0; i < ((IExoSolarObject) object).getDisplacements().size(); i++){
-						renderDisplacement(((IExoSolarObject) object).getDisplacements().get(i), graphics, screenPos);
-					}
+				if(parent.getShowVectors()){
 					Vector2f finalVelocity = new Vector2f(((IExoSolarObject) object).getVelocity());
-					finalVelocity.add(((IExoSolarObject) object).getLastGravity());
-					renderDisplacement(new ExoSDisplacement(finalVelocity, "^V", new Color(0, 255, 0)), graphics, screenPos);
+					Color oldOldColor = graphics.getColor(); { // push color
+						finalVelocity.x *= parent.navigation.z;
+						finalVelocity.y *= -parent.navigation.z;
+						finalVelocity = finalVelocity.add(screenPos);
+						graphics.setColor(new Color(64, 64, 255));
+						graphics.drawLine((int) (screenPos.x),     (int) (screenPos.y),
+								          (int) (finalVelocity.x), (int) (finalVelocity.y));
+					} graphics.setColor(oldOldColor); // pop color
+				}
+				if(parent.getShowMaterials()){
+					Vector2f finalVelocity = new Vector2f(((IExoSolarObject) object).getVelocity());
+					Color oldOldColor = graphics.getColor(); { // push color
+						finalVelocity.x *= parent.navigation.z;
+						finalVelocity.y *= -parent.navigation.z;
+						finalVelocity = finalVelocity.add(screenPos);
+						graphics.setColor(new Color(64, 64, 255));
+						graphics.drawLine((int) (screenPos.x),     (int) (screenPos.y),
+								(int) (finalVelocity.x), (int) (finalVelocity.y));
+					} graphics.setColor(oldOldColor); // pop color
 				}
 			}
-		} graphics.setColor(oldColor); // pop color
-	}
-	
-	public void renderDisplacement(ExoSDisplacement displacement, Graphics2D graphics, Vector2f screenSpace){
-		Color oldColor = graphics.getColor(); { // push color
-			Vector2f dV = new Vector2f(displacement.getDisplacement());
-			dV.x *= parent.navigation.z;
-			dV.y *= -parent.navigation.z;
-			dV = dV.add(screenSpace);
-			graphics.setColor(new Color(255, 255, 255));
-			graphics.drawString(displacement.getIdentifier(), dV.x + 6, dV.y + 4);
-			graphics.setColor(displacement.color);
-			graphics.drawLine((int) (screenSpace.x), (int) (screenSpace.y), (int) (dV.x), (int) (dV.y));
 		} graphics.setColor(oldColor); // pop color
 	}
 }
