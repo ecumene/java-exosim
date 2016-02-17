@@ -21,6 +21,16 @@ public class ExoSolarObject extends RPoint implements IExoSolarObject {
 		this.force = startVelocity;
 		materials = new HashMap<String, Double>();
 	}
+
+	public ExoSolarObject(Vector2f position, Vector2f startVelocity, float mass){
+		this(position, startVelocity);
+		this.mass = mass;
+	}
+
+	public ExoSolarObject(float mass){
+		this(new Vector2f(), new Vector2f());
+		this.mass = mass;
+	}
 	
 	@Override
 	public float getMass() {

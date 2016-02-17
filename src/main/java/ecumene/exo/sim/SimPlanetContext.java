@@ -1,22 +1,22 @@
 package ecumene.exo.sim;
 
-import ecumene.exo.sim.planet.ESPlanetMap;
+import ecumene.exo.sim.planet.ExoPlanetMap;
 
 public class SimPlanetContext {
 	
 	private SimSolarContext solarSystem;
-	private ESPlanetMap    planet;
+	private ExoPlanetMap map;
 	
-	public SimPlanetContext(SimSolarContext context, ESPlanetMap map) {
+	public SimPlanetContext(SimSolarContext context, ExoPlanetMap map) {
 		this.solarSystem = context;
-		this.planet      = map;
+		this.map      = map;
 	}
 	
 	public SimSolarContext getSolarSystem() {
 		return solarSystem;
 	}
 	
-	public ESPlanetMap getPlanet() {
-		return planet;
+	public ExoPlanetMap getMap() {
+		return map;
 	}
 }

@@ -16,7 +16,7 @@ public class RMVSolarMapRenderer extends RMVRenderer {
 	private ExceptionListener listener;
 	private ExoSolarMap       solarMap;
 	
-	public RMVSolarMapRenderer(int id, ExceptionListener exceptionListener, ExoSolarMap map, float interp, String[] args){
+	public RMVSolarMapRenderer(int id, ExceptionListener exceptionListener, ExoSolarMap map, String[] args){
 		super(id, exceptionListener, new RMap(), args);
 		solarMap = map;
 		this.args = args;
@@ -30,15 +30,14 @@ public class RMVSolarMapRenderer extends RMVRenderer {
 	
 	@Override
 	public void onContextChanged(SimContext context){
-		solarMap = new ExoSolarMap();
-		((JRMVSolarRenderer) renderer).setSolarMap(solarMap);
+		((JRMVSolarRenderer) renderer).setSolarMap(context.getSolarSystem().getSolarMap());
 		((JRMVSolarRenderer) renderer).onContextChanged(context);
 		frame.repaint();
 	}
 
 	@Override
-	public void onStep(SimContext context, int step, float interp) {
-		((JRMVSolarRenderer) renderer).onStep(interp);
+	public void onStep(SimContext context, int step) {
+		((JRMVSolarRenderer) renderer).onStep();
 		frame.repaint();
 	}
 }

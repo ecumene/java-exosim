@@ -13,7 +13,7 @@ public class ExoGOrbiter extends RPoint implements IExoGalaxyObject {
 
 	public ExoGOrbiter(String name, Vector2f position) {
 		super(name);
-		Random rand = new Random(); // I know I'm using the crappy random, sue me
+		Random rand = new Random(); // I know I'm using the crappy random, sue me >:(
 		this.position = position;
 		velocity = new Vector2f(position).perpendicular().normalize().mul(0.003f);
 		this.name = name;
@@ -24,6 +24,7 @@ public class ExoGOrbiter extends RPoint implements IExoGalaxyObject {
 		velocity.add(new Vector2f(calcGravity(ExoRuntime.INSTANCE.getContext().getGalaxy().getMap().singularity.getPosition(),
 				ExoRuntime.INSTANCE.getContext().getGalaxy().getMap().singularity.getMass(),
 				position, mass)));
+		velocity.mul((float) 1/4);
 		this.position.add(velocity);
 		if(Math.pow((this.position.x - map.getSingularity().position.x), 2) +
 				Math.pow((this.position.y - map.getSingularity().position.y), 2) <

@@ -28,7 +28,7 @@ public class ExoSolarMap {
 		return objects;
 	}
 	
-	public RMap step(float interp){
+	public RMap step(){
 		RPoint[] points = new RPoint[objects.size()];
 		
 		for(int i = 0; i < objects.size(); i++)

@@ -19,6 +19,6 @@ public class RMVSolarMapTag implements IViewerTag {
 	
 	@Override
 	public Runnable construct(int id, ExceptionListener listener, String[] args) throws Throwable {
-		return new RMVSolarMapRenderer(id, listener, ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap(), ExoRuntime.INSTANCE.getContext().getStepInterp(), args);
+		return new RMVSolarMapRenderer(id, listener, ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap(), args);
 	}
 }

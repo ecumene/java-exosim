@@ -13,8 +13,13 @@ import javax.swing.JFrame;
 
 import ecumene.exo.sim.galaxy.ExoGalaxyMap;
 import ecumene.exo.sim.galaxy.gen.ExoGalaxyMapGen;
+import ecumene.exo.sim.planet.ExoPlanet;
+import ecumene.exo.sim.planet.ExoPlanetMap;
+import ecumene.exo.sim.planet.ExoPlanetMoon;
+import ecumene.exo.sim.solar.ExoSolarObject;
 import ecumene.exo.sim.solar.gen.ExoSolarMapGen;
 import ecumene.exo.sim.solar.ExoSolarMap;
+import ecumene.exo.view.rmap.planet.RMVPlanetMapTag;
 import org.apache.commons.cli.ParseException;
 
 import ecumene.exo.analyze.ExoRuntimeAnalyzerTag;
@@ -50,15 +55,17 @@ public class ExoRuntime implements Runnable{
 		};
 
 		ExoGalaxyMap galaxy = new ExoGalaxyMapGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 100, 400).getSource();
-		ExoSolarMap  solar  = new ExoSolarMapGen(System.currentTimeMillis()).genCentralOrbiters(8, 10,
+		ExoSolarMap  solar  = new ExoSolarMapGen(System.currentTimeMillis()).genCentralOrbiters(4, 10,
 				                                                                                 new Vector2f(0.001f, 0.01f),
-				                                                                                 new Vector2f(-1000, 1000)).getSource();
-		context = new SimContext(galaxy, solar);
+				                                                                                 new Vector2f(-500, 500)).getSource();
+		ExoPlanetMap planet = new ExoPlanetMap(new ExoPlanet(new ExoSolarObject(10), new ExoPlanetMoon(10, 20, 10)));
+		context = new SimContext(galaxy, solar, planet);
 		
-		viewerDB = new IViewerTag[3];
+		viewerDB = new IViewerTag[4];
 		viewerDB[0] = new ExoRuntimeAnalyzerTag();
 		viewerDB[1] = new RMVGalaxyMapTag();
 		viewerDB[2] = new RMVSolarMapTag();
+		viewerDB[3] = new RMVPlanetMapTag();
 	}
 	
 	private boolean scanLine = false;
@@ -75,7 +82,7 @@ public class ExoRuntime implements Runnable{
 		} else if(upperLineWords[0].equals("RUN")){                 // Run
 			if(viewerDB.length == 0) System.out.println("Runables Empty...");
 			else {
-				if(upperLineWords.length == 1){                     // Run a runnable please! (upperLineWords[1] = runnable ID)
+				if(upperLineWords.length == 1){                     // Run a runnable (upperLineWords[1] = runnable ID)
 					System.out.println("Use: run [runnable] [args]");
 					System.out.println("---------RUNNABLES----------");
 					for(int i = 0; i < viewerDB.length; i++){      // Iterate all runnables
@@ -156,12 +163,11 @@ public class ExoRuntime implements Runnable{
 			viewers.get(i).onContextChanged(context);
 	}
 	
-	public void step(float interp){
+	public void step(){
 		for(int i = 0; i < viewers.size(); i++)
 			viewers.get(i)
 			.onStep(context, 
-					context.getSteps(),
-					interp);
+					context.getSteps());
 	}
 	
 	public IViewerTag[] getRunnables(){

@@ -2,11 +2,10 @@ package ecumene.exo.sim;
 
 import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.galaxy.ExoGalaxyMap;
-import ecumene.exo.sim.planet.ESPlanetMap;
+import ecumene.exo.sim.planet.ExoPlanetMap;
 import ecumene.exo.sim.solar.ExoSolarMap;
 
 public class SimContext {
-	private int interp = 1;
 	private int steps  = 0;
 	public boolean running;
 	
@@ -24,7 +23,7 @@ public class SimContext {
 		this(galaxyMap, solarMap, null);
 	}
 	
-	public SimContext(ExoGalaxyMap galaxyMap, ExoSolarMap solarMap, ESPlanetMap planetMap) {
+	public SimContext(ExoGalaxyMap galaxyMap, ExoSolarMap solarMap, ExoPlanetMap planetMap) {
 		galaxy = new SimGalaxyContext (this, galaxyMap);
 		solar  = new SimSolarContext  (galaxy, solarMap);
 		planet = new SimPlanetContext (solar, planetMap);
@@ -43,18 +42,10 @@ public class SimContext {
 	}
 	
 	public void step(){
-		ExoRuntime.INSTANCE.step(interp);
+		ExoRuntime.INSTANCE.step();
 		steps++;
 	}
-	
-	public void setStepInterp(int set){
-		interp = set;
-	}
-	
-	public int getStepInterp(){
-		return interp;
-	}
-	
+
 	public int getSteps() {
 		return steps;
 	}

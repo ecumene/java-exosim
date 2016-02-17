@@ -23,7 +23,7 @@ public class RMVGalaxyMapRenderer extends RMVRenderer {
 	public void onContextChanged(SimContext context) { }
 
 	@Override
-	public void onStep(SimContext context, int step, float interp) {
+	public void onStep(SimContext context, int step) {
 		this.pMap = context.getGalaxy().getMap().step();
 		((JRMVGalaxyRenderer) renderer).setRMap(pMap);
 		((JRMVGalaxyRenderer) renderer).onContextChanged(context);

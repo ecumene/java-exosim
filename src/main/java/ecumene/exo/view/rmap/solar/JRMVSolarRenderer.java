@@ -36,7 +36,6 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 			@Override public void keyPressed(KeyEvent e)  {
 				if(e.getKeyCode() == KeyEvent.VK_V) showVectors = !showVectors;
 				if(e.getKeyCode() == KeyEvent.VK_M) showMaterials = !showMaterials;
-				System.out.println(showVectors);
 			}
 		});
 	}
@@ -76,8 +75,8 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 		}
 	}
 	
-	public void onStep(float interp){
-		if(map != null) pMap = map.step(interp);
+	public void onStep(){
+		if(map != null) pMap = map.step();
 	}
 	
 	@Override

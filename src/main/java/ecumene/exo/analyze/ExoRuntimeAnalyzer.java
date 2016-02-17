@@ -88,12 +88,6 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 				containerSim.setLayout(new BoxLayout(containerSim, BoxLayout.Y_AXIS));
 				TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Configuration");
 				JSlider slider = new JSlider();
-				slider.setValue(100);
-				slider.addChangeListener(cl -> {
-					if(slider.getValueIsAdjusting()){
-						ExoRuntime.INSTANCE.getContext().setStepInterp((int) (slider.getValue()/100)*1000);
-					}
-				});
 				containerSimBorder.setTitleJustification(TitledBorder.LEFT);
 				containerSim.setBorder(containerSimBorder);
 				JPanel stepSim = new JPanel();
@@ -103,10 +97,10 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 				step.addActionListener(ae -> {
 					ExoRuntime.INSTANCE.getContext().running = !ExoRuntime.INSTANCE.getContext().running;
 					if(simStepper != null) simStepper.stop();
-					simStepper = new Timer(ExoRuntime.INSTANCE.getContext().getStepInterp(), new StepTimer());
+					simStepper = new Timer(60, new StepTimer());
 					simStepper.start();
 				});
-				SpinnerModel model = new SpinnerNumberModel(1, 1, 1000, 1);
+				SpinnerModel model = new SpinnerNumberModel(1, 1, 100000, 1);
 				JSpinner spinner = new JSpinner(model);
 				spinner.addChangeListener(ae -> {
 					simStepsPerItr = (int) spinner.getValue();
@@ -144,6 +138,6 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 	public void onContextChanged(SimContext context) {}
 
 	@Override
-	public void onStep(SimContext context, int step, float interp) {}
+	public void onStep(SimContext context, int step) {}
 	
 }
