@@ -21,8 +21,6 @@ public class RMVPlanetObjectRenderer extends RMVPointRenderer {
     @Override
     public void render(Graphics2D graphics, int id, RPoint point, Vector2f realPos, Vector2f navPos, Vector2f screenPos) {
             Color oldColor = graphics.getColor(); { // push color
-                float mass = 0;
-
                 graphics.setColor(new Color(255, 0, 0));
                 float massDiam = parent.getMap().getObjects().get(id).getMass() * parent.navigation.z;
                 graphics.fillOval((int) (screenPos.x - (massDiam / 2)), (int) (screenPos.y - (massDiam / 2)),

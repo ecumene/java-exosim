@@ -58,7 +58,7 @@ public class ExoRuntime implements Runnable{
 		ExoSolarMap  solar  = new ExoSolarMapGen(System.currentTimeMillis()).genCentralOrbiters(4, 10,
 				                                                                                 new Vector2f(0.001f, 0.01f),
 				                                                                                 new Vector2f(-500, 500)).getSource();
-		ExoPlanetMap planet = new ExoPlanetMap(new ExoPlanet(new ExoSolarObject(10), new ExoPlanetMoon(10, 20, 10)));
+		ExoPlanetMap planet = new ExoPlanetMap(new ExoPlanet(new ExoSolarObject(2), new ExoPlanetMoon(.5f, 100, 90, new Vector2f(0.05f, 0))).setTracked(0));
 		context = new SimContext(galaxy, solar, planet);
 		
 		viewerDB = new IViewerTag[4];

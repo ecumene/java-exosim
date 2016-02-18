@@ -1,7 +1,9 @@
 package ecumene.exo.sim.planet;
 
-/**
- * Created by ecumene on 18/02/16.
- */
-public class TrackingParameters {
+import java.awt.*;
+
+public class TrackingParameters { // ExoPlanetMoonTrackingParameters -> Wow that's a mouth full!!
+    private Color drawColor;
+    private int positionRecStepInterval;
+
 }

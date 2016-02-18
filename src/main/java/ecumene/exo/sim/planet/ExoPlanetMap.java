@@ -20,17 +20,20 @@ public class ExoPlanetMap {
 
 	public ExoPlanetMap(ExoPlanet planet) {
 		this();
-		this.objects.add(planet);
-		this.objects.addAll(planet.getMoonList());
+		setPlanet(planet);
+		for(int i = 0; i < planet.getMoonList().size(); i++){ // I know array.addAll(...) exists, but I need to set the parents also
+			this.objects.add(planet.getMoonList().get(i));
+			planet.getMoonList().get(i).setParent(planet);
+		}
 	}
 
 	public ExoPlanet getPlanet(){
 		return (ExoPlanet) objects.get(0);
 	}
 
-	@Deprecated
 	public void setPlanet(ExoPlanet planet){
-		objects.set(0, planet);
+		planet.onAddedTo(this);
+		objects.add(0, planet);
 	}
 
 	public List<IExoPlanetObject> getObjects(){
@@ -39,7 +42,7 @@ public class ExoPlanetMap {
 
 	public RMap step(){
 		RPoint[] points = new RPoint[((ExoPlanet) objects.get(0)).getMoonList().size() + 1]; // For all the moons + the planet
-		points[0] = ExoPlanet.getPoint();
+		points[0] = getPlanet().step();
 
 		for(int i = 0; i < ((ExoPlanet) objects.get(0)).getMoonList().size(); i++)
 			points[i + 1] = ((ExoPlanet) objects.get(0)).getMoonList().get(i).step();
