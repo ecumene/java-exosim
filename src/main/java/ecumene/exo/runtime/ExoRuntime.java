@@ -1,5 +1,6 @@
 package ecumene.exo.runtime;
 
+import java.awt.*;
 import java.beans.ExceptionListener;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import ecumene.exo.sim.galaxy.gen.ExoGalaxyMapGen;
 import ecumene.exo.sim.planet.ExoPlanet;
 import ecumene.exo.sim.planet.ExoPlanetMap;
 import ecumene.exo.sim.planet.ExoPlanetMoon;
+import ecumene.exo.sim.planet.TrackingParameters;
 import ecumene.exo.sim.solar.ExoSolarObject;
 import ecumene.exo.sim.solar.gen.ExoSolarMapGen;
 import ecumene.exo.sim.solar.ExoSolarMap;
@@ -50,7 +52,7 @@ public class ExoRuntime implements Runnable{
 		exceptionListener = new ExceptionListener() {
 			@Override
 			public void exceptionThrown(Exception e) {
-				e.printStackTrace();
+				System.out.println(); e.printStackTrace(); //New line + print st
 			}
 		};
 
@@ -58,7 +60,8 @@ public class ExoRuntime implements Runnable{
 		ExoSolarMap  solar  = new ExoSolarMapGen(System.currentTimeMillis()).genCentralOrbiters(4, 10,
 				                                                                                 new Vector2f(0.001f, 0.01f),
 				                                                                                 new Vector2f(-500, 500)).getSource();
-		ExoPlanetMap planet = new ExoPlanetMap(new ExoPlanet(new ExoSolarObject(2), new ExoPlanetMoon(.5f, 100, 90, new Vector2f(0.05f, 0))).setTracked(0));
+		ExoPlanetMap planet = new ExoPlanetMap(new ExoPlanet(new ExoSolarObject(2), new ExoPlanetMoon(.5f, 100, 90, new Vector2f(0.05f, 0)))
+				.setTracking(0, new TrackingParameters(new Color(255, 255, 255), 100, true)));
 		context = new SimContext(galaxy, solar, planet);
 		
 		viewerDB = new IViewerTag[4];

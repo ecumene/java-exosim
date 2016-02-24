@@ -4,9 +4,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Iterator;
+import java.util.Map;
 
 import com.sun.org.apache.xpath.internal.SourceTree;
+import ecumene.exo.sim.map.real.RPoint;
 import ecumene.exo.sim.planet.ExoPlanetMap;
+import ecumene.exo.sim.planet.ExoPlanetMoon;
+import ecumene.exo.sim.planet.TrackingParameters;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
@@ -27,6 +32,7 @@ public class JRMVPlanetRenderer extends JRMViewer implements ISimContextListener
     public JRMVPlanetRenderer(ExoPlanetMap map) {
         super(null);
         getRendererList().add(new RMVPlanetObjectRenderer(this));
+        getRendererList().add(new RMVPlanetMoonObjectRenderer(this));
         getRendererList().remove(getDefaultRPointRenderer());
 
         this.map = map;
@@ -37,7 +43,6 @@ public class JRMVPlanetRenderer extends JRMViewer implements ISimContextListener
             @Override public void keyPressed(KeyEvent e)  {
                 if(e.getKeyCode() == KeyEvent.VK_V) showVectors = !showVectors;
                 if(e.getKeyCode() == KeyEvent.VK_M) showMaterials = !showMaterials;
-                System.out.println(showVectors);
             }
         });
     }
@@ -52,6 +57,28 @@ public class JRMVPlanetRenderer extends JRMViewer implements ISimContextListener
             graphics.drawString("Press M to toggle materials", 0, 20);
             graphics.drawString("Press V to toggle vectors", 0, 30);
             graphics.drawString("Artifact Count: " + pMap.getMap().length, 0, 40);
+
+            Iterator it = map.getPlanet().getTrackedMoons().entrySet().iterator();
+            while(it.hasNext()){
+                Map.Entry pair = (Map.Entry)it.next();
+                TrackingParameters moonTrack = (TrackingParameters) pair.getValue();
+                for(int i = 0; i < moonTrack.getPreviousPositions().size(); i++) {
+                    RPoint point = moonTrack.getPreviousPositions().get(i);
+                    if(point != null) {
+                        Vector2f navPos = new Vector2f(point.position);
+                        Vector2f screenPos;
+                        navPos.x *= Math.abs(navigation.z);
+                        navPos.y *= -Math.abs(navigation.z);
+                        navPos.x += navigation.x;
+                        navPos.y += navigation.y;
+                        screenPos = new Vector2f(navPos);
+                        screenPos.x += (getWidth() / 2);
+                        screenPos.y += (getHeight() / 2);
+
+                        drawPoint((Graphics2D) g, -1, point, point.position, navPos, screenPos);
+                    }
+                }
+            }
         }
     }
 

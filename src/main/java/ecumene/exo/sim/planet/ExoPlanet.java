@@ -1,5 +1,6 @@
 package ecumene.exo.sim.planet;
 
+import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.map.real.RPoint;
 import ecumene.exo.sim.solar.IExoSolarObject;
 import org.joml.Vector2f;
@@ -11,45 +12,41 @@ public class ExoPlanet implements IExoPlanetObject {
 
     private ExoPlanetMap        parent; // For recording stats...
 
-    private IExoSolarObject     solarComponent;
-    private List<ExoPlanetMoon> moonList;
-
-    private List<ExoPlanetMoon>              trackedMoons;
-    private Map<ExoPlanetMoon, List<RPoint>> trackedPositions;
-    private Map<ExoPlanetMoon, Integer>      trackedMoonsRevolutions;
-    private Map<ExoPlanetMoon, Boolean>      lastTrackedMoonsRevolutions;
+    private IExoSolarObject                        solarComponent;
+    private List<ExoPlanetMoon>                    moonList;
+    private Map<ExoPlanetMoon, TrackingParameters> trackedMoons;
 
     public ExoPlanet(IExoSolarObject solarComponent, ExoPlanetMoon ... moons){ // Collections are so pretty!!!
         this.moonList       = Arrays.asList(moons); // Kinda sketch
         this.solarComponent = solarComponent;
 
-        this.trackedMoons                = new ArrayList<ExoPlanetMoon>();
-        this.trackedPositions            = new HashMap<ExoPlanetMoon, List<RPoint>>();
-        this.trackedMoonsRevolutions     = new HashMap<ExoPlanetMoon, Integer>();
-        this.lastTrackedMoonsRevolutions = new HashMap<ExoPlanetMoon, Boolean>();
+        this.trackedMoons = new HashMap<ExoPlanetMoon, TrackingParameters>();
     }
 
-    public ExoPlanet setTracked(int moonID){
-        trackedMoons.add(moonList.get(moonID));
+    public ExoPlanet setTracking(int moonID, TrackingParameters trackingParams){
+        trackedMoons.put(moonList.get(moonID), trackingParams);
         return this;
     }
 
     public void onAddedTo(ExoPlanetMap map){this.parent = map;}
 
-    private static RPoint POSITION= new RPoint("Planet", new Vector2f(0, 0));
+    private static RPoint POSITION = new RPoint("Planet", new Vector2f(0, 0));
 
     public RPoint step(){
-        for(int i = 0; i < trackedMoons.size(); i++){
-            ExoPlanetMoon trackedMoon = trackedMoons.get(i);
-            //if(!trackedPositions       .containsKey(trackedMoon)) trackedPositions       .put(trackedMoon, new ArrayList<RPoint>());
-            if(!trackedMoonsRevolutions    .containsKey(trackedMoon)) trackedMoonsRevolutions    .put(trackedMoon, new Integer(0));
-            if(!lastTrackedMoonsRevolutions.containsKey(trackedMoon)) lastTrackedMoonsRevolutions.put(trackedMoon, Boolean.TRUE);
-            // Check & track for revolutions
-            if(trackedMoon.hasTriggeredRevolution() && !lastTrackedMoonsRevolutions.get(trackedMoon)) // If triggered rev. and wasn't last step, it has gone round'
-                trackedMoonsRevolutions.put(trackedMoon, trackedMoonsRevolutions.get(trackedMoon).intValue() + 1);
-            lastTrackedMoonsRevolutions.put(trackedMoon, trackedMoon.hasTriggeredRevolution());
-            // Track for positions
-            trackedPositions.get(trackedMoon).add(trackedMoon.getLastPoint());
+        Iterator it = trackedMoons.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            ExoPlanetMoon      moon      = (ExoPlanetMoon)      pair.getKey();
+            TrackingParameters moonTrack = (TrackingParameters) pair.getValue();
+
+            boolean inRevThisFrame = moon.hasTriggeredRevolution();
+            if(inRevThisFrame && !moonTrack.wasLastFrameInRevolution()) {                                          // If triggered rev. and wasn't last step, it has gone round'
+                moonTrack.itrRevolutions();                                                                        // Add revolution
+                if(moonTrack.doesCleanup()) moonTrack.getPreviousPositions().clear();                              // If the moon cleans up every rev, clean the last pos
+            }
+            moonTrack.setLastFrameInRevolution(inRevThisFrame);                                                    // Set last revolution
+            if(ExoRuntime.INSTANCE.getContext().getSteps() % moonTrack.getPositionRecStepInterval()==0)            // Is this step divisible by the position integral? Save pos.
+                if(moon.getLastPoint() != null) moonTrack.addPosition(new RPoint("refPoint", moon.getLastPoint()));// "Damn that's some snazzy code" - Josh
         }
 
         return POSITION;
@@ -62,6 +59,10 @@ public class ExoPlanet implements IExoPlanetObject {
     @Override
     public Vector2f getPosition() {
         return step().getPosition();
+    }
+
+    public Map<ExoPlanetMoon, TrackingParameters> getTrackedMoons() {
+        return trackedMoons;
     }
 
     public void addMoon(ExoPlanetMoon moon){

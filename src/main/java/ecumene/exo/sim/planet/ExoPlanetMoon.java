@@ -26,7 +26,7 @@ public class ExoPlanetMoon implements IExoPlanetObject {
 
     public boolean hasTriggeredRevolution(){
         float angle = (float) Math.toDegrees(new Vector2f(1, 0).angle(point.position));
-        return (0 <= angle && angle <= 90);
+        return (-90 <= angle && angle <= 90);
     }
 
     public RPoint getLastPoint(){

@@ -5,6 +5,11 @@ import org.joml.Vector2f;
 public class RPoint {
 	public Vector2f position;
 	public String   name = "Default RObject";
+
+	public RPoint(String name, RPoint point) {
+		this.name = name;
+		this.position = new Vector2f(point.position);
+	}
 	
 	public RPoint(String name, Vector2f position) {
 		this.position = position;
