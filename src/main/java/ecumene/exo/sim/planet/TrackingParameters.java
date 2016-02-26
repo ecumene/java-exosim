@@ -1,15 +1,13 @@
 package ecumene.exo.sim.planet;
 
-import com.sun.xml.internal.ws.client.sei.ResponseBuilder;
 import ecumene.exo.sim.map.real.RPoint;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TrackingParameters { // ExoPlanetMoonTrackingParameters -> Wow that's a mouth full!!
 
-    private Color drawColor;
+    private String drawColor;
     private int revolutions, positionRecStepInterval; // revolutions: # of times, moon around the planet
                                                       // position rec. step interval: how many steps to wait before recording position
     private boolean lastFrameInRevolution;            // If the moon was in revolution last frame
@@ -17,7 +15,7 @@ public class TrackingParameters { // ExoPlanetMoonTrackingParameters -> Wow that
 
     private boolean cleanup;
 
-    public TrackingParameters(Color drawColor, int positionRecStepInterval, boolean cleanup){
+    public TrackingParameters(String drawColor, int positionRecStepInterval, boolean cleanup){
         this.drawColor               = drawColor;
         this.positionRecStepInterval = positionRecStepInterval;
         previousPositions            = new ArrayList<RPoint>();
@@ -33,6 +31,7 @@ public class TrackingParameters { // ExoPlanetMoonTrackingParameters -> Wow that
     }
 
     public void addPosition(RPoint point){
+        point.name = "refPoint " + drawColor;
         this.previousPositions.add(point);
     }
 
@@ -52,7 +51,7 @@ public class TrackingParameters { // ExoPlanetMoonTrackingParameters -> Wow that
         return revolutions;
     }
 
-    public Color getDrawColor() {
+    public String getDrawColor() {
         return drawColor;
     }
 
@@ -67,4 +66,5 @@ public class TrackingParameters { // ExoPlanetMoonTrackingParameters -> Wow that
     public int getPositionRecStepInterval() {
         return positionRecStepInterval;
     }
+
 }

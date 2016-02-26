@@ -1,6 +1,5 @@
 package ecumene.exo.runtime;
 
-import java.awt.*;
 import java.beans.ExceptionListener;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,7 +60,7 @@ public class ExoRuntime implements Runnable{
 				                                                                                 new Vector2f(0.001f, 0.01f),
 				                                                                                 new Vector2f(-500, 500)).getSource();
 		ExoPlanetMap planet = new ExoPlanetMap(new ExoPlanet(new ExoSolarObject(2), new ExoPlanetMoon(.5f, 100, 90, new Vector2f(0.05f, 0)))
-				.setTracking(0, new TrackingParameters(new Color(255, 255, 255), 100, true)));
+				.setTracking(0, new TrackingParameters("0xFF00FF", 10, false)));
 		context = new SimContext(galaxy, solar, planet);
 		
 		viewerDB = new IViewerTag[4];

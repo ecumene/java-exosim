@@ -1,9 +1,6 @@
 package ecumene.exo.view;
 
 import java.beans.ExceptionListener;
-import java.util.concurrent.Callable;
-
-import com.sun.corba.se.impl.presentation.rmi.ExceptionHandler;
 
 import ecumene.exo.sim.ISimContextListener;
 import ecumene.exo.sim.ISimStepListener;

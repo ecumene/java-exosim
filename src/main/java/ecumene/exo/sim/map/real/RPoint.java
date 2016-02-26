@@ -24,6 +24,10 @@ public class RPoint {
 	public Vector2f getPosition(){
 		return position;
 	}
+
+	public void setName(String name){
+		this.name = name;
+	}
 	
 	public String getName(int id) {
 		return name;

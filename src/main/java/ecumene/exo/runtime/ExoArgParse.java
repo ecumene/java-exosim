@@ -5,13 +5,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.Options;
-
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+import org.apache.commons.cli.*;
 
 public class ExoArgParse {
 	private CommandLine cmd;          // Command line parser

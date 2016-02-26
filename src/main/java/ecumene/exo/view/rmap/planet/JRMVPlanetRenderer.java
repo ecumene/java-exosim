@@ -7,20 +7,13 @@ import java.awt.event.KeyListener;
 import java.util.Iterator;
 import java.util.Map;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import ecumene.exo.sim.map.real.RPoint;
 import ecumene.exo.sim.planet.ExoPlanetMap;
-import ecumene.exo.sim.planet.ExoPlanetMoon;
 import ecumene.exo.sim.planet.TrackingParameters;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 
-import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.ISimContextListener;
-import ecumene.exo.sim.map.real.RMap;
-import ecumene.exo.sim.solar.ExoSolarMap;
-import ecumene.exo.sim.solar.IExoSolarObject;
 import ecumene.exo.view.rmap.JRMViewer;
 
 public class JRMVPlanetRenderer extends JRMViewer implements ISimContextListener {
