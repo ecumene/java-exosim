@@ -7,11 +7,16 @@ compileJava {
 
 repositories {
 	mavenCentral();
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
 }
 
+project.ext.jomlVersion = "1.7.0"
 dependencies {
 	compile 'commons-cli:commons-cli:1.3'
     compile 'org.jdom:jdom:2.0.0'
+    compile "org.joml:joml:${jomlVersion}"
 }
 
 idea{
