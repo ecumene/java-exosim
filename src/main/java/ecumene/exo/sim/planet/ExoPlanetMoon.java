@@ -19,6 +19,8 @@ public class ExoPlanetMoon implements IExoPlanetObject {
 
     public RPoint step(){
         velocity.add(calcAccelGrav(planet));
+        for(ExoPlanetMoon otherMoon : planet.getMoonList())
+            if(otherMoon != this) velocity.add(calcAccelGrav(otherMoon));
         point.position = point.position.add(velocity);
         lastPoint = point;
         return point;
