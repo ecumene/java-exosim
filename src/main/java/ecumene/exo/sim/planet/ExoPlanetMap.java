@@ -1,7 +1,9 @@
 package ecumene.exo.sim.planet;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import ecumene.exo.runtime.OpenSimplexNoise;
 import ecumene.exo.sim.map.real.RMap;
@@ -49,5 +51,13 @@ public class ExoPlanetMap {
 
 		displayMap = new RMap(points);
 		return displayMap;
+	}
+
+	public void clearTrackedPositions(){
+		Iterator it = getPlanet().getTrackedMoons().entrySet().iterator();
+		while(it.hasNext()){
+			Map.Entry pair = (Map.Entry)it.next();
+			((TrackingParameters) pair.getValue()).getPreviousPositions().clear(); // Clears last positions
+		}
 	}
 }

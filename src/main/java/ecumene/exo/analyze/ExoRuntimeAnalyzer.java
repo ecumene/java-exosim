@@ -27,20 +27,26 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 	private JPanel currentSolar = new JPanel();
 	private JPanel containerSolar = new JPanel();
 
+	private JPanel currentPlanet = new JPanel();
+	private JPanel containerPlanet = new JPanel();
+
 	private JLabel stepLabel = new JLabel("Current Step: " + 0);
 	private JPanel currentSim = new JPanel();
 	private JPanel containerSim = new JPanel();
 
 	private Timer simStepper;
 	private int   simStepsPerItr = 1;
-	
+
+	private Dimension windowSize  = new Dimension(430, 720);
+	private Dimension sectionSize = new Dimension(10, 22); // displacements in jpanel from borders
+
 	@Override
 	public void init() throws Throwable {
 		frame = new JFrame("Runtime Analyzer");
 		frame.setVisible(false);
 		{
 			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			frame.setSize(430, 720);
+			frame.setSize(windowSize);
 			frame.setIconImage(ImageIO.read(new File("./resources/logo.png")));
 			frame.setLocationRelativeTo(null);
 			frame.setLayout(new FlowLayout());
@@ -84,13 +90,29 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 				frame.add(containerSolar);
 			}
 
+			{ // Solar Config
+				containerPlanet.setLayout(new GridBagLayout());
+				TitledBorder containerPlanetBorder = BorderFactory.createTitledBorder("Planet Configuration");
+				containerPlanetBorder.setTitleJustification(TitledBorder.LEFT);
+				containerPlanet.setBorder(containerPlanetBorder);
+				containerPlanet.add(currentPlanet);
+				JButton cleanupMoonTrackPos = new JButton("Clear Tracked Moons");
+				cleanupMoonTrackPos.addActionListener(ae -> {
+					ExoRuntime.INSTANCE.getContext().getPlanet().getMap().clearTrackedPositions();
+				});
+
+				containerPlanet.setPreferredSize(new Dimension((int) containerFocus.getPreferredSize().getWidth(), 60));
+				containerPlanet.add(cleanupMoonTrackPos, 0);
+				frame.add(containerPlanet);
+			}
+
 			{ // Simulation Config
 				containerSim.setLayout(new BoxLayout(containerSim, BoxLayout.Y_AXIS));
 				TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Configuration");
-				JSlider slider = new JSlider();
 				containerSimBorder.setTitleJustification(TitledBorder.LEFT);
 				containerSim.setBorder(containerSimBorder);
 				JPanel stepSim = new JPanel();
+				containerSim.add(new JSeparator());
 				containerSim.add(stepLabel);
 				containerSim.add(currentSim);
 				JButton step = new JButton("Toggle Step");
@@ -100,16 +122,21 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 					simStepper = new Timer(60, new StepTimer());
 					simStepper.start();
 				});
-				SpinnerModel model = new SpinnerNumberModel(1, 1, 100000, 1);
+				JLabel label = new JLabel("Target Sim. Steps per ms");
+				JLabel label2 = new JLabel("(Limited to 2^31-1)");
+				SpinnerModel model = new SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1);
 				JSpinner spinner = new JSpinner(model);
 				spinner.addChangeListener(ae -> {
 					simStepsPerItr = (int) spinner.getValue();
 				});
 				stepSim.add(step);
+				containerSim.add(new JSeparator());
 				containerSim.add(stepSim);
-				containerSim.setPreferredSize(new Dimension((int) containerFocus.getPreferredSize().getWidth(), 140));
-				containerSim.add(slider);
+				containerSim.add(new JSeparator());
+				containerSim.add(label);
+				containerSim.setPreferredSize(new Dimension((int) containerFocus.getPreferredSize().getWidth(), 150));
 				containerSim.add(spinner);
+				containerSim.add(label2);
 				frame.add(containerSim);
 			}
 		}
