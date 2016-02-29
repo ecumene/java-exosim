@@ -17,6 +17,7 @@ import ecumene.exo.sim.planet.ExoPlanet;
 import ecumene.exo.sim.planet.ExoPlanetMap;
 import ecumene.exo.sim.planet.ExoPlanetMoon;
 import ecumene.exo.sim.planet.TrackingParameters;
+import ecumene.exo.sim.planet.gen.ExoPlanetMapGen;
 import ecumene.exo.sim.solar.ExoSolarObject;
 import ecumene.exo.sim.solar.gen.ExoSolarMapGen;
 import ecumene.exo.sim.solar.ExoSolarMap;
@@ -55,14 +56,17 @@ public class ExoRuntime implements Runnable{
 			}
 		};
 
-		ExoGalaxyMap galaxy = new ExoGalaxyMapGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 100, 400).getSource();
-		ExoSolarMap  solar  = new ExoSolarMapGen(System.currentTimeMillis()).genCentralOrbiters(4, 10,
+		ExoGalaxyMap galaxy = new ExoGalaxyMapGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 100, 400).getSource();               // generating galaxy
+		ExoSolarMap  solar  = new ExoSolarMapGen(System.currentTimeMillis()).genCentralOrbiters(4, 10,                                //generating the solar system
 				                                                                                 new Vector2f(0.001f, 0.01f),
 				                                                                                 new Vector2f(-500, 500)).getSource();
-		ExoPlanetMap planet = new ExoPlanetMap(new ExoPlanet(new ExoSolarObject(2), new ExoPlanetMoon(.2f, 100, 90, new Vector2f(0.05f, 0)),
-																					new ExoPlanetMoon(.5f, 200, 0,  new Vector2f(0,    -0.15f)))
-				.setTracking(0, new TrackingParameters("0xFF00FF", 100, false))
-				.setTracking(1, new TrackingParameters("0xFFFF00", 100, false)));
+		ExoPlanetMap planet = new ExoPlanetMapGen(System.currentTimeMillis()).genExoPlanet(new ExoSolarObject(2),                                        // The solar object representing the planet
+				                                                                           2,                                                            // # of moons
+				                                                                           new Vector2f(0.5f, 1),                                        // minmax for moon mass
+				                                                                           new Vector2f(50, 200),                                        // minmax for moon diameter (r in polar coordinates)
+				                                                                           new Vector2f(0, 360),                                         // minmax for moon angle
+				                                                                           new Vector2f(-0.15f, 0.15f)).getSource();                     // minmax for moon initial velocity
+		planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, false)).setTracking(1, new TrackingParameters("0xFFFF00", 100, false));// tracking data for moons
 		context = new SimContext(galaxy, solar, planet);
 		
 		viewerDB = new IViewerTag[4];
