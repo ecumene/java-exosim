@@ -2,11 +2,9 @@ package ecumene.exo.view.rmap.planet;
 
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.map.real.RMap;
-import ecumene.exo.sim.planet.ExoPlanetMap;
-import ecumene.exo.sim.solar.ExoSolarMap;
+import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
 import ecumene.exo.view.rmap.JRMViewer;
 import ecumene.exo.view.rmap.RMVRenderer;
-import ecumene.exo.view.rmap.solar.JRMVSolarRenderer;
 
 import java.beans.ExceptionListener;
 

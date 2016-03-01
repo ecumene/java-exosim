@@ -97,9 +97,7 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 				containerPlanet.setBorder(containerPlanetBorder);
 				containerPlanet.add(currentPlanet);
 				JButton cleanupMoonTrackPos = new JButton("Clear Tracked Moons");
-				cleanupMoonTrackPos.addActionListener(ae -> {
-					ExoRuntime.INSTANCE.getContext().getPlanet().getMap().clearTrackedPositions();
-				});
+				cleanupMoonTrackPos.addActionListener(ae -> ExoRuntime.INSTANCE.getContext().getPlanet().getMap().clearTrackedPositions());
 
 				containerPlanet.setPreferredSize(new Dimension((int) containerFocus.getPreferredSize().getWidth(), 60));
 				containerPlanet.add(cleanupMoonTrackPos, 0);
@@ -126,9 +124,7 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 				JLabel label2 = new JLabel("(Limited to 2^31-1)");
 				SpinnerModel model = new SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1);
 				JSpinner spinner = new JSpinner(model);
-				spinner.addChangeListener(ae -> {
-					simStepsPerItr = (int) spinner.getValue();
-				});
+				spinner.addChangeListener(ae -> simStepsPerItr = (int) spinner.getValue());
 				stepSim.add(step);
 				containerSim.add(new JSeparator());
 				containerSim.add(stepSim);

@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import org.joml.Vector2f;
 
-import ecumene.exo.sim.galaxy.ExoGOrbiter;
+import ecumene.exo.sim.abstractions.galaxy.ExoGOrbiter;
 import ecumene.exo.sim.map.real.RPoint;
 import ecumene.exo.view.rmap.RMVPointRenderer;
 

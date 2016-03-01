@@ -1,9 +1,12 @@
 package ecumene.exo.sim;
 
 import ecumene.exo.runtime.ExoRuntime;
-import ecumene.exo.sim.galaxy.ExoGalaxyMap;
-import ecumene.exo.sim.planet.ExoPlanetMap;
-import ecumene.exo.sim.solar.ExoSolarMap;
+import ecumene.exo.sim.abstractions.SimGalaxyContext;
+import ecumene.exo.sim.abstractions.SimPlanetContext;
+import ecumene.exo.sim.abstractions.SimSolarContext;
+import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
+import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
+import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 
 public class SimContext {
 	private int steps  = 0;
@@ -12,7 +15,7 @@ public class SimContext {
 	// By default they're all null. They're initialized when they're
 	// selected in their respected simulations... Genius, I know. ;)
 	private SimGalaxyContext galaxy = null;
-	private SimSolarContext  solar  = null;
+	private SimSolarContext solar  = null;
 	private SimPlanetContext planet = null;
 	
 	public SimContext(ExoGalaxyMap galaxyMap) {

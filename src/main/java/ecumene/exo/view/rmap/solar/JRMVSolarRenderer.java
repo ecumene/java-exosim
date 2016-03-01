@@ -11,9 +11,8 @@ import org.joml.Vector3f;
 import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.ISimContextListener;
-import ecumene.exo.sim.map.real.RMap;
-import ecumene.exo.sim.solar.ExoSolarMap;
-import ecumene.exo.sim.solar.IExoSolarObject;
+import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
+import ecumene.exo.sim.abstractions.solar.IExoSolarObject;
 import ecumene.exo.view.rmap.JRMViewer;
 
 public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener {

@@ -8,8 +8,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 import ecumene.exo.sim.map.real.RPoint;
-import ecumene.exo.sim.planet.ExoPlanetMap;
-import ecumene.exo.sim.planet.TrackingParameters;
+import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
+import ecumene.exo.sim.abstractions.planet.TrackingParameters;
 import org.joml.Vector2f;
 
 import ecumene.exo.sim.SimContext;
