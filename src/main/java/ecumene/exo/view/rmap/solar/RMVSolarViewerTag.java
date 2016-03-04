@@ -7,10 +7,10 @@ import org.joml.Vector2f;
 import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.view.IViewerTag;
 
-public class RMVSolarMapTag implements IViewerTag {
+public class RMVSolarViewerTag implements IViewerTag {
 
 	
-	public RMVSolarMapTag(){}
+	public RMVSolarViewerTag(){}
 	
 	@Override
 	public String getIdentifier(){

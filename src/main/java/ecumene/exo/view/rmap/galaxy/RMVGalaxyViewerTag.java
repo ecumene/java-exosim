@@ -7,9 +7,9 @@ import ecumene.exo.sim.SimContext;
 import ecumene.exo.view.IViewerTag;
 import ecumene.exo.view.ViewerRunnable;
 
-public class RMVGalaxyMapTag implements IViewerTag {
+public class RMVGalaxyViewerTag implements IViewerTag {
 	
-	public RMVGalaxyMapTag() {}
+	public RMVGalaxyViewerTag() {}
 
 	@Override
 	public String getIdentifier() {

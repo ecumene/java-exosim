@@ -6,8 +6,8 @@ import ecumene.exo.view.rmap.solar.RMVSolarMapRenderer;
 
 import java.beans.ExceptionListener;
 
-public class RMVPlanetMapTag implements IViewerTag {
-    public RMVPlanetMapTag(){}
+public class RMVPlanetViewerTag implements IViewerTag {
+    public RMVPlanetViewerTag(){}
 
     @Override
     public String getIdentifier(){

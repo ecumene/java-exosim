@@ -33,13 +33,11 @@ public class JRMViewer extends JPanel {
 		
 		setFocusable(true);
 		
-		addMouseWheelListener(new MouseWheelListener() {
-			@Override
-			public void mouseWheelMoved(MouseWheelEvent e) {
+		addMouseWheelListener((MouseWheelEvent e) -> {
 				navigation.z += (float) e.getPreciseWheelRotation() * -.2f;
 				repaint();
-			}
 		});
+
 		addKeyListener(new KeyListener() {
 			@Override public void keyTyped(KeyEvent e) { }
 			@Override public void keyReleased(KeyEvent e) { }

@@ -18,15 +18,24 @@ import ecumene.exo.sim.abstractions.planet.TrackingParameters;
 import ecumene.exo.sim.abstractions.planet.gen.ExoPlanetMapBuilder;
 import ecumene.exo.sim.abstractions.solar.gen.ExoSolarMapBuilder;
 import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
-import ecumene.exo.view.rmap.planet.RMVPlanetMapTag;
+import ecumene.exo.sim.abstractions.surface.ExoSFeatureFilter;
+import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
+import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
+import ecumene.exo.sim.abstractions.surface.exampleFeature.ExoSFExample;
+import ecumene.exo.sim.abstractions.surface.exampleFeature.ExoSFilterExampleMoveRight;
+import ecumene.exo.sim.abstractions.surface.exampleFeature.ExoSLExample;
+import ecumene.exo.view.rmap.planet.RMVPlanetViewerTag;
+import ecumene.exo.view.rmap.surface.SMVSurfaceViewer;
+import ecumene.exo.view.rmap.surface.SMVSurfaceViewerTag;
+import ecumene.exo.view.rmap.surface.feature.exampleFeature.SMVExampleConfig;
 import org.apache.commons.cli.ParseException;
 
 import ecumene.exo.analyze.ExoRuntimeAnalyzerTag;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.view.IViewerTag;
 import ecumene.exo.view.ViewerRunnable;
-import ecumene.exo.view.rmap.galaxy.RMVGalaxyMapTag;
-import ecumene.exo.view.rmap.solar.RMVSolarMapTag;
+import ecumene.exo.view.rmap.galaxy.RMVGalaxyViewerTag;
+import ecumene.exo.view.rmap.solar.RMVSolarViewerTag;
 import org.joml.Vector2f;
 
 public class ExoRuntime implements Runnable{
@@ -84,14 +93,25 @@ public class ExoRuntime implements Runnable{
 		ExoPlanetMap planet = planetBuilder.build(); // Finish generating and save to exoplanet
 		planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, false)).setTracking(1, new TrackingParameters("0xFFFF00", 100, false));// tracking data for moons
 
+		// This should be in a builder!! GIMMIE A MINUET!
+		List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();
+		List<ExoSFeatureFilter> featureFilters = new ArrayList<ExoSFeatureFilter>();
+
+		featureLayers.add(new ExoSLExample());
+		featureFilters.add(new ExoSFilterExampleMoveRight((ExoSLExample) featureLayers.get(0)));
+
+		ExoSurfaceMap surface = new ExoSurfaceMap(featureLayers,
+				                                  featureFilters);
+
 		// Finish generating, save to context for simulation
-		context = new SimContext(galaxy, solar, planet);
+		context = new SimContext(galaxy, solar, planet, surface);
 		
-		viewerDB = new IViewerTag[4];
+		viewerDB = new IViewerTag[5];
 		viewerDB[0] = new ExoRuntimeAnalyzerTag();
-		viewerDB[1] = new RMVGalaxyMapTag();
-		viewerDB[2] = new RMVSolarMapTag();
-		viewerDB[3] = new RMVPlanetMapTag();
+		viewerDB[1] = new RMVGalaxyViewerTag();
+		viewerDB[2] = new RMVSolarViewerTag();
+		viewerDB[3] = new RMVPlanetViewerTag();
+		viewerDB[4] = new SMVSurfaceViewerTag(new SMVExampleConfig());
 	}
 	
 	private boolean scanLine = false;

@@ -21,7 +21,7 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 	protected boolean showVectors   = false;
 	private ExoSolarMap map;
 	private int follow;
-	
+
 	public JRMVSolarRenderer(ExoSolarMap map) {
 		super(null);
 		getRendererList().add(new RMVSolarObjectRenderer(this));
@@ -47,7 +47,7 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 		super.paintComponent(g);
 
 		if(this.pMap != null){
-			if(ExoRuntime.INSTANCE.getContext().getSolarSystem().getFollowing() > -1) this.follow = ExoRuntime.INSTANCE.getContext().getSolarSystem().getFollowing();
+			if(ExoRuntime.INSTANCE.getContext().getSolarSystem().getFollowing() >= -1) this.follow = ExoRuntime.INSTANCE.getContext().getSolarSystem().getFollowing();
 			if(lastFollow != follow) {
 				try{
 					this.followObject = map.getObjects().get(follow);
