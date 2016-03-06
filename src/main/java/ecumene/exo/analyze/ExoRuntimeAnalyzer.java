@@ -13,26 +13,25 @@ import java.awt.event.ActionListener;
 import java.beans.ExceptionListener;
 import java.io.File;
 
+/**
+ * Classic "run 0" command, the universal GUI for managing the entire simulation.
+ * Also the only object outside of .view that contains swing classes...
+ */
 public class ExoRuntimeAnalyzer extends ViewerRunnable {
 
 	private JFrame frame;
-	
+
+	/**
+	 * Constructs the runtime analyzer
+	 * @param id       The ID of the running viewer
+	 * @param listener The exception listener
+	 * @param args     The CLI arguments
+     */
 	public ExoRuntimeAnalyzer(int id, ExceptionListener listener, String[] args) {
 		super(id, listener, args);
 	}
 
-	private JPanel currentSeed = new JPanel();
-	private JPanel containerFocus = new JPanel();
-
-	private JPanel currentSolar = new JPanel();
-	private JPanel containerSolar = new JPanel();
-
-	private JPanel currentPlanet = new JPanel();
-	private JPanel containerPlanet = new JPanel();
-
 	private JLabel stepLabel = new JLabel("Current Step: " + 0);
-	private JPanel currentSim = new JPanel();
-	private JPanel containerSim = new JPanel();
 
 	private Timer simStepper;
 	private int   simStepsPerItr = 1;
@@ -51,12 +50,14 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 			frame.setLocationRelativeTo(null);
 			frame.setLayout(new FlowLayout());
 
+			JPanel currentGalaxy = new JPanel();
+			JPanel containerFocus = new JPanel();
 			{ // Galaxy Config
-				containerFocus.setLayout(new BoxLayout(containerFocus, BoxLayout.Y_AXIS));
+				// containerFocus.setLayout(new BoxLayout(containerFocus, BoxLayout.Y_AXIS));
 				TitledBorder containerSeedBorder = BorderFactory.createTitledBorder("Galaxy Configuration");
 				containerSeedBorder.setTitleJustification(TitledBorder.LEFT);
 				containerFocus.setBorder(containerSeedBorder);
-				containerFocus.add(currentSeed);
+				containerFocus.add(currentGalaxy);
 				JPanel setCurrentFocus = new JPanel();
 				final JTextField focusField = new JTextField(20);
 				setCurrentFocus.add(focusField);
@@ -71,6 +72,8 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 			}
 
 			{ // Solar Config
+				JPanel currentSolar = new JPanel();
+				JPanel containerSolar = new JPanel();
 				containerSolar.setLayout(new BoxLayout(containerSolar, BoxLayout.Y_AXIS));
 				TitledBorder containerSolarBorder = BorderFactory.createTitledBorder("Solar Configuration");
 				containerSolarBorder.setTitleJustification(TitledBorder.LEFT);
@@ -91,6 +94,8 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 			}
 
 			{ // Solar Config
+				JPanel currentPlanet = new JPanel();
+				JPanel containerPlanet = new JPanel();
 				containerPlanet.setLayout(new GridBagLayout());
 				TitledBorder containerPlanetBorder = BorderFactory.createTitledBorder("Planet Configuration");
 				containerPlanetBorder.setTitleJustification(TitledBorder.LEFT);
@@ -105,6 +110,8 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 			}
 
 			{ // Simulation Config
+				JPanel currentSim = new JPanel();
+				JPanel containerSim = new JPanel();
 				containerSim.setLayout(new BoxLayout(containerSim, BoxLayout.Y_AXIS));
 				TitledBorder containerSimBorder = BorderFactory.createTitledBorder("Simulator Configuration");
 				containerSimBorder.setTitleJustification(TitledBorder.LEFT);

@@ -1,4 +1,8 @@
 package ecumene.exo.runtime;
+
+/* The legendary opensimplexnoise.java */
+/* https://gist.github.com/KdotJPG/b1270127455a94ac5d19 */
+
 /*
  * OpenSimplex Noise in Java.
  * by Kurt Spencer
@@ -14,7 +18,6 @@ package ecumene.exo.runtime;
  *   of any particular randomization library, so results
  *   will be the same when ported to other languages.
  */
- 
 public class OpenSimplexNoise {
 
 	private static final double STRETCH_CONSTANT_2D = -0.211324865405187;    //(1/Math.sqrt(2+1)-1)/2;

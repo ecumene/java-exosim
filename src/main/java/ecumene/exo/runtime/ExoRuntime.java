@@ -38,29 +38,36 @@ import ecumene.exo.view.rmap.galaxy.RMVGalaxyViewerTag;
 import ecumene.exo.view.rmap.solar.RMVSolarViewerTag;
 import org.joml.Vector2f;
 
+/**
+ * ExoRuntime is the class that contains all the bootstrapping and initial building of the application.
+ * It includes code for two things: Building simulation objects, and parsing CLI commands.
+ */
 public class ExoRuntime implements Runnable{
-	
-	public  ExoArgParse          commands;
-	private JFrame               frame;
-	private List<ViewerRunnable> viewers;
-	private IViewerTag[]         viewerDB;
-	private ExecutorService      viewerExec;
-	private ExceptionListener    exceptionListener;
-	private SimContext           context;
-	
+
+	/**CLI Parser*/
+	public  ExoArgParse          commands;         // Object in control of CLI inputs
+	private List<ViewerRunnable> viewers;          // List of viewers (things that view the simulation)
+	private IViewerTag[]         viewerDB;         // List of running viewers
+	private ExecutorService      viewerExec;       // Multi-threaded viewer executor
+	private ExceptionListener    exceptionListener;// Univeral thingy for catching any exception
+	private SimContext           context;          // Context (container) for all simulations
+
+	/**Public instance of exo-runtime*/
 	public static ExoRuntime INSTANCE;
-	
+
+	/**
+	 * Creates the exo-runtime and builds simulation objects
+	 * @param arguments       Input arguments (CLI)
+	 * @throws ParseException due to apache CLI
+	 * @throws IOException    due to loading any files
+     */
 	public ExoRuntime(String[] arguments) throws ParseException, IOException {
 		commands  = new ExoArgParse(arguments);
 		viewerExec = Executors.newCachedThreadPool();
 		viewers = new ArrayList<ViewerRunnable>();
-		
-		exceptionListener = new ExceptionListener() {
-			@Override
-			public void exceptionThrown(Exception e) {
-				System.out.println(); e.printStackTrace(); //New line + print st
-			}
-		};
+
+		//This allows for anything to go wrong in any thread and still report back!
+		exceptionListener = (Exception e) -> { System.out.println(); e.printStackTrace(); };
 
 		// In the future, all these builders will be accompanied by XML or .prop files containing
 		// exact data on simulation stuffs. This will allow you to "build from file" and essentially
@@ -199,23 +206,27 @@ public class ExoRuntime implements Runnable{
 		scanner.close();
 		viewerExec.shutdown();
 	}
-	
+
+	/** @return The public runtime instance */
 	public SimContext getContext(){
 		return context;
 	}
-	
+
+	/**@param context The sim object to set */
 	public void setContext(SimContext context){
 		for(int i = 0; i < viewers.size(); i++)
 			viewers.get(i).onContextChanged(context);
 	}
-	
+
+	/** Steps the simulation once */
 	public void step(){
 		for(int i = 0; i < viewers.size(); i++)
 			viewers.get(i)
 			.onStep(context, 
 					context.getSteps());
 	}
-	
+
+	/** @return The currently running viewers */
 	public IViewerTag[] getRunnables(){
 		return viewerDB;
 	}
