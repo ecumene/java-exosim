@@ -85,13 +85,13 @@ public class ExoRuntime implements Runnable{
 		//                                                          Set seed to current time
 		ExoPlanetMapBuilder planetBuilder = new ExoPlanetMapBuilder(System.currentTimeMillis());
 		planetBuilder.genPlanet(new Vector2f(2, 3)); // Generate planet within mass range of X and Y
-		planetBuilder.genMoons(3,                    // Generate # of moons
+		planetBuilder.genMoons(1,                    // Generate # of moons
 				new Vector2f(0.5f, 1),               // Generate moon mass
 				new Vector2f(50, 200),               // Generate moon diameter from planet
 				new Vector2f(0, 360),                // Generate moon angle
 				new Vector2f(-0.15f, 0.15f));        // Generate moon beginning velocity
 		ExoPlanetMap planet = planetBuilder.build(); // Finish generating and save to exoplanet
-		planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, false)).setTracking(1, new TrackingParameters("0xFFFF00", 100, false));// tracking data for moons
+		planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, false));// tracking data for moons
 
 		// This should be in a builder!! GIMMIE A MINUET!
 		List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();
