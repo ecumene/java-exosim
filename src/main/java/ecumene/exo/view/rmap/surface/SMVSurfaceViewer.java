@@ -3,7 +3,6 @@ package ecumene.exo.view.rmap.surface;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
 import ecumene.exo.view.ViewerRunnable;
-import ecumene.exo.view.rmap.surface.feature.exampleFeature.SMVExampleConfig;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

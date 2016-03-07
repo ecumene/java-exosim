@@ -7,7 +7,7 @@ import org.joml.Vector2i;
 
 import java.util.Vector;
 
-public class ExoGridFeature extends ExoSFeature {
+public abstract class ExoGridFeature extends ExoSFeature {
     private ExoGridLayer parent;
     private Vector2i     index;
     private float        scale;
@@ -34,6 +34,8 @@ public class ExoGridFeature extends ExoSFeature {
 
     @Override
     public RPoint getRPoint() {
-        return new RPoint(this.point.name, new Vector2f(index.x * scale, index.y * scale));
+        return new RPoint(getName(), new Vector2f(index.x * scale, index.y * scale));
     }
+
+    public abstract String getName();
 }

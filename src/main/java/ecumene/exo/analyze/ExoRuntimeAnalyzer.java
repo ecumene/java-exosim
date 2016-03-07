@@ -158,7 +158,7 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 			} // If running step, if not skip frame
 		}
 	}
-	
+
 	@Override
 	public void kill(int id) {
 		frame.dispose();
@@ -169,5 +169,5 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 
 	@Override
 	public void onStep(SimContext context, int step) {}
-	
+
 }

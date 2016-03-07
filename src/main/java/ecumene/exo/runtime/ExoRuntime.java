@@ -9,8 +9,6 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.swing.JFrame;
-
 import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
 import ecumene.exo.sim.abstractions.galaxy.gen.ExoGalaxyMapGen;
 import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
@@ -21,13 +19,10 @@ import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureFilter;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
-import ecumene.exo.sim.abstractions.surface.exampleFeature.ExoSFExample;
-import ecumene.exo.sim.abstractions.surface.exampleFeature.ExoSFilterExampleMoveRight;
-import ecumene.exo.sim.abstractions.surface.exampleFeature.ExoSLExample;
+import ecumene.exo.sim.abstractions.surface.feature.elevation.ExoSElevationLayer;
 import ecumene.exo.view.rmap.planet.RMVPlanetViewerTag;
-import ecumene.exo.view.rmap.surface.SMVSurfaceViewer;
 import ecumene.exo.view.rmap.surface.SMVSurfaceViewerTag;
-import ecumene.exo.view.rmap.surface.feature.exampleFeature.SMVExampleConfig;
+import ecumene.exo.view.rmap.surface.feature.SMVGenericConfig;
 import org.apache.commons.cli.ParseException;
 
 import ecumene.exo.analyze.ExoRuntimeAnalyzerTag;
@@ -104,8 +99,12 @@ public class ExoRuntime implements Runnable{
 		List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();
 		List<ExoSFeatureFilter> featureFilters = new ArrayList<ExoSFeatureFilter>();
 
-		featureLayers.add(new ExoSLExample());
-		featureFilters.add(new ExoSFilterExampleMoveRight((ExoSLExample) featureLayers.get(0)));
+		float[][] arr = {{0,0,0},
+				         {0,0,0},
+				         {0,0,0}};
+		arr[0][2] = 1;
+
+		featureLayers.add(new ExoSElevationLayer(arr, 10));
 
 		ExoSurfaceMap surface = new ExoSurfaceMap(featureLayers,
 				                                  featureFilters);
@@ -118,7 +117,7 @@ public class ExoRuntime implements Runnable{
 		viewerDB[1] = new RMVGalaxyViewerTag();
 		viewerDB[2] = new RMVSolarViewerTag();
 		viewerDB[3] = new RMVPlanetViewerTag();
-		viewerDB[4] = new SMVSurfaceViewerTag(new SMVExampleConfig());
+		viewerDB[4] = new SMVSurfaceViewerTag(new SMVGenericConfig());
 	}
 	
 	private boolean scanLine = false;
