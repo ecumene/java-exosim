@@ -17,6 +17,10 @@ public class ExoGridLayer extends ExoSFeatureLayer {
         this.grid = grid;
     }
 
+    protected ExoGridLayer(float scale){
+        this.scale = scale;
+    }
+
     public float getScale() {
         return scale;
     }

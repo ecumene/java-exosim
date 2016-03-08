@@ -77,9 +77,9 @@ public class JSMVSurfaceRenderer extends JPanel implements ISimContextListener {
                     for (IFeatureRenderer featureRenderer : renderingConfig.getFeatureRenderers()) {
                         Vector2f screenPosition = new Vector2f(feature.getRPoint().getPosition());
                         screenPosition.x *= +Math.abs(navigation.z);
-                        screenPosition.y *= -Math.abs(navigation.z);
+                        screenPosition.y *= +Math.abs(navigation.z);
                         screenPosition.add(new Vector2f(navigation.x, navigation.y));
-                        screenPosition.add(new Vector2f(0, getHeight()));
+                        screenPosition.add(new Vector2f(0, 10));
                         featureRenderer.renderFeature(graphics, feature, screenPosition);
                     }
                 }

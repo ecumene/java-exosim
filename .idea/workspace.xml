@@ -2,35 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10243f6a-b0b2-46e9-80aa-0df0fcd00904" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevationLayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/build/ExoSElevationComponent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/gen/ExoSurfaceMapBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/gen/IExoSurfaceMapComponent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/SMVGenericConfig.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/exampleFeature/ExoSFExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/exampleFeature/ExoSFilterExampleMoveRight.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/exampleFeature/ExoSLExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/exampleFeature/SMVExampleConfig.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/exampleFeature/ExampleFeatureRenderer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/elevation/SElevationRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeight.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeightLayer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/HeightMap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/IHeightMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/runtime/ExoRuntime.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/runtime/ExoRuntime.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/SimContext.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/SimContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/map/natural/NMap.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/map/natural/NMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/map/natural/NObject.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/map/natural/NObject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/map/real/RMap.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/map/real/RMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/map/real/RPoint.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/sim/map/real/RPoint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/project.jar" afterPath="$PROJECT_DIR$/build/libs/project.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSurfaceMap.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSurfaceMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridFeature.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridFeature.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridLayer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridLayer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/JSMVSurfaceRenderer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/JSMVSurfaceRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/SMVSurfaceViewer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/SMVSurfaceViewer.java" />
     </list>
     <ignored path="project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,8 +35,8 @@
             <file leaf-file-name="ExoSFeatureLayer.java" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeatureLayer.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.070564516">
-                    <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+                  <state vertical-scroll-proportion="0.15524194">
+                    <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
@@ -84,28 +64,31 @@
               <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeature.java">
                 <provider selected="true" editor-type-id="text-editor">
                   <state vertical-scroll-proportion="0.0">
-                    <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+                    <caret line="0" column="45" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
                     <folding />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="ExoSFeatureFilter.java" pinned="false" current-in-tab="true">
+            <file leaf-file-name="ExoSFeatureFilter.java" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeatureFilter.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.18346775">
+                  <state vertical-scroll-proportion="0.0">
                     <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
                     <folding />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="ExoGridLayer.java" pinned="false" current-in-tab="false">
+            <file leaf-file-name="ExoGridLayer.java" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridLayer.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0">
-                    <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-                    <folding />
+                  <state vertical-scroll-proportion="0.15524194">
+                    <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="15" selection-end-column="82" />
+                    <folding>
+                      <element signature="e#737#738#0" expanded="true" />
+                      <element signature="e#771#772#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -126,53 +109,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JSMVSurfaceRenderer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/JSMVSurfaceRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.664825">
-              <caret line="81" column="70" selection-start-line="81" selection-start-column="70" selection-end-line="81" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ExoRuntime.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.1875">
-              <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+            <state vertical-scroll-proportion="-6.625">
+              <caret line="112" column="42" selection-start-line="112" selection-start-column="42" selection-end-line="112" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5401#5419#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SMVGenericConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/SMVGenericConfig.java">
+      <file leaf-file-name="ExoSHeight.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.6961326">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#358#359#0" expanded="true" />
+                <element signature="e#430#431#0" expanded="true" />
+                <element signature="e#681#682#0" expanded="true" />
+                <element signature="e#724#725#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SElevationRenderer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/elevation/SElevationRenderer.java">
+      <file leaf-file-name="ExoSHeightLayer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeightLayer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
+              <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1099#1100#0" expanded="true" />
+                <element signature="e#1131#1132#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IFeatureFilterRenderer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureFilterRenderer.java">
+      <file leaf-file-name="HeightMap.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/HeightMap.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -182,28 +166,9 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridFeature.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
-                <element signature="e#843#844#0" expanded="true" />
                 <element signature="e#935#936#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExoSElevation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#337#338#0" expanded="true" />
-                <element signature="e#374#375#0" expanded="true" />
-                <element signature="e#463#464#0" expanded="true" />
-                <element signature="e#515#516#0" expanded="true" />
-                <element signature="e#622#623#0" expanded="true" />
-                <element signature="e#657#658#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -485,13 +450,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/continental/ContinentalFeature.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/continental/ContinentalEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/ExoSurfaceContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/SimSurfaceContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/IExoSurfaceFeature.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/IExoSFeature.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/IExoSFeatureLayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeature.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeatureLayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/solar/JRMVSolarRenderer.java" />
@@ -511,7 +469,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeatureFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/exampleFeature/ExoSFilterExampleMoveRight.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/SMVSurfaceViewer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridLayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/OpenSimplexNoise.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/analyze/ExoRuntimeAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/SimContext.java" />
@@ -529,13 +486,21 @@
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSurfaceMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/features/elevation/ExoSElevation.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/build/ExoSElevationBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevationLayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/build/ExoSElevationComponent.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/SMVGenericConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridFeature.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/gen/IHeightMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/gen/HeightMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSHeight.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/height/ExoSHeight.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevationLayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/JSMVSurfaceRenderer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/HeightMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridLayer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeightLayer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeight.java" />
       </list>
     </option>
   </component>
@@ -1003,7 +968,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="elevation" />
+              <option name="myItemId" value="feature" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="height" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1045,11 +1014,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="elevation" />
+              <option name="myItemId" value="feature" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
+              <option name="myItemId" value="elevation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1360,7 +1329,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="-12" width="1922" height="1093" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1368,7 +1337,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36755648" sideWeight="0.5104167" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40862423" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40862423" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1399,39 +1368,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoArgParse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.240625">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/planet/ExoPlanetMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0875">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/planet/ExoPlanet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/planet/ExoPlanetMoon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/gen/ExoSolarMapBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.00625">
@@ -1574,6 +1515,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6469595">
           <caret line="118" column="46" selection-start-line="118" selection-start-column="46" selection-end-line="118" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1659,37 +1601,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeatureLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.070564516">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSurfaceMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16935484">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#509#510#0" expanded="true" />
-            <element signature="e#600#601#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/gen/ExoSurfaceMapBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1702,57 +1617,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeatureFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18346775">
-          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/build/ExoSElevationComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38682252">
           <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#908#909#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#876#877#0" expanded="false" />
+            <element signature="e#908#909#0" expanded="false" />
+            <element signature="e#946#947#0" expanded="false" />
+            <element signature="e#981#982#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevationLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35706696">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
-            <element signature="e#362#363#0" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/SMVGenericConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1767,49 +1642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/elevation/SElevationRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureFilterRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#337#338#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#515#516#0" expanded="true" />
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridFeature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-          <folding>
-            <element signature="e#843#844#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/SMVSurfaceViewerTag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30939227">
@@ -1818,10 +1650,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSurfaceMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.1875">
-          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.15469614">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/SMVGenericConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18047883">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/elevation/SElevationRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10313076">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureFilterRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10313076">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/IHeightMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07734807">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="45" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeatureLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15524194">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevationLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23991935">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1830,9 +1718,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/JSMVSurfaceRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.664825">
-          <caret line="81" column="70" selection-start-line="81" selection-start-column="70" selection-end-line="81" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="61" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/elevation/ExoSElevation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#622#623#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/ExoSFeatureFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.625">
+          <caret line="112" column="42" selection-start-line="112" selection-start-column="42" selection-end-line="112" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5401#5419#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridFeature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#935#936#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/HeightMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/grid/ExoGridLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15524194">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="15" selection-end-column="82" />
+          <folding>
+            <element signature="e#737#738#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeightLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6961326">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

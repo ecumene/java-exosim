@@ -20,6 +20,8 @@ import ecumene.exo.sim.abstractions.surface.ExoSFeatureFilter;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
 import ecumene.exo.sim.abstractions.surface.feature.elevation.ExoSElevationLayer;
+import ecumene.exo.sim.abstractions.surface.feature.height.ExoSHeightLayer;
+import ecumene.exo.sim.abstractions.surface.feature.height.HeightMap;
 import ecumene.exo.view.rmap.planet.RMVPlanetViewerTag;
 import ecumene.exo.view.rmap.surface.SMVSurfaceViewerTag;
 import ecumene.exo.view.rmap.surface.feature.SMVGenericConfig;
@@ -99,12 +101,16 @@ public class ExoRuntime implements Runnable{
 		List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();
 		List<ExoSFeatureFilter> featureFilters = new ArrayList<ExoSFeatureFilter>();
 
-		float[][] arr = {{0,0,0},
-				         {0,0,0},
-				         {0,0,0}};
+		float[][] arr = {{0,0,0,0},
+						 {0,0,0,0},
+						 {0,0,0,0},
+				         {0,0,0,0}};
 		arr[0][2] = 1;
 
-		featureLayers.add(new ExoSElevationLayer(arr, 10));
+		HeightMap heightMap = new HeightMap();
+		heightMap.setElevation(arr, false);
+
+		featureLayers.add(new ExoSHeightLayer(heightMap, 20));
 
 		ExoSurfaceMap surface = new ExoSurfaceMap(featureLayers,
 				                                  featureFilters);
