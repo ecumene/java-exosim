@@ -6,7 +6,6 @@ import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 
 public class ExoSolarMapLoader {
     /**
@@ -19,10 +18,31 @@ public class ExoSolarMapLoader {
 
         Element root = document.getRootElement();
         for(Element element : root.getChildren()){
+            Vector3f defaultPos;
             if(element.getText().toUpperCase().contains("OBJECT")){
-                float    mass     = 0;
-                Vector2f velocity = new Vector2f();
-                Vector2f position = new Vector2f();
+                String   name     = "XML Object";
+                float    mass     = 0;              // Element's mass
+                Vector2f velocity = new Vector2f(); // Element's initial velocity (vi)
+                Vector2f position = new Vector2f(); // Element's position
+                for(Attribute attrib : element.getAttributes()){
+                    if(attrib.getName().toUpperCase().contains("MASS")) mass = Float.parseFloat(attrib.getValue());
+                    if(attrib.getName().toUpperCase().contains("VELO")){
+                        velocity = parseVec(attrib.getValue());
+                    }
+                    if(attrib.getName().toUpperCase().contains("POSI")) {
+                        position = parseVec(attrib.getValue());
+                    }
+                    if(attrib.getName().toUpperCase().contains("NAME")) {
+                        name = attrib.getValue();
+                    }
+                }
+                builder.addObject(new ExoSolarObject(velocity, position, mass));
+            }
+
+            if(element.getText().toUpperCase().contains("aaa")){
+                float    mass     = 0;              // Element's mass
+                Vector2f velocity = new Vector2f(); // Element's initial velocity (vi)
+                Vector2f position = new Vector2f(); // Element's position
                 for(Attribute attrib : element.getAttributes()){
                     if(attrib.getName().toUpperCase().contains("MASS")) mass = Float.parseFloat(attrib.getValue());
                     if(attrib.getName().toUpperCase().contains("VELO")){
