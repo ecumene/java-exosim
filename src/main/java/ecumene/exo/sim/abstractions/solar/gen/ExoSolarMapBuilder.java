@@ -76,6 +76,10 @@ public class ExoSolarMapBuilder {
         return new ExoSolarMap(objects);
     }
 
+    public void setSeed(long seed){
+        this.noise = new OpenSimplexNoise(seed);
+    }
+
     private int randItr=-1; // I hate doing this stuff, YUCK!
     //2D -> 1D noise, gross... I know... ;(
     public double getRand(double index){

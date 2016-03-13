@@ -57,8 +57,9 @@ public class ExoRuntime implements Runnable{
 	/**
 	 * Creates the exo-runtime and builds simulation objects
 	 * @param arguments       Input arguments (CLI)
+	 * @param context         Simulation context
 	 * @throws ParseException due to apache CLI
-	 * @throws IOException    due to loading any files
+	 * @throws IOException    due to loading any io
      */
 	public ExoRuntime(String[] arguments, SimContext context) throws ParseException, IOException {
 		commands  = new ExoArgParse(arguments);

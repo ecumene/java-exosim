@@ -17,6 +17,7 @@ import ecumene.exo.sim.abstractions.surface.feature.height.HeightMap;
 import ecumene.exo.sim.util.heightmap.channel.HeightChannel;
 import ecumene.exo.sim.util.heightmap.voronoi.VoronoiEuclidWrapFactory;
 import ecumene.exo.sim.util.heightmap.voronoi.VoronoiPoint;
+import ecumene.exo.sim.util.heightmap.voronoi.VoronoiWeightedWrapFactory;
 import org.apache.commons.cli.ParseException;
 import org.joml.Vector2f;
 
@@ -67,7 +68,7 @@ public class Main {
                 new VoronoiPoint(1.2f, new Vector2f(0.9f, 0.3f)),
                 new VoronoiPoint(1.5f, new Vector2f(0.13f, 0.1f)),
         };
-        HeightChannel channel = VoronoiEuclidWrapFactory.wrapDistance(512, 512, true, points);
+        HeightChannel channel = VoronoiWeightedWrapFactory.wrapDistance(1024, 1024, true, points);
         //Voronoi voronoi = new VoronoiEuclid(new Vector2i(1024, 1024), true, points);
 
         HeightMap heightMap = new HeightMap(channel);

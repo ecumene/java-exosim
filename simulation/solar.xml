@@ -1,0 +1,6 @@
+<!-- The root node, named arbitrarily... :/ -->
+<ecudoc-solar>
+    <!--Represents a sun and moon system-->
+    <object name="Sun"    mass="10" position="0 0" velocity="0 0"></object>
+    <object name="Planet" mass="04" position="0 5" velocity="0.5 0"></object>
+</ecudoc-solar>
