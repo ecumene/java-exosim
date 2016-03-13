@@ -22,12 +22,13 @@ import ecumene.exo.sim.map.real.RPoint;
 public class JRMViewer extends JPanel {
 	
 	protected RMap pMap;
-	public Vector3f navigation = new Vector3f(0, 0, 1);
+	public Vector3f navigation;
 	private List<RMVPointRenderer> rendererList;
 	protected RMVPointRenderer pointRenderer;
 	
-	public JRMViewer(RMap pMap) {
-		this.pMap = pMap;
+	public JRMViewer(Vector3f navigation, RMap pMap) {
+		this.pMap       = pMap;
+		this.navigation = navigation;
 		rendererList = new ArrayList<RMVPointRenderer>();
 		rendererList.add(pointRenderer = new RMVPointRenderer(this));
 		
@@ -58,7 +59,6 @@ public class JRMViewer extends JPanel {
 				repaint();
 			}
 		});
-
 	}
 	
 	@Override

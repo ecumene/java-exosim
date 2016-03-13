@@ -2,11 +2,13 @@ package ecumene.exo.view.rmap.surface;
 
 import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.view.IViewerTag;
+import ecumene.exo.view.rmap.RMVTag;
 import ecumene.exo.view.rmap.solar.RMVSolarMapRenderer;
+import org.joml.Vector3f;
 
 import java.beans.ExceptionListener;
 
-public class SMVSurfaceViewerTag implements IViewerTag {
+public class SMVSurfaceViewerTag extends RMVTag {
 
     public SMVSurfaceRendererConfig config;
 
@@ -15,12 +17,12 @@ public class SMVSurfaceViewerTag implements IViewerTag {
     }
 
     @Override
-    public Runnable construct(int id, ExceptionListener listener, String[] args) throws Throwable {
-        return new SMVSurfaceViewer(id, listener, ExoRuntime.INSTANCE.getContext().getSurface().getSurfaceMap(), config, args);
+    public String getIdentifier() {
+        return "Planet surface simulation";
     }
 
     @Override
-    public String getIdentifier() {
-        return "Planet surface simulation";
+    public Runnable constructRMV(int id, ExceptionListener listener, String[] args, Vector3f nav) {
+        return new SMVSurfaceViewer(id, listener, ExoRuntime.INSTANCE.getContext().getSurface().getSurfaceMap(), config, nav);
     }
 }

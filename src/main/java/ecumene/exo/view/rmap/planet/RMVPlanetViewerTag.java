@@ -1,12 +1,12 @@
 package ecumene.exo.view.rmap.planet;
 
 import ecumene.exo.runtime.ExoRuntime;
-import ecumene.exo.view.IViewerTag;
-import ecumene.exo.view.rmap.solar.RMVSolarMapRenderer;
+import ecumene.exo.view.rmap.RMVTag;
+import org.joml.Vector3f;
 
 import java.beans.ExceptionListener;
 
-public class RMVPlanetViewerTag implements IViewerTag {
+public class RMVPlanetViewerTag extends RMVTag {
     public RMVPlanetViewerTag(){}
 
     @Override
@@ -15,7 +15,7 @@ public class RMVPlanetViewerTag implements IViewerTag {
     }
 
     @Override
-    public Runnable construct(int id, ExceptionListener listener, String[] args) throws Throwable {
-        return new RMVPlanetMapRenderer(id, listener, ExoRuntime.INSTANCE.getContext().getPlanet().getMap(), args);
+    public Runnable constructRMV(int id, ExceptionListener listener, String[] args, Vector3f nav) {
+        return new RMVPlanetMapRenderer(id, listener, ExoRuntime.INSTANCE.getContext().getPlanet().getMap(), nav);
     }
 }

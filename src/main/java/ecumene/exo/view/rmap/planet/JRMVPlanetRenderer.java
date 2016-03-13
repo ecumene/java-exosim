@@ -15,6 +15,7 @@ import org.joml.Vector2f;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.ISimContextListener;
 import ecumene.exo.view.rmap.JRMViewer;
+import org.joml.Vector3f;
 
 public class JRMVPlanetRenderer extends JRMViewer implements ISimContextListener {
 
@@ -22,8 +23,8 @@ public class JRMVPlanetRenderer extends JRMViewer implements ISimContextListener
     protected boolean showVectors   = false;
     private ExoPlanetMap map;
 
-    public JRMVPlanetRenderer(ExoPlanetMap map) {
-        super(null);
+    public JRMVPlanetRenderer(Vector3f navigation, ExoPlanetMap map) {
+        super(navigation, null);
         getRendererList().add(new RMVPlanetObjectRenderer(this));
         getRendererList().add(new RMVPlanetMoonObjectRenderer(this));
         getRendererList().remove(getDefaultRPointRenderer());

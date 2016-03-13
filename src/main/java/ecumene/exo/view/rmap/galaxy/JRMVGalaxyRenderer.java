@@ -13,53 +13,16 @@ import ecumene.exo.sim.ISimContextListener;
 import ecumene.exo.sim.map.real.RMap;
 import ecumene.exo.sim.map.real.RPoint;
 import ecumene.exo.view.rmap.JRMViewer;
+import org.joml.Vector3f;
 
 public class JRMVGalaxyRenderer extends JRMViewer implements ISimContextListener {
-	
-	private float rotate;
-	private int selected;
 
-	private Vector2f mousePosition = new Vector2f();
-	
-	public JRMVGalaxyRenderer(final RMap pMap) {
-		super(pMap);
+	public JRMVGalaxyRenderer(Vector3f navigation, final RMap pMap) {
+		super(navigation, pMap);
+		this.navigation = navigation;
 		getRendererList().add(new RMVGalaxySingularityRenderer(this));
 		getRendererList().add(new RMVGalaxyOrbiterRenderer    (this));
 		getRendererList().remove(getDefaultRPointRenderer());
-		
-		addKeyListener(new KeyListener() {
-			@Override public void keyTyped(KeyEvent e) { }
-			@Override public void keyReleased(KeyEvent e) { }
-			@Override 
-			public void keyPressed(KeyEvent e) {
-				boolean rotated = false;
-				if(e.getKeyCode() == KeyEvent.VK_R){
-					rotate = 10f;
-					rotated = true;
-				}
-				if(e.getKeyCode() == KeyEvent.VK_E){
-					rotate = -10f;
-					rotated = true;
-				}
-				if(e.getKeyCode() == KeyEvent.VK_SPACE){
-					rotate = 0;
-					rotated = true;
-				}
-				
-				if(rotated){
-					for(RPoint point : pMap.getMap()){
-						float rotateR = (float)Math.toRadians(rotate);
-						float c = (float) Math.cos(rotateR), s = (float) Math.sin(rotateR);
-						float x = point.position.x, y = point.position.y;
-						
-						point.position.x = x * c - y * s;
-						point.position.y = x * s + y * c;
-					}
-				}
-				
-				rotated = false;
-			}
-		});
 	}
 		
 	public RMap getRMap(){
@@ -73,6 +36,7 @@ public class JRMVGalaxyRenderer extends JRMViewer implements ISimContextListener
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		System.out.println(navigation);
 		Graphics2D graphics = (Graphics2D) g;
 		g.setColor(new Color(0, 255, 0));
 		graphics.drawString("Galactic Abstraction", 0, 10);

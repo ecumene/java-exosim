@@ -3,6 +3,7 @@ package ecumene.exo.view.rmap.surface;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
 import ecumene.exo.view.ViewerRunnable;
+import org.joml.Vector3f;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -11,17 +12,17 @@ import java.io.File;
 
 public class SMVSurfaceViewer extends ViewerRunnable {
 
-    private String[]            args;
-    private ExceptionListener   listener;
-    private ExoSurfaceMap       surfaceMap;
-    private JSMVSurfaceRenderer renderer;
-    private JFrame              frame;
+    private ExceptionListener        listener;
+    private ExoSurfaceMap            surfaceMap;
+    private JSMVSurfaceRenderer      renderer;
+    private JFrame                   frame;
     private SMVSurfaceRendererConfig config;
+    private Vector3f                 navigation;
 
-    public SMVSurfaceViewer(int id, ExceptionListener listener, ExoSurfaceMap map, SMVSurfaceRendererConfig config, String[]args){
-        super(id, listener, args);
+    public SMVSurfaceViewer(int id, ExceptionListener listener, ExoSurfaceMap map, SMVSurfaceRendererConfig config, Vector3f navigation){
+        super(id, listener);
+        this.navigation = navigation;
         this.surfaceMap = map;
-        this.args = args;
         this.listener = listener;
         this.config = config;
     }
@@ -30,7 +31,7 @@ public class SMVSurfaceViewer extends ViewerRunnable {
     public void init() throws Throwable {
         frame = new JFrame("RMap Point Rendering System");
         frame.setVisible(false);
-        if(renderer == null) renderer = new JSMVSurfaceRenderer(surfaceMap, config);
+        if(renderer == null) renderer = new JSMVSurfaceRenderer(surfaceMap, config, navigation);
         {
             frame.setSize(600, 600);
             frame.setLocationRelativeTo(null);
@@ -62,7 +63,4 @@ public class SMVSurfaceViewer extends ViewerRunnable {
         return listener;
     }
 
-    public String[] getArgs() {
-        return args;
-    }
 }

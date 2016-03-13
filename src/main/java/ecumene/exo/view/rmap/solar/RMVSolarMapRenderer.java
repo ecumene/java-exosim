@@ -7,23 +7,21 @@ import ecumene.exo.sim.map.real.RMap;
 import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 import ecumene.exo.view.rmap.JRMViewer;
 import ecumene.exo.view.rmap.RMVRenderer;
+import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 public class RMVSolarMapRenderer extends RMVRenderer {
 	
-	private String[]          args;
-	private ExceptionListener listener;
 	private ExoSolarMap       solarMap;
-	
-	public RMVSolarMapRenderer(int id, ExceptionListener exceptionListener, ExoSolarMap map, String[] args){
-		super(id, exceptionListener, new RMap(), args);
+
+	public RMVSolarMapRenderer(int id, ExceptionListener exceptionListener, ExoSolarMap map, Vector3f navigation){
+		super(id, exceptionListener, new RMap(), navigation);
 		solarMap = map;
-		this.args = args;
-		this.listener = exceptionListener;
 	}
 	
 	@Override
 	protected JRMViewer constructRenderer() {
-		return new JRMVSolarRenderer(solarMap);
+		return new JRMVSolarRenderer(navigation, solarMap);
 	}
 	
 	@Override

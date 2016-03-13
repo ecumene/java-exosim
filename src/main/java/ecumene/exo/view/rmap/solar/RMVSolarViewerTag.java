@@ -2,23 +2,25 @@ package ecumene.exo.view.rmap.solar;
 
 import java.beans.ExceptionListener;
 
-import org.joml.Vector2f;
+import ecumene.exo.view.rmap.RMVTag;
 
 import ecumene.exo.runtime.ExoRuntime;
-import ecumene.exo.view.IViewerTag;
+import org.joml.Vector3f;
 
-public class RMVSolarViewerTag implements IViewerTag {
+public class RMVSolarViewerTag extends RMVTag {
 
-	
-	public RMVSolarViewerTag(){}
-	
+	public RMVSolarViewerTag() {
+	}
+
 	@Override
-	public String getIdentifier(){
+	public String getIdentifier() {
 		return "Solar simulation";
 	}
-	
+
 	@Override
-	public Runnable construct(int id, ExceptionListener listener, String[] args) throws Throwable {
-		return new RMVSolarMapRenderer(id, listener, ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap(), args);
+	public Runnable constructRMV(int id, ExceptionListener listener, String[] args, Vector3f nav) {
+		return new RMVSolarMapRenderer(id, listener, ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap(), nav);
 	}
 }
+	
+

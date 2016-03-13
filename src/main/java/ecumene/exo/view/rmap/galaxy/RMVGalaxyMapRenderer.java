@@ -7,16 +7,20 @@ import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
 import ecumene.exo.sim.map.real.RMap;
 import ecumene.exo.view.rmap.JRMViewer;
 import ecumene.exo.view.rmap.RMVRenderer;
+import org.joml.Vector3f;
 
 public class RMVGalaxyMapRenderer extends RMVRenderer {
 
-	public RMVGalaxyMapRenderer(int id, ExceptionListener exceptionListener, ExoGalaxyMap map, String[] args) {
-		super(id, exceptionListener, new RMap(), args);
+	public Vector3f navigation;
+
+	public RMVGalaxyMapRenderer(int id, ExceptionListener exceptionListener, Vector3f navigation) {
+		super(id, exceptionListener, new RMap(), navigation);
+		this.navigation = navigation;
 	}
 	
 	@Override
 	protected JRMViewer constructRenderer() {
-		return new JRMVGalaxyRenderer(pMap);
+		return new JRMVGalaxyRenderer(navigation, pMap);
 	}
 
 	@Override

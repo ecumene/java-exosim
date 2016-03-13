@@ -22,11 +22,12 @@ import java.util.List;
 
 // Doesn't extend JRMViewer cause honestly it kinda sucks!
 public class JSMVSurfaceRenderer extends JPanel implements ISimContextListener {
-    private Vector3f                 navigation = new Vector3f(0, 0, 1);
+    private Vector3f                 navigation;
     private SMVSurfaceRendererConfig renderingConfig;
     private ExoSurfaceMap            map;
 
-    public JSMVSurfaceRenderer(ExoSurfaceMap map, SMVSurfaceRendererConfig config){
+    public JSMVSurfaceRenderer(ExoSurfaceMap map, SMVSurfaceRendererConfig config, Vector3f navigation){
+        this.navigation = navigation;
         this.map = map;
         this.renderingConfig = config;
 

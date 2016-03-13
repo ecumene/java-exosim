@@ -5,25 +5,23 @@ import ecumene.exo.sim.map.real.RMap;
 import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
 import ecumene.exo.view.rmap.JRMViewer;
 import ecumene.exo.view.rmap.RMVRenderer;
+import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 import java.beans.ExceptionListener;
 
 public class RMVPlanetMapRenderer extends RMVRenderer {
 
-    private String[]          args;
-    private ExceptionListener listener;
     private ExoPlanetMap      planetMap;
 
-    public RMVPlanetMapRenderer(int id, ExceptionListener exceptionListener, ExoPlanetMap planetMap, String[] args){
-        super(id, exceptionListener, new RMap(), args);
+    public RMVPlanetMapRenderer(int id, ExceptionListener exceptionListener, ExoPlanetMap planetMap, Vector3f navigation){
+        super(id, exceptionListener, new RMap(), navigation);
         this.planetMap = planetMap;
-        this.args = args;
-        this.listener = exceptionListener;
     }
 
     @Override
     protected JRMViewer constructRenderer() {
-        return new JRMVPlanetRenderer(planetMap);
+        return new JRMVPlanetRenderer(navigation, planetMap);
     }
 
     @Override

@@ -10,15 +10,18 @@ import javax.swing.JPanel;
 
 import ecumene.exo.sim.map.real.RMap;
 import ecumene.exo.view.ViewerRunnable;
+import org.joml.Vector3f;
 
 public abstract class RMVRenderer extends ViewerRunnable {
 
 	protected JRMViewer renderer = null;
 	protected RMap      pMap     = null;
 	protected JFrame    frame;
+	protected Vector3f navigation;
 	
-	public RMVRenderer(int id, ExceptionListener exceptionListener, RMap map, String[] args) {
-		super(id, exceptionListener, args);
+	public RMVRenderer(int id, ExceptionListener exceptionListener, RMap map, Vector3f navigation) {
+		super(id, exceptionListener);
+		this.navigation = navigation;
 		pMap = map;
 	}
 	
@@ -43,6 +46,6 @@ public abstract class RMVRenderer extends ViewerRunnable {
 	}
 	
 	protected JRMViewer constructRenderer(){
-		return new JRMViewer(pMap);
+		return new JRMViewer(navigation, pMap);
 	}
 }

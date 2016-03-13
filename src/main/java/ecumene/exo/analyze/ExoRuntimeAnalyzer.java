@@ -25,10 +25,9 @@ public class ExoRuntimeAnalyzer extends ViewerRunnable {
 	 * Constructs the runtime analyzer
 	 * @param id       The ID of the running viewer
 	 * @param listener The exception listener
-	 * @param args     The CLI arguments
      */
-	public ExoRuntimeAnalyzer(int id, ExceptionListener listener, String[] args) {
-		super(id, listener, args);
+	public ExoRuntimeAnalyzer(int id, ExceptionListener listener) {
+		super(id, listener);
 	}
 
 	private JLabel stepLabel = new JLabel("Current Step: " + 0);

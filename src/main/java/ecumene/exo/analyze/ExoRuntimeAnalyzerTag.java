@@ -14,7 +14,7 @@ public class ExoRuntimeAnalyzerTag implements IViewerTag {
 
 	@Override
 	public Runnable construct(int id, ExceptionListener listener, String[] args) throws Throwable {
-		return new ExoRuntimeAnalyzer(id, listener, args);
+		return new ExoRuntimeAnalyzer(id, listener);
 	}
 	
 }

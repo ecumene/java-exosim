@@ -11,8 +11,7 @@ public abstract class ViewerRunnable implements Runnable, ISimContextListener, I
 	private int id;
 	private ExceptionListener listener;
 	
-	public ViewerRunnable(int id, ExceptionListener exceptionListener, String...args) {
-		this.input = args;
+	public ViewerRunnable(int id, ExceptionListener exceptionListener) {
 		this.id = id;
 		this.listener = exceptionListener;
 	}
