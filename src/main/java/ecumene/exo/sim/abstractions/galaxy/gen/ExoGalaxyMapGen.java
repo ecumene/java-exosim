@@ -29,7 +29,7 @@ public class ExoGalaxyMapGen {
 			float radius = ((float)noise.eval(1, (i * 2) + 1) * size);
 			Vector2f position = new Vector2f(radius * (float)Math.cos(angle),
 					                         radius * (float)Math.sin(angle));
-			ExoGOrbiter orbiter = new ExoGOrbiter("Orbiter ", position);
+			ExoGOrbiter orbiter = new ExoGOrbiter("Solar System ", position);
 			orbiter.mass = (float) (noise.eval(0, i) * maxOrbiterMass) + minOrbiterMass; // y=mx+b ;)
 			orbiters[i] = orbiter;
 		}

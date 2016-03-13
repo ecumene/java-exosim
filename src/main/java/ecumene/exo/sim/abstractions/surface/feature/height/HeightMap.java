@@ -1,21 +1,14 @@
 package ecumene.exo.sim.abstractions.surface.feature.height;
 
+import ecumene.exo.sim.util.heightmap.channel.HeightChannel;
+
 public class HeightMap {
-    public float[][] elevation; // In XY form
+    public HeightChannel elevation; // In XY form
 
-    public HeightMap(){}
+    public HeightMap(HeightChannel channel){this.elevation = channel;}
 
-    public float[][] getElevation() {
+    public HeightChannel getElevation() {
         return elevation;
     }
 
-    public HeightMap setElevation(float[][] elevations, boolean flip){
-        if(flip) {
-            elevation = new float[elevations.length][elevations[0].length];
-            for(int x = 0; x < elevations.length; x++)
-                for(int y = 0; y < elevations[x].length; y++)
-                    this.elevation[y][x] = elevations[x][y];
-        }else this.elevation = elevations;
-        return this;
-    }
 }

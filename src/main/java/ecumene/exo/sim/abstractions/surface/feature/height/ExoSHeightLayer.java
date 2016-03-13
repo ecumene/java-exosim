@@ -16,9 +16,9 @@ public class ExoSHeightLayer extends ExoGridLayer {
     }
 
     private static ExoSHeight[][] heightMapToFeatures(HeightMap heightMap){
-        ExoSHeight[][] elevations = new ExoSHeight[heightMap.elevation.length][heightMap.elevation[0].length];
-        for(int x = 0; x < heightMap.elevation.length; x++)
-            for(int y = 0; y < heightMap.elevation[0].length; y++)
+        ExoSHeight[][] elevations = new ExoSHeight[heightMap.elevation.width][heightMap.elevation.height];
+        for(int x = 0; x < heightMap.elevation.width; x++)
+            for(int y = 0; y < heightMap.elevation.height; y++)
                 elevations[x][y] = new ExoSHeight(); // Just look at the exogridlayer constructor and this'll all make sense.
         return elevations;
     }

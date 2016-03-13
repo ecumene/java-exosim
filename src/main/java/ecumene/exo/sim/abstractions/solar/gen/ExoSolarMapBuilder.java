@@ -4,7 +4,7 @@ import ecumene.exo.runtime.OpenSimplexNoise;
 import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 import ecumene.exo.sim.abstractions.solar.ExoSolarObject;
 import ecumene.exo.sim.abstractions.solar.IExoSolarObject;
-import ecumene.exo.sim.gen.GenUtils;
+import ecumene.exo.sim.util.GenUtils;
 import org.joml.Vector2f;
 
 import java.util.ArrayList;

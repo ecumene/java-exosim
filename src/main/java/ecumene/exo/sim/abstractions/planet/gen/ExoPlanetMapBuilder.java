@@ -6,7 +6,7 @@ import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
 import ecumene.exo.sim.abstractions.planet.ExoPlanetMoon;
 import ecumene.exo.sim.abstractions.solar.ExoSolarObject;
 import ecumene.exo.sim.abstractions.solar.IExoSolarObject;
-import ecumene.exo.sim.gen.GenUtils;
+import ecumene.exo.sim.util.GenUtils;
 import org.joml.Vector2f;
 
 import java.util.ArrayList;

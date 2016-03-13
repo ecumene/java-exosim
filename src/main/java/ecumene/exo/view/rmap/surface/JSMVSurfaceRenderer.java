@@ -71,7 +71,7 @@ public class JSMVSurfaceRenderer extends JPanel implements ISimContextListener {
         if(map != null){
             for(ExoSFeatureLayer layer : map.getLayers()) {                                     // Loop all layers
                 for (IFeatureLayerRenderer layerRenderer : renderingConfig.getLayerRenderers()) // Loop all renderers
-                    layerRenderer.renderLayer(graphics, layer);                                 // Render that layer
+                    layerRenderer.renderLayer(this, graphics, layer);                           // Render that layer
                 // It's  not   a  bug,  it's   a    FEATURE.
                 for (ExoSFeature feature : layer.getFeatures()) {
                     for (IFeatureRenderer featureRenderer : renderingConfig.getFeatureRenderers()) {
@@ -80,14 +80,18 @@ public class JSMVSurfaceRenderer extends JPanel implements ISimContextListener {
                         screenPosition.y *= +Math.abs(navigation.z);
                         screenPosition.add(new Vector2f(navigation.x, navigation.y));
                         screenPosition.add(new Vector2f(0, 10));
-                        featureRenderer.renderFeature(graphics, feature, screenPosition);
+                        featureRenderer.renderFeature(this, graphics, feature, screenPosition);
                     }
                 }
             }
             for(ExoSFeatureFilter filter : map.getFilters())                                      // Loop all filters
                 for(IFeatureFilterRenderer filterRenderer : renderingConfig.getFilterRenderers()) // Loop all renderers
-                    filterRenderer.renderFilter(graphics, filter);                                // Render that filter
+                    filterRenderer.renderFilter(this, graphics, filter);                          // Render that filter
         }
+    }
+
+    public Vector3f getNavigation() {
+        return navigation;
     }
 
     public void setMap(ExoSurfaceMap map) {

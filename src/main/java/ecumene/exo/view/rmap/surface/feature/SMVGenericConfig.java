@@ -1,10 +1,10 @@
 package ecumene.exo.view.rmap.surface.feature;
 
 import ecumene.exo.view.rmap.surface.SMVSurfaceRendererConfig;
-import ecumene.exo.view.rmap.surface.feature.elevation.SElevationRenderer;
+import ecumene.exo.view.rmap.surface.feature.heightmap.SMVHeightMapRenderer;
 
 public class SMVGenericConfig extends SMVSurfaceRendererConfig {
     public SMVGenericConfig(){
-        this.getFeatureRenderers().add(new SElevationRenderer());
+        this.getLayerRenderers().add(new SMVHeightMapRenderer());
     }
 }

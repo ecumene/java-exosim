@@ -19,9 +19,11 @@ import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureFilter;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
-import ecumene.exo.sim.abstractions.surface.feature.elevation.ExoSElevationLayer;
 import ecumene.exo.sim.abstractions.surface.feature.height.ExoSHeightLayer;
 import ecumene.exo.sim.abstractions.surface.feature.height.HeightMap;
+import ecumene.exo.sim.util.heightmap.channel.HeightChannel;
+import ecumene.exo.sim.util.heightmap.voronoi.VoronoiEuclidWrapFactory;
+import ecumene.exo.sim.util.heightmap.voronoi.VoronoiPoint;
 import ecumene.exo.view.rmap.planet.RMVPlanetViewerTag;
 import ecumene.exo.view.rmap.surface.SMVSurfaceViewerTag;
 import ecumene.exo.view.rmap.surface.feature.SMVGenericConfig;
@@ -58,7 +60,7 @@ public class ExoRuntime implements Runnable{
 	 * @throws ParseException due to apache CLI
 	 * @throws IOException    due to loading any files
      */
-	public ExoRuntime(String[] arguments) throws ParseException, IOException {
+	public ExoRuntime(String[] arguments, SimContext context) throws ParseException, IOException {
 		commands  = new ExoArgParse(arguments);
 		viewerExec = Executors.newCachedThreadPool();
 		viewers = new ArrayList<ViewerRunnable>();
@@ -66,58 +68,8 @@ public class ExoRuntime implements Runnable{
 		//This allows for anything to go wrong in any thread and still report back!
 		exceptionListener = (Exception e) -> { System.out.println(); e.printStackTrace(); };
 
-		// In the future, all these builders will be accompanied by XML or .prop files containing
-		// exact data on simulation stuffs. This will allow you to "build from file" and essentially
-		// enter in a few values.
-		// I was planning to make different files showing stuff from movies like interstellar and the martian
-		// ~~ IT'S GONNA BE LIT ~~
+		this.context = context;
 
-		// I'll make a builder for this... eventually.
-		ExoGalaxyMap galaxy = new ExoGalaxyMapGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 100, 400).getSource();
-
-		ExoSolarMapBuilder solarBuilder = new ExoSolarMapBuilder(System.currentTimeMillis());
-		solarBuilder.genObject(    new Vector2f(4, 4), new Vector2f(0, 0), new Vector2f(0, 0)); // Generate sun
-		solarBuilder.genObjectsOrbiting(9,     // Number of orbiters
-				new Vector2f(0,0),             // Point to orbit
-				new Vector2f(0.001f, 0.0015f), // Orbiter Masses
-				new Vector2f(-500, 500),       // Orbiter Position (polar coordinate radius)
-				new Vector2f(0, 360),          // Orbiter angle    (polar coordinate angle)
-				new Vector2f(0.01f, 0.025f));  // Initial velocity (0 will cause the orbiters to go DIRECTLY towards the sun and die a horrible death)
-		// solarBuilder.genObjects(9, new Vector2f(0.001f, 0.0015f), new Vector2f(-500, 500), new Vector2f(-0.25f, 0.25f)); // Generate planets
-		ExoSolarMap solar = solarBuilder.build();
-
-		//                                                          Set seed to current time
-		ExoPlanetMapBuilder planetBuilder = new ExoPlanetMapBuilder(System.currentTimeMillis());
-		planetBuilder.genPlanet(new Vector2f(2, 3)); // Generate planet within mass range of X and Y
-		planetBuilder.genMoons(1,                    // Generate # of moons
-				new Vector2f(0.5f, 1),               // Generate moon mass
-				new Vector2f(50, 200),               // Generate moon diameter from planet
-				new Vector2f(0, 360),                // Generate moon angle
-				new Vector2f(-0.15f, 0.15f));        // Generate moon beginning velocity
-		ExoPlanetMap planet = planetBuilder.build(); // Finish generating and save to exoplanet
-		planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, false));// tracking data for moons
-
-		// This should be in a builder!! GIMMIE A MINUET!
-		List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();
-		List<ExoSFeatureFilter> featureFilters = new ArrayList<ExoSFeatureFilter>();
-
-		float[][] arr = {{0,0,0,0},
-						 {0,0,0,0},
-						 {0,0,0,0},
-				         {0,0,0,0}};
-		arr[0][2] = 1;
-
-		HeightMap heightMap = new HeightMap();
-		heightMap.setElevation(arr, false);
-
-		featureLayers.add(new ExoSHeightLayer(heightMap, 20));
-
-		ExoSurfaceMap surface = new ExoSurfaceMap(featureLayers,
-				                                  featureFilters);
-
-		// Finish generating, save to context for simulation
-		context = new SimContext(galaxy, solar, planet, surface);
-		
 		viewerDB = new IViewerTag[5];
 		viewerDB[0] = new ExoRuntimeAnalyzerTag();
 		viewerDB[1] = new RMVGalaxyViewerTag();
@@ -148,12 +100,9 @@ public class ExoRuntime implements Runnable{
 					}
 					System.out.println("----------------------------");
 				} else {
-					int chosen = Integer.parseInt(upperLineWords[1]);                                                                                                               // Parse second num as int
-					if(chosen >= viewerDB.length) throw new IllegalArgumentException("Chosen int larger than runnables");                                                           // Is that num illegal?
-					ViewerRunnable runnable = (ViewerRunnable) viewerDB[chosen].construct(chosen, exceptionListener, Arrays.copyOfRange(upperLineWords, 1, upperLineWords.length)); // Choose a runnable from num
-					System.out.println("Running " + chosen);                                                                                                                        // We're running that now!
-					viewerExec.submit(runnable);                                                                                                                                    // Submit runnable to exec. service
-					viewers.add(runnable);                                                                                                                                          // Add runnable
+					int chosen = Integer.parseInt(upperLineWords[1]);                                                     // Parse second num as int
+					if(chosen >= viewerDB.length) throw new IllegalArgumentException("Chosen int larger than runnables"); // Is that num illegal?
+					runViewer(chosen, Arrays.copyOfRange(upperLineWords, 1, upperLineWords.length));
 				}
 			}
 		} else if(upperLineWords[0].equals("EXIT")){
@@ -164,7 +113,7 @@ public class ExoRuntime implements Runnable{
 			System.out.println("-----------RUNNING----------");                                                            // List running
 			if(viewers.size() == 0) System.out.println("None running...");
 			else for(int i = 0; i < viewers.size(); i++){                                                                  // Iterate all running
-				System.out.println("Runnable ID: " + i + " Running ID: " + viewers.get(i).getID());                        // Runnable ID: X Running ID: X 
+				System.out.println("Runnable ID: " + i + " Running ID: " + viewers.get(i).getID());                        // Runnable ID: X Running ID: X
 			}
 			System.out.println("----------------------------");
 	    } else if(upperLineWords[0].equals("STOP")){                                                                       // Stop a runnable
@@ -212,6 +161,10 @@ public class ExoRuntime implements Runnable{
 		viewerExec.shutdown();
 	}
 
+	public ExceptionListener getExceptionListener() {
+		return exceptionListener;
+	}
+
 	/** @return The public runtime instance */
 	public SimContext getContext(){
 		return context;
@@ -221,6 +174,13 @@ public class ExoRuntime implements Runnable{
 	public void setContext(SimContext context){
 		for(int i = 0; i < viewers.size(); i++)
 			viewers.get(i).onContextChanged(context);
+	}
+
+	public void runViewer(int id, String[] upperArguments) throws Throwable {
+		ViewerRunnable runnable = (ViewerRunnable) viewerDB[id].construct(id, exceptionListener, upperArguments); // Choose a runnable from num
+		System.out.println("Running " + id);                                                                      // We're running that now!
+		viewerExec.submit(runnable);                                                                              // Submit runnable to exec. service
+		viewers.add(runnable);                                                                                    // Add runnable
 	}
 
 	/** Steps the simulation once */
@@ -234,11 +194,5 @@ public class ExoRuntime implements Runnable{
 	/** @return The currently running viewers */
 	public IViewerTag[] getRunnables(){
 		return viewerDB;
-	}
-
-	public static void main(String[] args) throws ParseException, IOException {
-		INSTANCE = new ExoRuntime(args);
-		INSTANCE.run();
-		System.exit(0);
 	}
 }

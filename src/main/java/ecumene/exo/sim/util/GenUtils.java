@@ -1,4 +1,4 @@
-package ecumene.exo.sim.gen;
+package ecumene.exo.sim.util;
 
 import org.joml.Vector2f;
 

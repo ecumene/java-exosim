@@ -10,7 +10,7 @@ public class ExoSHeight extends ExoGridFeature {
     public ExoSHeight(){}
 
     public float sampleElevation(){
-        return this.parent.elevation[getIndex().x][getIndex().y];
+        return this.parent.elevation.getPixel(getIndex().x, getIndex().y);
     }
 
     @Override
