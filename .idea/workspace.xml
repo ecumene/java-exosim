@@ -2,47 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10243f6a-b0b2-46e9-80aa-0df0fcd00904" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/OpenSimplexNoiseRandom.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/HeightMapBI.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/HeightMapUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/IHeightMapBIColorMethod.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/channel/HeightChannel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/channel/HeightImage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/voronoi/Voronoi.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/voronoi/VoronoiEuclid.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/voronoi/VoronoiEuclidWrapFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/voronoi/VoronoiPoint.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/voronoi/VoronoiWeighted.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/voronoi/VoronoiWeightedWrapFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/heightmap/SMVHeightMapRenderer.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/elevation/SElevationRenderer.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/gen/GenUtils.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/GenUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/1.4/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/1.4/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/1.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/runtime/ExoRuntime.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/runtime/ExoRuntime.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/project.jar" afterPath="$PROJECT_DIR$/build/libs/project.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.iml" afterPath="$PROJECT_DIR$/project.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/galaxy/gen/ExoGalaxyMapGen.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/galaxy/gen/ExoGalaxyMapGen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/planet/gen/ExoPlanetMapBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/planet/gen/ExoPlanetMapBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/gen/ExoSolarMapBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/gen/ExoSolarMapBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeight.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeightLayer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/ExoSHeightLayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/HeightMap.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/surface/feature/height/HeightMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/JSMVSurfaceRenderer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/JSMVSurfaceRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureFilterRenderer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureFilterRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureLayerRenderer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureLayerRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureRenderer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/SMVGenericConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/SMVGenericConfig.java" />
     </list>
     <ignored path="project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -93,25 +53,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ExoRuntime.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ExoRuntime.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8629118">
-              <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.8987161">
+              <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3819#3837#0" expanded="true" />
-                <element signature="e#3903#3922#0" expanded="true" />
+                <element signature="e#9406#9407#0" expanded="true" />
+                <element signature="e#9428#9429#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -462,8 +411,8 @@
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/heightmap/SMVHeightMapRenderer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/voronoi/VoronoiEuclidWrapFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/voronoi/VoronoiWeightedWrapFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
       </list>
     </option>
   </component>
@@ -941,7 +890,7 @@
     </configuration>
     <configuration default="false" name="Unnamed" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="ecumene.exo.runtime.ExoRuntime" />
+      <option name="MAIN_CLASS_NAME" value="ecumene.exo.Main" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="--ignore_override -r &quot;run 0; run 4&quot;" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -984,30 +933,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="-12" width="1922" height="1093" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22395833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854208" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36755648" sideWeight="0.5104167" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21355236" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22395833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.399384" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854208" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21355236" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295688" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.399384" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1393,6 +1342,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35706696">
+          <caret line="48" column="92" selection-start-line="48" selection-start-column="92" selection-end-line="48" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3819#3837#0" expanded="true" />
+            <element signature="e#3903#3922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/heightmap/SMVHeightMapRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1403,20 +1364,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8629118">
-          <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.8987161">
+          <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3819#3837#0" expanded="true" />
-            <element signature="e#3903#3922#0" expanded="true" />
+            <element signature="e#9406#9407#0" expanded="true" />
+            <element signature="e#9428#9429#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -134,7 +134,7 @@ public class ExoRuntime implements Runnable{
 		System.out.println("For what do? type 'whatdo'");
 		Scanner scanner = new Scanner(new UnClosableDecorator(System.in));
 		System.out.print("->");
-		boolean parsingRTCommand = commands.getRTCommands() == null ? false : (commands.getRTCommands().length == 0 ? false : true);
+		boolean parsingRTCommand = commands.getRTCommands()!=null && (commands.getRTCommands().length != 0);
 		scanLine                 = true;
 		
 		if(parsingRTCommand)
@@ -172,6 +172,8 @@ public class ExoRuntime implements Runnable{
 
 	/**@param context The sim object to set */
 	public void setContext(SimContext context){
+		// Yes, it CAN be replaced by a foreach, if you want it to crash on a viewer creating another viewer
+		// Intellij in it's entirety is a 'necessary evil'
 		for(int i = 0; i < viewers.size(); i++)
 			viewers.get(i).onContextChanged(context);
 	}
@@ -185,10 +187,10 @@ public class ExoRuntime implements Runnable{
 
 	/** Steps the simulation once */
 	public void step(){
+		// Yes, it CAN be replaced by a foreach, if you want it to crash on a viewer creating another viewer
+		// Intellij in it's entirety is a 'necessary evil'
 		for(int i = 0; i < viewers.size(); i++)
-			viewers.get(i)
-			.onStep(context, 
-					context.getSteps());
+			viewers.get(i).onStep(context, context.getSteps());
 	}
 
 	/** @return The currently running viewers */
