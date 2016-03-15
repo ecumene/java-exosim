@@ -1,8 +1,7 @@
 apply plugin: 'java'
+apply plugin: 'idea'
+mainClassName = "org.gradle.sample.Main"
 
-apply plugin: 'application'
-
-mainClassName = "ecumene.exo.Main"
 
 compileJava {
     sourceCompatibility = '1.8'
@@ -26,8 +25,6 @@ dependencies {
     compile "org.jdom:jdom:${jdomVersion}"
     compile "org.joml:joml:${jomlVersion}"
 }
-
-apply plugin: 'idea'
 
 idea{
     module{

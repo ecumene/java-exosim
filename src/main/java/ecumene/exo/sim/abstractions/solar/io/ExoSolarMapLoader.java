@@ -18,7 +18,7 @@ public class ExoSolarMapLoader {
 
         Element root = document.getRootElement();
         for(Element element : root.getChildren()){
-            Vector3f defaultPos;
+            //Vector3f defaultPos;
             if(element.getText().toUpperCase().contains("OBJECT")){
                 String   name     = "XML Object";
                 float    mass     = 0;              // Element's mass

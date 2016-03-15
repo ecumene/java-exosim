@@ -1,8 +1,10 @@
 apply plugin: 'java'
-
 apply plugin: 'application'
+apply plugin: 'idea'
 
 mainClassName = "ecumene.exo.Main"
+
+
 
 compileJava {
     sourceCompatibility = '1.8'
@@ -26,8 +28,6 @@ dependencies {
     compile "org.jdom:jdom:${jdomVersion}"
     compile "org.joml:joml:${jomlVersion}"
 }
-
-apply plugin: 'idea'
 
 idea{
     module{
