@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10243f6a-b0b2-46e9-80aa-0df0fcd00904" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/io/ExoSolarMapLoader.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/io/ExoSolarMapLoader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/xmlio/ExoXMLObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulation/solar.xml" afterPath="$PROJECT_DIR$/simulation/solar.xml" />
     </list>
     <ignored path="project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +29,8 @@
             <file leaf-file-name="solar.xml" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/simulation/solar.xml">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.028836252">
-                    <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+                  <state vertical-scroll-proportion="0.25952625">
+                    <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
                     <folding />
                   </state>
                 </provider>
@@ -108,13 +109,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExoSolarMapLoader.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ExoSolarMapLoader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/io/ExoSolarMapLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43929058">
-              <caret line="42" column="63" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExoXMLObject.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/xmlio/ExoXMLObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.55388814">
+              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#512#513#0" expanded="true" />
+                <element signature="e#541#542#0" expanded="true" />
+                <element signature="e#588#589#0" expanded="true" />
+                <element signature="e#619#620#0" expanded="true" />
+                <element signature="e#654#655#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -406,8 +425,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/SMVGenericConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureRenderer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureLayerRenderer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/IFeatureFilterRenderer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/heightmap/Layer.java" />
@@ -455,8 +472,10 @@
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/gen/ExoSolarMapBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/runtime/ExoRuntime.java" />
-        <option value="$PROJECT_DIR$/simulation/solar.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/io/ExoSolarMapLoader.java" />
+        <option value="$PROJECT_DIR$/simulation/solar.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/io/ExoSolarObjectXML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/xmlio/ExoXMLObject.java" />
       </list>
     </option>
   </component>
@@ -597,6 +616,78 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xmlio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="abstractions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -678,48 +769,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="abstractions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="solar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1120,7 +1169,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="ecumene.exo.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="--ignore_override -d simulation -r &quot;run 0;&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="--ignore_override -d simulation -r &quot;run 0&quot;" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -1205,13 +1254,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/view/rmap/surface/feature/SMVGenericConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15469614">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/GenUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4383057">
@@ -1606,18 +1648,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/simulation/solar.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028836252">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.25952625">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/abstractions/solar/io/ExoSolarMapLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43929058">
-          <caret line="42" column="63" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/sim/util/xmlio/ExoXMLObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55388814">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
           </folding>
         </state>
       </provider>
