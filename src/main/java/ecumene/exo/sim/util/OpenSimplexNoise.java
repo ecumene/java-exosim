@@ -1,4 +1,4 @@
-package ecumene.exo.runtime;
+package ecumene.exo.sim.util;
 
 /* The legendary opensimplexnoise.java */
 /* https://gist.github.com/KdotJPG/b1270127455a94ac5d19 */
@@ -30,14 +30,12 @@ public class OpenSimplexNoise {
 	private static final double NORM_CONSTANT_2D = 47;
 	private static final double NORM_CONSTANT_3D = 103;
 	private static final double NORM_CONSTANT_4D = 30;
-	
-	private static final long DEFAULT_SEED = 0;
-	
+
 	private short[] perm;
 	private short[] permGradIndex3D;
 	
 	public OpenSimplexNoise() {
-		this(DEFAULT_SEED);
+		this(System.currentTimeMillis());
 	}
 	
 	public OpenSimplexNoise(short[] perm) {

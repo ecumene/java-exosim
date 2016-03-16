@@ -1,6 +1,6 @@
 package ecumene.exo.sim.abstractions.solar.gen;
 
-import ecumene.exo.runtime.OpenSimplexNoise;
+import ecumene.exo.sim.util.OpenSimplexNoise;
 import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 import ecumene.exo.sim.abstractions.solar.ExoSolarObject;
 import ecumene.exo.sim.abstractions.solar.IExoSolarObject;

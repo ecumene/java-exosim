@@ -1,6 +1,6 @@
 package ecumene.exo.sim.abstractions.planet.gen;
 
-import ecumene.exo.runtime.OpenSimplexNoise;
+import ecumene.exo.sim.util.OpenSimplexNoise;
 import ecumene.exo.sim.abstractions.planet.ExoPlanet;
 import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
 import ecumene.exo.sim.abstractions.planet.ExoPlanetMoon;

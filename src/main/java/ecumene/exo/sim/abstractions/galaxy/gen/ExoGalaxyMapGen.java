@@ -5,7 +5,7 @@ import ecumene.exo.sim.abstractions.galaxy.ExoGSingularity;
 import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
 import org.joml.Vector2f;
 
-import ecumene.exo.runtime.OpenSimplexNoise;
+import ecumene.exo.sim.util.OpenSimplexNoise;
 
 public class ExoGalaxyMapGen {
 	

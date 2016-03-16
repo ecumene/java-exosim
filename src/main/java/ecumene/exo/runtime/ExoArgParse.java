@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import ecumene.exo.sim.util.UnClosableDecorator;
 import org.apache.commons.cli.*;
 
 public class ExoArgParse {

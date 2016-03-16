@@ -1,4 +1,4 @@
-package ecumene.exo.runtime;
+package ecumene.exo.sim.util;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -9,21 +9,7 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
-import ecumene.exo.sim.abstractions.galaxy.gen.ExoGalaxyMapGen;
-import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
-import ecumene.exo.sim.abstractions.planet.TrackingParameters;
-import ecumene.exo.sim.abstractions.planet.gen.ExoPlanetMapBuilder;
-import ecumene.exo.sim.abstractions.solar.gen.ExoSolarMapBuilder;
-import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
-import ecumene.exo.sim.abstractions.surface.ExoSFeatureFilter;
-import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
-import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
-import ecumene.exo.sim.abstractions.surface.feature.height.ExoSHeightLayer;
-import ecumene.exo.sim.abstractions.surface.feature.height.HeightMap;
-import ecumene.exo.sim.util.heightmap.channel.HeightChannel;
-import ecumene.exo.sim.util.heightmap.voronoi.VoronoiEuclidWrapFactory;
-import ecumene.exo.sim.util.heightmap.voronoi.VoronoiPoint;
+import ecumene.exo.sim.util.UnClosableDecorator;
 import ecumene.exo.view.rmap.planet.RMVPlanetViewerTag;
 import ecumene.exo.view.rmap.surface.SMVSurfaceViewerTag;
 import ecumene.exo.view.rmap.surface.feature.SMVGenericConfig;
@@ -35,7 +21,6 @@ import ecumene.exo.view.IViewerTag;
 import ecumene.exo.view.ViewerRunnable;
 import ecumene.exo.view.rmap.galaxy.RMVGalaxyViewerTag;
 import ecumene.exo.view.rmap.solar.RMVSolarViewerTag;
-import org.joml.Vector2f;
 
 /**
  * ExoRuntime is the class that contains all the bootstrapping and initial building of the application.

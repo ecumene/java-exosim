@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.zip.*;
 import java.nio.*;
 
-public final strictfp class HeightChannel {
+public strictfp class HeightChannel {
 	public float[][] pixels;
 	public int width;
 	public int height;

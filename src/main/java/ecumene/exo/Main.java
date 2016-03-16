@@ -1,6 +1,7 @@
 package ecumene.exo;
 
 import ecumene.exo.runtime.ExoRuntime;
+import ecumene.exo.sim.util.OpenSimplexNoise;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
 import ecumene.exo.sim.abstractions.galaxy.gen.ExoGalaxyMapGen;
@@ -15,9 +16,8 @@ import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
 import ecumene.exo.sim.abstractions.surface.feature.height.ExoSHeightLayer;
 import ecumene.exo.sim.abstractions.surface.feature.height.HeightMap;
 import ecumene.exo.sim.util.heightmap.channel.HeightChannel;
-import ecumene.exo.sim.util.heightmap.voronoi.VoronoiEuclidWrapFactory;
-import ecumene.exo.sim.util.heightmap.voronoi.VoronoiPoint;
-import ecumene.exo.sim.util.heightmap.voronoi.VoronoiWeightedWrapFactory;
+import ecumene.exo.sim.util.heightmap.random.NoiseChannel;
+import ecumene.exo.sim.util.heightmap.random.TiledNoiseChannel;
 import org.apache.commons.cli.ParseException;
 import org.joml.Vector2f;
 
@@ -62,15 +62,18 @@ public class Main {
         List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();
         List<ExoSFeatureFilter> featureFilters = new ArrayList<ExoSFeatureFilter>();
 
-        VoronoiPoint[] points = new VoronoiPoint[]{
-                new VoronoiPoint(1.1f, new Vector2f(0.1f, 0.2f)),
-                new VoronoiPoint(1.3f, new Vector2f(0.1f, 0.6f)),
-                new VoronoiPoint(1.2f, new Vector2f(0.9f, 0.3f)),
-                new VoronoiPoint(1.5f, new Vector2f(0.13f, 0.1f)),
-        };
-        HeightChannel channel = VoronoiWeightedWrapFactory.wrapDistance(1024, 1024, true, points);
+        //VoronoiPoint[] points = new VoronoiPoint[]{
+        //        new VoronoiPoint(1.1f, new Vector2f(0.1f, 0.2f)),
+        //        new VoronoiPoint(1.3f, new Vector2f(0.1f, 0.6f)),
+        //        new VoronoiPoint(1.2f, new Vector2f(0.9f, 0.3f)),
+        //        new VoronoiPoint(1.5f, new Vector2f(0.13f, 0.1f)),
+        //};
+        //HeightChannel channel = VoronoiWeightedWrapFactory.wrapDistance(1024, 1024, true, points);
         //Voronoi voronoi = new VoronoiEuclid(new Vector2i(1024, 1024), true, points);
 
+        HeightChannel channel = new TiledNoiseChannel(1000, 500,
+                                                      new OpenSimplexNoise(),
+                                                      new Vector2f(1, 1));
         HeightMap heightMap = new HeightMap(channel);
 
         featureLayers.add(new ExoSHeightLayer(heightMap, 20));
