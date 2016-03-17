@@ -1,9 +1,7 @@
 package ecumene.exo.view.rmap.surface;
 
 import ecumene.exo.runtime.ExoRuntime;
-import ecumene.exo.view.IViewerTag;
 import ecumene.exo.view.rmap.RMVTag;
-import ecumene.exo.view.rmap.solar.RMVSolarMapRenderer;
 import org.joml.Vector3f;
 
 import java.beans.ExceptionListener;

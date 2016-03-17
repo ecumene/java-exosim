@@ -2,7 +2,7 @@ package ecumene.exo.view.rmap.surface;
 
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
-import ecumene.exo.view.ViewerRunnable;
+import ecumene.exo.runtime.viewer.ViewerRunnable;
 import org.joml.Vector3f;
 
 import javax.imageio.ImageIO;

@@ -16,7 +16,6 @@ import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
 import ecumene.exo.sim.abstractions.surface.feature.height.ExoSHeightLayer;
 import ecumene.exo.sim.abstractions.surface.feature.height.HeightMap;
 import ecumene.exo.sim.util.heightmap.channel.HeightChannel;
-import ecumene.exo.sim.util.heightmap.random.NoiseChannel;
 import ecumene.exo.sim.util.heightmap.random.TiledNoiseChannel;
 import org.apache.commons.cli.ParseException;
 import org.joml.Vector2f;
@@ -52,9 +51,9 @@ public class Main {
         planetBuilder.genPlanet(new Vector2f(2, 3)); // Generate planet within mass range of X and Y
         planetBuilder.genMoons(1,                    // Generate # of moons
                 new Vector2f(0.5f, 1),               // Generate moon mass
-                new Vector2f(50, 200),               // Generate moon diameter from planet
+                new Vector2f(100, 100),               // Generate moon diameter from planet
                 new Vector2f(0, 360),                // Generate moon angle
-                new Vector2f(-0.15f, 0.15f));        // Generate moon beginning velocity
+                new Vector2f(-2f, 2f));            // Generate moon beginning velocity
         ExoPlanetMap planet = planetBuilder.build(); // Finish generating and save to exoplanet
         planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, false));// tracking data for moons
 
@@ -71,12 +70,12 @@ public class Main {
         //HeightChannel channel = VoronoiWeightedWrapFactory.wrapDistance(1024, 1024, true, points);
         //Voronoi voronoi = new VoronoiEuclid(new Vector2i(1024, 1024), true, points);
 
-        HeightChannel channel = new TiledNoiseChannel(1000, 500,
-                                                      new OpenSimplexNoise(),
-                                                      new Vector2f(1, 1));
-        HeightMap heightMap = new HeightMap(channel);
+        //HeightChannel channel = new TiledNoiseChannel(1000, 500,
+        //                                              new OpenSimplexNoise(),
+        //                                              new Vector2f(1, 1));
+        //HeightMap heightMap = new HeightMap(channel);
 
-        featureLayers.add(new ExoSHeightLayer(heightMap, 20));
+        //featureLayers.add(new ExoSHeightLayer(heightMap, 20));
 
         ExoSurfaceMap surface = new ExoSurfaceMap(featureLayers, featureFilters);
 

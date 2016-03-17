@@ -50,11 +50,16 @@ public class ExoPlanetMapBuilder {
                                        Vector2f diameterRange,
                                        Vector2f angleRange,
                                        Vector2f velRange){
-        moons.add(new ExoPlanetMoon(Math.abs(GenUtils.getWithin((float) getRand(0), massRange)),
-                                    Math.abs(GenUtils.getWithin((float) getRand(0), diameterRange)),
-                                    Math.abs(GenUtils.getWithin((float) getRand(0), angleRange)),
-                                new Vector2f(GenUtils.getWithin((float) getRand(0), velRange),
-                                             GenUtils.getWithin((float) getRand(0), velRange))));
+        //TODO: I don't even know, somethings broken. Goodnight - Sleepy Mitchell
+        ExoPlanetMoon moon = new ExoPlanetMoon(
+                Math.abs(GenUtils.getWithin((float) getRand(0), massRange)),
+                Math.abs(GenUtils.getWithin((float) getRand(0), diameterRange)),
+                Math.abs(GenUtils.getWithin((float) getRand(0), angleRange)),
+                new Vector2f(0, 0));
+        Vector2f velocity = moon.getPosition().perpendicular().normalize();
+        velocity.mul(GenUtils.getWithin((float) getRand(0), velRange));
+        moon.getVelocity().set(velocity);
+        moons.add(moon);
         return this;
     }
 

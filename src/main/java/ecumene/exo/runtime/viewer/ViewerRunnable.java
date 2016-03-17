@@ -1,4 +1,4 @@
-package ecumene.exo.view;
+package ecumene.exo.runtime.viewer;
 
 import java.beans.ExceptionListener;
 

@@ -8,6 +8,10 @@ compileJava {
     sourceCompatibility = '1.8'
 }
 
+run {
+    standardInput = System.in
+}
+
 repositories {
 	mavenCentral();
     maven {

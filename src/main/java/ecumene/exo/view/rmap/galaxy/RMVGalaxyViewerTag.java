@@ -2,10 +2,7 @@ package ecumene.exo.view.rmap.galaxy;
 
 import java.beans.ExceptionListener;
 
-import ecumene.exo.runtime.ExoRuntime;
-import ecumene.exo.sim.SimContext;
-import ecumene.exo.view.IViewerTag;
-import ecumene.exo.view.ViewerRunnable;
+import ecumene.exo.runtime.viewer.IViewerTag;
 import org.joml.Vector3f;
 
 public class RMVGalaxyViewerTag implements IViewerTag {

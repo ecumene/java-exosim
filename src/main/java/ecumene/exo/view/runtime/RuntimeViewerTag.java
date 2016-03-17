@@ -1,11 +1,12 @@
-package ecumene.exo.analyze;
+package ecumene.exo.view.runtime;
 
 import java.beans.ExceptionListener;
 
-import ecumene.exo.sim.SimContext;
-import ecumene.exo.view.IViewerTag;
+import ecumene.exo.runtime.viewer.IViewerTag;
 
-public class ExoRuntimeAnalyzerTag implements IViewerTag {
+import javax.swing.*;
+
+public class RuntimeViewerTag implements IViewerTag {
 
 	@Override
 	public String getIdentifier() {
@@ -14,7 +15,7 @@ public class ExoRuntimeAnalyzerTag implements IViewerTag {
 
 	@Override
 	public Runnable construct(int id, ExceptionListener listener, String[] args) throws Throwable {
-		return new ExoRuntimeAnalyzer(id, listener);
+		return new NeoRuntimeViewer(id, listener);
 	}
 	
 }

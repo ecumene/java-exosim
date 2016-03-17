@@ -54,6 +54,10 @@ public class ExoPlanetMoon implements IExoPlanetObject {
         return distance;
     }
 
+    public Vector2f getVelocity() {
+        return velocity;
+    }
+
     @Override
     public float getMass() {
         return mass;

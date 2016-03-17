@@ -1,15 +1,13 @@
 package ecumene.exo.view.rmap;
 
-import java.awt.Dimension;
 import java.beans.ExceptionListener;
 import java.io.File;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import ecumene.exo.sim.map.real.RMap;
-import ecumene.exo.view.ViewerRunnable;
+import ecumene.exo.runtime.viewer.ViewerRunnable;
 import org.joml.Vector3f;
 
 public abstract class RMVRenderer extends ViewerRunnable {

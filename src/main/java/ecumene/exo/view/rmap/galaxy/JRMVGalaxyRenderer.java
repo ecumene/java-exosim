@@ -36,7 +36,6 @@ public class JRMVGalaxyRenderer extends JRMViewer implements ISimContextListener
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		System.out.println(navigation);
 		Graphics2D graphics = (Graphics2D) g;
 		g.setColor(new Color(0, 255, 0));
 		graphics.drawString("Galactic Abstraction", 0, 10);

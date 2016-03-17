@@ -15,10 +15,10 @@ import ecumene.exo.view.rmap.surface.SMVSurfaceViewerTag;
 import ecumene.exo.view.rmap.surface.feature.SMVGenericConfig;
 import org.apache.commons.cli.ParseException;
 
-import ecumene.exo.analyze.ExoRuntimeAnalyzerTag;
+import ecumene.exo.view.runtime.RuntimeViewerTag;
 import ecumene.exo.sim.SimContext;
-import ecumene.exo.view.IViewerTag;
-import ecumene.exo.view.ViewerRunnable;
+import ecumene.exo.runtime.viewer.IViewerTag;
+import ecumene.exo.runtime.viewer.ViewerRunnable;
 import ecumene.exo.view.rmap.galaxy.RMVGalaxyViewerTag;
 import ecumene.exo.view.rmap.solar.RMVSolarViewerTag;
 
@@ -57,7 +57,7 @@ public class ExoRuntime implements Runnable{
 		this.context = context;
 
 		viewerDB = new IViewerTag[5];
-		viewerDB[0] = new ExoRuntimeAnalyzerTag();
+		viewerDB[0] = new RuntimeViewerTag();
 		viewerDB[1] = new RMVGalaxyViewerTag();
 		viewerDB[2] = new RMVSolarViewerTag();
 		viewerDB[3] = new RMVPlanetViewerTag();

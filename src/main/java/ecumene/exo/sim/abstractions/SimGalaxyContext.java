@@ -5,7 +5,7 @@ import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
 
 public class SimGalaxyContext {
 	
-	private SimContext parent;
+	private SimContext   parent;
 	private ExoGalaxyMap map;
 	private int          follow = -1;
 
@@ -23,7 +23,7 @@ public class SimGalaxyContext {
 	}
 
 	public void setFollow(int follow) {
-		this.follow = follow;
+		if(!(follow > map.orbiters.size() + 1)) this.follow = follow;
 	}
 
 	public SimContext getParent() {
