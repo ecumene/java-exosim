@@ -11,7 +11,7 @@ public class RMVPlanetViewerTag extends RMVTag {
 
     @Override
     public String getIdentifier(){
-        return "Planet simulation";
+        return "Planet Viewer";
     }
 
     @Override

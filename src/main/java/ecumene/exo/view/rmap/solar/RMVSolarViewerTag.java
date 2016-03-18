@@ -9,12 +9,9 @@ import org.joml.Vector3f;
 
 public class RMVSolarViewerTag extends RMVTag {
 
-	public RMVSolarViewerTag() {
-	}
-
 	@Override
 	public String getIdentifier() {
-		return "Solar simulation";
+		return "Solar Viewer";
 	}
 
 	@Override

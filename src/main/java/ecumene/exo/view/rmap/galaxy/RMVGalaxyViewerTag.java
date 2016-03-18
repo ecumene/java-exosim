@@ -11,7 +11,7 @@ public class RMVGalaxyViewerTag implements IViewerTag {
 
 	@Override
 	public String getIdentifier() {
-		return "Galaxy simulation";
+		return "Galaxy Viewer";
 	}
 
 	@Override

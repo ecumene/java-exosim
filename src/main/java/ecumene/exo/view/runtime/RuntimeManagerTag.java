@@ -4,9 +4,7 @@ import java.beans.ExceptionListener;
 
 import ecumene.exo.runtime.viewer.IViewerTag;
 
-import javax.swing.*;
-
-public class RuntimeViewerTag implements IViewerTag {
+public class RuntimeManagerTag implements IViewerTag {
 
 	@Override
 	public String getIdentifier() {
@@ -15,7 +13,7 @@ public class RuntimeViewerTag implements IViewerTag {
 
 	@Override
 	public Runnable construct(int id, ExceptionListener listener, String[] args) throws Throwable {
-		return new NeoRuntimeViewer(id, listener);
+		return new RuntimeManager(id, listener);
 	}
 	
 }

@@ -45,16 +45,16 @@ public class JRMViewer extends JPanel {
 			@Override 
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_UP){
-					navigation.y += 4;
+					navigation.y += 1;
 				}
 				if(e.getKeyCode() == KeyEvent.VK_DOWN){
-					navigation.y -= 4;
+					navigation.y -= 1;
 				}
-				if(e.getKeyCode() == KeyEvent.VK_LEFT){
-					navigation.x += 4;
+				if(e.getKeyCode() ==KeyEvent.VK_LEFT){
+					navigation.x += 1;
 				}
 				if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-					navigation.x -= 4;
+					navigation.x -= 1;
 				}
 				repaint();
 			}

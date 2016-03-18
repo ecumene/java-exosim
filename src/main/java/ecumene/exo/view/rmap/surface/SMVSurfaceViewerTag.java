@@ -16,7 +16,7 @@ public class SMVSurfaceViewerTag extends RMVTag {
 
     @Override
     public String getIdentifier() {
-        return "Planet surface simulation";
+        return "Surface Viewer";
     }
 
     @Override

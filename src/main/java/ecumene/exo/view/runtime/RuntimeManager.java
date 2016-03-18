@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.ExceptionListener;
 
-public class NeoRuntimeViewer extends ViewerRunnable {
+public class RuntimeManager extends ViewerRunnable {
     private JFrame parent;
     private JPanel root;
     private JPanel galaxyConfig;
@@ -28,11 +28,12 @@ public class NeoRuntimeViewer extends ViewerRunnable {
     private JLabel currentStepNo;
     private JSpinner targetStepsSpinner;
     private JLabel targetSteps;
+    private JButton openViewers;
 
     private Timer simStepper;
     private int   simStepsPerT = 1;
 
-    public NeoRuntimeViewer(int id, ExceptionListener listener){
+    public RuntimeManager(int id, ExceptionListener listener){
         super(id, listener);
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -46,11 +47,7 @@ public class NeoRuntimeViewer extends ViewerRunnable {
         galaxyFocusReset.addActionListener(actionEvent -> ExoRuntime.INSTANCE.getContext().getGalaxy().setFollow(-1));
         galaxyFocusSpinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
         galaxyFocusSpinner.addChangeListener(changeEvent -> {
-            JSpinner spinner = ( JSpinner ) changeEvent.getSource();
-            SpinnerModel spinnerModel = spinner.getModel();
-            int spin = (Integer) spinnerModel.getValue();
-            if (spin==0) ExoRuntime.INSTANCE.getContext().getGalaxy().setFollow(-1); // -1 points to nothing
-            else         ExoRuntime.INSTANCE.getContext().getGalaxy().setFollow((Integer) spin + 1);
+            ExoRuntime.INSTANCE.getContext().getGalaxy().setFollow((Integer) ((JSpinner) changeEvent.getSource()).getModel().getValue());
         });
 
         solarFocusReset = new JButton("Reset");
@@ -59,9 +56,7 @@ public class NeoRuntimeViewer extends ViewerRunnable {
         solarFocusSpinner.addChangeListener(changeEvent -> {
             JSpinner spinner = ( JSpinner ) changeEvent.getSource();
             SpinnerModel spinnerModel = spinner.getModel();
-            int spin = (Integer) spinnerModel.getValue();
-            if (spin==0) ExoRuntime.INSTANCE.getContext().getSolarSystem().setFollow(-1); // -1 points to nothing
-            else         ExoRuntime.INSTANCE.getContext().getSolarSystem().setFollow((Integer) spin + 1);
+            ExoRuntime.INSTANCE.getContext().getSolarSystem().setFollow((Integer) ((JSpinner) changeEvent.getSource()).getModel().getValue());
         });
 
         targetStepsSpinner = new JSpinner(new SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1));
@@ -80,6 +75,9 @@ public class NeoRuntimeViewer extends ViewerRunnable {
 
         planetClearTracked = new JButton("Clear Tracked Moons");
         planetClearTracked.addActionListener(ae -> ExoRuntime.INSTANCE.getContext().getPlanet().getMap().clearTrackedPositions());
+
+        openViewers = new JButton("Open Viewers ...");
+        openViewers.addActionListener(actionEvent -> new RuntimeViewers());
     }
 
     @Override

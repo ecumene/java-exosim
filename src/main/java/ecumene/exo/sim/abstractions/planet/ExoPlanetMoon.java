@@ -4,11 +4,11 @@ import ecumene.exo.sim.map.real.RPoint;
 import org.joml.Vector2f;
 
 public class ExoPlanetMoon implements IExoPlanetObject {
-    private float     mass;  // Ratio between moon's mass and the planet's
-    private ExoPlanet planet;// Planet
-    private RPoint    point; // So... like... what's the point of this project anyway?
+    private float     mass;      // Ratio between moon's mass and the planet's
+    private ExoPlanet planet;    // Planet
+    private RPoint    point;     // So... like... what's the point of this project anyway?
     private RPoint    lastPoint;
-    private Vector2f velocity;
+    private Vector2f  velocity;
 
     public ExoPlanetMoon(float mass, float r, float angle, Vector2f v1){
         this.mass = mass;
