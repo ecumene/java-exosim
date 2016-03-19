@@ -4,6 +4,10 @@
     <list default="true" id="10243f6a-b0b2-46e9-80aa-0df0fcd00904" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/runtime/RuntimeViewers.form" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/runtime/RuntimeViewers.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/view/rmap/JRMViewer$1.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/view/rmap/JRMViewer$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/view/rmap/JRMViewer.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/view/rmap/JRMViewer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/view/rmap/RMVRenderer.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/view/rmap/RMVRenderer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ecumene/exo/view/rmap/solar/JRMVSolarRenderer.class" afterPath="$PROJECT_DIR$/build/classes/main/ecumene/exo/view/rmap/solar/JRMVSolarRenderer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/fbd/FBDViewer.java" afterPath="$PROJECT_DIR$/src/main/java/ecumene/exo/view/fbd/FBDViewer.java" />
@@ -102,8 +106,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7424893">
-              <caret line="72" column="100" selection-start-line="72" selection-start-column="100" selection-end-line="72" selection-end-column="100" />
+            <state vertical-scroll-proportion="1.3433477">
+              <caret line="76" column="64" selection-start-line="76" selection-start-column="64" selection-end-line="76" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -1857,8 +1861,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ecumene/exo/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7424893">
-          <caret line="72" column="100" selection-start-line="72" selection-start-column="100" selection-end-line="72" selection-end-column="100" />
+        <state vertical-scroll-proportion="1.3433477">
+          <caret line="76" column="64" selection-start-line="76" selection-start-column="64" selection-end-line="76" selection-end-column="64" />
           <folding />
         </state>
       </provider>
