@@ -4,6 +4,10 @@ apply plugin: 'application'
 
 mainClassName = "ecumene.exo.Main"
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
+
 compileJava {
     sourceCompatibility = '1.8'
 }

@@ -22,6 +22,8 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+# Covers gradle build system
+
 .gradle
 build/
 
