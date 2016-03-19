@@ -13,10 +13,6 @@ import ecumene.exo.sim.abstractions.solar.gen.ExoSolarMapBuilder;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureFilter;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
-import ecumene.exo.sim.abstractions.surface.feature.height.ExoSHeightLayer;
-import ecumene.exo.sim.abstractions.surface.feature.height.HeightMap;
-import ecumene.exo.sim.util.heightmap.channel.HeightChannel;
-import ecumene.exo.sim.util.heightmap.random.TiledNoiseChannel;
 import org.apache.commons.cli.ParseException;
 import org.joml.Vector2f;
 
