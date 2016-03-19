@@ -1,9 +1,6 @@
 package ecumene.exo.view.rmap;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseWheelEvent;
@@ -31,6 +28,7 @@ public class JRMViewer extends JPanel {
 		this.navigation = navigation;
 		rendererList = new ArrayList<RMVPointRenderer>();
 		rendererList.add(pointRenderer = new RMVPointRenderer(this));
+		setPreferredSize(new Dimension(600, 600));
 		
 		setFocusable(true);
 		

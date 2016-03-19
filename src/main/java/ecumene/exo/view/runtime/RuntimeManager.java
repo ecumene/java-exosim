@@ -3,6 +3,10 @@ package ecumene.exo.view.runtime;
 import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.runtime.viewer.ViewerRunnable;
 import ecumene.exo.sim.SimContext;
+import ecumene.exo.view.fbd.FBDViewer;
+import ecumene.exo.view.fbd.FreeBody;
+import ecumene.exo.view.fbd.FreeBodyShape;
+import org.joml.Vector2f;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -28,21 +32,49 @@ public class RuntimeManager extends ViewerRunnable {
     private JLabel currentStepNo;
     private JSpinner targetStepsSpinner;
     private JLabel targetSteps;
-    private JButton openViewers;
+    private JButton galaxyOpenInFBD;
+    private JRadioButton galaxyFBDUPS;
+    private JRadioButton solarFBDUPS;
+    private JButton solarOpenInFBD;
+    private JSpinner spinner1;
+    private JButton clearTrackingDataButton;
+    private JButton trackMoon;
+    private JTextField trackColorField;
+    private JSpinner trackIntervalSpinner;
+    private JRadioButton trackClearRevolutions;
 
     private Timer simStepper;
     private int   simStepsPerT = 1;
 
     public RuntimeManager(int id, ExceptionListener listener){
         super(id, listener);
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch(Exception e){
-            listener.exceptionThrown(e);
-        }
     }
 
+    private boolean gcfbd = true, scfbd = true;
+
     private void createUIComponents() {
+        galaxyOpenInFBD = new JButton("Open in FBD Viewer");
+        galaxyOpenInFBD.addActionListener(actionEvent -> {
+            JFrame frame = new FBDViewer(new FreeBody(FreeBodyShape.BALL, 10.0f), new Vector2f(0, 1), 500, 500);
+        });
+
+        solarOpenInFBD = new JButton("Open in FBD Viewer");
+        solarOpenInFBD.addActionListener(actionEvent -> {
+
+        });
+
+        galaxyFBDUPS = new JRadioButton("Update every step");
+        galaxyFBDUPS.setSelected(true);
+        galaxyFBDUPS.addActionListener(actionEvent -> {
+            gcfbd = ((JRadioButton)actionEvent.getSource()).isSelected();
+        });
+
+        solarFBDUPS = new JRadioButton("Update every step");
+        solarFBDUPS.setSelected(true);
+        solarFBDUPS.addActionListener(actionEvent -> {
+            scfbd = ((JRadioButton)actionEvent.getSource()).isSelected();
+        });
+
         galaxyFocusReset = new JButton("Reset");
         galaxyFocusReset.addActionListener(actionEvent -> ExoRuntime.INSTANCE.getContext().getGalaxy().setFollow(-1));
         galaxyFocusSpinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
@@ -75,9 +107,6 @@ public class RuntimeManager extends ViewerRunnable {
 
         planetClearTracked = new JButton("Clear Tracked Moons");
         planetClearTracked.addActionListener(ae -> ExoRuntime.INSTANCE.getContext().getPlanet().getMap().clearTrackedPositions());
-
-        openViewers = new JButton("Open Viewers ...");
-        openViewers.addActionListener(actionEvent -> new RuntimeViewers());
     }
 
     @Override
@@ -113,5 +142,9 @@ public class RuntimeManager extends ViewerRunnable {
     }
 
     @Override public void onContextChanged(SimContext context) {}
-    @Override public void onStep(SimContext context, int step) {}
+
+    @Override
+    public void onStep(SimContext context, int step) {
+
+    }
 }

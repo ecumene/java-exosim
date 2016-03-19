@@ -20,6 +20,7 @@ import ecumene.exo.sim.util.heightmap.random.TiledNoiseChannel;
 import org.apache.commons.cli.ParseException;
 import org.joml.Vector2f;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,6 +86,11 @@ public class Main {
         SimContext context = new SimContext(galaxy, solar, planet, surface);
 
         ExoRuntime.INSTANCE = new ExoRuntime(args, context);
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch(Exception e){
+            ExoRuntime.INSTANCE.getExceptionListener().exceptionThrown(e);
+        }
         ExoRuntime.INSTANCE.run();
         System.exit(0);
     }

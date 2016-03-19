@@ -34,6 +34,7 @@ public abstract class RMVRenderer extends ViewerRunnable {
 			frame.setIconImage(ImageIO.read(new File("./resources/logo.png")));
 			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frame.add(renderer);
+			frame.pack();
 		}
 		frame.setVisible(true);
 	}
