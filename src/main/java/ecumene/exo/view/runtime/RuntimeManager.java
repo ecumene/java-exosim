@@ -25,7 +25,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.ExceptionListener;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class RuntimeManager extends ViewerRunnable {
@@ -51,12 +50,11 @@ public class RuntimeManager extends ViewerRunnable {
     private JRadioButton galaxyFBDUPS;
     private JRadioButton solarFBDUPS;
     private JButton solarOpenInFBD;
-    private JSpinner spinner1;
+    private JSpinner moonFocusSpinner;
     private JButton clearTrackingDataButton;
-    private JButton trackMoon;
-    private JTextField trackColorField;
-    private JSpinner trackIntervalSpinner;
-    private JRadioButton trackClearRevolutions;
+    private JButton planetOpenInFBD;
+    private JRadioButton planetFBDUPS;
+    private JRadioButton planetOpenPlanetFBD;
 
     private Timer simStepper;
     private int simStepsPerT = 1;
@@ -72,7 +70,8 @@ public class RuntimeManager extends ViewerRunnable {
         planetFBPairs = new HashMap<Pair<IExoPlanetObject, ExoPlanetMap>, Pair<FreeBody, FBDViewer>>();
     }
 
-    private boolean gcfbd = true, scfbd = true;
+    private boolean gcfbd = true, scfbd = true, pcfbd = true, ppfbd = false;
+    private int focusMoon = 0; // 0 = moon not planet
 
     private void createUIComponents() {
         galaxyOpenInFBD = new JButton("Open in FBD Viewer");
@@ -120,17 +119,36 @@ public class RuntimeManager extends ViewerRunnable {
         galaxyFocusReset = new JButton("Reset");
         galaxyFocusReset.addActionListener(actionEvent -> ExoRuntime.INSTANCE.getContext().getGalaxy().setFollow(-1));
         galaxyFocusSpinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
-        galaxyFocusSpinner.addChangeListener(changeEvent -> {
-            ExoRuntime.INSTANCE.getContext().getGalaxy().setFollow((Integer) ((JSpinner) changeEvent.getSource()).getModel().getValue());
-        });
+        galaxyFocusSpinner.addChangeListener(changeEvent -> ExoRuntime.INSTANCE.getContext().getGalaxy().setFollow((Integer) ((JSpinner) changeEvent.getSource()).getModel().getValue()));
 
         solarFocusReset = new JButton("Reset");
         solarFocusReset.addActionListener(actionEvent -> ExoRuntime.INSTANCE.getContext().getSolarSystem().setFollow(-1));
         solarFocusSpinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
-        solarFocusSpinner.addChangeListener(changeEvent -> {
-            JSpinner spinner = (JSpinner) changeEvent.getSource();
-            SpinnerModel spinnerModel = spinner.getModel();
-            ExoRuntime.INSTANCE.getContext().getSolarSystem().setFollow((Integer) ((JSpinner) changeEvent.getSource()).getModel().getValue());
+        solarFocusSpinner.addChangeListener(changeEvent -> ExoRuntime.INSTANCE.getContext().getSolarSystem().setFollow((Integer) ((JSpinner) changeEvent.getSource()).getModel().getValue()));
+
+        clearTrackingDataButton = new JButton("Clear Tracking Data");
+        clearTrackingDataButton.addActionListener(actionEvent -> ExoRuntime.INSTANCE.getContext().getPlanet().getMap().clearTrackedPositions());
+
+        planetFBDUPS = new JRadioButton("Update every step");
+        planetFBDUPS.addActionListener(actionEvent -> pcfbd = ((JRadioButton)actionEvent.getSource()).isSelected());
+        moonFocusSpinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
+        moonFocusSpinner.addChangeListener(changeEvent -> focusMoon = (Integer) ((JSpinner) changeEvent.getSource()).getModel().getValue());
+
+        planetOpenPlanetFBD = new JRadioButton("Open planet");
+        planetOpenPlanetFBD.addActionListener(actionEvent -> ppfbd = ((JRadioButton) actionEvent.getSource()).isSelected());
+
+        planetOpenInFBD = new JButton("Open in FBD Viewer");
+        planetOpenInFBD.addActionListener(actionEvent1 -> {
+            //FreeBody body;
+            //IExoPlanetObject object = ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap().getObjects().get(ExoRuntime.INSTANCE.getContext().getSolarSystem().getFollowing());
+            //ExoSolarMap map = ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap();
+            //FBDViewer frame = new FBDViewer(new Vector2f(0, 1), 500, 500);
+            //if(scfbd) {
+            //    solarFBPairs.put(new Pair<>(object, map), new Pair<>(null, frame)); // Null for initialized, but new
+            //    body = new FreeBody(FreeBodyShape.BALL, 0);
+            //} else {
+            //    body = FreeBodyFactory.createBody(map, object);
+            //}
         });
 
         targetStepsSpinner = new JSpinner(new SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1));
@@ -259,8 +277,8 @@ public class RuntimeManager extends ViewerRunnable {
         planetConfig.setLayout(new GridLayoutManager(4, 3, new Insets(5, 5, 5, 5), -1, -1));
         root.add(planetConfig, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         planetConfig.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(), "Planet", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, new Color(-4473925)));
-        spinner1 = new JSpinner();
-        planetConfig.add(spinner1, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        moonFocusSpinner = new JSpinner();
+        planetConfig.add(moonFocusSpinner, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setText("Moon Focus: ");
         planetConfig.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -270,16 +288,9 @@ public class RuntimeManager extends ViewerRunnable {
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(5, 3, new Insets(0, 0, 0, 0), -1, -1));
         planetConfig.add(panel1, new GridConstraints(3, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        trackMoon = new JButton();
-        trackMoon.setText("Set Paramterers");
-        panel1.add(trackMoon, new GridConstraints(0, 2, 2, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        trackColorField = new JTextField();
-        panel1.add(trackColorField, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JLabel label2 = new JLabel();
         label2.setText("Color");
         panel1.add(label2, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        trackIntervalSpinner = new JSpinner();
-        panel1.add(trackIntervalSpinner, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label3 = new JLabel();
         label3.setText("Interval");
         panel1.add(label3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -287,9 +298,6 @@ public class RuntimeManager extends ViewerRunnable {
         panel1.add(planetClearTracked, new GridConstraints(4, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JSeparator separator3 = new JSeparator();
         panel1.add(separator3, new GridConstraints(3, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        trackClearRevolutions = new JRadioButton();
-        trackClearRevolutions.setText("Clear every revolution about center");
-        panel1.add(trackClearRevolutions, new GridConstraints(2, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label4 = new JLabel();
         label4.setText("Add Tracking Data:");
         planetConfig.add(label4, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

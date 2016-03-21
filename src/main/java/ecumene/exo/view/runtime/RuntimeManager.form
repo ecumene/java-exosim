@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="root" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="75" y="29" width="381" height="752"/>
+      <xy x="75" y="29" width="413" height="791"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -133,7 +133,7 @@
           <color color="-4473925"/>
         </border>
         <children>
-          <component id="d3080" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
+          <component id="d3080" class="javax.swing.JSpinner" binding="moonFocusSpinner" custom-create="true">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -147,7 +147,7 @@
               <text value="Moon Focus: "/>
             </properties>
           </component>
-          <component id="192a2" class="javax.swing.JButton" binding="clearTrackingDataButton" default-binding="true">
+          <component id="192a2" class="javax.swing.JButton" binding="clearTrackingDataButton" custom-create="true" default-binding="true">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -155,92 +155,35 @@
               <text value="Clear Tracking Data"/>
             </properties>
           </component>
-          <grid id="ec936" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <component id="6e033" class="javax.swing.JButton" binding="planetOpenInFBD" custom-create="true">
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="e66e5" class="javax.swing.JButton" binding="trackMoon">
-                <constraints>
-                  <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Set Paramterers"/>
-                </properties>
-              </component>
-              <component id="69022" class="javax.swing.JTextField" binding="trackColorField">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-                <clientProperties>
-                  <caretAspectRatio class="java.lang.Float" value="0.04"/>
-                </clientProperties>
-              </component>
-              <component id="816b1" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Color"/>
-                </properties>
-              </component>
-              <component id="1aa0" class="javax.swing.JSpinner" binding="trackIntervalSpinner">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="dd0e2" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Interval"/>
-                </properties>
-              </component>
-              <component id="28e71" class="javax.swing.JButton" binding="planetClearTracked" custom-create="true">
-                <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Clear Tracked Moons"/>
-                </properties>
-              </component>
-              <component id="14e2c" class="javax.swing.JSeparator">
-                <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="e472e" class="javax.swing.JRadioButton" binding="trackClearRevolutions">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Clear every revolution about center"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <component id="96943" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Add Tracking Data:"/>
+              <text value="Open in FBD Viewer"/>
             </properties>
           </component>
-          <component id="84a7" class="javax.swing.JSeparator">
+          <component id="2ed47" class="javax.swing.JRadioButton" binding="planetFBDUPS" custom-create="true">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Update every step"/>
+            </properties>
+          </component>
+          <component id="4720c" class="javax.swing.JSeparator">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
+          </component>
+          <component id="34cd9" class="javax.swing.JRadioButton" binding="planetOpenPlanetFBD" custom-create="true">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Open Planet"/>
+            </properties>
           </component>
         </children>
       </grid>
