@@ -36,11 +36,11 @@ public class ExoRuntime implements Runnable{
 	private ExceptionListener    exceptionListener;// Univeral thingy for catching any exception
 	private SimContext           context;          // Context (container) for all simulations
 
-	/**Public instance of exo-runtime*/
+	/**Public instance of ecumene-runtime*/
 	public static ExoRuntime INSTANCE;
 
 	/**
-	 * Creates the exo-runtime and builds simulation objects
+	 * Creates the ecumene-runtime and builds simulation objects
 	 * @param arguments       Input arguments (CLI)
 	 * @param context         Simulation context
 	 * @throws ParseException due to apache CLI

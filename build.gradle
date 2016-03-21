@@ -27,16 +27,17 @@ project.ext.acliVersion = "1.3"
 project.ext.jdomVersion = "2.0.0"
 project.ext.jomlVersion = "1.7.0"
 project.ext.formVersion = "7.0.3"
+project.ext.chrtVersion = "1.0.19"
 
 dependencies {
     compile "commons-cli:commons-cli:${acliVersion}"
     compile "org.jdom:jdom:${jdomVersion}"
     compile "org.joml:joml:${jomlVersion}"
     compile "com.intellij:forms_rt:${formVersion}"
+    compile "org.jfree:jfreechart:${chrtVersion}"
 }
 
-apply plugin: 'idea'
-
+apply plugin: 'idea'; apply plugin: 'eclipse'
 idea{
     module{
         inheritOutputDirs = false

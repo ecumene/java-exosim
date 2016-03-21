@@ -61,7 +61,6 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 				navPos.add(followObject.getVelocity());
 				navPos.x *= -Math.abs(navigation.z);
 				navPos.y *= Math.abs(navigation.z);
-				System.out.println(navigation.z);
 				this.navigation = new Vector3f(navPos.x, navPos.y, this.navigation.z);
 			}
 			

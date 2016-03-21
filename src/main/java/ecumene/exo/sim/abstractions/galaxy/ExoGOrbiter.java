@@ -13,7 +13,6 @@ public class ExoGOrbiter extends RPoint implements IExoGalaxyObject {
 
 	public ExoGOrbiter(String name, Vector2f position) {
 		super(name);
-		Random rand = new Random(); // I know I'm using the crappy random, sue me >:(
 		this.position = position;
 		velocity = new Vector2f(position).perpendicular().normalize().mul(0.003f);
 		this.name = name;
@@ -36,7 +35,7 @@ public class ExoGOrbiter extends RPoint implements IExoGalaxyObject {
 
 	private Vector2f calcGravity(Vector2f object2pos, float object2mass, Vector2f position, float mass) {
 		Vector2f distance = new Vector2f(position).sub(new Vector2f(object2pos)).negate();
-		float gravity = ((6.67f * (float)Math.pow(10, -6)) * mass * object2mass) / (float) Math.pow(distance.length(), 2);
+		float gravity = ((6.67f * (float)Math.pow(10, -10)) * mass * object2mass) / (float) Math.pow(distance.length(), 2);
 		distance.mul(gravity);
 		distance.x /= mass;
 		distance.y /= mass;

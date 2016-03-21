@@ -66,7 +66,8 @@ public class JRMViewer extends JPanel {
 		graphics.setColor(new Color(0, 0, 0));
 		graphics.fillRect(0, 0, getWidth(), getHeight());
 		graphics.setColor(new Color(0, 255, 0));
-		
+		graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, // Anti-alias!
+				                  RenderingHints.VALUE_ANTIALIAS_ON);
 		if(pMap != null){
 			for(int i = 0; i < pMap.getMap().length; i++){
 			    if(pMap.getMap()[i] != null){

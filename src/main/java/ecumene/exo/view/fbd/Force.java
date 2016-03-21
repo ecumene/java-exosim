@@ -3,19 +3,12 @@ package ecumene.exo.view.fbd;
 import org.joml.Vector2f;
 
 public class Force {
-    private float    mag;
-    private float    angle;
     private Vector2f force;
     private String   name;
 
     public Force(String name, Vector2f force){
-        this.name = name;
-        set(force);
-    }
-
-    public void set(Vector2f vec){
-        this.mag   = vec.length();
-        this.angle = vec.angle(new Vector2f(1, 0)); // +X
+        this.name  = name;
+        this.force = force;
     }
 
     public Vector2f getForce() {
@@ -23,11 +16,11 @@ public class Force {
     }
 
     public float getMagnitude(){
-        return mag;
+        return force.length();
     }
 
     public float getAngle() {
-        return angle;
+        return force.angle(new Vector2f(1, 0));
     }
 
     public String getName() {

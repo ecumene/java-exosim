@@ -72,7 +72,7 @@ public class ExoSolarObject extends RPoint implements IExoSolarObject {
 
 	private Vector2f calcGravity(Vector2f object2pos, float object2mass, Vector2f position, float mass) {
 		Vector2f distance = new Vector2f(position).sub(new Vector2f(object2pos)).negate();
-		float gravity = ((6.67f * (float)Math.pow(10, -6)) * mass * object2mass) / (float) Math.pow(distance.length(), 2);
+		float gravity = (ExoSolarMap.G * mass * object2mass) / (float) Math.pow(distance.length(), 2);
 		gravity /= mass;
 		distance.mul(gravity);
 

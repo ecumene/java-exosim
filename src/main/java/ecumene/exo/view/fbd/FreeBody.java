@@ -1,6 +1,7 @@
 package ecumene.exo.view.fbd;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FreeBody {
@@ -9,7 +10,7 @@ public class FreeBody {
     private float         mass;
 
     public FreeBody(FreeBodyShape shape, float mass, Force ... forces){
-        this.forces = new ArrayList<Force>();
+        this.forces = Arrays.asList(forces);
         this.shape  = shape;
         this.mass   = mass;
     }

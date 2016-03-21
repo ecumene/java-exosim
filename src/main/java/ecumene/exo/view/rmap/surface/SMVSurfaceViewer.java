@@ -35,7 +35,7 @@ public class SMVSurfaceViewer extends ViewerRunnable {
         {
             frame.setSize(600, 600);
             frame.setLocationRelativeTo(null);
-            frame.setIconImage(ImageIO.read(new File("./resources/logo.png")));
+            frame.setIconImage(ImageIO.read(new File("/ecumene/exo/logo.png")));
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.add(renderer);
         }

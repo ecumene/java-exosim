@@ -10,7 +10,7 @@ public class ExoSolarMap {
 	private ExoSolarObject        central;
 	private RMap                  solarSystem;
 	private List<IExoSolarObject> objects;
-	public static float           G = 6.67f; // Really 6.67x10^-11
+	public static float           G = (6.67f * (float)Math.pow(10, -6)); // Really 6.67x10^-11
 	
 	public ExoSolarMap() { 
 		objects = new ArrayList<IExoSolarObject>();
