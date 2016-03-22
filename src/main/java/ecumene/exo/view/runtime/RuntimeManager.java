@@ -88,6 +88,7 @@ public class RuntimeManager extends ViewerRunnable {
             } else {
                 body = FreeBodyFactory.createBody(map, object);
             }
+            frame.setBody(body);
         });
 
         solarOpenInFBD = new JButton("Open in FBD Viewer");
@@ -102,6 +103,27 @@ public class RuntimeManager extends ViewerRunnable {
             } else {
                 body = FreeBodyFactory.createBody(map, object);
             }
+            frame.setBody(body);
+        });
+
+        planetOpenInFBD = new JButton("Open in FBD Viewer");
+        planetOpenInFBD.addActionListener(actionEvent1 -> {
+            FreeBody body;
+            IExoPlanetObject object = ExoRuntime.INSTANCE.getContext().getPlanet().getMap().getObjects().get(focusMoon);
+            ExoPlanetMap map = ExoRuntime.INSTANCE.getContext().getPlanet().getMap();
+
+            FBDViewer frame = new FBDViewer(new Vector2f(0, 1), 500, 500);
+            if (ppfbd){
+                object = ExoRuntime.INSTANCE.getContext().getPlanet().getMap().getPlanet();
+            }
+
+            if(pcfbd) {
+                planetFBPairs.put(new Pair<>(object, map), new Pair<>(null, frame)); // Null for initialized, but new
+                body = new FreeBody(FreeBodyShape.BALL, 0);
+            } else {
+                body = FreeBodyFactory.createBody(map, object);
+            }
+            frame.setBody(body);
         });
 
         galaxyFBDUPS = new JRadioButton("Update every step");
@@ -136,20 +158,6 @@ public class RuntimeManager extends ViewerRunnable {
 
         planetOpenPlanetFBD = new JRadioButton("Open planet");
         planetOpenPlanetFBD.addActionListener(actionEvent -> ppfbd = ((JRadioButton) actionEvent.getSource()).isSelected());
-
-        planetOpenInFBD = new JButton("Open in FBD Viewer");
-        planetOpenInFBD.addActionListener(actionEvent1 -> {
-            //FreeBody body;
-            //IExoPlanetObject object = ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap().getObjects().get(ExoRuntime.INSTANCE.getContext().getSolarSystem().getFollowing());
-            //ExoSolarMap map = ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap();
-            //FBDViewer frame = new FBDViewer(new Vector2f(0, 1), 500, 500);
-            //if(scfbd) {
-            //    solarFBPairs.put(new Pair<>(object, map), new Pair<>(null, frame)); // Null for initialized, but new
-            //    body = new FreeBody(FreeBodyShape.BALL, 0);
-            //} else {
-            //    body = FreeBodyFactory.createBody(map, object);
-            //}
-        });
 
         targetStepsSpinner = new JSpinner(new SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1));
         targetStepsSpinner.addChangeListener(changeEvent -> {
@@ -188,6 +196,13 @@ public class RuntimeManager extends ViewerRunnable {
                         freebKey.getSecond().setBody(body);
                     }
 
+                    for(Map.Entry<Pair<IExoPlanetObject, ExoPlanetMap>, Pair<FreeBody, FBDViewer>> entry : planetFBPairs.entrySet()) {
+                        Pair<IExoPlanetObject, ExoPlanetMap> planetKey = (Pair<IExoPlanetObject, ExoPlanetMap>) entry.getKey();
+                        Pair<FreeBody, FBDViewer>            freebKey  = (Pair<FreeBody, FBDViewer>) entry.getValue();
+                        FreeBody body = FreeBodyFactory.createBody(planetKey.getSecond(), planetKey.getFirst());
+                        freebKey.getSecond().setBody(body);
+                    }
+                    
                     ExoRuntime.INSTANCE.getContext().step();
                     currentStepNo.setText("" + ExoRuntime.INSTANCE.getContext().getSteps());
                     currentStepNo.repaint();
