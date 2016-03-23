@@ -65,9 +65,9 @@ public class RuntimeManager extends ViewerRunnable {
 
     public RuntimeManager(int id, ExceptionListener listener) {
         super(id, listener);
-        galaxyFBPairs = new HashMap<Pair<IExoGalaxyObject, ExoGalaxyMap>, Pair<FreeBody, FBDViewer>>();
-        solarFBPairs  = new HashMap<Pair<IExoSolarObject, ExoSolarMap>,   Pair<FreeBody, FBDViewer>>();
-        planetFBPairs = new HashMap<Pair<IExoPlanetObject, ExoPlanetMap>, Pair<FreeBody, FBDViewer>>();
+        galaxyFBPairs = new HashMap();
+        solarFBPairs  = new HashMap();
+        planetFBPairs = new HashMap();
     }
 
     private boolean gcfbd = true, scfbd = true, pcfbd = true, ppfbd = false;
@@ -183,26 +183,26 @@ public class RuntimeManager extends ViewerRunnable {
             if (ExoRuntime.INSTANCE.getContext().running) {
                 for (int i = 0; i < simStepsPerT; i++) {
                     for(Map.Entry<Pair<IExoSolarObject, ExoSolarMap>, Pair<FreeBody, FBDViewer>> entry : solarFBPairs.entrySet()) {
-                        Pair<IExoSolarObject, ExoSolarMap> solarKey = (Pair<IExoSolarObject, ExoSolarMap>) entry.getKey();
-                        Pair<FreeBody, FBDViewer>          freebKey = (Pair<FreeBody, FBDViewer>)          entry.getValue();
+                        Pair<IExoSolarObject, ExoSolarMap> solarKey = entry.getKey();
+                        Pair<FreeBody, FBDViewer>          freebKey = entry.getValue();
                         FreeBody body = FreeBodyFactory.createBody(solarKey.getSecond(), solarKey.getFirst());
                         freebKey.getSecond().setBody(body);
                     }
 
                     for(Map.Entry<Pair<IExoGalaxyObject, ExoGalaxyMap>, Pair<FreeBody, FBDViewer>> entry : galaxyFBPairs.entrySet()) {
-                        Pair<IExoGalaxyObject, ExoGalaxyMap> galaxyKey= (Pair<IExoGalaxyObject, ExoGalaxyMap>) entry.getKey();
-                        Pair<FreeBody, FBDViewer>            freebKey = (Pair<FreeBody, FBDViewer>)          entry.getValue();
+                        Pair<IExoGalaxyObject, ExoGalaxyMap> galaxyKey= entry.getKey();
+                        Pair<FreeBody, FBDViewer>            freebKey = entry.getValue();
                         FreeBody body = FreeBodyFactory.createBody(galaxyKey.getSecond(), galaxyKey.getFirst());
                         freebKey.getSecond().setBody(body);
                     }
 
                     for(Map.Entry<Pair<IExoPlanetObject, ExoPlanetMap>, Pair<FreeBody, FBDViewer>> entry : planetFBPairs.entrySet()) {
-                        Pair<IExoPlanetObject, ExoPlanetMap> planetKey = (Pair<IExoPlanetObject, ExoPlanetMap>) entry.getKey();
-                        Pair<FreeBody, FBDViewer>            freebKey  = (Pair<FreeBody, FBDViewer>) entry.getValue();
+                        Pair<IExoPlanetObject, ExoPlanetMap> planetKey = entry.getKey();
+                        Pair<FreeBody, FBDViewer>            freebKey  = entry.getValue();
                         FreeBody body = FreeBodyFactory.createBody(planetKey.getSecond(), planetKey.getFirst());
                         freebKey.getSecond().setBody(body);
                     }
-                    
+
                     ExoRuntime.INSTANCE.getContext().step();
                     currentStepNo.setText("" + ExoRuntime.INSTANCE.getContext().getSteps());
                     currentStepNo.repaint();
