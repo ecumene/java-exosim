@@ -41,11 +41,11 @@ public class ExoSolarMapBuilder {
             float diameter = GenUtils.getWithin((float) getRand(0), diameterRange);
             float angle = GenUtils.getWithin((float) getRand(0), angleRange);
             float velocity = GenUtils.getWithin((float) getRand(0), velocityRange);
-            Vector2f objectPosition = new Vector2f(diameter * (float)Math.cos(angle), // Object's position in rectangle relative to orbiter
-                                                   diameter * (float)Math.sin(angle));// Object's position in rectangle relative to map
+            Vector2f objectPosition = new Vector2f(diameter * (float)Math.cos(Math.toRadians(angle)), // Object's position in rectangle relative to orbiter
+                                                   diameter * (float)Math.sin(Math.toRadians(angle)));// Object's position in rectangle relative to map
             objectPosition.add(orbiting);
             Vector2f objectVelocity = new Vector2f(orbiting).sub(objectPosition).perpendicular().normalize().mul(velocity); // Velocity
-            addObject(new ExoSolarObject(objectPosition, objectVelocity, GenUtils.getWithin((float) getRand(0), massRange)));
+            addObject(new ExoSolarObject("Planet", objectPosition, objectVelocity, GenUtils.getWithin((float) getRand(0), massRange)));
         }
 
         return this;
@@ -54,7 +54,8 @@ public class ExoSolarMapBuilder {
     public ExoSolarMapBuilder genObject(Vector2f massRange,
                           Vector2f positionRange,
                           Vector2f velocityRange){
-        objects.add(new ExoSolarObject(new Vector2f(GenUtils.getWithin((float) getRand(0), positionRange),
+        objects.add(new ExoSolarObject("Object",
+                                       new Vector2f(GenUtils.getWithin((float) getRand(0), positionRange),
                                                     GenUtils.getWithin((float) getRand(1), positionRange)),
                                        new Vector2f(GenUtils.getWithin((float) getRand(2), velocityRange),
                                                     GenUtils.getWithin((float) getRand(3), velocityRange)),

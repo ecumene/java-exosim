@@ -1,4 +1,5 @@
 package ecumene.exo.sim.abstractions.solar.io;
 
-public class EnumVelocityType {
+public enum EnumVelocityType {
+    ORBIT, SELF
 }

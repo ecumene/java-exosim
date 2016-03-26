@@ -1,19 +1,8 @@
 <!-- The root node, named arbitrarily... :/ -->
 <ecudoc-solar>
-    <default name="Object"></default>
-    <!--Represents a sun and moon system-->
-    <object name="Sun"    mass="10" position="0 0" velocity="0 0"></object>
-    <object name="Planet" mass="04" position="0 5" velocity="0.5 0"></object>
-
-    <gengroup>
-        <!--The information to fill in for lost values-->
-        <!--In this gen group ... -->
-        <gendefaults massRange="5 10">
-            <object name="sun">
-                <gendefaults massRange=".1 2" radiusRange="10" angleRange="0 360" velocity="orbit-parent">
-                    <object name="sun"></object>
-                </gendefaults>
-            </object>
-        </gendefaults>
-    </gengroup>
+    <default name="Object" mass="10" position="0 0" velocity="0 0">
+        <!--Represents a sun and moon system-->
+        <object name="Sun"    mass="10" position="0 0"  velocity="self 0     0"></object>
+        <object name="Planet" mass="04" position="0 35" velocity="self 0.015 0"></object>
+    </default>
 </ecudoc-solar>

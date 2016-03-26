@@ -45,9 +45,9 @@ public class ExoPlanetMoon implements IExoPlanetObject {
     }
 
     private Vector2f calcAccelGrav(IExoPlanetObject center){
-        Vector2f distance = new Vector2f(point.getPosition()).sub(new Vector2f(center.getPosition())).negate();// a -> = -(P1 - P2) = P2 - P1
-        float gravity = (6.67E-3f * mass * center.getMass()) / (float) Math.pow(distance.length(), 2);         // |ag| = (G * M1 * M2) / (r^2)
-        distance.mul(gravity);                                                                                 // a -> = normalize(a) * |ag|
+        Vector2f distance = new Vector2f(point.getPosition()).sub(new Vector2f(center.getPosition())).negate();// f -> = -(P1 - P2) = P2 - P1
+        float gravity = (6.67E-3f * mass * center.getMass()) / (float) Math.pow(distance.length(), 2);         // |fg| = (G * M1 * M2) / (r^2)
+        distance.mul(gravity);                                                                                 // f -> = normalize(f) * |fg|
         distance.x /= mass;                                                                                    // force / mass = acceleration
         distance.y /= mass;                                                                                    // highschool physics is working!
 

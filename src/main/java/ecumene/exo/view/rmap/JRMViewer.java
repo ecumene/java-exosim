@@ -84,7 +84,7 @@ public class JRMViewer extends JPanel {
 	    			drawPoint(graphics, i, pMap.getMap()[i], pMap.getMap()[i].position, navPos, screenPos);
 			    }
 			}
-	
+
 			graphics.drawLine((int) ((getWidth() / 2) + navigation.x), 0, (int)((getWidth() / 2) + navigation.x), getHeight());
 			graphics.drawLine(getWidth(), (int) ((getHeight() / 2) + navigation.y), 0, (int)((getHeight() / 2) + navigation.y));
 		} else graphics.drawString(getNullPMapError(), 0, 10);

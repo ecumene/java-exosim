@@ -1,7 +1,7 @@
 package ecumene.exo;
 
 import ecumene.exo.runtime.ExoRuntime;
-import ecumene.exo.sim.util.OpenSimplexNoise;
+import ecumene.exo.sim.abstractions.solar.io.ExoSolarMapLoader;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
 import ecumene.exo.sim.abstractions.galaxy.gen.ExoGalaxyMapGen;
@@ -9,20 +9,19 @@ import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
 import ecumene.exo.sim.abstractions.planet.TrackingParameters;
 import ecumene.exo.sim.abstractions.planet.gen.ExoPlanetMapBuilder;
 import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
-import ecumene.exo.sim.abstractions.solar.gen.ExoSolarMapBuilder;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureFilter;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
-import org.apache.commons.cli.ParseException;
+import org.jdom2.input.SAXBuilder;
 import org.joml.Vector2f;
 
 import javax.swing.*;
-import java.io.IOException;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws ParseException, IOException {
+    public static void main(String[] args) throws Exception {
         // In the future, all these builders will be accompanied by XML or .prop files containing
         // exact data on simulation stuffs. This will allow you to "build from file" and essentially
         // enter in a few values.
@@ -32,15 +31,18 @@ public class Main {
         // I'll make a builder for this... eventually.
         ExoGalaxyMap galaxy = new ExoGalaxyMapGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 100, 400).getSource();
 
-        ExoSolarMapBuilder solarBuilder = new ExoSolarMapBuilder(System.currentTimeMillis());
-        solarBuilder.genObject(new Vector2f(4, 4), new Vector2f(0, 0), new Vector2f(0, 0)); // Generate sun
-        solarBuilder.genObjectsOrbiting(9,     // Number of orbiters
-                new Vector2f(0,0),             // Point to orbit
-                new Vector2f(0.001f, 0.0015f), // Orbiter Masses
-                new Vector2f(-500, 500),       // Orbiter Position (polar coordinate radius)
-                new Vector2f(0, 360),          // Orbiter angle    (polar coordinate angle)
-                new Vector2f(0.01f, 0.025f));  // Initial velocity (0 will cause the orbiters to go DIRECTLY towards the sun and die a horrible death)
-        ExoSolarMap solar = solarBuilder.build();
+        //ExoSolarMapBuilder solarBuilder = new ExoSolarMapBuilder(System.currentTimeMillis());
+        //solarBuilder.genObject(new Vector2f(4, 4), new Vector2f(0, 0), new Vector2f(0, 0)); // Generate sun
+        //solarBuilder.genObjectsOrbiting(9,     // Number of orbiters
+        //        new Vector2f(0,0),             // Point to orbit
+        //        new Vector2f(0.001f, 0.0015f), // Orbiter Masses
+        //        new Vector2f(-500, 500),       // Orbiter Position (polar coordinate radius)
+        //        new Vector2f(0, 360),          // Orbiter angle    (polar coordinate angle)
+        //        new Vector2f(0.01f, 0.025f));  // Initial velocity (0 will cause the orbiters to go DIRECTLY towards the sun and die a horrible death)
+        //ExoSolarMap solar = solarBuilder.build();
+
+        ExoSolarMapLoader loader = new ExoSolarMapLoader();
+        ExoSolarMap solar = loader.from(new SAXBuilder().build(new File("./config/solar.xml")));
 
         //                                                          Set seed to current time
         ExoPlanetMapBuilder planetBuilder = new ExoPlanetMapBuilder(System.currentTimeMillis());
