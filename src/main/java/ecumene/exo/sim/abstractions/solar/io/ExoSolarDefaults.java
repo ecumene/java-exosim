@@ -1,10 +1,10 @@
 package ecumene.exo.sim.abstractions.solar.io;
 
-public class ExoSolarDefaultObject {
+public class ExoSolarDefaults {
     public float  mass;
     public String name;
 
-    public ExoSolarDefaultObject(){}
+    public ExoSolarDefaults(){}
 
     public float getMass() {
         return mass;
