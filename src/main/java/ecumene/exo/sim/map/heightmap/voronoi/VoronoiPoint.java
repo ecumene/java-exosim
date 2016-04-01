@@ -1,4 +1,4 @@
-package ecumene.exo.sim.util.heightmap.voronoi;
+package ecumene.exo.sim.map.heightmap.voronoi;
 
 import org.joml.Vector2f;
 

@@ -1,8 +1,8 @@
 <!-- The root node, named arbitrarily... :/ -->
 <ecudoc-solar>
     <default name="Object" mass="10" position="0 0" velocity="0 0">
-        <!--Represents a sun and moon system-->
-        <object name="Sun"    mass="10" position="0 0"  velocity="self 0     0"></object>
-        <object name="Planet" mass="04" position="0 35" velocity="self 0.015 0"></object>
+        <!--Represents a sun and planet system-->
+        <object name="Sun"    mass="10" position="0 0"   velocity="self 0     0"></object>
+        <object name="Planet" mass="03" position="0 30" velocity="self 0.016 0"></object>
     </default>
 </ecudoc-solar>

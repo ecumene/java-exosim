@@ -1,4 +1,4 @@
-package ecumene.exo.view.runtime;
+package ecumene.exo.utils;
 
 public class Pair<A, B> {
     private A first;

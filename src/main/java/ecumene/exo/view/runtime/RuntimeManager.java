@@ -12,10 +12,9 @@ import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
 import ecumene.exo.sim.abstractions.planet.IExoPlanetObject;
 import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 import ecumene.exo.sim.abstractions.solar.IExoSolarObject;
-import ecumene.exo.view.fbd.FBDViewer;
-import ecumene.exo.view.fbd.FreeBody;
-import ecumene.exo.view.fbd.FreeBodyFactory;
-import ecumene.exo.view.fbd.FreeBodyShape;
+import ecumene.exo.utils.Pair;
+import ecumene.exo.utils.WindowCloseListener;
+import ecumene.exo.view.fbd.*;
 import org.joml.Vector2f;
 
 import javax.swing.*;
@@ -23,6 +22,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.beans.ExceptionListener;
 import java.util.HashMap;
 import java.util.Map;
@@ -81,12 +81,21 @@ public class RuntimeManager extends ViewerRunnable {
             IExoGalaxyObject object = ExoRuntime.INSTANCE.getContext().getGalaxy().getMap().getOrbiters().get(ExoRuntime.INSTANCE.getContext().getGalaxy().getFollow() + 1);
             ExoGalaxyMap map = ExoRuntime.INSTANCE.getContext().getGalaxy().getMap();
 
-            FBDViewer frame = new FBDViewer(new Vector2f(0, 1), 500, 500);
+            FBDViewer frame;
             if(gcfbd) {
-                galaxyFBPairs.put(new Pair<>(object, map), new Pair<>(null, frame)); // Null for initialized, but new
+                frame = new LoggedFBDViewer(new Vector2f(0, 1), 500, 500, 100);
+                Pair pair = new Pair<>(object, map);
+                galaxyFBPairs.put(pair, new Pair<>(null, frame)); // Null for initialized, but new
                 body = new FreeBody(FreeBodyShape.BALL, 0);
+                frame.addWindowListener(new WindowCloseListener() {
+                    @Override
+                    public void windowClosing(WindowEvent windowEvent) {
+                        solarFBPairs.remove(pair);
+                    }
+                });
             } else {
                 body = FreeBodyFactory.createBody(map, object);
+                frame = new FBDViewer(new Vector2f(0, 1), 500, 100);
             }
             frame.setBody(body);
         });
@@ -96,12 +105,22 @@ public class RuntimeManager extends ViewerRunnable {
             FreeBody body;
             IExoSolarObject object = ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap().getObjects().get(ExoRuntime.INSTANCE.getContext().getSolarSystem().getFollowing());
             ExoSolarMap map = ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap();
-            FBDViewer frame = new FBDViewer(new Vector2f(0, 1), 500, 500);
+
+            FBDViewer frame;
             if(scfbd) {
-                solarFBPairs.put(new Pair<>(object, map), new Pair<>(null, frame)); // Null for initialized, but new
                 body = new FreeBody(FreeBodyShape.BALL, 0);
+                frame = new LoggedFBDViewer(new Vector2f(0, 1), 500, 500, 100);
+                Pair pair = new Pair<>(object, map);
+                solarFBPairs.put(pair, new Pair<>(null, frame)); // Null for initialized, but new
+                frame.addWindowListener(new WindowCloseListener() {
+                    @Override
+                    public void windowClosing(WindowEvent windowEvent) {
+                        solarFBPairs.remove(pair);
+                    }
+                });
             } else {
                 body = FreeBodyFactory.createBody(map, object);
+                frame = new FBDViewer(new Vector2f(0, 1), 500, 500);
             }
             frame.setBody(body);
         });
@@ -112,15 +131,24 @@ public class RuntimeManager extends ViewerRunnable {
             IExoPlanetObject object = ExoRuntime.INSTANCE.getContext().getPlanet().getMap().getObjects().get(focusMoon);
             ExoPlanetMap map = ExoRuntime.INSTANCE.getContext().getPlanet().getMap();
 
-            FBDViewer frame = new FBDViewer(new Vector2f(0, 1), 500, 500);
+            FBDViewer frame;
             if (ppfbd){
                 object = ExoRuntime.INSTANCE.getContext().getPlanet().getMap().getPlanet();
             }
 
             if(pcfbd) {
-                planetFBPairs.put(new Pair<>(object, map), new Pair<>(null, frame)); // Null for initialized, but new
+                frame = new LoggedFBDViewer(new Vector2f(0, 1), 500, 500, 15);
+                Pair pair = new Pair<>(object, map);
+                planetFBPairs.put(pair, new Pair<>(null, frame)); // Null for initialized, but new
                 body = new FreeBody(FreeBodyShape.BALL, 0);
+                frame.addWindowListener(new WindowCloseListener() {
+                    @Override
+                    public void windowClosing(WindowEvent windowEvent) {
+                        solarFBPairs.remove(pair);
+                    }
+                });
             } else {
+                frame = new FBDViewer(new Vector2f(0, 1), 500, 500);
                 body = FreeBodyFactory.createBody(map, object);
             }
             frame.setBody(body);

@@ -1,16 +1,16 @@
-package ecumene.exo.sim.util.heightmap.voronoi;
+package ecumene.exo.sim.map.heightmap.voronoi;
 
-import ecumene.exo.sim.util.heightmap.channel.HeightChannel;
+import ecumene.exo.sim.map.heightmap.channel.HeightChannel;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 
-public class VoronoiWeighted extends Voronoi {
+public class VoronoiEuclid extends Voronoi {
     private HeightChannel pDistance;
     private HeightChannel pHit;
 
     private Vector2i dimension;
 
-    public VoronoiWeighted(Vector2i size, boolean denormalizePoints, VoronoiPoint ... points){
+    public VoronoiEuclid(Vector2i size, boolean denormalizePoints, VoronoiPoint ... points){
         super(points);
         this.dimension = size;
 
@@ -23,35 +23,28 @@ public class VoronoiWeighted extends Voronoi {
         pDistance = new HeightChannel(dimension.x, dimension.y);
         pHit      = new HeightChannel(dimension.x, dimension.y);
 
-        VoronoiPoint nil = new VoronoiPoint(0, 0, 0);
-
         float pmax = 0;
         for(int x = 0; x < dimension.x; x++){
             for(int y = 0; y < dimension.y; y++){
                 // For each pixel locate the closest point
-                float closest        = Float.MAX_VALUE;
-                float secondClosest  = closest;
-                VoronoiPoint closestPoint = nil, secondClosestPoint = nil;
-                float pixelWeight    = 0;
+                float closest       = Float.MAX_VALUE;
+                float secondClosest = closest;
+                float pixelWeight   = 0;
 
                 // All points are in screen space
                 for(VoronoiPoint point : points) {
                     float distance = new Vector2f(x, y).distance(point.getPoint());
-                    distance *= point.getWeight();
                     if(distance < closest){
-                        closestPoint = point;
                         pixelWeight = (point.getWeight() * 2) - 1;
                         secondClosest = closest;
                         closest       = distance;
-                    } else if(distance < secondClosest) {
-                        secondClosestPoint = point;
+                    } else if(distance < secondClosest)
                         secondClosest = distance;
-                    }
                 }
 
                 float d1 = (255 - closest);
                 float d2 = (255 - secondClosest);
-                float distance = ((((d1 - d2)) / 255) * 2) - 1; // From (0,1) range to (-1,1) range
+                float distance = (((d1 - d2 ) / 255) * 2) - 1; // From (0,1) range to (-1,1) range
                 if(distance > pmax) pmax = distance;
 
                 pDistance.putPixel(x, y, distance);
@@ -73,5 +66,4 @@ public class VoronoiWeighted extends Voronoi {
     public Vector2i getDimensions() {
         return dimension;
     }
-
 }

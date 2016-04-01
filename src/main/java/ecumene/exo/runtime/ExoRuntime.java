@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import ecumene.exo.sim.util.UnClosableDecorator;
+import ecumene.exo.utils.UnClosableDecorator;
 import ecumene.exo.view.rmap.planet.RMVPlanetViewerTag;
 import ecumene.exo.view.rmap.surface.SMVSurfaceViewerTag;
 import ecumene.exo.view.rmap.surface.feature.SMVGenericConfig;

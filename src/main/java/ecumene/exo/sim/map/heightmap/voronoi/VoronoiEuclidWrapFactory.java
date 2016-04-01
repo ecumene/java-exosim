@@ -1,6 +1,6 @@
-package ecumene.exo.sim.util.heightmap.voronoi;
+package ecumene.exo.sim.map.heightmap.voronoi;
 
-import ecumene.exo.sim.util.heightmap.channel.HeightChannel;
+import ecumene.exo.sim.map.heightmap.channel.HeightChannel;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 

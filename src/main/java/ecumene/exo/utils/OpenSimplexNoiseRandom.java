@@ -1,4 +1,4 @@
-package ecumene.exo.sim.util;
+package ecumene.exo.utils;
 
 public class OpenSimplexNoiseRandom extends OpenSimplexNoise {
     private int itrx = 0, itry = 0, itrz = 0;

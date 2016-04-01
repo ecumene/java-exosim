@@ -15,7 +15,7 @@ public class FreeBodyFactory {
         for(IExoPlanetObject object : map.getObjects()){
             if(object != planetObject){
                 Vector2f distance = new Vector2f(object.getPosition().sub(planetObject.getPosition()));
-                Vector2f force = distance.normalize().mul((map.G * planetObject.getMass() * object.getMass()) / distance.length()*distance.length());
+                Vector2f force = distance.normalize().mul((map.G * planetObject.getMass() * object.getMass()) / (distance.length()*distance.length()));
                 force.y *= -1;
                 forceArr[itr] = (new Force("Fg>" + (itr + 1), force));
                 itr++;
@@ -29,8 +29,10 @@ public class FreeBodyFactory {
         int itr = 0;
         for(IExoSolarObject object : map.getObjects()){
             if(object != solarObject){
-                Vector2f distance = new Vector2f(object.getPosition().sub(solarObject.getPosition()));
-                Vector2f force = distance.normalize().mul((map.G * solarObject.getMass() * object.getMass()) / distance.length()*distance.length());
+                // TODO: Something here is weird...
+                Vector2f distance = new Vector2f(object.getPosition()).sub(new Vector2f(solarObject.getPosition()));
+                Vector2f force = distance.normalize().mul((map.G * solarObject.getMass() * object.getMass()) / (distance.length()*distance.length()));
+                System.out.println(force.length());
                 force.y *= -1;
                 forceArr[itr] = (new Force("Fg>" + (itr + 1), force));
                 itr++;

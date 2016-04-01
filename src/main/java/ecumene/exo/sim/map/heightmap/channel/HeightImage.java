@@ -1,6 +1,6 @@
-package ecumene.exo.sim.util.heightmap.channel;
+package ecumene.exo.sim.map.heightmap.channel;
 
-import ecumene.exo.sim.util.heightmap.HeightMapUtil;
+import ecumene.exo.sim.map.heightmap.HeightMapUtil;
 
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;

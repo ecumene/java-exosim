@@ -12,6 +12,8 @@ public class FBDViewer extends JFrame {
     private int      largeVal;
     private boolean  normalized = true;
 
+    protected JPanel   viewerPane;
+
     public FBDViewer(Vector2f north, int width, int height){
         super("FBD Viewer");
         setSize(width, height);
@@ -21,14 +23,14 @@ public class FBDViewer extends JFrame {
         this.body = null;
 
         setVisible(true);
-        JPanel contentPane = new JPanel(){
+        viewerPane = new JPanel(){
             @Override
             public void paintComponent(Graphics graphics) {
                 super.paintComponents(graphics);
                 if(body != null) paintContentPane(graphics, getWidth(), getHeight());
             }
         };
-        contentPane.setPreferredSize(new Dimension(width, height));
+        viewerPane.setPreferredSize(new Dimension(width, height));
         getContentPane().setLayout(new BorderLayout());
         JPanel topPanel = new JPanel();
         JRadioButton normalize = new JRadioButton("Normalize Forces");
@@ -39,7 +41,7 @@ public class FBDViewer extends JFrame {
         });
         normalize.setSelected(true);
         getContentPane().add(topPanel, BorderLayout.NORTH);
-        getContentPane().add(contentPane, BorderLayout.CENTER);
+        getContentPane().add(viewerPane, BorderLayout.CENTER);
         pack();
     }
 

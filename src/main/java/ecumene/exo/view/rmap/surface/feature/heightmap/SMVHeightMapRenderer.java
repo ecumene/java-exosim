@@ -3,8 +3,7 @@ package ecumene.exo.view.rmap.surface.feature.heightmap;
 import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
 import ecumene.exo.sim.abstractions.surface.feature.height.ExoSHeightLayer;
-import ecumene.exo.sim.util.heightmap.HeightMapBI;
-import ecumene.exo.sim.util.heightmap.IHeightMapBIColorMethod;
+import ecumene.exo.sim.map.heightmap.HeightMapBI;
 import ecumene.exo.view.rmap.surface.JSMVSurfaceRenderer;
 import ecumene.exo.view.rmap.surface.feature.IFeatureLayerRenderer;
 

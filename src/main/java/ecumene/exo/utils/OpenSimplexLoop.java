@@ -1,4 +1,4 @@
-package ecumene.exo.sim.util;
+package ecumene.exo.utils;
 
 public class OpenSimplexLoop {
    private OpenSimplexNoise noise;

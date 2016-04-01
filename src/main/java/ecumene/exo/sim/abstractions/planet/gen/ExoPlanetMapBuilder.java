@@ -1,12 +1,12 @@
 package ecumene.exo.sim.abstractions.planet.gen;
 
-import ecumene.exo.sim.util.OpenSimplexNoise;
+import ecumene.exo.utils.OpenSimplexNoise;
 import ecumene.exo.sim.abstractions.planet.ExoPlanet;
 import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
 import ecumene.exo.sim.abstractions.planet.ExoPlanetMoon;
 import ecumene.exo.sim.abstractions.solar.ExoSolarObject;
 import ecumene.exo.sim.abstractions.solar.IExoSolarObject;
-import ecumene.exo.sim.util.GenUtils;
+import ecumene.exo.utils.GenUtils;
 import org.joml.Vector2f;
 
 import java.util.ArrayList;

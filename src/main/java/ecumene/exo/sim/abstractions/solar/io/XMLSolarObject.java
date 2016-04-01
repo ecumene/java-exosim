@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class XMLSolarObject {
     public Element  xmlNode;
-    public XMLSolarObject parentPosition;
+    public Vector2f parentPosition; // TODO: Change to XMLSolarObject
 
     public String           name;
     public float            mass;
