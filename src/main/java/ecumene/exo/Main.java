@@ -12,8 +12,18 @@ import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureFilter;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
+import ecumene.exo.sim.abstractions.surface.feature.height.ExoSHeightLayer;
+import ecumene.exo.sim.abstractions.surface.feature.height.HeightMap;
+import ecumene.exo.sim.map.heightmap.channel.HeightChannel;
+import ecumene.exo.sim.map.heightmap.random.TiledNoiseChannel;
+import ecumene.exo.sim.map.heightmap.voronoi.Voronoi;
+import ecumene.exo.sim.map.heightmap.voronoi.VoronoiEuclid;
+import ecumene.exo.sim.map.heightmap.voronoi.VoronoiPoint;
+import ecumene.exo.sim.map.heightmap.voronoi.VoronoiWeightedWrapFactory;
+import ecumene.exo.utils.OpenSimplexNoise;
 import org.jdom2.input.SAXBuilder;
 import org.joml.Vector2f;
+import org.joml.Vector2i;
 
 import javax.swing.*;
 import java.io.File;
@@ -42,7 +52,7 @@ public class Main {
         //ExoSolarMap solar = solarBuilder.build();
 
         ExoSolarMapLoader loader = new ExoSolarMapLoader();
-        ExoSolarMap solar = loader.from(new SAXBuilder().build(new File("./config/solar.xml")));
+        ExoSolarMap solar = loader.from(new SAXBuilder().build(new File("solar.xml")));
 
         //                                                          Set seed to current time
         ExoPlanetMapBuilder planetBuilder = new ExoPlanetMapBuilder(System.currentTimeMillis());
@@ -62,21 +72,21 @@ public class Main {
         List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();
         List<ExoSFeatureFilter> featureFilters = new ArrayList<ExoSFeatureFilter>();
 
-        //VoronoiPoint[] points = new VoronoiPoint[]{
-        //        new VoronoiPoint(1.1f, new Vector2f(0.1f, 0.2f)),
-        //        new VoronoiPoint(1.3f, new Vector2f(0.1f, 0.6f)),
-        //        new VoronoiPoint(1.2f, new Vector2f(0.9f, 0.3f)),
-        //        new VoronoiPoint(1.5f, new Vector2f(0.13f, 0.1f)),
-        //};
+        VoronoiPoint[] points = new VoronoiPoint[]{
+                new VoronoiPoint(1.1f, new Vector2f(0.1f, 0.2f)),
+                new VoronoiPoint(1.3f, new Vector2f(0.1f, 0.6f)),
+                new VoronoiPoint(1.2f, new Vector2f(0.9f, 0.3f)),
+                new VoronoiPoint(1.5f, new Vector2f(0.13f, 0.1f)),
+        };
         //HeightChannel channel = VoronoiWeightedWrapFactory.wrapDistance(1024, 1024, true, points);
         //Voronoi voronoi = new VoronoiEuclid(new Vector2i(1024, 1024), true, points);
 
-        //HeightChannel channel = new TiledNoiseChannel(1000, 500,
-        //                                              new OpenSimplexNoise(),
-        //                                              new Vector2f(1, 1));
-        //HeightMap heightMap = new HeightMap(channel);
+        HeightChannel channel = new TiledNoiseChannel(1000, 500,
+                                                      new OpenSimplexNoise(),
+                                                      new Vector2f(1, 1));
+        HeightMap heightMap = new HeightMap(channel);
 
-        //featureLayers.add(new ExoSHeightLayer(heightMap, 20));
+        featureLayers.add(new ExoSHeightLayer(heightMap, 20));
 
         ExoSurfaceMap surface = new ExoSurfaceMap(featureLayers, featureFilters);
 
