@@ -19,12 +19,12 @@ public class RMVPlanetObjectRenderer extends RMVPointRenderer {
     public void render(Graphics2D graphics, int id, RPoint point, Vector2f realPos, Vector2f navPos, Vector2f screenPos) {
             Color oldColor = graphics.getColor(); { // push color
                 if(!point.getName(id).toUpperCase().contains("REFPOINT")) {
-                    graphics.setColor(new Color(255, 0, 0));
+                    graphics.setColor(parent.getPrimaryColor());
                     float massDiam = parent.getMap().getObjects().get(id).getMass() * parent.navigation.z;
                     graphics.fillOval((int) (screenPos.x - (massDiam / 2)), (int) (screenPos.y - (massDiam / 2)),
                             (int) (massDiam), (int) (massDiam));
-                    graphics.setColor(new Color(255, 255, 255));
-                    graphics.drawString(point.getName(id), (int) screenPos.x + 6, (int) screenPos.y + 4);
+                    graphics.setColor(parent.getSecondaryColor());
+                    graphics.drawString(point.getName(id), (int) screenPos.x + massDiam + 4, (int) screenPos.y + 4);
                 }
         } graphics.setColor(oldColor); // pop color
     }

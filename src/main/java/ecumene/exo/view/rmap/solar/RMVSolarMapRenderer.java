@@ -12,7 +12,7 @@ import org.joml.Vector3f;
 
 public class RMVSolarMapRenderer extends RMVRenderer {
 	
-	private ExoSolarMap       solarMap;
+	private ExoSolarMap solarMap;
 
 	public RMVSolarMapRenderer(int id, ExceptionListener exceptionListener, ExoSolarMap map, Vector3f navigation){
 		super(id, exceptionListener, new RMap(), navigation);

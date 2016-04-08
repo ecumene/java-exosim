@@ -24,12 +24,12 @@ public class RMVSolarObjectRenderer extends RMVPointRenderer {
 			if(point instanceof IExoSolarObject){ // Is a solar object?
 				RPoint object = point;
 	
-				graphics.setColor(new Color(255, 0, 0));
+				graphics.setColor(parent.getPrimaryColor());
 				float massDiam = ((IExoSolarObject) object).getMass() * parent.navigation.z;
 				graphics.fillOval((int) (screenPos.x - (massDiam / 2)), (int) (screenPos.y - (massDiam / 2)), 
 				                  (int) (massDiam),                     (int) (massDiam));
-				graphics.setColor(new Color(255, 255, 255));
-				graphics.drawString(point.getName(id), (int)screenPos.x + 6, (int)screenPos.y + 4);
+				graphics.setColor(parent.getPrimaryColor());
+				graphics.drawString(point.getName(id), (int)screenPos.x + massDiam + 4, (int)screenPos.y + 4);
 				
 				if(parent.getShowVectors()){
 					Vector2f finalVelocity = new Vector2f(((IExoSolarObject) object).getVelocity());
@@ -37,7 +37,7 @@ public class RMVSolarObjectRenderer extends RMVPointRenderer {
 						finalVelocity.x *= parent.navigation.z;
 						finalVelocity.y *= -parent.navigation.z;
 						finalVelocity = finalVelocity.add(screenPos);
-						graphics.setColor(new Color(64, 64, 255));
+						graphics.setColor(parent.getSecondaryColor());
 						graphics.drawLine((int) (screenPos.x),     (int) (screenPos.y),
 								          (int) (finalVelocity.x), (int) (finalVelocity.y));
 					} graphics.setColor(oldOldColor); // pop color
@@ -48,7 +48,7 @@ public class RMVSolarObjectRenderer extends RMVPointRenderer {
 						finalVelocity.x *= parent.navigation.z;
 						finalVelocity.y *= -parent.navigation.z;
 						finalVelocity = finalVelocity.add(screenPos);
-						graphics.setColor(new Color(64, 64, 255));
+						graphics.setColor(parent.getSecondaryColor());
 						graphics.drawLine((int) (screenPos.x),     (int) (screenPos.y),
 								(int) (finalVelocity.x), (int) (finalVelocity.y));
 					} graphics.setColor(oldOldColor); // pop color

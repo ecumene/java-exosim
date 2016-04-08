@@ -17,10 +17,10 @@ import ecumene.exo.view.rmap.JRMViewer;
 
 public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener {
 
-	protected boolean showMaterials = false;
-	protected boolean showVectors   = false;
-	private ExoSolarMap map;
-	private int follow;
+	protected boolean     showMaterials = false;
+	protected boolean     showVectors   = false;
+	private   int         follow;
+	private   ExoSolarMap map;
 
 	public JRMVSolarRenderer(Vector3f navigation, ExoSolarMap map) {
 		super(navigation, null);

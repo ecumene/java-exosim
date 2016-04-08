@@ -21,11 +21,15 @@ public class JRMViewer extends JPanel {
 	public Vector3f navigation;
 	private List<RMVPointRenderer> rendererList;
 	protected RMVPointRenderer pointRenderer;
-	
+
+	protected Color background = new Color(255, 255, 255);
+	protected Color primary    = new Color(0,     0,   0);
+	protected Color secondary  = new Color(200, 200, 200);
+
 	public JRMViewer(Vector3f navigation, RMap pMap) {
 		this.pMap       = pMap;
 		this.navigation = navigation;
-		rendererList = new ArrayList<RMVPointRenderer>();
+		rendererList = new ArrayList<>();
 		rendererList.add(pointRenderer = new RMVPointRenderer(this));
 		setPreferredSize(new Dimension(600, 600));
 		
@@ -63,9 +67,9 @@ public class JRMViewer extends JPanel {
 		super.paintComponent(g);
 		Graphics2D graphics = (Graphics2D) g;
 		graphics.setFont(new Font("TimesRoman", Font.PLAIN, 10)); 
-		graphics.setColor(new Color(0, 0, 0));
+		graphics.setColor(background);
 		graphics.fillRect(0, 0, getWidth(), getHeight());
-		graphics.setColor(new Color(0, 255, 0));
+		graphics.setColor(primary);
 		graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, // Anti-alias!
 				                  RenderingHints.VALUE_ANTIALIAS_ON);
 		if(pMap != null){
@@ -110,6 +114,18 @@ public class JRMViewer extends JPanel {
 	
 	public RMVPointRenderer getDefaultRPointRenderer(){
 		return this.pointRenderer;
+	}
+
+	public Color getBackgroundColor() {
+		return background;
+	}
+
+	public Color getPrimaryColor() {
+		return primary;
+	}
+
+	public Color getSecondaryColor() {
+		return secondary;
 	}
 
 }

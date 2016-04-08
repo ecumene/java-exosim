@@ -60,13 +60,13 @@ public class RuntimeManager extends ViewerRunnable {
     private int simStepsPerT = 1;
 
     private Map<Pair<IExoGalaxyObject, ExoGalaxyMap>, Pair<FreeBody, FBDViewer>> galaxyFBPairs;
-    private Map<Pair<IExoSolarObject, ExoSolarMap>,  Pair<FreeBody, FBDViewer>> solarFBPairs;
+    private Map<Pair<IExoSolarObject, ExoSolarMap>, Pair<FreeBody, FBDViewer>> solarFBPairs;
     private Map<Pair<IExoPlanetObject, ExoPlanetMap>, Pair<FreeBody, FBDViewer>> planetFBPairs;
 
     public RuntimeManager(int id, ExceptionListener listener) {
         super(id, listener);
         galaxyFBPairs = new HashMap();
-        solarFBPairs  = new HashMap();
+        solarFBPairs = new HashMap();
         planetFBPairs = new HashMap();
     }
 
@@ -82,7 +82,7 @@ public class RuntimeManager extends ViewerRunnable {
             ExoGalaxyMap map = ExoRuntime.INSTANCE.getContext().getGalaxy().getMap();
 
             FBDViewer frame;
-            if(gcfbd) {
+            if (gcfbd) {
                 frame = new LoggedFBDViewer(new Vector2f(0, 1), 500, 500, 100);
                 Pair pair = new Pair<>(object, map);
                 galaxyFBPairs.put(pair, new Pair<>(null, frame)); // Null for initialized, but new
@@ -107,7 +107,7 @@ public class RuntimeManager extends ViewerRunnable {
             ExoSolarMap map = ExoRuntime.INSTANCE.getContext().getSolarSystem().getSolarMap();
 
             FBDViewer frame;
-            if(scfbd) {
+            if (scfbd) {
                 body = new FreeBody(FreeBodyShape.BALL, 0);
                 frame = new LoggedFBDViewer(new Vector2f(0, 1), 500, 500, 100);
                 Pair pair = new Pair<>(object, map);
@@ -132,11 +132,11 @@ public class RuntimeManager extends ViewerRunnable {
             ExoPlanetMap map = ExoRuntime.INSTANCE.getContext().getPlanet().getMap();
 
             FBDViewer frame;
-            if (ppfbd){
+            if (ppfbd) {
                 object = ExoRuntime.INSTANCE.getContext().getPlanet().getMap().getPlanet();
             }
 
-            if(pcfbd) {
+            if (pcfbd) {
                 frame = new LoggedFBDViewer(new Vector2f(0, 1), 500, 500, 15);
                 Pair pair = new Pair<>(object, map);
                 planetFBPairs.put(pair, new Pair<>(null, frame)); // Null for initialized, but new
@@ -180,7 +180,7 @@ public class RuntimeManager extends ViewerRunnable {
         clearTrackingDataButton.addActionListener(actionEvent -> ExoRuntime.INSTANCE.getContext().getPlanet().getMap().clearTrackedPositions());
 
         planetFBDUPS = new JRadioButton("Update every step");
-        planetFBDUPS.addActionListener(actionEvent -> pcfbd = ((JRadioButton)actionEvent.getSource()).isSelected());
+        planetFBDUPS.addActionListener(actionEvent -> pcfbd = ((JRadioButton) actionEvent.getSource()).isSelected());
         moonFocusSpinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
         moonFocusSpinner.addChangeListener(changeEvent -> focusMoon = (Integer) ((JSpinner) changeEvent.getSource()).getModel().getValue());
 
@@ -203,67 +203,6 @@ public class RuntimeManager extends ViewerRunnable {
 
         planetClearTracked = new JButton("Clear Tracked Moons");
         planetClearTracked.addActionListener(ae -> ExoRuntime.INSTANCE.getContext().getPlanet().getMap().clearTrackedPositions());
-    }
-
-    private class StepTimer implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
-            if (ExoRuntime.INSTANCE.getContext().running) {
-                for (int i = 0; i < simStepsPerT; i++) {
-                    for(Map.Entry<Pair<IExoSolarObject, ExoSolarMap>, Pair<FreeBody, FBDViewer>> entry : solarFBPairs.entrySet()) {
-                        Pair<IExoSolarObject, ExoSolarMap> solarKey = entry.getKey();
-                        Pair<FreeBody, FBDViewer>          freebKey = entry.getValue();
-                        FreeBody body = FreeBodyFactory.createBody(solarKey.getSecond(), solarKey.getFirst());
-                        freebKey.getSecond().setBody(body);
-                    }
-
-                    for(Map.Entry<Pair<IExoGalaxyObject, ExoGalaxyMap>, Pair<FreeBody, FBDViewer>> entry : galaxyFBPairs.entrySet()) {
-                        Pair<IExoGalaxyObject, ExoGalaxyMap> galaxyKey= entry.getKey();
-                        Pair<FreeBody, FBDViewer>            freebKey = entry.getValue();
-                        FreeBody body = FreeBodyFactory.createBody(galaxyKey.getSecond(), galaxyKey.getFirst());
-                        freebKey.getSecond().setBody(body);
-                    }
-
-                    for(Map.Entry<Pair<IExoPlanetObject, ExoPlanetMap>, Pair<FreeBody, FBDViewer>> entry : planetFBPairs.entrySet()) {
-                        Pair<IExoPlanetObject, ExoPlanetMap> planetKey = entry.getKey();
-                        Pair<FreeBody, FBDViewer>            freebKey  = entry.getValue();
-                        FreeBody body = FreeBodyFactory.createBody(planetKey.getSecond(), planetKey.getFirst());
-                        freebKey.getSecond().setBody(body);
-                    }
-
-                    ExoRuntime.INSTANCE.getContext().step();
-                    currentStepNo.setText("" + ExoRuntime.INSTANCE.getContext().getSteps());
-                    currentStepNo.repaint();
-                    parent.pack();
-                }
-            } // If running step, if not skip frame
-        }
-    }
-
-    @Override
-    public void onContextChanged(SimContext context) {
-    }
-
-    @Override
-    public void onStep(SimContext context, int step) {
-    }
-
-    @Override
-    public void init() throws Throwable {
-        parent = new JFrame("Runtime viewer");
-        parent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        createUIComponents();
-        parent.setContentPane(root);
-
-        parent.pack();
-        parent.setLocationRelativeTo(null);
-        parent.setVisible(true);
-    }
-
-    @Override
-    public void kill(int id) {
-        parent.dispose();
     }
 
     {
@@ -320,32 +259,20 @@ public class RuntimeManager extends ViewerRunnable {
         planetConfig.setLayout(new GridLayoutManager(4, 3, new Insets(5, 5, 5, 5), -1, -1));
         root.add(planetConfig, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         planetConfig.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(), "Planet", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, new Color(-4473925)));
-        moonFocusSpinner = new JSpinner();
         planetConfig.add(moonFocusSpinner, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setText("Moon Focus: ");
         planetConfig.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        clearTrackingDataButton = new JButton();
         clearTrackingDataButton.setText("Clear Tracking Data");
         planetConfig.add(clearTrackingDataButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JPanel panel1 = new JPanel();
-        panel1.setLayout(new GridLayoutManager(5, 3, new Insets(0, 0, 0, 0), -1, -1));
-        planetConfig.add(panel1, new GridConstraints(3, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        final JLabel label2 = new JLabel();
-        label2.setText("Color");
-        panel1.add(label2, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JLabel label3 = new JLabel();
-        label3.setText("Interval");
-        panel1.add(label3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        planetClearTracked.setText("Clear Tracked Moons");
-        panel1.add(planetClearTracked, new GridConstraints(4, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        planetOpenInFBD.setText("Open in FBD Viewer");
+        planetConfig.add(planetOpenInFBD, new GridConstraints(2, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        planetFBDUPS.setText("Update every step");
+        planetConfig.add(planetFBDUPS, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JSeparator separator3 = new JSeparator();
-        panel1.add(separator3, new GridConstraints(3, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        final JLabel label4 = new JLabel();
-        label4.setText("Add Tracking Data:");
-        planetConfig.add(label4, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JSeparator separator4 = new JSeparator();
-        planetConfig.add(separator4, new GridConstraints(1, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        planetConfig.add(separator3, new GridConstraints(1, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        planetOpenPlanetFBD.setText("Open Planet");
+        planetConfig.add(planetOpenPlanetFBD, new GridConstraints(3, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         simulatorConfig = new JPanel();
         simulatorConfig.setLayout(new GridLayoutManager(2, 3, new Insets(5, 5, 5, 5), -1, -1));
         simulatorConfig.setBackground(new Color(-16765361));
@@ -375,6 +302,67 @@ public class RuntimeManager extends ViewerRunnable {
      */
     public JComponent $$$getRootComponent$$$() {
         return root;
+    }
+
+    private class StepTimer implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            if (ExoRuntime.INSTANCE.getContext().running) {
+                for (int i = 0; i < simStepsPerT; i++) {
+                    for (Map.Entry<Pair<IExoSolarObject, ExoSolarMap>, Pair<FreeBody, FBDViewer>> entry : solarFBPairs.entrySet()) {
+                        Pair<IExoSolarObject, ExoSolarMap> solarKey = entry.getKey();
+                        Pair<FreeBody, FBDViewer> freebKey = entry.getValue();
+                        FreeBody body = FreeBodyFactory.createBody(solarKey.getSecond(), solarKey.getFirst());
+                        freebKey.getSecond().setBody(body);
+                    }
+
+                    for (Map.Entry<Pair<IExoGalaxyObject, ExoGalaxyMap>, Pair<FreeBody, FBDViewer>> entry : galaxyFBPairs.entrySet()) {
+                        Pair<IExoGalaxyObject, ExoGalaxyMap> galaxyKey = entry.getKey();
+                        Pair<FreeBody, FBDViewer> freebKey = entry.getValue();
+                        FreeBody body = FreeBodyFactory.createBody(galaxyKey.getSecond(), galaxyKey.getFirst());
+                        freebKey.getSecond().setBody(body);
+                    }
+
+                    for (Map.Entry<Pair<IExoPlanetObject, ExoPlanetMap>, Pair<FreeBody, FBDViewer>> entry : planetFBPairs.entrySet()) {
+                        Pair<IExoPlanetObject, ExoPlanetMap> planetKey = entry.getKey();
+                        Pair<FreeBody, FBDViewer> freebKey = entry.getValue();
+                        FreeBody body = FreeBodyFactory.createBody(planetKey.getSecond(), planetKey.getFirst());
+                        freebKey.getSecond().setBody(body);
+                    }
+
+                    ExoRuntime.INSTANCE.getContext().step();
+                    currentStepNo.setText("" + ExoRuntime.INSTANCE.getContext().getSteps());
+                    currentStepNo.repaint();
+                    parent.pack();
+                }
+            } // If running step, if not skip frame
+        }
+    }
+
+    @Override
+    public void onContextChanged(SimContext context) {
+    }
+
+    @Override
+    public void onStep(SimContext context, int step) {
+    }
+
+    @Override
+    public void init() throws Throwable {
+        parent = new JFrame("Runtime viewer");
+        parent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        createUIComponents();
+        parent.setContentPane(root);
+
+        parent.pack();
+        parent.setLocationRelativeTo(null);
+        parent.setVisible(true);
+    }
+
+    @Override
+    public void kill(int id) {
+        parent.dispose();
     }
 
 }
