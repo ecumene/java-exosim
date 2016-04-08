@@ -1,6 +1,7 @@
 package ecumene.exo;
 
 import ecumene.exo.runtime.ExoRuntime;
+import ecumene.exo.sim.abstractions.solar.gen.ExoSolarMapBuilder;
 import ecumene.exo.sim.abstractions.solar.io.ExoSolarMapLoader;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
@@ -41,18 +42,18 @@ public class Main {
         // I'll make a builder for this... eventually.
         ExoGalaxyMap galaxy = new ExoGalaxyMapGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 100, 400).getSource();
 
-        //ExoSolarMapBuilder solarBuilder = new ExoSolarMapBuilder(System.currentTimeMillis());
-        //solarBuilder.genObject(new Vector2f(4, 4), new Vector2f(0, 0), new Vector2f(0, 0)); // Generate sun
-        //solarBuilder.genObjectsOrbiting(9,     // Number of orbiters
-        //        new Vector2f(0,0),             // Point to orbit
-        //        new Vector2f(0.001f, 0.0015f), // Orbiter Masses
-        //        new Vector2f(-500, 500),       // Orbiter Position (polar coordinate radius)
-        //        new Vector2f(0, 360),          // Orbiter angle    (polar coordinate angle)
-        //        new Vector2f(0.01f, 0.025f));  // Initial velocity (0 will cause the orbiters to go DIRECTLY towards the sun and die a horrible death)
-        //ExoSolarMap solar = solarBuilder.build();
+        ExoSolarMapBuilder solarBuilder = new ExoSolarMapBuilder(System.currentTimeMillis());
+        solarBuilder.genObject(new Vector2f(4, 4), new Vector2f(0, 0), new Vector2f(0, 0)); // Generate sun
+        solarBuilder.genObjectsOrbiting(9,     // Number of orbiters
+                new Vector2f(0,0),             // Point to orbit
+                new Vector2f(0.001f, 0.0015f), // Orbiter Masses
+                new Vector2f(-500, 500),       // Orbiter Position (polar coordinate radius)
+                new Vector2f(0, 360),          // Orbiter angle    (polar coordinate angle)
+                new Vector2f(0.01f, 0.025f));  // Initial velocity (0 will cause the orbiters to go DIRECTLY towards the sun and die a horrible death)
+        ExoSolarMap solar = solarBuilder.build();
 
-        ExoSolarMapLoader loader = new ExoSolarMapLoader();
-        ExoSolarMap solar = loader.from(new SAXBuilder().build(new File("solar.xml")));
+        //ExoSolarMapLoader loader = new ExoSolarMapLoader();
+        //ExoSolarMap solar = loader.from(new SAXBuilder().build(new File("solar.xml")));
 
         //                                                          Set seed to current time
         ExoPlanetMapBuilder planetBuilder = new ExoPlanetMapBuilder(System.currentTimeMillis());
@@ -63,10 +64,7 @@ public class Main {
                 new Vector2f(0, 360),                // Generate moon angle
                 new Vector2f(-0.2f, 0.2f));          // Generate moon beginning velocity
         ExoPlanetMap planet = planetBuilder.build(); // Finish generating and save to exoplanet
-        planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, false));// tracking data for moons
-        planet.getPlanet().setTracking(1, new TrackingParameters("0x00FFFF", 100, false));// tracking data for moons
-        planet.getPlanet().setTracking(2, new TrackingParameters("0x00FF00", 100, false));// tracking data for moons
-        planet.getPlanet().setTracking(3, new TrackingParameters("0xFF0000", 100, false));// tracking data for moons
+        //planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, true));// tracking data for moons
 
         // This should be in a builder!! GIMMIE A MINUTE!
         List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();

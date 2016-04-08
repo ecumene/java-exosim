@@ -16,6 +16,7 @@ public class FBDViewer extends JFrame {
 
     public FBDViewer(Vector2f north, int width, int height){
         super("FBD Viewer");
+        //TODO Add clear graphs button
         setSize(width, height);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);

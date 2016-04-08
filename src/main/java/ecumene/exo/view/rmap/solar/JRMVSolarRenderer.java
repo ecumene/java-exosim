@@ -24,6 +24,7 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 
 	public JRMVSolarRenderer(Vector3f navigation, ExoSolarMap map) {
 		super(navigation, null);
+		//TODO Fix solar focus
 		getRendererList().add(new RMVSolarObjectRenderer(this));
 		getRendererList().remove(getDefaultRPointRenderer());
 		
