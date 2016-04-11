@@ -1,17 +1,11 @@
 package ecumene.exo.view.rmap.galaxy;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import org.joml.Vector2f;
 
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.ISimContextListener;
-import ecumene.exo.sim.map.real.RMap;
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RMap;
 import ecumene.exo.view.rmap.JRMViewer;
 import org.joml.Vector3f;
 

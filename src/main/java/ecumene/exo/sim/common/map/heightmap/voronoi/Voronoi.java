@@ -1,4 +1,4 @@
-package ecumene.exo.sim.map.heightmap.voronoi;
+package ecumene.exo.sim.common.map.heightmap.voronoi;
 
 public class Voronoi {
     public VoronoiPoint[] points;

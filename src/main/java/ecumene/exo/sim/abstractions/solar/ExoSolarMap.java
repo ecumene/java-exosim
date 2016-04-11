@@ -3,8 +3,8 @@ package ecumene.exo.sim.abstractions.solar;
 import java.util.ArrayList;
 import java.util.List;
 
-import ecumene.exo.sim.map.real.RMap;
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RMap;
+import ecumene.exo.sim.common.map.real.RPoint;
 
 public class ExoSolarMap {
 	private ExoSolarObject        central;

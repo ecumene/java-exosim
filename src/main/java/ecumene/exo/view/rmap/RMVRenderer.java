@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import ecumene.exo.Main;
-import ecumene.exo.sim.map.real.RMap;
+import ecumene.exo.sim.common.map.real.RMap;
 import ecumene.exo.runtime.viewer.ViewerRunnable;
 import org.joml.Vector3f;
 
@@ -31,7 +31,7 @@ public abstract class RMVRenderer extends ViewerRunnable {
 		{
 			frame.setSize(600, 600);
 			frame.setLocationRelativeTo(null);
-			frame.setIconImage(ImageIO.read(Main.class.getResource("logo.png")));
+			frame.setIconImage(ImageIO.read(Main.class.getResource("/logo.png")));
 			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frame.add(renderer);
 			frame.pack();

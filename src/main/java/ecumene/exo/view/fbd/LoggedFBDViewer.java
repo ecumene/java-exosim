@@ -1,5 +1,6 @@
 package ecumene.exo.view.fbd;
 
+import ecumene.exo.sim.common.physics.instant.InsFBody;
 import ecumene.exo.utils.Pair;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoggedFBDViewer extends FBDViewer {
-    private List<FreeBody> frames;
+    private List<InsFBody> frames;
     private JPanel fbdViewer;
     // Pair of the dataset and the chart's panel (data-component+jcomponent)
     private Pair<DefaultCategoryDataset, ChartPanel> avtGraph;
@@ -44,26 +45,26 @@ public class LoggedFBDViewer extends FBDViewer {
         getContentPane().add(dvtGraph.getSecond());
     }
 
-    public List<FreeBody> getHistory(){
+    public List<InsFBody> getHistory(){
         return frames;
     }
 
     Vector2f lastVelocity = new Vector2f();
     Vector2f lastDisplacement = new Vector2f();
     int   time;
-    private void onFrame(FreeBody frame){
-        lastVelocity.add(frame.getFnet());
+    private void onFrame(InsFBody frame){
+        lastVelocity.add(frame.getAcceleration());
         lastDisplacement.add(lastVelocity);
-        avtGraph.getFirst().addValue(frame.getFnet().length(), "time", new Integer(time));
-        vvtGraph.getFirst().addValue(lastVelocity.length(),    "time", new Integer(time));
-        dvtGraph.getFirst().addValue(lastDisplacement.length(),"time", new Integer(time));
+        avtGraph.getFirst().addValue(frame.getAcceleration().length(), "time", new Integer(time));
+        vvtGraph.getFirst().addValue(lastVelocity.length(),            "time", new Integer(time));
+        dvtGraph.getFirst().addValue(lastDisplacement.length(),        "time", new Integer(time));
         time++;
     }
 
     private int framesNum;
 
     @Override
-    public void setBody(FreeBody body) {
+    public void setBody(InsFBody body) {
         super.setBody(body);
         if(framesNum % discardItr == 0) {
             frames.add(body);

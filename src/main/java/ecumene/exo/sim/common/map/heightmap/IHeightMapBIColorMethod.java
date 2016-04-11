@@ -1,4 +1,4 @@
-package ecumene.exo.sim.map.heightmap;
+package ecumene.exo.sim.common.map.heightmap;
 
 import java.awt.*;
 

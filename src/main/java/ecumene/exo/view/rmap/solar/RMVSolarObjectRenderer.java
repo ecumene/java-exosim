@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import org.joml.Vector2f;
 
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RPoint;
 import ecumene.exo.sim.abstractions.solar.IExoSolarObject;
 import ecumene.exo.view.rmap.RMVPointRenderer;
 

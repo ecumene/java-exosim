@@ -1,11 +1,9 @@
 package ecumene.exo.sim.abstractions.surface.grid;
 
 import ecumene.exo.sim.abstractions.surface.ExoSFeature;
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RPoint;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
-
-import java.util.Vector;
 
 public abstract class ExoGridFeature extends ExoSFeature {
     private ExoGridLayer parent;

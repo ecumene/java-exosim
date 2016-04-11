@@ -1,4 +1,4 @@
-package ecumene.exo.sim.map.natural;
+package ecumene.exo.sim.common.map.natural;
 
 /**
  * Represents a map of objects with natural numbers as identifier (grid)

@@ -1,4 +1,4 @@
-package ecumene.exo.view.fbd;
+package ecumene.exo.sim.common.physics;
 
 public enum FreeBodyShape {
     BOX, BALL;

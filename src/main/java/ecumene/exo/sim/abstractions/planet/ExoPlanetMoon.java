@@ -1,6 +1,6 @@
 package ecumene.exo.sim.abstractions.planet;
 
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RPoint;
 import org.joml.Vector2f;
 
 public class ExoPlanetMoon implements IExoPlanetObject {

@@ -1,8 +1,8 @@
-package ecumene.exo.sim.map.heightmap.random;
+package ecumene.exo.sim.common.map.heightmap.random;
 
 import ecumene.exo.utils.OpenSimplexLoop;
 import ecumene.exo.utils.OpenSimplexNoise;
-import ecumene.exo.sim.map.heightmap.channel.HeightChannel;
+import ecumene.exo.sim.common.map.heightmap.channel.HeightChannel;
 import org.joml.Vector2f;
 
 public class TiledNoiseChannel extends HeightChannel {

@@ -2,12 +2,10 @@ package ecumene.exo;
 
 import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.abstractions.solar.gen.ExoSolarMapBuilder;
-import ecumene.exo.sim.abstractions.solar.io.ExoSolarMapLoader;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
 import ecumene.exo.sim.abstractions.galaxy.gen.ExoGalaxyMapGen;
 import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
-import ecumene.exo.sim.abstractions.planet.TrackingParameters;
 import ecumene.exo.sim.abstractions.planet.gen.ExoPlanetMapBuilder;
 import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 import ecumene.exo.sim.abstractions.surface.ExoSFeatureFilter;
@@ -15,19 +13,13 @@ import ecumene.exo.sim.abstractions.surface.ExoSFeatureLayer;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
 import ecumene.exo.sim.abstractions.surface.feature.height.ExoSHeightLayer;
 import ecumene.exo.sim.abstractions.surface.feature.height.HeightMap;
-import ecumene.exo.sim.map.heightmap.channel.HeightChannel;
-import ecumene.exo.sim.map.heightmap.random.TiledNoiseChannel;
-import ecumene.exo.sim.map.heightmap.voronoi.Voronoi;
-import ecumene.exo.sim.map.heightmap.voronoi.VoronoiEuclid;
-import ecumene.exo.sim.map.heightmap.voronoi.VoronoiPoint;
-import ecumene.exo.sim.map.heightmap.voronoi.VoronoiWeightedWrapFactory;
+import ecumene.exo.sim.common.map.heightmap.channel.HeightChannel;
+import ecumene.exo.sim.common.map.heightmap.random.TiledNoiseChannel;
+import ecumene.exo.sim.common.map.heightmap.voronoi.VoronoiPoint;
 import ecumene.exo.utils.OpenSimplexNoise;
-import org.jdom2.input.SAXBuilder;
 import org.joml.Vector2f;
-import org.joml.Vector2i;
 
 import javax.swing.*;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 

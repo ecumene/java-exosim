@@ -1,10 +1,8 @@
 package ecumene.exo.sim.abstractions.galaxy;
 
 import ecumene.exo.runtime.ExoRuntime;
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RPoint;
 import org.joml.Vector2f;
-
-import java.util.Random;
 
 public class ExoGOrbiter extends RPoint implements IExoGalaxyObject {
 

@@ -1,5 +1,8 @@
 package ecumene.exo.view.fbd;
 
+import ecumene.exo.sim.common.physics.FreeBodyShape;
+import ecumene.exo.sim.common.physics.dynamic.Force;
+import ecumene.exo.sim.common.physics.instant.InsFBody;
 import org.joml.Vector2f;
 
 import javax.swing.*;
@@ -8,14 +11,14 @@ import java.awt.font.TextAttribute;
 import java.text.AttributedString;
 
 public class FBDViewer extends JFrame {
-    private FreeBody body;
+    private InsFBody body;
     private int      largeVal;
     private boolean  normalized = true;
 
-    protected JPanel   viewerPane;
+    protected JPanel viewerPane;
 
     public FBDViewer(Vector2f north, int width, int height){
-        super("FBD Viewer");
+        super("Instant FBD Viewer");
         //TODO Add clear graphs button
         setSize(width, height);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -84,7 +87,7 @@ public class FBDViewer extends JFrame {
             } else ((Graphics2D) graphics).drawString(force.getName(), x, y);
         }
 
-        if(body.getForces().size() != 1) {
+        if(body.getForces().length != 1) {
             graphics.setColor(new Color(128, 128, 255));
             fnet.getForce().normalize().mul(largeVal);
             int x = (int) ((fnet.getForce().x / largeVal) * height / 3);
@@ -150,13 +153,13 @@ public class FBDViewer extends JFrame {
                 (int)((p1.y + p2.y)/2.0));
     }
 
-    public void setBody(FreeBody body){
+    public void setBody(InsFBody body){
         this.body = body;
         largeVal = (int) findScale(body);
         repaint();
     }
 
-    private static float findScale(FreeBody body){
+    private static float findScale(InsFBody body){
         float scale = 0;
         for(Force force : body.getForces()){
             if(force.getMagnitude() > body.getMass()) scale = force.getMagnitude();
@@ -165,7 +168,7 @@ public class FBDViewer extends JFrame {
         return scale;
     }
 
-    public FreeBody getBody() {
+    public InsFBody getBody() {
         return body;
     }
 }

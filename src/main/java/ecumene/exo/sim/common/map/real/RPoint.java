@@ -1,4 +1,4 @@
-package ecumene.exo.sim.map.real;
+package ecumene.exo.sim.common.map.real;
 
 import org.joml.Vector2f;
 

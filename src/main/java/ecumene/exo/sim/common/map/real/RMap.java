@@ -1,4 +1,4 @@
-package ecumene.exo.sim.map.real;
+package ecumene.exo.sim.common.map.real;
 
 /**Represents a map of objects with position being floats (real numbers)*/
 public class RMap {

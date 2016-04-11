@@ -5,8 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import ecumene.exo.sim.map.real.RMap;
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RMap;
+import ecumene.exo.sim.common.map.real.RPoint;
 
 public class ExoPlanetMap {
 

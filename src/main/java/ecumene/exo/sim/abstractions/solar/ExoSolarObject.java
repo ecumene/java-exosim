@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.joml.Vector2f;
 
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RPoint;
 
 public class ExoSolarObject extends RPoint implements IExoSolarObject {
 

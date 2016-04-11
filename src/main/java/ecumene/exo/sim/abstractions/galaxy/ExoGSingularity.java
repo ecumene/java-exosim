@@ -2,7 +2,7 @@ package ecumene.exo.sim.abstractions.galaxy;
 
 import org.joml.Vector2f;
 
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RPoint;
 
 public class ExoGSingularity extends RPoint {
 

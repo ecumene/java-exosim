@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-import ecumene.exo.sim.map.real.RMap;
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RMap;
+import ecumene.exo.sim.common.map.real.RPoint;
 
 public class JRMViewer extends JPanel {
 	

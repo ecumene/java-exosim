@@ -1,7 +1,7 @@
 package ecumene.exo.sim.abstractions.planet;
 
 import ecumene.exo.runtime.ExoRuntime;
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RPoint;
 import ecumene.exo.sim.abstractions.solar.IExoSolarObject;
 import org.joml.Vector2f;
 

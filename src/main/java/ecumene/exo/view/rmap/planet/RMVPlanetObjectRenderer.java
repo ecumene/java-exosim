@@ -1,6 +1,6 @@
 package ecumene.exo.view.rmap.planet;
 
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RPoint;
 import ecumene.exo.view.rmap.RMVPointRenderer;
 import org.joml.Vector2f;
 

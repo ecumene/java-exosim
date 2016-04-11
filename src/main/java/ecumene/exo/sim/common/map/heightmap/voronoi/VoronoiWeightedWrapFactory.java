@@ -1,11 +1,10 @@
-package ecumene.exo.sim.map.heightmap.voronoi;
+package ecumene.exo.sim.common.map.heightmap.voronoi;
 
-import ecumene.exo.sim.map.heightmap.channel.HeightChannel;
+import ecumene.exo.sim.common.map.heightmap.channel.HeightChannel;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 
-public class VoronoiEuclidWrapFactory {
-
+public class VoronoiWeightedWrapFactory {
     public static HeightChannel wrapHit(int sizex, int sizey, boolean denomalize, VoronoiPoint[] points){
         int sizeWrapX = sizex * 3;
         int sizeWrapY = sizey * 3;
@@ -27,7 +26,7 @@ public class VoronoiEuclidWrapFactory {
                 }
             }
         }
-        VoronoiEuclid voronoi = new VoronoiEuclid(new Vector2i(sizeWrapX, sizeWrapY), false, pointsWrapped);
+        VoronoiWeighted voronoi = new VoronoiWeighted(new Vector2i(sizeWrapX, sizeWrapY), false, pointsWrapped);
         return voronoi.getHit().crop(sizex, sizey, sizeWrapX - sizex, sizeWrapY - sizey);
     }
 
@@ -52,7 +51,7 @@ public class VoronoiEuclidWrapFactory {
                 }
             }
         }
-        VoronoiEuclid voronoi = new VoronoiEuclid(new Vector2i(sizeWrapX, sizeWrapY), false, pointsWrapped);
+        VoronoiWeighted voronoi = new VoronoiWeighted(new Vector2i(sizeWrapX, sizeWrapY), false, pointsWrapped);
         return voronoi.getDistance().crop(sizex, sizey, sizeWrapX - sizex, sizeWrapY - sizey);
     }
 }

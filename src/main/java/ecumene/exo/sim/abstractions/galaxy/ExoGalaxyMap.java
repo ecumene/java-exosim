@@ -1,7 +1,7 @@
 package ecumene.exo.sim.abstractions.galaxy;
 
-import ecumene.exo.sim.map.real.RMap;
-import ecumene.exo.sim.map.real.RPoint;
+import ecumene.exo.sim.common.map.real.RMap;
+import ecumene.exo.sim.common.map.real.RPoint;
 
 import java.util.ArrayList;
 import java.util.Arrays;

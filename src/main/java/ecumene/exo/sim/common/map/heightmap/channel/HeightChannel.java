@@ -1,6 +1,6 @@
-package ecumene.exo.sim.map.heightmap.channel;
+package ecumene.exo.sim.common.map.heightmap.channel;
 
-import ecumene.exo.sim.map.heightmap.HeightMapUtil;
+import ecumene.exo.sim.common.map.heightmap.HeightMapUtil;
 
 import java.util.*;
 import java.util.zip.*;
