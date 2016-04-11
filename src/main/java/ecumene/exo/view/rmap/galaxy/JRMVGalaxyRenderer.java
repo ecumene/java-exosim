@@ -2,14 +2,19 @@ package ecumene.exo.view.rmap.galaxy;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.HashMap;
+import java.util.Map;
 
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.ISimContextListener;
+import ecumene.exo.sim.abstractions.galaxy.IExoGalaxyObject;
 import ecumene.exo.sim.common.map.real.RMap;
+import ecumene.exo.sim.common.map.real.RPoint;
 import ecumene.exo.view.rmap.JRMViewer;
 import org.joml.Vector3f;
 
 public class JRMVGalaxyRenderer extends JRMViewer implements ISimContextListener {
+
 
 	public JRMVGalaxyRenderer(Vector3f navigation, final RMap pMap) {
 		super(navigation, pMap);

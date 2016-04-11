@@ -1,5 +1,6 @@
 package ecumene.exo.sim.abstractions.galaxy.gen;
 
+import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.abstractions.galaxy.ExoGOrbiter;
 import ecumene.exo.sim.abstractions.galaxy.ExoGSingularity;
 import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
@@ -25,13 +26,14 @@ public class ExoGalaxyMapGen {
 		ExoGOrbiter[] orbiters = new ExoGOrbiter[orbiterNum];
 		
 		for(int i = 0; i < orbiters.length; i++){
+			float mass = (float) (noise.eval(0, i) * maxOrbiterMass) + minOrbiterMass;
 			float angle  =  (float)noise.eval(1, (i * 2) + 0) * 360f;
 			float radius = ((float)noise.eval(1, (i * 2) + 1) * size);
 			Vector2f position = new Vector2f(radius * (float)Math.cos(angle),
 					                         radius * (float)Math.sin(angle));
-			ExoGOrbiter orbiter = new ExoGOrbiter("Solar System ", position);
-			orbiter.mass = (float) (noise.eval(0, i) * maxOrbiterMass) + minOrbiterMass; // y=mx+b ;)
-			orbiters[i] = orbiter;
+			float grav = ((6.67f * (float)Math.pow(10, -10)) * mass * singularity.getMass()) / (float) Math.pow(position.length(), 2) * 5;
+			Vector2f velocity = new Vector2f(position).perpendicular().normalize().mul(grav);
+			orbiters[i] = new ExoGOrbiter("Solar System ", mass, position, velocity);
 		}
 		
 		ExoGalaxyMap map = new ExoGalaxyMap(singularity, orbiters);
