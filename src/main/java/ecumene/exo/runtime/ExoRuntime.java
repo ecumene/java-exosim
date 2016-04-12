@@ -92,7 +92,7 @@ public class ExoRuntime implements Runnable{
 				}
 			}
 		} else if(upperLineWords[0].equals("EXIT")){
-			System.out.println("Exiting Exo Sim...");                                                                      // Exiting!
+			System.out.println("Exiting exosim...");                                                                       // Exiting!
 			scanLine = false;                                                                                              // Stop scanning!
 			System.exit(0);
 		} else if(upperLineWords[0].equals("RAN")) {
