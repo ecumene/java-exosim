@@ -50,7 +50,7 @@ public class ExoPlanetMapBuilder {
                                        Vector2f diameterRange,
                                        Vector2f angleRange,
                                        Vector2f velRange){
-        ExoPlanetMoon moon = new ExoPlanetMoon(
+        ExoPlanetMoon moon = new ExoPlanetMoon("Moon",
                 Math.abs(GenUtils.getWithin((float) getRand(0), massRange)),
                 Math.abs(GenUtils.getWithin((float) getRand(0), diameterRange)),
                 Math.abs(GenUtils.getWithin((float) getRand(0), angleRange)),
@@ -73,13 +73,15 @@ public class ExoPlanetMapBuilder {
         return this;
     }
 
-    // It's so CLEAN!
     public ExoPlanetMap build(){
-        return new ExoPlanetMap(new ExoPlanet(planet, (ExoPlanetMoon[]) moons.toArray(new ExoPlanetMoon[moons.size()])));
+        return new ExoPlanetMap(new ExoPlanet(planet, "Planet", (ExoPlanetMoon[]) moons.toArray(new ExoPlanetMoon[moons.size()])));
     }
 
-    private int randItr=-1; // I hate doing this stuff, YUCK!
-    //2D -> 1D noise, gross... I know... ;(
+    public IExoSolarObject getPlanet() {
+        return planet;
+    }
+
+    private int randItr=-1; //2D -> 1D noise, gross... I know... ;(
     public double getRand(double index){
         randItr++;
         return noise.eval(index, randItr);

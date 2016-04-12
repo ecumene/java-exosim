@@ -1,6 +1,7 @@
 package ecumene.exo;
 
 import ecumene.exo.runtime.ExoRuntime;
+import ecumene.exo.sim.abstractions.planet.ExoPlanet;
 import ecumene.exo.sim.abstractions.solar.gen.ExoSolarMapBuilder;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;

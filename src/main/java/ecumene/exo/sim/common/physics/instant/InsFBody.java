@@ -24,7 +24,7 @@ public class InsFBody implements IFBody {
         this.shape  = snapshot.shape;
 
         fnet = new Vector2f();
-        for(int x = 0; x >= snapshot.getForces().size(); x++){
+        for(int x = 0; x < snapshot.getForces().size(); x++){
             forces[x] = new Force(snapshot.getForces().get(x));
             fnet.add(snapshot.getForces().get(x).getForce());
         }

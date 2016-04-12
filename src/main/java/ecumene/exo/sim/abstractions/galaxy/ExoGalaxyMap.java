@@ -1,10 +1,12 @@
 package ecumene.exo.sim.abstractions.galaxy;
 
+import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.common.map.real.RMap;
 import ecumene.exo.sim.common.map.real.RPoint;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ExoGalaxyMap {
@@ -14,9 +16,9 @@ public class ExoGalaxyMap {
 	
 	public ExoGalaxyMap(ExoGSingularity singularity, ExoGOrbiter ... orbiters) {
 		this.singularity = singularity;
-		this.orbiters = new ArrayList<ExoGOrbiter>(Arrays.asList(orbiters));
+		this.orbiters = new LinkedList<>(Arrays.asList(orbiters));
 	}
-	
+
 	public ExoGSingularity getSingularity() {
 		return singularity;
 	}
@@ -25,10 +27,14 @@ public class ExoGalaxyMap {
 		return orbiters;
 	}
 	
-	public RMap step() {
+	public RMap step(SimContext context, int step) {
 		RPoint[] points = new RPoint[orbiters.size() + 1];
 		points[0] = singularity;
-		for(int i = 0; i < orbiters.size(); i++) points[i + 1] = orbiters.get(i).step(this);
+		for(int i = 0; i < orbiters.size(); i++){
+			assert orbiters.get(i) != null;
+			orbiters.get(i).onStep(context, step);
+			points[i + 1] = orbiters.get(i);
+		}
 		return new RMap(points);
 	}
 }

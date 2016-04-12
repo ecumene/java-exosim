@@ -3,8 +3,8 @@ package ecumene.exo.sim.common.physics.dynamic;
 import org.joml.Vector2f;
 
 public class Force {
-    private Vector2f force;
-    private String   name;
+    protected Vector2f force;
+    protected String   name;
 
     public Force(String name, Vector2f force){
         this.name  = name;

@@ -43,8 +43,6 @@ public class FreeBodyFactory {
     }
 
     public static InsFBody createBody(ExoGalaxyMap map, IExoGalaxyObject galaxyObject) {
-        Vector2f distance = new Vector2f(galaxyObject.getPosition()).negate(); // Singularity is always at (0,0) ;)
-        distance.y *= -1;
-        return new InsFBody(FreeBodyShape.BALL, galaxyObject.getMass(), new Force[]{new Force("Fg>galaxy-singularity", distance)});
+        return new InsFBody(galaxyObject.getDynamicBody());
     }
 }

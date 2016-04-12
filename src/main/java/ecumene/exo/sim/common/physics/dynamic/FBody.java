@@ -7,23 +7,28 @@ import org.joml.Vector2f;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
-public class FBody implements IFBody {
+public class FBody implements IDFBody {
     public float         mass;
     public List<Force>   forces;
     public FreeBodyShape shape;
 
-    public FBody(FreeBodyShape shape, float mass, Force ... forces){
-        this.forces = Arrays.asList(forces);
+    public FBody(FreeBodyShape shape, float mass, List<Force> forces){
+        this.forces = forces;
         this.shape  = shape;
         this.mass   = mass;
     }
 
-    public FBody(FBody body){
-        this.forces = new ArrayList<>(body.forces);
-        this.shape  = body.shape;
-        this.mass   = body.mass;
+    public FBody(FreeBodyShape shape, float mass, Force ... forces){
+        this(shape, mass, new LinkedList<Force>(Arrays.asList(forces)));
+    }
+
+    public FBody(IDFBody body){
+        this.forces = new ArrayList<>(body.getForces());
+        this.shape  = body.getShape();
+        this.mass   = body.getMass();
     }
 
     public Vector2f calcFnet(){

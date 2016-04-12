@@ -6,6 +6,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import ecumene.exo.Main;
+import ecumene.exo.runtime.ExoRuntime;
+import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.common.map.real.RMap;
 import ecumene.exo.runtime.viewer.ViewerRunnable;
 import org.joml.Vector3f;
@@ -43,7 +45,16 @@ public abstract class RMVRenderer extends ViewerRunnable {
 	public void kill(int id) {
 		frame.dispose();
 	}
-	
+
+	@Override
+	public void onStep(SimContext context, int step) {
+		if(renderer == null) try {
+			init();
+		} catch (Throwable t){
+			ExoRuntime.INSTANCE.getExceptionListener().exceptionThrown(new Exception(t));
+		}
+	}
+
 	protected JRMViewer constructRenderer(){
 		return new JRMViewer(navigation, pMap);
 	}

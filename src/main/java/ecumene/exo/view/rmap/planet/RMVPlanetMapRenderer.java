@@ -11,7 +11,7 @@ import java.beans.ExceptionListener;
 
 public class RMVPlanetMapRenderer extends RMVRenderer {
 
-    private ExoPlanetMap      planetMap;
+    private ExoPlanetMap planetMap;
 
     public RMVPlanetMapRenderer(int id, ExceptionListener exceptionListener, ExoPlanetMap planetMap, Vector3f navigation){
         super(id, exceptionListener, new RMap(), navigation);
@@ -32,7 +32,7 @@ public class RMVPlanetMapRenderer extends RMVRenderer {
 
     @Override
     public void onStep(SimContext context, int step) {
-        ((JRMVPlanetRenderer) renderer).onStep();
+        ((JRMVPlanetRenderer) renderer).onStep(context, step);
         frame.repaint();
     }
 }

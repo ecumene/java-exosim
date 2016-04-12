@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import java.util.Iterator;
 import java.util.Map;
 
+import ecumene.exo.sim.ISimStepListener;
 import ecumene.exo.sim.common.map.real.RPoint;
 import ecumene.exo.sim.abstractions.planet.ExoPlanetMap;
 import ecumene.exo.sim.abstractions.planet.TrackingParameters;
@@ -17,7 +18,7 @@ import ecumene.exo.sim.ISimContextListener;
 import ecumene.exo.view.rmap.JRMViewer;
 import org.joml.Vector3f;
 
-public class JRMVPlanetRenderer extends JRMViewer implements ISimContextListener {
+public class JRMVPlanetRenderer extends JRMViewer implements ISimStepListener, ISimContextListener {
 
     protected boolean showMaterials = false;
     protected boolean showVectors   = false;
@@ -76,8 +77,9 @@ public class JRMVPlanetRenderer extends JRMViewer implements ISimContextListener
         }
     }
 
-    public void onStep(){
-        if(map != null) pMap = map.step();
+    @Override
+    public void onStep(SimContext context, int step) {
+        if(map != null) pMap = map.step(context, step);
     }
 
     @Override

@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.common.map.real.RMap;
 import ecumene.exo.sim.common.map.real.RPoint;
 
@@ -40,15 +41,16 @@ public class ExoPlanetMap {
 		return objects;
 	}
 
-	public RMap step(){
+	public RMap step(SimContext context, int steps){
 		RPoint[] points = new RPoint[((ExoPlanet) objects.get(0)).getMoonList().size() + 1]; // For all the moons + the planet
-		points[0] = getPlanet().step();
+		points[0] = getPlanet().step(context, steps);
 
-		for(int i = 0; i < ((ExoPlanet) objects.get(0)).getMoonList().size(); i++)
-			points[i + 1] = ((ExoPlanet) objects.get(0)).getMoonList().get(i).step(); // RPoint ID = Object list ID + 1
+		for(int i = 0; i < ((ExoPlanet) objects.get(0)).getMoonList().size(); i++){
+			((ExoPlanet) objects.get(0)).getMoonList().get(i).onStep(context, steps);
+			points[i + 1] = ((ExoPlanet) objects.get(0)).getMoonList().get(i); // RPoint ID = Object list ID + 1
+		}
 
-		displayMap = new RMap(points);
-		return displayMap;
+		return new RMap(points);
 	}
 
 	public void clearTrackedPositions(){
