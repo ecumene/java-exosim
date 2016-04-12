@@ -32,3 +32,5 @@ gradle build distZip && unzip ./build/distributions/exosim.zip
 After it's run you can use whatdo (sort of a glorified help) to find out what it can do.
 
 If you run into any problems email me at mitchell.hynes@ecumene.xyz or ecumene@outlook.com (forwards to the other, I check both)
+
+All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. 
