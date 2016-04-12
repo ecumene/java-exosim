@@ -20,6 +20,7 @@ import ecumene.exo.utils.OpenSimplexNoise;
 import org.joml.Vector2f;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,8 @@ public class Main {
         // enter in a few values.
         // I was planning to make different files showing stuff from movies like interstellar and the martian
         // ~~ IT'S GONNA BE LIT ~~
+
+        SplashScreen splash = SplashScreen.getSplashScreen();
 
         // I'll make a builder for this... eventually.
         ExoGalaxyMap galaxy = new ExoGalaxyMapGen(System.currentTimeMillis()).genGalaxy(1, 2, 1, 100, 400).getSource();
@@ -79,6 +82,8 @@ public class Main {
         featureLayers.add(new ExoSHeightLayer(heightMap, 20));
 
         ExoSurfaceMap surface = new ExoSurfaceMap(featureLayers, featureFilters);
+
+        if(splash != null) splash.close();
 
         // Finish generating, save to context for simulation
         SimContext context = new SimContext(galaxy, solar, planet, surface);

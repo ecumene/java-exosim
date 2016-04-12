@@ -59,7 +59,6 @@ public class ExoArgParse {
 			}
 		}
 		if(cmd.hasOption('r')){
-			System.out.println(cmd.getOptionValue("r"));
 			runtimeCommands = cmd.getOptionValue("r").split(";\\s+");
 		}
 	}
