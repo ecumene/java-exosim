@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoggedFBDViewer extends FBDViewer {
-    private List<InsFBody> frames;
     private JPanel fbdViewer;
     // Pair of the dataset and the chart's panel (data-component+jcomponent)
     private Pair<DefaultCategoryDataset, ChartPanel> avtGraph;
@@ -26,7 +25,6 @@ public class LoggedFBDViewer extends FBDViewer {
 
     public LoggedFBDViewer(Vector2f north, int width, int height, int discardItr){
         super(north, width, height);
-        frames = new ArrayList<>();
         this.discardItr = discardItr;
 
         DefaultCategoryDataset categoryDatasetAVT = new DefaultCategoryDataset();
@@ -38,15 +36,11 @@ public class LoggedFBDViewer extends FBDViewer {
         avtGraph = new Pair(categoryDatasetAVT, new ChartPanel(avtChart));
         vvtGraph = new Pair(categoryDatasetVVT, new ChartPanel(vvtChart));
         dvtGraph = new Pair(categoryDatasetDVT, new ChartPanel(dvtChart));
-        setContentPane(new JPanel(new GridLayout(2, 2)));
+        viewerPane = new JPanel(new GridLayout(2, 2));
         getContentPane().add(this.viewerPane);
         getContentPane().add(avtGraph.getSecond());
         getContentPane().add(vvtGraph.getSecond());
         getContentPane().add(dvtGraph.getSecond());
-    }
-
-    public List<InsFBody> getHistory(){
-        return frames;
     }
 
     Vector2f lastVelocity = new Vector2f();
@@ -67,7 +61,6 @@ public class LoggedFBDViewer extends FBDViewer {
     public void setBody(InsFBody body) {
         super.setBody(body);
         if(framesNum % discardItr == 0) {
-            frames.add(body);
             onFrame(body);
             repaint();
         }

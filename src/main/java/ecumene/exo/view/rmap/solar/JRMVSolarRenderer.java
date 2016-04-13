@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import ecumene.exo.sim.ISimStepListener;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
@@ -15,7 +16,7 @@ import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
 import ecumene.exo.sim.abstractions.solar.IExoSolarObject;
 import ecumene.exo.view.rmap.JRMViewer;
 
-public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener {
+public class JRMVSolarRenderer extends JRMViewer implements ISimStepListener, ISimContextListener {
 
 	protected boolean     showMaterials = false;
 	protected boolean     showVectors   = false;
@@ -74,9 +75,10 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimContextListener 
 			lastFollow = follow; // Update last frame follow index
 		}
 	}
-	
-	public void onStep(){
-		if(map != null) pMap = map.step();
+
+	@Override
+	public void onStep(SimContext context, int steps){
+		if(map != null) pMap = map.step(context, steps);
 	}
 	
 	@Override

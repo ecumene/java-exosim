@@ -20,6 +20,8 @@ public class ExoPlanet extends DynamicRPoint implements IExoPlanetObject {
     private List<ExoPlanetMoon>                    moonList;
     private Map<ExoPlanetMoon, TrackingParameters> trackedMoons;
 
+    private static final float gravityInfluence = 0.00000667F;
+
     public ExoPlanet(IExoSolarObject solarComponent, String name, ExoPlanetMoon ... moons){ // Collections are so pretty!!!
         super(name, solarComponent.getPosition(), new FBody(FreeBodyShape.BALL, solarComponent.getMass()));
         this.moonList = new LinkedList<>();
@@ -80,5 +82,9 @@ public class ExoPlanet extends DynamicRPoint implements IExoPlanetObject {
 
     public List<ExoPlanetMoon> getMoonList() {
         return moonList;
+    }
+
+    public static float getGravityInfluence() {
+        return gravityInfluence;
     }
 }

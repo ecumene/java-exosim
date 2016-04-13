@@ -53,13 +53,13 @@ public class Main {
 
         //                                                          Set seed to current time
         ExoPlanetMapBuilder planetBuilder = new ExoPlanetMapBuilder(System.currentTimeMillis());
-        planetBuilder.genPlanet(new Vector2f(2, 3)); // Generate planet within mass range of X and Y
-        planetBuilder.genMoons(4,                    // Generate # of moons
-                new Vector2f(0.5f, 1),               // Generate moon mass
-                new Vector2f(100,800),               // Generate moon diameter from planet
-                new Vector2f(0, 360),                // Generate moon angle
-                new Vector2f(-0.2f, 0.2f));          // Generate moon beginning velocity
-        ExoPlanetMap planet = planetBuilder.build(); // Finish generating and save to exoplanet
+        planetBuilder.genPlanet(new Vector2f(50, 100)); // Generate planet within mass range of X and Y
+        planetBuilder.genMoons(4,                       // Generate # of moons
+                new Vector2f(10f, 20f),                 // Generate moon mass
+                new Vector2f(500,2000),                 // Generate moon diameter from planet
+                new Vector2f(0, 360),                   // Generate moon angle
+                new Vector2f(-0.01f, 0.01f));           // Generate moon beginning velocity
+        ExoPlanetMap planet = planetBuilder.build();    // Finish generating and save to exoplanet
         //planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, true));// tracking data for moons
 
         // This should be in a builder!! GIMMIE A MINUTE!

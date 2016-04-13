@@ -13,33 +13,11 @@ import org.joml.Vector2f;
 
 public class FreeBodyFactory {
     public static InsFBody createBody(ExoPlanetMap map, IExoPlanetObject planetObject){
-        Force[] forceArr = new Force[map.getObjects().size()-1];
-        int itr = 0;
-        for(IExoPlanetObject object : map.getObjects()){
-            if(object != planetObject){
-                Vector2f distance = new Vector2f(object.getPosition().sub(planetObject.getPosition()));
-                Vector2f force = distance.normalize().mul((map.G * planetObject.getMass() * object.getMass()) / (distance.length()*distance.length()));
-                force.y *= -1;
-                forceArr[itr] = (new Force("Fg>" + (itr + 1), force));
-                itr++;
-            }
-        }
-        return new InsFBody(FreeBodyShape.BALL, planetObject.getMass(), forceArr);
+        return new InsFBody(planetObject.getDynamicBody());
     }
 
     public static InsFBody createBody(ExoSolarMap map, IExoSolarObject solarObject){
-        Force[] forceArr = new Force[map.getObjects().size()-1];
-        int itr = 0;
-        for(IExoSolarObject object : map.getObjects()){
-            if(object != solarObject){
-                Vector2f distance = new Vector2f(object.getPosition()).sub(new Vector2f(solarObject.getPosition()));
-                Vector2f force = distance.normalize().mul((map.G * solarObject.getMass() * object.getMass()) / (distance.length()*distance.length()));
-                force.y *= -1;
-                forceArr[itr] = (new Force("Fg>" + (itr + 1), force));
-                itr++;
-            }
-        }
-        return new InsFBody(FreeBodyShape.BALL, solarObject.getMass(), forceArr);
+        return new InsFBody(solarObject.getDynamicBody());
     }
 
     public static InsFBody createBody(ExoGalaxyMap map, IExoGalaxyObject galaxyObject) {

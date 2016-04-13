@@ -2,6 +2,7 @@ package ecumene.exo.view.rmap.solar;
 
 import java.beans.ExceptionListener;
 
+import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.common.map.real.RMap;
 import ecumene.exo.sim.abstractions.solar.ExoSolarMap;
@@ -32,7 +33,14 @@ public class RMVSolarMapRenderer extends RMVRenderer {
 
 	@Override
 	public void onStep(SimContext context, int step) {
-		((JRMVSolarRenderer) renderer).onStep();
+		if(renderer == null){
+			try{
+				init();
+			} catch (Throwable e){
+				ExoRuntime.INSTANCE.getExceptionListener().exceptionThrown(new Exception(e));
+			}
+		}
+		((JRMVSolarRenderer) renderer).onStep(context, step);
 		frame.repaint();
 	}
 }

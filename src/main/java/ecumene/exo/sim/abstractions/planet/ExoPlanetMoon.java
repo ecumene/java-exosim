@@ -34,11 +34,11 @@ public class ExoPlanetMoon extends DynamicRPoint implements IExoPlanetObject {
     }
 
     public ExoPlanetMoon setParent(ExoPlanet planet){
-        this.dynamics.forces.add(new Gravity(this, planet));
-        //this.getForces().clear();
-        //this.planet = planet;
-        //for(ExoPlanetMoon otherMoon : planet.getMoonList())
-        //    if(otherMoon != this) this.dynamics.forces.add(new Gravity(this, otherMoon));
+        this.getForces().clear();
+        this.dynamics.forces.add(new Gravity(this, planet, planet.getGravityInfluence()));
+        this.planet = planet;
+        for(ExoPlanetMoon otherMoon : planet.getMoonList())
+            if(otherMoon != this) this.dynamics.forces.add(new Gravity(this, otherMoon, planet.getGravityInfluence()));
         return this;
     }
 

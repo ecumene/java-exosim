@@ -45,7 +45,7 @@ public class ExoSolarMapBuilder {
                                                    diameter * (float)Math.sin(Math.toRadians(angle)));// Object's position in rectangle relative to map
             objectPosition.add(orbiting);
             Vector2f objectVelocity = new Vector2f(orbiting).sub(objectPosition).perpendicular().normalize().mul(velocity); // Velocity
-            addObject(new ExoSolarObject("Planet", objectPosition, objectVelocity, GenUtils.getWithin((float) getRand(0), massRange)));
+            addObject(new ExoSolarObject("Planet", GenUtils.getWithin((float) getRand(0), massRange), objectPosition, objectVelocity));
         }
 
         return this;
@@ -54,12 +54,11 @@ public class ExoSolarMapBuilder {
     public ExoSolarMapBuilder genObject(Vector2f massRange,
                           Vector2f positionRange,
                           Vector2f velocityRange){
-        objects.add(new ExoSolarObject("Object",
+        objects.add(new ExoSolarObject("Object", GenUtils.getWithin((float) getRand(4), massRange),
                                        new Vector2f(GenUtils.getWithin((float) getRand(0), positionRange),
                                                     GenUtils.getWithin((float) getRand(1), positionRange)),
                                        new Vector2f(GenUtils.getWithin((float) getRand(2), velocityRange),
-                                                    GenUtils.getWithin((float) getRand(3), velocityRange)),
-                                                    GenUtils.getWithin((float) getRand(4), massRange)));
+                                                    GenUtils.getWithin((float) getRand(3), velocityRange))));
         return this;
     }
 

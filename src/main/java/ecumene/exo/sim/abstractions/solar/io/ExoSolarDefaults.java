@@ -25,7 +25,7 @@ public class ExoSolarDefaults implements IExoSolarDefaults {
             case ORBIT: velocity = new Vector2f(partialObject.parentPosition).sub(new Vector2f(position)).perpendicular().normalize().mul(partialObject.velocity.length()); break;
             case SELF:  velocity = partialObject.velocity;
         }
-        return new ExoSolarObject("Test", partialObject.position, velocity, partialObject.mass);
+        return new ExoSolarObject("Test", partialObject.mass, partialObject.position, velocity);
     }
 
     public float getMass() {

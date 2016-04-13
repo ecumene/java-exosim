@@ -42,7 +42,7 @@ public class ExoPlanetMapBuilder {
 
     // Generates and sets planet
     public ExoPlanetMapBuilder genPlanet(Vector2f massRange){
-        planet = new ExoSolarObject(GenUtils.getWithin((float) getRand(0), massRange));
+        planet = new ExoSolarObject("Object", GenUtils.getWithin((float) getRand(0), massRange), new Vector2f(), new Vector2f());
         return this;
     }
 
@@ -56,9 +56,7 @@ public class ExoPlanetMapBuilder {
                 Math.abs(GenUtils.getWithin((float) getRand(0), angleRange)),
                 new Vector2f(0, 0));
         Vector2f velocity = new Vector2f(0,0).sub(moon.getPosition()).perpendicular().normalize();
-        velocity.mul(GenUtils.getWithin((float) getRand(0), velRange));
-        velocity.mul(0);
-        moon.getVelocity().set(velocity);
+        moon.getVelocity().set(velocity.mul(GenUtils.getWithin((float) getRand(0), velRange)));
         moons.add(moon);
         return this;
     }
