@@ -1,0 +1,69 @@
+h1 {
+
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 9em;
+    
+}
+
+h3 {
+    
+    font-family: 'Lato';
+    font-weight: 100;
+    font-size: 5em;
+}
+
+p {
+    font-family: 'Lato';
+    font-weight: 400;
+}
+
+.button {
+    border: 2px solid #a1a1a1;
+    padding: 10px 40px;
+    background: #dddddd;
+    width: 300px;
+    height: 5%;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.container {
+    padding: 40px;
+
+}
+
+@media (max-width: 320px) {
+    h1 {
+	font-size: 3em;
+    }
+}
+
+@media (max-width: 414px) {
+    h1 {
+	font-size: 4em;
+    }
+}
+
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
