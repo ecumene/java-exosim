@@ -1,0 +1,9 @@
+<!-- The root node -->
+<solar-system>
+    <node name="Gliese 581" mass="76590e-5" position="0,0" v0="0,0">
+        <component name="Gliese 581"></component>
+        <node name="Gilese 581 g" mass="2.2e-5" v0="0,0">
+            <component name="Gilese 581 g" v0="orbit-mag:0.13" position="3.4408e+2,30*"></component>
+        </node>
+    </node>
+</solar-system>

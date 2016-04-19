@@ -1,0 +1,7 @@
+<!-- The root node -->
+<planet name="Gliese 581g" mass="10">
+    <node name="Moons" mass="1" position="0,0" v0="0,0">
+        <component name="moon 1" v0="orbit-grav,10E8" position="1000,30*"></component>
+        <component name="moon 2" v0="orbit-grav,10E7" position="200,210*"></component>
+    </node>
+</planet>
