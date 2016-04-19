@@ -1,0 +1,45 @@
+h1 {
+  font-family: 'Lato';
+  font-weight: 100;
+  font-size: 6em; }
+
+h3 {
+  font-family: 'Lato';
+  font-weight: 100;
+  font-size: 5em; }
+
+p {
+  font-family: 'Lato';
+  font-weight: 400; }
+
+nav {
+  background-color: blue;
+  padding: 0;
+  margin: 0; }
+
+.button {
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px;
+  background: #dddddd;
+  width: 300px;
+  height: 5%;
+  text-align: center;
+  border-radius: 25px; }
+
+.container {
+  padding: 40px; }
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 3em; } }
+
+@media (max-width: 414px) {
+  h1 {
+    font-size: 4em; } }
+
+#triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-bottom: 400px solid #C9CFD1; }
