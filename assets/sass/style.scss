@@ -15,7 +15,7 @@ h3 {
     font-weight: 100;
     font-size: 5em;
 }
-
+ 
 p {
     font-family: 'Lato';
     font-weight: 400;
@@ -55,13 +55,117 @@ nav {
 }
 
 
-#triangle-up {
+#space, .stars {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: zoom 5s infinite;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+  animation-delay: 0s;
+}
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+  animation-delay: 1s;
+}
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+  animation-delay: 2s;
+}
+.stars:nth-child(4) {
+  background-position: 40% -80%;
+  animation-delay: 3s;
+}
+.stars:nth-child(5) {
+  background-position: -20% 30%;
+  animation-delay: 4s;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
+  } 
+  85% {
+    opacity: 1;
+    transform: scale(2.8);
+    animation-timing-function: linear;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}
+
+
+
+
+
+
+
+
+$mountain-light: #C1B8B8;
+$mountain-shadow: #DDDDDD;
+$bgMountainHeight: 150px;
+
+
+#bg-mountain-left {
     width: 0;
     height: 0;
-    border-left: 200px solid transparent;
-    border-right: 200px solid transparent;
-    border-bottom: 400px solid #C9CFD1;
+    position: absolute; left: 100px;
+
+    border-left: 500px solid transparent;
+    border-bottom: $bgMountainHeight solid $mountain-light;
+    z-index: -1;
+    
 }
+
+#bg-mountain-left-shadow {
+    width: 0;
+    height: 0;
+    position: absolute; left: 577px;
+    border-right: 250px solid transparent;
+    border-bottom: $bgMountainHeight solid #dddddd;
+    transform:skew(-10deg);
+    z-index: -1;
+}
+
+#fg-mountain-left {
+
+    width: 0;
+    height: 0;
+    position: relative; left: -400px;
+    
+    border-left: 300px solid transparent;
+    border-right: 540px solid transparent;
+    border-bottom: 300px solid #dddddd;
+    z-index: 1;
+}
+
+
+
+
+
+
 
 #mountain-cap {
     width: 0;
