@@ -1,7 +1,15 @@
 package ecumene.exo.sim.common.xml;
 
-/**
- * Created by mh on 4/16/16.
- */
-public class Parser {
+import org.jdom2.Element;
+
+public abstract class Parser {
+    protected Element rootElement;
+
+    public Parser(Element element){
+        this.rootElement = element;
+    }
+
+    public Element getRootElement() {
+        return rootElement;
+    }
 }

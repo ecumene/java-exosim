@@ -13,9 +13,9 @@ public class SMVSurfaceRendererConfig {
     private List<IFeatureFilterRenderer> filterRenderers;  // Callbacks for rendering filters
 
     public SMVSurfaceRendererConfig(){
-        featureRenderers = new ArrayList<IFeatureRenderer>();
-        layerRenderers   = new ArrayList<IFeatureLayerRenderer>();
-        filterRenderers  = new ArrayList<IFeatureFilterRenderer>();
+        featureRenderers = new ArrayList<>();
+        layerRenderers   = new ArrayList<>();
+        filterRenderers  = new ArrayList<>();
     }
 
     public List<IFeatureRenderer> getFeatureRenderers() {

@@ -19,7 +19,6 @@ import ecumene.exo.view.rmap.JRMViewer;
 public class JRMVSolarRenderer extends JRMViewer implements ISimStepListener, ISimContextListener {
 
 	protected boolean     showMaterials = false;
-	protected boolean     showVectors   = false;
 	private   int         follow;
 	private   ExoSolarMap map;
 
@@ -35,7 +34,6 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimStepListener, IS
 			@Override public void keyTyped(KeyEvent e)    {}
 			@Override public void keyReleased(KeyEvent e) {}
 			@Override public void keyPressed(KeyEvent e)  {
-				if(e.getKeyCode() == KeyEvent.VK_V) showVectors = !showVectors;
 				if(e.getKeyCode() == KeyEvent.VK_M) showMaterials = !showMaterials;
 			}
 		});
@@ -99,8 +97,4 @@ public class JRMVSolarRenderer extends JRMViewer implements ISimStepListener, IS
 		return showMaterials;
 	}
 
-	public boolean getShowVectors(){
-		return showVectors;
-	}
-	
 }

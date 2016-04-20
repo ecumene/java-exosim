@@ -1,8 +1,12 @@
 package ecumene.exo.view.rmap.galaxy;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
+import ecumene.exo.sim.abstractions.galaxy.ExoGCluster;
+import ecumene.exo.sim.abstractions.galaxy.ExoGOrbiter;
 import org.joml.Vector2f;
 
 import ecumene.exo.sim.abstractions.galaxy.ExoGSingularity;
@@ -24,9 +28,9 @@ public class RMVGalaxySingularityRenderer extends RMVPointRenderer {
 		if(point instanceof ExoGSingularity){
 			Color oldColor = graphics.getColor(); { // push color
 				graphics.setColor(parent.getSecondaryColor());
-				graphics.drawLine((int) screenPos.x - 3, (int) screenPos.y,     (int) screenPos.x + 3, (int) screenPos.y);
-				graphics.drawLine((int) screenPos.x,     (int) screenPos.y - 3, (int) screenPos.x,     (int) screenPos.y + 3);
-				graphics.drawString(point.getName(id), screenPos.x + 10, screenPos.y  + 3);
+				graphics.drawLine((int) screenPos.x - 3, (int) screenPos.y, (int) screenPos.x + 3, (int) screenPos.y);
+				graphics.drawLine((int) screenPos.x, (int) screenPos.y - 3, (int) screenPos.x, (int) screenPos.y + 3);
+				graphics.drawString(point.getName(id), screenPos.x + 10, screenPos.y + 3);
 			} graphics.setColor(oldColor); // pop color
 		}
 	}

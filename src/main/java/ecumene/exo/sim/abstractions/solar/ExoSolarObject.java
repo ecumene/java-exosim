@@ -23,16 +23,18 @@ public class ExoSolarObject extends DynamicRPoint implements IExoSolarObject {
 		materials = new HashMap();
 	}
 
+	public ExoSolarObject(String name, float mass){
+		this(name, mass, new Vector2f(), new Vector2f());
+	}
+
 	@Override
 	public RPoint step(SimContext context, int steps, List<IExoSolarObject> objects) {
 		for(int i = 0; i < objects.size(); i++) {
 			if (!objects.get(i).equals(this) && ((ExoSolarObject) objects.get(i)).collides(this))
 				if (!(objects.get(i).getMass() > getMass())) {
 					dynamics.mass += objects.get(i).getMass();
-					float currentMag = getVelocity().length();
-					this.velocity.normalize();
-					this.velocity.mul(currentMag - objects.get(i).getVelocity().length() * (objects.get(i).getMass() / getMass()));
-					objects.remove(i);
+                    velocity.add(objects.get(i).getVelocity());
+                    objects.remove(i);
 				}
 		}
 		onStep(context, steps);
@@ -58,7 +60,16 @@ public class ExoSolarObject extends DynamicRPoint implements IExoSolarObject {
 		
 	@Override
 	public String getName(int id) {
-		return "Body #" + id;
+		return name == null ? "Body #" + id : name;
 	}
 
+	@Override
+	public String toString() {
+		return "ExoSolarObject{" +
+				" name=" + getName(-1) +
+				" mass=" + getMass() +
+				" position=" + position.toString() +
+				" velocity=" + velocity.toString() +
+				'}';
+	}
 }

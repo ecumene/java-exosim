@@ -1,0 +1,5 @@
+<simulation>
+    <galaxy context="common/galaxy.xml"></galaxy>
+    <solar  context="gliese581g/solar.xml"></solar>
+    <planet context="gliese581g/planet.xml"></planet>
+</simulation>

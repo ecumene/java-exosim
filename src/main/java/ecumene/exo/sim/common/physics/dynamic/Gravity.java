@@ -18,10 +18,10 @@ public class Gravity extends Force {
         G = gInfluence;
     }
 
-        @Override
+    @Override
     public Vector2f getForce() {
         Vector2f.sub(obj2.getPosition(), obj1.getPosition(), force);
-        return force.mul(getFGrav(obj1.getMass(), obj2.getMass(), force.length()));
+        return force.normalize().mul(getFGrav(obj1.getMass(), obj2.getMass(), force.length()));
     }
 
     public float getFGrav(float mass1, float mass2, float distance) {

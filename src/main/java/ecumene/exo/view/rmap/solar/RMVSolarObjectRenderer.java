@@ -30,18 +30,7 @@ public class RMVSolarObjectRenderer extends RMVPointRenderer {
 				                  (int) (massDiam),                     (int) (massDiam));
 				graphics.setColor(parent.getPrimaryColor());
 				graphics.drawString(point.getName(id), (int)screenPos.x + massDiam + 4, (int)screenPos.y + 4);
-				
-				if(parent.getShowVectors()){
-					Vector2f finalVelocity = new Vector2f(((IExoSolarObject) object).getVelocity());
-					Color oldOldColor = graphics.getColor(); { // push color
-						finalVelocity.x *= parent.navigation.z;
-						finalVelocity.y *= -parent.navigation.z;
-						finalVelocity = finalVelocity.add(screenPos);
-						graphics.setColor(parent.getSecondaryColor());
-						graphics.drawLine((int) (screenPos.x),     (int) (screenPos.y),
-								          (int) (finalVelocity.x), (int) (finalVelocity.y));
-					} graphics.setColor(oldOldColor); // pop color
-				}
+
 				if(parent.getShowMaterials()){
 					Vector2f finalVelocity = new Vector2f(((IExoSolarObject) object).getVelocity());
 					Color oldOldColor = graphics.getColor(); { // push color

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoggedFBDViewer extends FBDViewer {
-    private JPanel fbdViewer;
+
     // Pair of the dataset and the chart's panel (data-component+jcomponent)
     private Pair<DefaultCategoryDataset, ChartPanel> avtGraph;
     private Pair<DefaultCategoryDataset, ChartPanel> vvtGraph;
@@ -36,11 +36,27 @@ public class LoggedFBDViewer extends FBDViewer {
         avtGraph = new Pair(categoryDatasetAVT, new ChartPanel(avtChart));
         vvtGraph = new Pair(categoryDatasetVVT, new ChartPanel(vvtChart));
         dvtGraph = new Pair(categoryDatasetDVT, new ChartPanel(dvtChart));
-        viewerPane = new JPanel(new GridLayout(2, 2));
-        getContentPane().add(this.viewerPane);
-        getContentPane().add(avtGraph.getSecond());
-        getContentPane().add(vvtGraph.getSecond());
-        getContentPane().add(dvtGraph.getSecond());
+        getContentPane().remove(viewerPane);
+        JPanel graphs = new JPanel(new GridLayout(2, 2));
+        graphs.add(this.viewerPane);
+        graphs.add(avtGraph.getSecond());
+        graphs.add(vvtGraph.getSecond());
+        graphs.add(dvtGraph.getSecond());
+        getContentPane().add(graphs);
+        JButton clearGraphs = new JButton("Clear Graphs");
+        clearGraphs.addActionListener(actionEvent -> {
+            avtGraph.getFirst().clear();
+            vvtGraph.getFirst().clear();
+            dvtGraph.getFirst().clear();
+        });
+        topPanel.add(clearGraphs);
+        JSpinner discardItrSpinner = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
+        discardItrSpinner.addChangeListener(changeEvent -> {
+            JSpinner spinner = (JSpinner) changeEvent.getSource();
+            SpinnerModel spinnerModel = spinner.getModel();
+            this.discardItr = (Integer) spinnerModel.getValue();
+        });
+        topPanel.add(discardItrSpinner);
     }
 
     Vector2f lastVelocity = new Vector2f();

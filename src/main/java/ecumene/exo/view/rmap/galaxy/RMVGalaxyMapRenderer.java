@@ -2,6 +2,7 @@ package ecumene.exo.view.rmap.galaxy;
 
 import java.beans.ExceptionListener;
 
+import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.common.map.real.RMap;
 import ecumene.exo.view.rmap.JRMViewer;
@@ -29,6 +30,13 @@ public class RMVGalaxyMapRenderer extends RMVRenderer {
 
 	@Override
 	public void onStep(SimContext context, int step) {
+		if(renderer == null) {
+			try{
+				init();
+			} catch (Throwable e){
+				ExoRuntime.INSTANCE.getExceptionListener().exceptionThrown(new Exception(e));
+			}
+		}
 		this.pMap = context.getGalaxy().getMap().step(context, step);
 		((JRMVGalaxyRenderer) renderer).setRMap(pMap);
 		this.renderer.repaint();

@@ -40,6 +40,7 @@ public class ExoSolarMap {
 			((ExoSolarObject) objects.get(i)).setMap(this);
 			points[i] = objects.get(i).step(context, steps, objects);
 		}
+
 		solarSystem = new RMap(points);
 		return solarSystem;
 	}

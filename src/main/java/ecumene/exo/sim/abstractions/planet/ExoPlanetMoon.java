@@ -11,12 +11,18 @@ import org.joml.Vector2f;
 public class ExoPlanetMoon extends DynamicRPoint implements IExoPlanetObject {
     private ExoPlanet planet;    // Planet
 
-    public ExoPlanetMoon(String name, float mass, float r, float angle, Vector2f v1){
+    public ExoPlanetMoon(String name, float mass, float r, float angle, Vector2f v0){
         super(name, new Vector2f((float) (r * Math.cos(Math.toRadians(angle))),
-                                 (float) (r * Math.sin(Math.toRadians(angle)))),
+                        (float) (r * Math.sin(Math.toRadians(angle)))),
                 new FBody(FreeBodyShape.BALL, mass));
         nonStationary = true;
-        velocity = v1;
+        velocity = v0;
+    }
+
+    public ExoPlanetMoon(String name, float mass, Vector2f position, Vector2f v0){
+        super(name, position, new FBody(FreeBodyShape.BALL, mass));
+        nonStationary = true;
+        velocity = v0;
     }
 
     @Override

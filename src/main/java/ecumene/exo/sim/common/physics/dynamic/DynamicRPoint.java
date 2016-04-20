@@ -43,8 +43,11 @@ public class DynamicRPoint extends RPoint implements IDFBody, IDynamicComponent,
 
     @Override
     public void onStep(SimContext context, int step) {
-        velocity.add(new Vector2f(dynamics.calcFnet()).mul(1/getMass()));
-        if(nonStationary) position.add(velocity);
+        Vector2f fnet = dynamics.calcFnet();
+        if(fnet.length() != 0) {
+            velocity.add(new Vector2f(fnet).mul(1 / getMass()));
+            if (nonStationary) position.add(velocity);
+        }
     }
 
     @Override

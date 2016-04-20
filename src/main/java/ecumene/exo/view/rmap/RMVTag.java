@@ -21,7 +21,7 @@ public abstract class RMVTag implements IViewerTag {
                 navigation.x = Float.parseFloat(args[i + 1]);
                 navigation.y = Float.parseFloat(args[i + 2]);
                 navigation.z = Float.parseFloat(args[i + 3]);
-                System.out.println("Running galaxy with : " + navigation + " navigation");
+                System.out.println("Running gen with : " + navigation + " navigation");
             }
         }
         return constructRMV(id, listener, args, navigation);

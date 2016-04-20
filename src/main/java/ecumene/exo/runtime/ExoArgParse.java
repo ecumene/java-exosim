@@ -9,11 +9,12 @@ import ecumene.exo.utils.UnClosableDecorator;
 import org.apache.commons.cli.*;
 
 public class ExoArgParse {
-	private CommandLine cmd;          // Command line parser
-	private Options options;          // Program arguments
-	private final String[] arguments; // Runtime arguments
-	private File pwd = new File("sim");// Primary Working Directory (default "./")
-	private String[] runtimeCommands; // Commands to be run, set by the runtime arg parser
+	private CommandLine cmd;            // Command line parser
+	private Options options;            // Program arguments
+	private final String[] arguments;   // Runtime arguments
+	private File pwd = new File("sim");          // Primary Working Directory (default "sim")
+	private File wrk = null;// Primary Workspace (default to null)
+	private String[] runtimeCommands;   // Commands to be run, set by the runtime arg parser
 	
 	public ExoArgParse(String[] arguments) throws org.apache.commons.cli.ParseException, IOException {
 		this.arguments = arguments;
@@ -26,7 +27,7 @@ public class ExoArgParse {
 		try{
 			cmd = parser.parse(options = constructOptions(), arguments);
 		} catch (ParseException exception){
-			System.out.println("Exception in command line parse " + exception.getMessage());
+			exception.printStackTrace();
 		}
 		
 		if(cmd.hasOption('h')){
@@ -58,8 +59,11 @@ public class ExoArgParse {
 				pwd.mkdirs();
 			}
 		}
-		if(cmd.hasOption('r')){
-			runtimeCommands = cmd.getOptionValue("r").split(";\\s+");
+		if(cmd.hasOption('r')) runtimeCommands = cmd.getOptionValue("r").split(";\\s+");
+		if(cmd.hasOption('w')){
+			File workDir = new File(pwd.getPath() + "/" + cmd.getOptionValue("w"));
+			if(workDir.exists()) wrk = workDir;
+			else                 throw new IllegalArgumentException("Failed to load workspace " + workDir.getPath());
 		}
 	}
 	
@@ -68,14 +72,16 @@ public class ExoArgParse {
 	public String[] getArguments(){ return arguments; }
 	public String[] getRTCommands(){ return runtimeCommands; }
 	public File getPWD(){ return pwd; }
+	public File getWorkspace(){ return wrk;}
 	public boolean getIgnoreOverride(){ return cmd.hasOption("ignore_override"); }
-	
+
 	public static Options constructOptions(){
 	    final Options opt = new Options();  
 		opt.addOption("h", "help", false, "Print help for this application");
-		opt.addOption("d", "dir", true, "The initial directory to use / store data in");
-		opt.addOption("r", "run", true, "Run commands in quotes");
-		opt.addOption("", "ignore_override", false, "Should the directories be overriden when duped");
+		opt.addOption("d", "dir",  true,  "The initial directory to use / store data in");
+		opt.addOption("r", "run",  true,  "Run commands in quotes");
+		opt.addOption("w", "work", true,  "Opens the workspace xml file given"); // it just werks
+		opt.addOption("f", "ignore_override", false, "Should the directories be overriden when duped");
 		return opt;  
 	}
 	

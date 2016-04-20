@@ -18,7 +18,7 @@ public class ExoSolarMapBuilder {
 
     public ExoSolarMapBuilder(long seed){
         noise = new OpenSimplexNoise(seed);
-        objects = new ArrayList<IExoSolarObject>();
+        objects = new ArrayList<>();
     }
 
     public ExoSolarMapBuilder addObject(IExoSolarObject ... object){
@@ -41,8 +41,8 @@ public class ExoSolarMapBuilder {
             float diameter = GenUtils.getWithin((float) getRand(0), diameterRange);
             float angle = GenUtils.getWithin((float) getRand(0), angleRange);
             float velocity = GenUtils.getWithin((float) getRand(0), velocityRange);
-            Vector2f objectPosition = new Vector2f(diameter * (float)Math.cos(Math.toRadians(angle)), // Object's position in rectangle relative to orbiter
-                                                   diameter * (float)Math.sin(Math.toRadians(angle)));// Object's position in rectangle relative to map
+            Vector2f objectPosition = new Vector2f(diameter * (float)Math.cos(Math.toRadians(angle)), // XMLObject's position in rectangle relative to orbiter
+                                                   diameter * (float)Math.sin(Math.toRadians(angle)));// XMLObject's position in rectangle relative to map
             objectPosition.add(orbiting);
             Vector2f objectVelocity = new Vector2f(orbiting).sub(objectPosition).perpendicular().normalize().mul(velocity); // Velocity
             addObject(new ExoSolarObject("Planet", GenUtils.getWithin((float) getRand(0), massRange), objectPosition, objectVelocity));
@@ -54,7 +54,7 @@ public class ExoSolarMapBuilder {
     public ExoSolarMapBuilder genObject(Vector2f massRange,
                           Vector2f positionRange,
                           Vector2f velocityRange){
-        objects.add(new ExoSolarObject("Object", GenUtils.getWithin((float) getRand(4), massRange),
+        objects.add(new ExoSolarObject("XMLObject", GenUtils.getWithin((float) getRand(4), massRange),
                                        new Vector2f(GenUtils.getWithin((float) getRand(0), positionRange),
                                                     GenUtils.getWithin((float) getRand(1), positionRange)),
                                        new Vector2f(GenUtils.getWithin((float) getRand(2), velocityRange),
@@ -79,8 +79,7 @@ public class ExoSolarMapBuilder {
         this.noise = new OpenSimplexNoise(seed);
     }
 
-    private int randItr=-1; // I hate doing this stuff, YUCK!
-    //2D -> 1D noise, gross... I know... ;(
+    private int randItr=-1;
     public double getRand(double index){
         randItr++;
         return noise.eval(index, randItr);

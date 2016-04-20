@@ -16,10 +16,10 @@ public class FBDViewer extends JFrame {
     private boolean  normalized = true;
 
     protected JPanel viewerPane;
+    protected JPanel topPanel;
 
     public FBDViewer(Vector2f north, int width, int height){
         super("Instant FBD Viewer");
-        //TODO Add clear graphs button
         setSize(width, height);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -36,8 +36,8 @@ public class FBDViewer extends JFrame {
         };
         viewerPane.setPreferredSize(new Dimension(width, height));
         getContentPane().setLayout(new BorderLayout());
-        JPanel topPanel = new JPanel();
         JRadioButton normalize = new JRadioButton("Normalize Forces");
+        topPanel = new JPanel();
         topPanel.add(normalize);
         normalize.addActionListener(actionEvent -> {
             normalized = ((JRadioButton) actionEvent.getSource()).isSelected();
@@ -73,7 +73,7 @@ public class FBDViewer extends JFrame {
             if(normalized) privateForce.normalize().mul(largeVal);
             int x = (int) ((privateForce.x / largeVal) * height / 3);
             int y = (int) ((privateForce.y / largeVal) * height / 3);
-            drawArrow(g, 0, 0, x, y);
+            drawArrow(g, 0, 0, x, y*-1);
             fnet.getForce().add(privateForce);
             if(force.getName().contains("<") || force.getName().contains(">")){
                 String name = force.getName();
@@ -83,8 +83,8 @@ public class FBDViewer extends JFrame {
                 AttributedString as = new AttributedString(name);
                 if(rightIndex != -1) as.addAttribute(TextAttribute.SUPERSCRIPT, TextAttribute.SUPERSCRIPT_SUB,   rightIndex, name.length());
                 if(leftIndex  != -1) as.addAttribute(TextAttribute.SUPERSCRIPT, TextAttribute.SUPERSCRIPT_SUPER, leftIndex,  name.length());
-                ((Graphics2D) graphics).drawString(as.getIterator(), x, y);
-            } else ((Graphics2D) graphics).drawString(force.getName(), x, y);
+                ((Graphics2D) graphics).drawString(as.getIterator(), x, y*-1);
+            } else ((Graphics2D) graphics).drawString(force.getName(), x, y*-1);
         }
 
         if(body.getForces().length != 1) {
@@ -92,8 +92,8 @@ public class FBDViewer extends JFrame {
             fnet.getForce().normalize().mul(largeVal);
             int x = (int) ((fnet.getForce().x / largeVal) * height / 3);
             int y = (int) ((fnet.getForce().y / largeVal) * height / 3);
-            drawArrow(g, 0, 0, x, y);
-            ((Graphics2D) graphics).drawString(fnet.getName(), x, y);
+            drawArrow(g, 0, 0, x, y*-1);
+            ((Graphics2D) graphics).drawString(fnet.getName(), x, y*-1);
         }
     }
 

@@ -15,7 +15,6 @@ import org.joml.Vector3f;
 
 public class JRMVGalaxyRenderer extends JRMViewer implements ISimContextListener {
 
-
 	public JRMVGalaxyRenderer(Vector3f navigation, final RMap pMap) {
 		super(navigation, pMap);
 		this.navigation = navigation;

@@ -1,7 +1,9 @@
 package ecumene.exo.view.rmap.planet;
 
 import ecumene.exo.runtime.ExoRuntime;
+import ecumene.exo.runtime.workspace.ExoWorkspace;
 import ecumene.exo.view.rmap.RMVTag;
+import org.jdom2.Element;
 import org.joml.Vector3f;
 
 import java.beans.ExceptionListener;
@@ -12,6 +14,13 @@ public class RMVPlanetViewerTag extends RMVTag {
     @Override
     public String getIdentifier(){
         return "Planet Viewer";
+    }
+
+    @Override
+    public void parseWorkspace(ExoWorkspace workspace) throws Throwable {
+        if(workspace.getWorkspaceProperties().get("planet") != null)
+            for(Element element : workspace.getWorkspaceProperties().get("planet"))
+                ExoRuntime.INSTANCE.runViewer(3, new String[]{});
     }
 
     @Override

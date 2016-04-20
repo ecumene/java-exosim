@@ -1,5 +1,6 @@
 package ecumene.exo.view.rmap.surface;
 
+import ecumene.exo.Main;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.surface.ExoSurfaceMap;
 import ecumene.exo.runtime.viewer.ViewerRunnable;
@@ -29,13 +30,13 @@ public class SMVSurfaceViewer extends ViewerRunnable {
 
     @Override
     public void init() throws Throwable {
-        frame = new JFrame("RMap Point Rendering System");
+        frame = new JFrame("Surface Rendering System");
         frame.setVisible(false);
         if(renderer == null) renderer = new JSMVSurfaceRenderer(surfaceMap, config, navigation);
         {
             frame.setSize(600, 600);
             frame.setLocationRelativeTo(null);
-            frame.setIconImage(ImageIO.read(new File("/logo.png")));
+            frame.setIconImage(ImageIO.read(Main.class.getResource("/logo.png")));
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.add(renderer);
         }

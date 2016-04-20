@@ -1,7 +1,9 @@
 package ecumene.exo.runtime;
 
+import java.awt.*;
 import java.beans.ExceptionListener;
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import ecumene.exo.runtime.workspace.ExoWorkspace;
 import ecumene.exo.utils.UnClosableDecorator;
 import ecumene.exo.view.rmap.planet.RMVPlanetViewerTag;
 import ecumene.exo.view.rmap.surface.SMVSurfaceViewerTag;
@@ -26,15 +29,19 @@ import ecumene.exo.view.rmap.solar.RMVSolarViewerTag;
  * ExoRuntime is the class that contains all the bootstrapping and initial building of the application.
  * It includes code for two things: Building simulation objects, and parsing CLI commands.
  */
-public class ExoRuntime implements Runnable{
+public class ExoRuntime {
 
 	/**CLI Parser*/
-	public  ExoArgParse          commands;         // Object in control of CLI inputs
+	public  ExoArgParse          commands;         // XMLObject in control of CLI inputs
 	private List<ViewerRunnable> viewers;          // List of viewers (things that view the simulation)
 	private IViewerTag[]         viewerDB;         // List of running viewers
 	private ExecutorService      viewerExec;       // Multi-threaded viewer executor
 	private ExceptionListener    exceptionListener;// Univeral thingy for catching any exception
+
+	// Configurations
 	private SimContext           context;          // Context (container) for all simulations
+	private ExoWorkspace         workspace;        // The loaded workspace file
+	private boolean              running = true;
 
 	/**Public instance of ecumene-runtime*/
 	public static ExoRuntime INSTANCE;
@@ -46,105 +53,39 @@ public class ExoRuntime implements Runnable{
 	 * @throws ParseException due to apache CLI
 	 * @throws IOException    due to loading any io
      */
-	public ExoRuntime(String[] arguments, SimContext context) throws ParseException, IOException {
-		commands  = new ExoArgParse(arguments);
+	public ExoRuntime(ExoArgParse arguments, SimContext context) throws Throwable {
+		commands = arguments;
 		viewerExec = Executors.newCachedThreadPool();
-		viewers = new ArrayList<ViewerRunnable>();
+		viewers = new ArrayList<>();
 
 		//This allows for anything to go wrong in any thread and still report back!
 		exceptionListener = (Exception e) -> { System.out.println(); e.printStackTrace(); };
 
 		this.context = context;
 
+		if(commands.getWorkspace() != null) workspace = ExoWorkspace.loadWorkspace(commands.getWorkspace());
+
+	}
+
+	private boolean scanLine = false;
+
+	public void run() throws Throwable {
 		viewerDB = new IViewerTag[5];
 		viewerDB[0] = new RuntimeManagerTag();
 		viewerDB[1] = new RMVGalaxyViewerTag();
 		viewerDB[2] = new RMVSolarViewerTag();
 		viewerDB[3] = new RMVPlanetViewerTag();
 		viewerDB[4] = new SMVSurfaceViewerTag(new SMVGenericConfig());
-	}
-	
-	private boolean scanLine = false;
-	private void parseCommand(String input) throws Throwable{
-		String upperCommand = input.toUpperCase();
-		String[] upperLineWords = upperCommand.split(" ");
-		if(upperCommand.equals("WHATDO")){
-			System.out.println("---------WHATDO-EXOSIM----------");
-			System.out.println("exit             -> Exit");
-			System.out.println("run  [id] [args] -> Runs runnable (id)");
-			System.out.println("ran              -> Lists running");
-			System.out.println("stop [id]        -> Stops runnable (id)");
-			System.out.println("--------------------------------");
-		} else if(upperLineWords[0].equals("RUN")){                 // Run
-			if(viewerDB.length == 0) System.out.println("Runables Empty...");
-			else {
-				if(upperLineWords.length == 1){                     // Run a runnable (upperLineWords[1] = runnable ID)
-					System.out.println("Use: run [runnable] [args]");
-					System.out.println("---------RUNNABLES----------");
-					for(int i = 0; i < viewerDB.length; i++){      // Iterate all runnables
-						System.out.println(i + ": " + viewerDB[i].getIdentifier());
-					}
-					System.out.println("----------------------------");
-				} else {
-					int chosen = Integer.parseInt(upperLineWords[1]);                                                     // Parse second num as int
-					if(chosen >= viewerDB.length) throw new IllegalArgumentException("Chosen int larger than runnables"); // Is that num illegal?
-					runViewer(chosen, Arrays.copyOfRange(upperLineWords, 1, upperLineWords.length));
-				}
-			}
-		} else if(upperLineWords[0].equals("EXIT")){
-			System.out.println("Exiting exosim...");                                                                       // Exiting!
-			scanLine = false;                                                                                              // Stop scanning!
-			System.exit(0);
-		} else if(upperLineWords[0].equals("RAN")) {
-			System.out.println("-----------RUNNING----------");                                                            // List running
-			if(viewers.size() == 0) System.out.println("None running...");
-			else for(int i = 0; i < viewers.size(); i++){                                                                  // Iterate all running
-				System.out.println("Runnable ID: " + i + " Running ID: " + viewers.get(i).getID());                        // Runnable ID: X Running ID: X
-			}
-			System.out.println("----------------------------");
-	    } else if(upperLineWords[0].equals("STOP")){                                                                       // Stop a runnable
-			int chosen = Integer.parseInt(upperLineWords[1]);                                                              // Parse chosen runnable
-			if(chosen >= viewers.size()) throw new IllegalArgumentException("Chosen int larger than runnables");	   	   // Report if chosen int is too big
-			if(viewers.get(chosen) == null) throw new IllegalArgumentException("Thread " + chosen + " is already kill!");  // Report if chosen isn't running
-			viewers.get(chosen).kill(chosen);                                                                                                               
-			viewers.remove(chosen);
-		} else {
-			if(upperCommand.trim().length() > 0) System.out.println("Unknown command '" + upperLineWords[0] + "'");
-		}
-		System.out.print("->");
-	}
-	
-	@Override
-	public void run(){
-		System.out.println("Current Working Directory: \"" + commands.getPWD() + "\"");
-		System.out.println("For what do? type 'whatdo'");
-		Scanner scanner = new Scanner(new UnClosableDecorator(System.in));
-		System.out.print("->");
-		boolean parsingRTCommand = commands.getRTCommands()!=null && (commands.getRTCommands().length != 0);
-		scanLine                 = true;
-		
-		if(parsingRTCommand)
-			for(int i = 0; i < commands.getRTCommands().length; i++){
-				try{
-					parseCommand(commands.getRTCommands()[i]);
-				}catch(Throwable e){
-					e.printStackTrace();
-					System.out.println("Skipping line " + commands.getRTCommands()[i]);
-					continue;
-				}		
-			}
-		while(scanner.hasNextLine() || !scanLine){
-			String nextLine = scanner.nextLine();
-			try{
-				parseCommand(nextLine);
-			}catch(Throwable e){
-				e.printStackTrace();
-				System.out.println("Skipping line " + nextLine);
-				continue;
-			}		
-		}
-		scanner.close();
+
+		for(IViewerTag tag : viewerDB) tag.parseWorkspace(workspace);
+
+		while(running) { }
+
 		viewerExec.shutdown();
+	}
+
+	public ExoWorkspace getWorkspace() {
+		return workspace;
 	}
 
 	public ExceptionListener getExceptionListener() {
@@ -165,10 +106,16 @@ public class ExoRuntime implements Runnable{
 	}
 
 	public void runViewer(int id, String[] upperArguments) throws Throwable {
+		System.out.println("Opening viewer #" + id + " (" + viewerDB[id].getClass().getName() + ") with arguments: " + Arrays.toString(upperArguments));
 		ViewerRunnable runnable = (ViewerRunnable) viewerDB[id].construct(id, exceptionListener, upperArguments); // Choose a runnable from num
-		System.out.println("Running " + id);                                                                      // We're running that now!
 		viewerExec.submit(runnable);                                                                              // Submit runnable to exec. service
 		viewers.add(runnable);                                                                                    // Add runnable
+	}
+
+	public void exit(){
+		running = false;
+		System.out.println("Exiting exosim ... ");
+		System.exit(0);
 	}
 
 	/** Steps the simulation once */

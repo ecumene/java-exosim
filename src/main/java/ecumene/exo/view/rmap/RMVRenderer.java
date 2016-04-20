@@ -29,7 +29,7 @@ public abstract class RMVRenderer extends ViewerRunnable {
 	public void init() throws Throwable {
 		frame = new JFrame("RMap Point Rendering System");
 		frame.setVisible(false);
-		if(renderer == null) renderer = constructRenderer();		
+		if(renderer == null) renderer = constructRenderer();
 		{
 			frame.setSize(600, 600);
 			frame.setLocationRelativeTo(null);

@@ -1,0 +1,7 @@
+<!-- This defines the shape of a galaxy, not a galaxy itself -->
+<galaxy singularity="Center-Object,50.0f">
+    <cluster orbiters="500" radius="400" massRange="0.5f,100.0f" speedRange="5E-4f,10E-4f">
+        <gen name="α" position="100.0f,100.0f"></gen>
+        <gen name="β"  position="-100.0f,-100.0f"></gen>
+    </cluster>
+</galaxy>

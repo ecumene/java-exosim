@@ -16,19 +16,32 @@ import java.util.LinkedList;
 public class ExoGOrbiter extends DynamicRPoint implements IExoGalaxyObject {
 
 	private ExoGalaxyMap map;
+	private ExoGCluster  cluster;
 
-	public ExoGOrbiter(ExoGalaxyMap map, String name, float mass, Vector2f position, Vector2f velocity) {
+	public ExoGOrbiter(ExoGSingularity singularity, String name, float mass, Vector2f position, Vector2f velocity) {
 		super(name, position, FreeBodyShape.BALL, mass, new Force("F>g", new Vector2f()));
 		this.velocity = velocity;
+		this.dynamics.forces.add(0, new Gravity(this, singularity));
+	}
+
+	public void setMap(ExoGalaxyMap map){
 		this.map = map;
-		this.dynamics.forces.add(0, new Gravity(this, map.getSingularity()));
+	}
+
+	public void setCluster(ExoGCluster cluster){
+		this.cluster = cluster;
+	}
+
+	public ExoGCluster getCluster() {
+		return cluster;
 	}
 
 	@Override
 	public void onStep(SimContext context, int step) {
 		super.onStep(context, step);
-		if(map.getSingularity().collides(this))
-			map.getOrbiters().remove(this);
+		if(map != null)
+			if(map.getSingularity().collides(this))
+				map.getOrbiters().remove(this);
 	}
 
 	@Override

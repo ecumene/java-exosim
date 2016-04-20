@@ -1,0 +1,5 @@
+<workspace>
+    <controller type="controller"></controller>
+    <!-- window= width,height x,y-relative to the center of the screen -->
+    <galaxy type="galaxy" focus="1" window="600,600 -320,-320"></galaxy>
+</workspace>

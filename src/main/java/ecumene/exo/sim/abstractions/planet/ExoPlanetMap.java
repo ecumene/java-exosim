@@ -47,7 +47,7 @@ public class ExoPlanetMap {
 
 		for(int i = 0; i < ((ExoPlanet) objects.get(0)).getMoonList().size(); i++){
 			((ExoPlanet) objects.get(0)).getMoonList().get(i).onStep(context, steps);
-			points[i + 1] = ((ExoPlanet) objects.get(0)).getMoonList().get(i); // RPoint ID = Object list ID + 1
+			points[i + 1] = ((ExoPlanet) objects.get(0)).getMoonList().get(i); // RPoint ID = XMLObject list ID + 1
 		}
 
 		return new RMap(points);
