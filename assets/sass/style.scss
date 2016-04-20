@@ -1,19 +1,24 @@
-h1 {
+body {
+    background: black;
+    margin: 0;
+}
 
+
+h1 {
+    animation: quickFade 5s;
     font-family: 'Lato';
     font-weight: 100;
-font-size: 6em;
-
-
-
-
+    font-size: 6em;
+    color: white;
+    position: absolute;
 }
 
 h3 {
-    
     font-family: 'Lato';
     font-weight: 100;
     font-size: 5em;
+    margin: 0;
+    padding: 0;
 }
  
 p {
@@ -21,47 +26,67 @@ p {
     font-weight: 400;
 }
 
-nav {
-    background-color: blue;
-    padding: 0;
-    margin: 0;
+.nav {
+    background-color: white;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: flex;
+    
 }
 
-.button {
-    border: 2px solid #a1a1a1;
-    padding: 10px 40px;
+.nav items {
+    width: auto;
+    //padding: 0.15em 0.15em 3em 3em;
+    padding: 500px;
+}
+
+.icon {
+}
+
+#github {
+    order: 2;
+}
+
+#github2 {
+    order: 1;
+}
+
+button {
+    border: 2px solid transparent;
     background: #dddddd;
-    width: 300px;
-    height: 5%;
-    text-align: center;
+    margin: 0;
+    padding: 0;
+    left: 2em;
+    width: 4em;
+    top: 7em;
     border-radius: 25px;
+    position: absolute;
+
+}
+
+.begin {
+    padding: px;
+    font-family: Lato;
+    font-size: 2.5em;
+    font-weight: 100;
+    z-index: 2;
 }
 
 .container {
-    padding: 40px;
-
+    width: 100%;
+    max-width: 100%;
+    
 }
 
-@media (max-width: 320px) {
-    h1 {
-	font-size: 3em;
-    }
-}
-
-@media (max-width: 414px) {
-    h1 {
-	font-size: 4em;
-    }
-}
-
-
-#space, .stars {
+#space ,.stars {
   overflow: hidden;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: -3;
 }
 
 .stars {
@@ -72,84 +97,77 @@ nav {
     radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
     radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
     radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
-  background-repeat: repeat;
+  //background-repeat: repeat;
   background-size: 200px 200px;
   animation: zoom 5s infinite;
+  max-width: 50%;
   opacity: 0;
 }
 
-.stars:nth-child(1) {
-  background-position: 50% 50%;
-  animation-delay: 0s;
-}
-.stars:nth-child(2) {
-  background-position: 20% 60%;
-  animation-delay: 1s;
-}
-.stars:nth-child(3) {
-  background-position: -20% -30%;
-  animation-delay: 2s;
-}
-.stars:nth-child(4) {
-  background-position: 40% -80%;
-  animation-delay: 3s;
-}
-.stars:nth-child(5) {
-  background-position: -20% 30%;
-  animation-delay: 4s;
+.mountain {
+    animation-delay: 5s;
+    animation: slowFade 10s;
 }
 
-@keyframes zoom {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-    animation-timing-function: ease-in;
-  } 
-  85% {
-    opacity: 1;
-    transform: scale(2.8);
-    animation-timing-function: linear;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(3.5);
-  }
+.ground {
+    position: relative;
+    background: linear-gradient(180deg, grey, #333333);
+    height: 100%;
+    max-width: 100%;
+    top: 30em;
 }
 
+@keyframes slowFade {
+    0% {
+	opacity: 0;
+    }
 
-
-
-
-
-
-
-$mountain-light: #C1B8B8;
-$mountain-shadow: #DDDDDD;
-$bgMountainHeight: 150px;
-
-
-#bg-mountain-left {
-    width: 0;
-    height: 0;
-    position: absolute; left: 100px;
-
-    border-left: 500px solid transparent;
-    border-bottom: $bgMountainHeight solid $mountain-light;
-    z-index: -1;
+    100% {
+	opacity: 1;
+    }
     
 }
 
-#bg-mountain-left-shadow {
-    width: 0;
-    height: 0;
-    position: absolute; left: 577px;
-    border-right: 250px solid transparent;
-    border-bottom: $bgMountainHeight solid #dddddd;
-    transform:skew(-10deg);
-    z-index: -1;
+@keyframes quickFade {
+    0% {
+	opacity: 0;
+    }
+
+    100% {
+	opacity: 1;
+    }
+    
 }
 
-#fg-mountain-left {
+$mountain-light: #C1B8B8;
+$mountain-shadow: #DDDDDD;
+$bgMountainHeight: 10em;
+
+
+.mountain #bg-mountain-left {
+    width: 0;
+    height: 0;
+    position: relative; left: 27em;
+
+    border-left: 10em solid transparent;
+    border-bottom: solid $bgMountainHeight $mountain-light;
+    z-index: 1;
+    border-radius: 0 90px 0 0;
+}
+
+.mountain #bg-mountain-left-shadow {
+    transform: rotate(45deg);
+    background-color:$mountain-light;
+    width:500px;
+    height:500px;
+    position:absolute;
+    top: 25em;
+    left:500px;
+    border-radius: 40px 0 0 0;
+    z-index: 0;
+}
+
+.mountain #fg-mountain-left {
 
     width: 0;
     height: 0;
@@ -157,34 +175,45 @@ $bgMountainHeight: 150px;
     
     border-left: 300px solid transparent;
     border-right: 540px solid transparent;
-    border-bottom: 300px solid #dddddd;
+    border-bottom: $bgMountainHeight solid #dddddd;
     z-index: 1;
 }
 
-
-
-
-
-
-
-#mountain-cap {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid red;
-    position: relative;
-}
-
-#mountain-cap:after {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 100px solid red;
+canvas {
     position: absolute;
-    content: "";
-    top: 30px;
-    left: -50px;
-
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    z-index: -3;
 }
+
+@media (max-width: 320px) {
+    h1 {
+	font-size: 3em;
+    }
+
+    .mountain {
+	transform: scale(0.25,0.5);
+	left: -900px;
+    }
+
+    .ground {
+	bottom: 80px;
+    }
+       
+    .ground, .container, .body, .mountain, .mountain #fg-mountain-left, #bg-mountain-left,  .mountain #bg-mountain-left {
+	max-width: 100%;
+    }
+    .mountain #fg-mountain-left {
+	left: -900px;
+    }
+}
+
+@media (max-width: 414px) {
+    h1 {
+	font-size: 4em;
+    }
+}
+
