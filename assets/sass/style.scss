@@ -1,6 +1,8 @@
 body {
-    background: black;
     margin: 0;
+
+    height: 100%;
+    max-height: 100%;
 }
 
 
@@ -11,6 +13,7 @@ h1 {
     font-size: 6em;
     color: white;
     position: absolute;
+    left: 0.7em;
 }
 
 h3 {
@@ -29,26 +32,35 @@ p {
 .nav {
     background-color: white;
     width: 100%;
-    height: auto;
+    height: 5em;
     max-width: 100%;
     display: flex;
-    
+    padding: 0.25em;
+    align-items: center;
 }
 
-.nav items {
-    width: auto;
-    //padding: 0.15em 0.15em 3em 3em;
-    padding: 500px;
+.nav-items {
+    //width: auto;
+    padding: 1.5em;
+    //padding-left: 4em;
+    //padding: 500px;
 }
 
-.icon {
+.navbutton {
+    border: 5px solid transparent;
+    background: #dddddd;
+    padding: 2px;
+    width: 30px;
+    height: 30px;
 }
 
-#github {
+#twitter {
+    padding-left: 5px;
+    padding-right: 5px;
     order: 2;
 }
 
-#github2 {
+#facebook {
     order: 1;
 }
 
@@ -79,42 +91,28 @@ button {
     
 }
 
-#space ,.stars {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -3;
+.moon {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    top: 5.5em;
+    left: 70em;
+    background-color: #dddddd;
+
 }
 
-.stars {
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
-  //background-repeat: repeat;
-  background-size: 200px 200px;
-  animation: zoom 5s infinite;
-  max-width: 50%;
-  opacity: 0;
-}
 
-.mountain {
-    animation-delay: 5s;
-    animation: slowFade 10s;
-}
-
-.ground {
-    position: relative;
-    background: linear-gradient(180deg, grey, #333333);
-    height: 100%;
-    max-width: 100%;
-    top: 30em;
+.content {
+    background-color: white;
+    position: absolute;
+    margin: 0;
+    z-index: 1;
+    width: 100%;
+    top: 27.5em;
+    height: auto;
+    
+    
 }
 
 @keyframes slowFade {
@@ -141,52 +139,32 @@ button {
 
 $mountain-light: #C1B8B8;
 $mountain-shadow: #DDDDDD;
-$bgMountainHeight: 10em;
 
-
-.mountain #bg-mountain-left {
-    width: 0;
-    height: 0;
-    position: relative; left: 27em;
-
-    border-left: 10em solid transparent;
-    border-bottom: solid $bgMountainHeight $mountain-light;
-    z-index: 1;
-    border-radius: 0 90px 0 0;
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
 }
 
-.mountain #bg-mountain-left-shadow {
-    transform: rotate(45deg);
-    background-color:$mountain-light;
-    width:500px;
-    height:500px;
-    position:absolute;
-    top: 25em;
-    left:500px;
-    border-radius: 40px 0 0 0;
-    z-index: 0;
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }
 
-.mountain #fg-mountain-left {
 
-    width: 0;
-    height: 0;
-    position: relative; left: -400px;
-    
-    border-left: 300px solid transparent;
-    border-right: 540px solid transparent;
-    border-bottom: $bgMountainHeight solid #dddddd;
-    z-index: 1;
-}
 
 canvas {
     position: absolute;
     max-width: 100%;
     width: 100%;
-    height: 100%;
+    height: 35%;
     max-height: 100%;
     margin: 0;
-    z-index: -3;
+    z-index: -10;
+    background: linear-gradient(0deg, #5B679B, #070A13);
+    box-shadow: inset 0px 0px 30px;
 }
 
 @media (max-width: 320px) {

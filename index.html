@@ -10,44 +10,52 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300' rel='stylesheet' type='text/css'>
-  </head>
+  </head> 
   <div class="container"> 
     <div class="nav">
       <div class="nav-items">
-        <i id="github" class="fa fa-code fa-3x" aria-hidden="true"></i>
-        <i id="github2" class="fa fa-code fa-3x" aria-hidden="true"></i>
-        <i id="github" class="fa fa-code fa-3x" aria-hidden="true"></i>
-        <i id="github" class="fa fa-code fa-3x" aria-hidden="true"></i>
-        <i id="github" class="fa fa-code fa-3x" aria-hidden="true"></i>
+        <i id="twitter" class="navbutton fa fa-twitter fa-2x" aria-hidden="true"></i>
+        <i id="facebook" class="navbutton fa fa-facebook fa-2x" aria-hidden="true"></i>
       </div>
     </div>
+
+    <script src="assets/js/typed.js-master/js/typed.js"></script>
+
+    
+    <script>
+      $(document).ready(function() {
+        $("p").click(function() {
+          $(this).hide();
+        });
+      });
+  </script>
+    
+    <script>
+          $(function(){
+        $(".element").typed({
+            strings: ["Welcome to exosim.", "Welcome to a bold project.","Welcome to exosim."],
+          typeSpeed: 50,
+	  backSpeed: 50,
+	  showCursor: true,
+        });
+	  });
+	  
+    </script>
+
   
-  <h1> Welcome to exosim. </h1>
+  <h1>  <span class="element"> </span> </h1>
   <button class="begin">Begin</button>
   
-        <canvas id='snow'> </canvas> <script type="text/javascript" src="assets/js/star.js"/></script>
-<div class="moon"> </div>
+        <canvas id='stars'> </canvas> <script type="text/javascript" src="assets/js/star.js"/></script>
+        <!-- <div class="moon"> </div> -->
 	<div class="crater"> </div>
 	<div class="crater2"> </div
-	<div class="crater3"> </div
-        <div class="mountain"></div>
-	<div id="bg-mountain-left-shadow"> </div>
-        </div>
-        <div class="ground"></div> 
+	<div class="crater3"> </div>
+	<div class="content"> </div>
   
   
   <script type="text/javascript" src="node_modules/vis/dist/vis.js"/></script>
   
-
-  
-  <script>
-    $(document).ready(function() {
-      $("p").click(function() {
-        $(this).hide();
-      });
-    });
-  </script>
-
   <script type="text/javascript" src="assets/js/parallax.js"></script> 
 
   <script>

@@ -1,6 +1,7 @@
 body {
-  background: #4b7198;
-  margin: 0; }
+  margin: 0;
+  height: 100%;
+  max-height: 100%; }
 
 h1 {
   animation: quickFade 5s;
@@ -8,7 +9,8 @@ h1 {
   font-weight: 100;
   font-size: 6em;
   color: white;
-  position: absolute; }
+  position: absolute;
+  left: 0.7em; }
 
 h3 {
   font-family: 'Lato';
@@ -24,18 +26,28 @@ p {
 .nav {
   background-color: white;
   width: 100%;
-  height: auto;
+  height: 5em;
   max-width: 100%;
-  display: flex; }
+  display: flex;
+  padding: 0.25em;
+  align-items: center; }
 
-.nav items {
-  width: auto;
-  padding: 500px; }
+.nav-items {
+  padding: 1.5em; }
 
-#github {
+.navbutton {
+  border: 5px solid transparent;
+  background: #dddddd;
+  padding: 2px;
+  width: 30px;
+  height: 30px; }
+
+#twitter {
+  padding-left: 5px;
+  padding-right: 5px;
   order: 2; }
 
-#github2 {
+#facebook {
   order: 1; }
 
 button {
@@ -56,52 +68,27 @@ button {
   font-weight: 100;
   z-index: 2; }
 
-.mountain {
-  animation-delay: 5s;
-  animation: slowFade 10s; }
-
-.ground {
-  position: relative;
-  background: linear-gradient(180deg, grey, #333333);
-  height: 100%;
-  max-width: 100%;
-  top: 30em; }
+.container {
+  width: 100%;
+  max-width: 100%; }
 
 .moon {
-  border-radius: 50%;
+  position: absolute;
   width: 200px;
   height: 200px;
-  left: 65em;
-  top: 8em;
+  border-radius: 100%;
+  top: 5.5em;
+  left: 70em;
+  background-color: #dddddd; }
+
+.content {
   background-color: white;
-  position: absolute; }
-
-.crater {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  left: 67em;
-  top: 11em;
-  background-color: #C1B8B8;
-  position: absolute; }
-
-.crater2 {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  left: 74em;
-  top: 14em;
-  background-color: #C1B8B8;
-  position: absolute; }
-
-.crater3 {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  left: 67em;
-  top: 12em;
-  background-color: #C1B8B8;
-  position: absolute; }
+  position: absolute;
+  margin: 0;
+  z-index: 1;
+  width: 100%;
+  top: 27.5em;
+  height: auto; }
 
 @keyframes slowFade {
   0% {
@@ -115,45 +102,30 @@ button {
   100% {
     opacity: 1; } }
 
-.mountain #bg-mountain-left {
-  width: 0;
-  height: 0;
-  position: relative;
-  left: 27em;
-  border-left: 10em solid transparent;
-  border-bottom: solid 10em #C1B8B8;
-  z-index: 1;
-  border-radius: 0 90px 0 0; }
+.typed-cursor {
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite; }
 
-#bg-mountain-left-shadow {
-  transform: rotate(45deg);
-  background-color: #C1B8B8;
-  width: 500px;
-  height: 500px;
-  position: absolute;
-  top: 25em;
-  left: 500px;
-  border-radius: 40px 0 0 0;
-  z-index: 0; }
-
-.mountain #fg-mountain-left {
-  width: 0;
-  height: 0;
-  position: relative;
-  left: -400px;
-  border-left: 300px solid transparent;
-  border-right: 540px solid transparent;
-  border-bottom: 10em solid #dddddd;
-  z-index: 1; }
+@keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 canvas {
   position: absolute;
   max-width: 100%;
   width: 100%;
-  height: 100%;
+  height: 35%;
   max-height: 100%;
   margin: 0;
-  z-index: -3; }
+  z-index: -10;
+  background: linear-gradient(0deg, #5B679B, #070A13);
+  box-shadow: inset 0px 0px 30px; }
 
 @media (max-width: 320px) {
   h1 {
