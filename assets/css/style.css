@@ -1,5 +1,5 @@
 body {
-  background: black;
+  background: #4b7198;
   margin: 0; }
 
 h1 {
@@ -56,26 +56,6 @@ button {
   font-weight: 100;
   z-index: 2; }
 
-.container {
-  width: 100%;
-  max-width: 100%; }
-
-#space, .stars {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -3; }
-
-.stars {
-  background-image: radial-gradient(2px 2px at 20px 30px, #eee, transparent), radial-gradient(2px 2px at 40px 70px, #fff, transparent), radial-gradient(2px 2px at 50px 160px, #ddd, transparent), radial-gradient(2px 2px at 90px 40px, #fff, transparent), radial-gradient(2px 2px at 130px 80px, #fff, transparent), radial-gradient(2px 2px at 160px 120px, #ddd, transparent);
-  background-size: 200px 200px;
-  animation: zoom 5s infinite;
-  max-width: 50%;
-  opacity: 0; }
-
 .mountain {
   animation-delay: 5s;
   animation: slowFade 10s; }
@@ -86,6 +66,42 @@ button {
   height: 100%;
   max-width: 100%;
   top: 30em; }
+
+.moon {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  left: 65em;
+  top: 8em;
+  background-color: white;
+  position: absolute; }
+
+.crater {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  left: 67em;
+  top: 11em;
+  background-color: #C1B8B8;
+  position: absolute; }
+
+.crater2 {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  left: 74em;
+  top: 14em;
+  background-color: #C1B8B8;
+  position: absolute; }
+
+.crater3 {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  left: 67em;
+  top: 12em;
+  background-color: #C1B8B8;
+  position: absolute; }
 
 @keyframes slowFade {
   0% {
@@ -109,7 +125,7 @@ button {
   z-index: 1;
   border-radius: 0 90px 0 0; }
 
-.mountain #bg-mountain-left-shadow {
+#bg-mountain-left-shadow {
   transform: rotate(45deg);
   background-color: #C1B8B8;
   width: 500px;
