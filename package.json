@@ -8,6 +8,7 @@
     "jquery": "^2.2.3"
   },
   "devDependencies": {
+    "fullpage.js": "^2.7.9",
     "gulp-sass": "^2.2.0"
   },
   "scripts": {

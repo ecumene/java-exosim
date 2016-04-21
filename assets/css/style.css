@@ -14,10 +14,40 @@ h1 {
 
 h3 {
   font-family: 'Lato';
-  font-weight: 100;
-  font-size: 5em;
+  font-weight: 300;
+  font-size: 3em;
   margin: 0;
-  padding: 0; }
+  position: relative;
+  text-align: center; }
+
+h3.logo-header {
+  top: 9em; }
+
+img {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%; }
+
+#angle-down {
+  top: 9em; }
+
+#element {
+  top: 9em; }
+
+.logos #exo {
+  transform: scale(0.5, 0.5); }
+
+.logos {
+  width: 70em;
+  height: 10em;
+  margin: 0 auto;
+  position: relative;
+  top: 12.5em;
+  transform: scale(0.75, 0.75); }
+
+.logos #java {
+  position: relative;
+  float: right; }
 
 p {
   font-family: 'Lato';
@@ -52,7 +82,7 @@ p {
 
 button {
   border: 2px solid transparent;
-  background: #dddddd;
+  background: #5AA692;
   margin: 0;
   padding: 0;
   left: 2em;
@@ -70,16 +100,8 @@ button {
 
 .container {
   width: 100%;
-  max-width: 100%; }
-
-.moon {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 100%;
-  top: 5.5em;
-  left: 70em;
-  background-color: #dddddd; }
+  max-width: 100%;
+  position: absolute; }
 
 .content {
   background-color: white;
@@ -116,16 +138,23 @@ button {
   100% {
     opacity: 1; } }
 
+#callbacks-placeholder {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  color: black;
+  z-index: 999; }
+
 canvas {
   position: absolute;
   max-width: 100%;
   width: 100%;
-  height: 35%;
-  max-height: 100%;
+  height: 32em;
   margin: 0;
   z-index: -10;
   background: linear-gradient(0deg, #5B679B, #070A13);
-  box-shadow: inset 0px 0px 30px; }
+  box-shadow-top: inset 10px;
+  box-shadow-bottom: inset 10px; }
 
 @media (max-width: 320px) {
   h1 {

@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
     
     <title> exosim </title>
-    <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"> -->
+    
+    <link rel="stylesheet" type="text/css" href="node_modules/fullpage.js/jquery.fullPage.css"/>
     <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="node_modules/fullpage.js/jquery.fullPage.js"> </script>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300' rel='stylesheet' type='text/css'>
-  </head> 
-  <div class="container"> 
-    <div class="nav">
-      <div class="nav-items">
-        <i id="twitter" class="navbutton fa fa-twitter fa-2x" aria-hidden="true"></i>
-        <i id="facebook" class="navbutton fa fa-facebook fa-2x" aria-hidden="true"></i>
-      </div>
-    </div>
+  </head>
 
-    <script src="assets/js/typed.js-master/js/typed.js"></script>
 
     
     <script>
@@ -27,10 +21,23 @@
         $("p").click(function() {
           $(this).hide();
         });
+
+        $('#fullpage').fullpage({
+        anchors: ['page1, page2'],
+        });
       });
-  </script>
+    </script>
+
+    <div id="fullpage">
     
-    <script>
+      <div class="secton">
+	
+
+    <script src="assets/js/typed.js-master/js/typed.js"></script>
+
+
+    
+      <script>
           $(function(){
         $(".element").typed({
             strings: ["Welcome to exosim.", "Welcome to a bold project.","Welcome to exosim."],
@@ -40,20 +47,38 @@
         });
 	  });
 	  
-    </script>
+      </script>
 
+  <div class="container"> 
+    <div class="nav">
+      <div class="nav-items">
+        <i id="twitter" class="navbutton fa fa-twitter fa-2x" aria-hidden="true"></i>
+        <i id="facebook" class="navbutton fa fa-facebook fa-2x" aria-hidden="true"></i>
+      </div><!--nav-items-->
+    </div><!--nav-->
+
+
+
+      
+      <h1>  <span class="element"> </span> </h1>
+      <button class="begin">Begin</button>
   
-  <h1>  <span class="element"> </span> </h1>
-  <button class="begin">Begin</button>
-  
-        <canvas id='stars'> </canvas> <script type="text/javascript" src="assets/js/star.js"/></script>
-        <!-- <div class="moon"> </div> -->
-	<div class="crater"> </div>
-	<div class="crater2"> </div
-	<div class="crater3"> </div>
-	<div class="content"> </div>
-  
-  
+      <canvas id='stars'> </canvas> <script type="text/javascript" src="assets/js/star.js"/></script>
+      <div class="content"></div>
+
+</div>
+</div>
+
+<div class="section">
+  <h3 class="logo-header">See it live at the Eastern NL Science & Technology Fair.</h3>
+  <div class="logos">
+    <img id="scifair" src="assets/img/logo-200.gif"></img>
+    <img id="exo"  src="assets/img/exo.png"></img>
+    <img id="java" src="assets/img/java.png"></img>
+  </div>
+  <i id="angle-down" class="fa fa-angle-down fa-5x" aria-hidden="true"></i>
+</div>
+
   <script type="text/javascript" src="node_modules/vis/dist/vis.js"/></script>
   
   <script type="text/javascript" src="assets/js/parallax.js"></script> 
