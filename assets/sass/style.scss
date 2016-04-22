@@ -14,7 +14,7 @@ h1 {
     color: white;
     position: absolute;
     left: 0.7em;
-    bottom: 6.5em;
+    bottom: 5em;
     //top: -3em;
 }
 
@@ -23,6 +23,8 @@ h3 {
     font-weight: 300;
     font-size: 3em;
     margin: 0;
+    left: 50%;
+    right: 50%;
     position: relative;
     text-align: center;
 }
@@ -41,9 +43,10 @@ img {
 #angle-down {
     position: absolute;
     display: inline-block;
-    top: 11em;
+    top: 12.25em;
     align-items: center;
     left: 50%;
+    right: 50%;
     transition: background-color 0.5s;
     transition: transform 1s;
 }
@@ -67,6 +70,7 @@ img {
     width: 70em;
     height: 10em;
     margin: 0 auto;
+    left: 50%;
     position: relative;
     top: 12.5em;
     transform: scale(0.75,0.75);
@@ -140,7 +144,7 @@ button {
     font-size: 2.5em;
     font-weight: 100;
     z-index: 2;
-    top: 11em;
+    top: 0em;
 }
 
 .container {
@@ -246,3 +250,18 @@ canvas {
     }
 }
 
+@media (max-width: 960px) {
+
+    h1 {
+	font-size: 4em;
+    }
+
+    .logos {
+	left: 0%;
+    }
+    
+    img {
+	left: 0%;
+	transform: scale(0.5,0.5);
+    }
+}
