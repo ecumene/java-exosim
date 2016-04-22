@@ -14,6 +14,8 @@ h1 {
     color: white;
     position: absolute;
     left: 0.7em;
+    bottom: 6.5em;
+    //top: -3em;
 }
 
 h3 {
@@ -37,12 +39,22 @@ img {
 }
 
 #angle-down {
-    top: 9em;
-
+    position: absolute;
+    display: inline-block;
+    top: 11em;
+    align-items: center;
+    left: 50%;
+    transition: background-color 0.5s;
+    transition: transform 1s;
 }
 
-#element {
-    top: 9em;
+#angle-down:hover {
+    color: #222222;
+    transform: scale(1.3);
+}
+
+.title {
+    top: 5em;
 }
 
 
@@ -79,6 +91,9 @@ p {
     display: flex;
     padding: 0.25em;
     align-items: center;
+    top: -27em;
+
+    position: absolute;
 }
 
 .nav-items {
@@ -125,6 +140,7 @@ button {
     font-size: 2.5em;
     font-weight: 100;
     z-index: 2;
+    top: 11em;
 }
 
 .container {
@@ -190,7 +206,7 @@ $mountain-shadow: #DDDDDD;
 
 
 canvas {
-    position: absolute;
+    position: relative;
     max-width: 100%;
     width: 100%;
     height: 32em;
@@ -199,8 +215,7 @@ canvas {
     background: linear-gradient(0deg, #5B679B, #070A13);
     box-shadow-top: inset 10px;
     box-shadow-bottom: inset 10px;
-    
-    
+    bottom: 21em;
 }
 
 @media (max-width: 320px) {
