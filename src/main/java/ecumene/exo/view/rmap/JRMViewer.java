@@ -34,7 +34,7 @@ public class JRMViewer extends JPanel {
 		setPreferredSize(new Dimension(600, 600));
 		
 		setFocusable(true);
-		
+
 		addMouseWheelListener((MouseWheelEvent e) -> {
 				navigation.z += (float) e.getPreciseWheelRotation() * -.2f;
 				repaint();
@@ -61,10 +61,11 @@ public class JRMViewer extends JPanel {
 			}
 		});
 	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
+
 		Graphics2D graphics = (Graphics2D) g;
 		graphics.setFont(new Font("TimesRoman", Font.PLAIN, 10)); 
 		graphics.setColor(background);
@@ -84,7 +85,7 @@ public class JRMViewer extends JPanel {
 	    			screenPos    = new Vector2f(navPos);
 	    			screenPos.x += (getWidth() / 2);
 	    			screenPos.y += (getHeight() / 2);
-	    			
+
 	    			drawPoint(graphics, i, pMap.getMap()[i], pMap.getMap()[i].position, navPos, screenPos);
 			    }
 			}

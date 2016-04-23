@@ -5,6 +5,7 @@ import ecumene.exo.runtime.ExoRuntime;
 import ecumene.exo.sim.abstractions.galaxy.ExoGSingularity;
 import ecumene.exo.sim.abstractions.galaxy.gen.ExoGalaxyMapBuilder;
 import ecumene.exo.sim.abstractions.galaxy.io.ExoGalaxyMapParser;
+import ecumene.exo.sim.abstractions.planet.TrackingParameters;
 import ecumene.exo.sim.abstractions.planet.io.ExoPlanetMapParser;
 import ecumene.exo.sim.SimContext;
 import ecumene.exo.sim.abstractions.galaxy.ExoGalaxyMap;
@@ -58,7 +59,7 @@ public class Main {
         ExoSolarMap solar   = solarParse.getSolarMap();
         ExoPlanetMap planet = planetParse.getPlanetMap();
 
-        //planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, true));// tracking data for moons
+        planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, false));
 
         // This should be in a builder!! GIMMIE A MINUTE!
         List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();
