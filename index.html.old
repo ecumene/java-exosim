@@ -1,0 +1,102 @@
+<DOCTYPE! HTML>
+  <html lang="en">  
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+    
+    <title> exosim </title>
+    
+    <link rel="stylesheet" type="text/css" href="node_modules/fullpage.js/jquery.fullPage.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="node_modules/fullpage.js/jquery.fullPage.js"> </script>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300' rel='stylesheet' type='text/css'>
+  </head>
+
+
+    
+    <script>
+      $(document).ready(function() {
+        $("p").click(function() {
+          $(this).hide();
+        });
+
+        $('#fullpage').fullpage({
+        anchors: ['page1, page2', 'page3'],
+        });
+      });
+    </script>
+
+    <div id="fullpage">
+    
+      <div class="section">
+	
+
+    <script src="assets/js/typed.js-master/js/typed.js"></script>
+
+
+    
+      <script>
+          $(function(){
+        $(".element").typed({
+            strings: ["Welcome to exosim.", "Welcome to a bold project.","Welcome to exosim."],
+          typeSpeed: 10,
+	  backSpeed: 50,
+	  startDelay: 1000,
+	  backDelay: 1000,
+	  showCursor: true,
+        });
+	  });
+	  
+      </script>
+
+  <div class="container"> 
+    <div class="nav">
+      <div class="nav-items">
+        <i id="twitter" class="navbutton fa fa-twitter fa-2x" aria-hidden="true"></i>
+        <i id="facebook" class="navbutton fa fa-facebook fa-2x" aria-hidden="true"></i>
+      </div><!--nav-items-->
+    </div><!--nav-->
+
+
+
+    <div class="title">
+      <h1>  <span class="element"> </span> </h1>
+    </div>
+      <button class="begin">Begin</button>
+   
+      <canvas id='stars'> </canvas> <script type="text/javascript" src="assets/js/star.js"/></script>
+      <div class="content"></div>
+
+</div>
+  <h3 class="logo-header">See it live at the Eastern NL Science & Technology Fair.</h3>
+  <div class="logos">
+    <img id="scifair" src="assets/img/logo-200.gif"></img>
+    <img id="exo"  src="assets/img/exo.png"></img>
+    <img id="java" src="assets/img/java.png"></img>
+  </div>
+  <i id="angle-down" class="fa fa-angle-down fa-5x" aria-hidden="true"></i>
+</div>
+
+
+
+<div class="section">
+  <h3 class="bottom">Let's learn more about exosim. </h3>
+</div>
+
+<div class="section">
+  <h3 class="fade bottom">A fully open-source <strong>exo</strong>planetary <strong>sim</strong>ulator.</h3> <br/><br/><h3 class="fade bottom">Cross plaftorm, and powerful - Multithreading support for enhanced performance.</h3> <br/><br/>
+   <h3 class="fade bottom">  Leveraging the latest JDK toolsets and API's for maximum functionality and use cases. </h3>
+</div>  
+
+  
+  <script type="text/javascript" src="node_modules/vis/dist/vis.js"/></script>
+  
+  <script type="text/javascript" src="assets/js/parallax.js"></script> 
+
+  <script>
+  var scene = document.getElementById('scene');
+  var parallax = new Parallax(scene);
+  </script>
+</html>
