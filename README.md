@@ -1,7 +1,7 @@
 ExoSim - Exoplanet Modeling and Generator
 =================================
 This is a nonexperimental science fair project by Mitchell Hynes and Joshua Murphy for the Canada Wide Science Fair 2016.
-We won the IEEE award for demonstrating computer science, although we lost a spot on the trip to CWSF.
+We won the IEEE award for demonstrating computer science, and the Memorial University Engineering Award although we lost a spot on the trip to CWSF.
 
 ![screenshot](http://i.imgur.com/dDccZhy.png)
 
