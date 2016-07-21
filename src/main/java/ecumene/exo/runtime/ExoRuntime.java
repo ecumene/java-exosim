@@ -2,6 +2,7 @@ package ecumene.exo.runtime;
 
 import java.awt.*;
 import java.beans.ExceptionListener;
+import java.io.File;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class ExoRuntime {
 		this.context = context;
 
 		if(commands.getWorkspace() != null) workspace = ExoWorkspace.loadWorkspace(commands.getWorkspace());
-
+		else                                workspace = ExoWorkspace.loadWorkspace(new File("examples/workspace.xml"));
 	}
 
 	private boolean scanLine = false;
