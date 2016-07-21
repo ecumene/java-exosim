@@ -59,7 +59,10 @@ public class Main {
         ExoSolarMap solar   = solarParse.getSolarMap();
         ExoPlanetMap planet = planetParse.getPlanetMap();
 
-        planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 100, false));
+        planet.getPlanet().setTracking(0, new TrackingParameters("0xFF00FF", 300, false));
+        planet.getPlanet().setTracking(1, new TrackingParameters("0x00FF00", 300, false));
+        planet.getPlanet().setTracking(2, new TrackingParameters("0x00FFFF", 300, true));
+        planet.getPlanet().setTracking(3, new TrackingParameters("0xFF0000", 300, true));
 
         // This should be in a builder!! GIMMIE A MINUTE!
         List<ExoSFeatureLayer> featureLayers = new ArrayList<ExoSFeatureLayer>();
